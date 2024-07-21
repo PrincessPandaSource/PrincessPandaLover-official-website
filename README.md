@@ -1,2 +1,2 @@
 * If you have noted a particularly important error on my website, please open up a new issue in the "Issues" tab so that I can be notified. If you can fix it yourself, make a pull request.
-* Snippets of code can be reused, even for commercial purposes. Large portions of code, as well as original media, may only be reused for non-commercial purposes unless otherwise noted. No purposes at all can be abusive or illegal.
+* Snippets of code can be reused, even for commercial purposes or without attribution. Large portions of code, as well as original media, may only be reused for non-commercial purposes and with attribution unless otherwise noted. No purposes at all can be abusive or illegal.
