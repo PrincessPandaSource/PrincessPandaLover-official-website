@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blurjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="logo">Blurjack</h1>
+    </header>
+
+    <main>
+        <div id="topMenu">
+            <div class="counterDisplay">
+                <img src="images/ring.png" height="45">
+                <span id="ringCounter">9001</span>
+            </div>
+            <button id="howDoIPlay">How do I play?</button>
+        </div>
+
+        <div id="helpModal" class="modal">
+            <div id="help-box">
+                <span class="close">&times;</span>
+                <h1 id="helpHeading">How do I play?</h1>
+                <span id="helpText">
+                    <p><i>Game currently does not support saving or mobile display.</i></p>
+
+                    <p>To bet, click on a token to add its value to your bet. To remove your most recent token from your bet, click on it. Once you're ready, click "Deal".</p>
+
+                    <p>You are given two cards face-up, while the dealer, Sonic, is given one card face-up and one card face-down. Each card contributes to your or Sonic's score. Your goal is to have your score higher than Sonic's when he plays out his hand, but without surpassing the value of 21.</p>
+
+                    <p>You have the following options:</p>
+                    <ul>
+                        <li><b>Hit</b>: Receive a randomly-drawn card to increase your score.</li>
+                        <li><b>Stand</b>: Click this once you think you're ready, so that Sonic can play out his hand.</li>
+                        <li><b>Double Down</b>: If you feel this is worth it, double your bet and receive exactly only <i>one</i> more card. (Currently not availible after splitting due to how disasterously buggy it is.)</li>
+                        <li><b>Insure</b> (if Sonic's face-up card is an ace): Add an insurance bet that is half of your regular bet. If Sonic's face-down card raises his score to 21, you win the insurance bet. Else, you lose it, but still can continue your round. <i>(Only consider if you are experienced enough.)</i></li>
+                        <li><b>Split</b> (if both of your cards have the same value): Split your card into two different hands. (Be sure to hit for each hand.)</li>
+                    </ul>
+
+                    <p>Getting a score of 21 on first deal results in a "Blurjack", which will pay you 1.5 times your bet if Sonic doesn't have 21 with his two cards also.</p>
+
+                    <p>If you run out of rings, game is over.</p>
+
+                    <p>Here's a free tip: In most cases, only stand if your score is 17 or higher.</p>
+                </span>
+            </div>
+        </div>
+    
+        <div id="betInterface" class="shown">
+            <h2 id="betHeading">Place your bets!</h2>
+
+            <div id="rowOfRings">
+                <div id="oneRing" class="ringToBet">
+                    <img src="images/ring.png">
+                    <div class="label">1</div>
+                </div>
+                <div id="fiveRings" class="ringToBet">
+                    <img src="images/whiteRing.png">
+                    <div class="label">5</div>
+                </div>
+                <div id="tenRings" class="ringToBet">
+                    <img src="images/blueRing.png">
+                    <div class="label">10</div>
+                </div>
+                <div id="twentyFiveRings" class="ringToBet">
+                    <img src="images/cyanRing.png">
+                    <div class="label">25</div>
+                </div>
+                <div id="fiftyRings" class="ringToBet">
+                    <img src="images/greenRing.png">
+                    <div class="label">50</div>
+                </div>
+                <div id="hundredRings" class="ringToBet">
+                    <img src="images/redRing.png">
+                    <div class="label">100</div>
+                </div>
+                <div id="fiveHundredRings" class="ringToBet">
+                    <img src="images/purpleRing.png">
+                    <div class="label">500</div>
+                </div>
+            </div>
+
+            <div id="showYourBets" class="counterDisplay">
+                <div id="bettedRingsCounterDeal" class="counterDisplay">
+                    <img src="images/ring.png" height="65">
+                    <span id="ringsBetDeal">9001</span>
+                </div>
+                <div id="subsequentBet" class="bettedRing">
+                    <img id="subBetImg" src="images/purpleRing.png">
+                    <div id="subBetLabel" class="label">500</div>
+                </div>
+                <div id="secondBet" class="bettedRing">
+                    <img id="secBetImg" src="images/greenRing.png">
+                    <div id="secBetLabel" class="label">50</div>
+                </div>
+                <div id="firstBet" class="bettedRing">
+                    <img id="firBetImg" src="images/cyanRing.png">
+                    <div id="firBetLabel" class="label">25</div>
+                </div>
+            </div>
+    
+            <button id="dealButton">Deal</button>
+        </div>
+    
+        <div id="cardInterface" class="hidden">
+            <div id="cardsSection">
+                <div id="sonicsRow" class="rowMain">
+                    <div class="carderHeading"><h2>Sonic</h2></div>
+                    <img id="sonicsCard1" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard2" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard3" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard4" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard5" class="card" src="images/cardBack.jpg">
+                    <div id="sonicsTotal" class="totalDisplay">21</div>
+                </div>
+
+                <div id="playersRow" class="rowMain">
+                    <div class="carderHeading"><h2>Player</h2></div>
+                    <img id="playersCard1" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard2" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard3" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard4" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard5" class="card" src="images/cardBack.jpg">
+                    <div id="playersTotal" class="totalDisplay">21</div>
+                </div>
+            </div>
+
+            <div id="choiceSection">
+                <h2>You're betting:</h2>
+                <div id="bettedRingsCounterCard" class="counterDisplay">
+                    <img src="images/ring.png" height="65">
+                    <span id="ringsBetCard">9001</span>
+                </div>
+
+                <div id="insuranceBetDisplay" class="hidden">
+                    <h2>Your insurance bet:</h2>
+                    <div id="insuranceBetCounter" class="counterDisplay">
+                        <img src="images/ring.png" height="65">
+                        <span id="insuranceBet">9001</span>
+                    </div>
+                </div>
+
+                <div id="choiceButtons">
+                    <button id="hitButton">Hit</button>
+                    <button id="standButton">Stand</button>
+                    <button id="doubleDownButton">Double Down</button>
+                    <button id="insureButton">Insure</button>
+                    <button id="splitButton">Split</button>
+                </div>
+
+                <div id="resultSection">
+                    <div id="result">Sonic wins</div>
+                    <button id="continueButton">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="splitRow" class="rowMain hidden">
+            <div class="carderHeading"></div>
+            <img id="splitCard1" class="card" src="images/cardFronts/2C.jpg">
+            <img id="splitCard2" class="card" src="images/cardFronts/KD.jpg">
+            <img id="splitCard3" class="card" src="images/cardFronts/2C.jpg">
+            <img id="splitCard4" class="card" src="images/cardFronts/KD.jpg">
+            <img id="splitCard5" class="card" src="images/cardFronts/7D.jpg">
+        </div>
+
+        <div id="gameOver" class="hidden">
+            <h1 class="bigH1">Game over!</h1>
+            <button id="tryAgain">Try again</button>
+        </div>
+
+        <div id="shuffling" class="hidden">
+            <h1 class="bigH1">Shuffling...</h1>
+        </div>
+    </main>
+
+    <script src="mainScript.js"></script>
+    <script src="modalScript.js"></script>
+</body>
+</html>

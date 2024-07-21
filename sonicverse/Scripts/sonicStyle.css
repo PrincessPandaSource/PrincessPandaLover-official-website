@@ -1,0 +1,185 @@
+/*For those who think webpages written from scratch by newbies look so Web 1.0 plain, then 
+look no further than CSS, which will dress up the pages immediately.*/
+
+/* Fundamentals */
+:root {
+  --color1: DodgerBlue;
+  --color1-hover: #0073e6;
+  --color2: LightSkyBlue;
+  --text-color1: Black;
+  --text-color2: White;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial";
+  background-color: var(--color2);
+}
+
+.homeContainer {
+  background-color: var(--color2);
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 20px 10px;
+}
+
+.articleContainer {
+  /*width: 75%;*/
+  margin-left: 310px; 
+  margin-right: 10px;
+  /*padding: 15px;*/
+}
+
+b {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+footer {
+  background-color: var(--color1);
+  color: var(--text-color2);
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+#leftImg {
+  float: left;
+}
+#centerImg {
+  float: center;
+}
+#rightImg {
+  float: right;
+}
+
+/* Sidebar */
+.sidebar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  left: 1;
+  top: 1;
+  height: 100%;
+  width: 300px;
+  background-color: var(--color1);
+  position: fixed;
+  overflow-x: hidden;
+}
+.sidebarLink a {
+  display: block;
+  padding: 10px;
+  color: var(--text-color2);
+  text-decoration: none;
+}
+.sidebarLink a:hover {
+  background-color: var(--color2);
+  color: var(--text-color1);
+}
+.sidebarLink a:active {
+  background-color: var(--color2);
+  color: var(--text-color1);
+}
+
+/* Grid */
+.homeGridContainer {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, [col] 100px);
+  grid-template-rows: repeat(2, [row] auto);
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerGridContainer {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+}
+
+.charGridContainer {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+}
+
+.grid-item {
+  text-align: center;
+}
+
+/* Buttons, buttons, buttons! :D */
+.homeGridButton {
+  display: inline-block;
+  background-color: var(--color1);
+  color: var(--text-color2);
+  border: none;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  line-height: 100px;
+  font-size: 30px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+.homeGridButton:hover {
+  background-color: var(--color1-hover);
+}
+
+.bannerGridButton {
+  display: inline-block;
+  background-color: var(--color1);
+  color: var(--text-color2);
+  border: none;
+  height: 100px;
+  width: 300px;
+  text-align: center;
+  align-items: center;
+  line-height: 100px;
+  font-size: 30px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+.bannerGridButton:hover {
+  background-color: var(--color1-hover);
+}
+
+.charGridButton {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+#teamCharButton {
+  background-color: var(--color1);
+}
+#teamCharButton:hover {
+  background-color: var(--color1-hover);
+}
+#allyCharButton {
+  background-color: LimeGreen;
+}
+#allyCharButton:hover {
+  background-color: #196719;
+}
+#villainCharButton {
+  background-color: Crimson;
+}
+#villainCharButton:hover {
+  background-color: #bb1133;
+}
+#otherCharButton {
+  background-color: DarkGray;
+}
+#otherCharButton:hover {
+  background-color: #8c8c8c;
+}

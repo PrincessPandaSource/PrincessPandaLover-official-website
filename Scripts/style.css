@@ -1,0 +1,334 @@
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/Fonts/Century Gothic.woff2");
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/Fonts/Century Gothic Italic.woff2");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/Fonts/Century Gothic Bold.woff2");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/Fonts/Century Gothic Bold Italic.woff2");
+    font-weight: bold;
+    font-style: italic;
+}
+
+body {
+    margin: 0;
+    background-image: url("/Images/Background.png");
+    background-position: center;
+}
+  
+b {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Century Gothic";
+  width: 55%;
+}
+
+.logo {
+  max-width:100%;
+  height:auto;
+  margin-bottom: 1rem;
+}
+
+/* Credit: http://www.menucool.com/tooltip/css-tooltip */  
+.tooltip {
+  position:relative;
+}
+
+.tooltip .top {
+    min-width: 1px;
+    max-width: 200px;
+    top:-20px;
+    left:50%;
+    transform:translate(-50%, -100%);
+    padding:2px;
+    background-color:#fe80df;
+    color: black;
+    border-radius:5px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    border:3px solid #ff00bf;
+    display:none;
+}
+
+.tooltip:hover .top {
+    display:block;
+}
+
+.tooltip .top i {
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-12px;
+    width:24px;
+    height:12px;
+    overflow:hidden;
+}
+
+.tooltip .top i::after {
+    content:'';
+    position:absolute;
+    width:12px;
+    height:12px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#fe80df;
+    border:3px solid #ff00bf;
+}
+
+
+.tooltip .bottom {
+    min-width:1px;
+    max-width: 200px;
+    top:40px;
+    left:50%;
+    transform:translate(-50%, 0);
+    padding:2px;
+    background-color:#fe80df;
+    color: black;
+    border-radius:5px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    border:3px solid #ff00bf;
+    display:none;
+}
+
+.tooltip:hover .bottom {
+    display:block;
+}
+
+.tooltip .bottom i {
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    margin-left:-12px;
+    width:24px;
+    height:12px;
+    overflow:hidden;
+}
+
+.tooltip .bottom i::after {
+    content:'';
+    position:absolute;
+    width:12px;
+    height:12px;
+    left:50%;
+    transform:translate(-50%,50%) rotate(45deg);
+    background-color:#fe80df;
+    border:3px solid #ff00bf;
+}
+
+.about-me-mythical {
+  width: 47%;
+  max-width: 400px;
+  position: relative;
+  top: 35px;
+  margin-top: -40px;
+}
+  
+  .text-box {
+    background-color: #ffaaaa;
+    border: 5px solid #ff5555;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .text-box:last-child {
+    margin-bottom: 0.5rem
+  }
+  
+  .text-box a {
+    color: #214478;
+  }
+
+  .text-box img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  hr.space-break {
+    border: none;
+  }
+
+  .colored-link {
+    color: #214478;
+  }
+
+  .white-link {
+    color: #ffffff;
+  }
+  
+  .header {
+    background-color: #ff5555;
+    border-radius: 10px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 1.25em;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  button {
+    background-color: #fe80df;
+    border: 3px solid #ff00bf;
+    border-radius: 5px;
+    padding: 2px 5px;
+    color: black;
+    font-size: 1em;
+    font-family: 'Century Gothic';
+  }
+
+  button:hover {
+    background-color: #fd4ed1;
+  }
+    
+  .heart-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(125px, auto));
+    margin-bottom: 2rem;
+  }
+  
+  .heart-container {
+    position: relative;
+  }
+  
+  .heart-container:hover {
+    transform: scale(110%);
+  }
+  
+  .heart-link {
+    display: block;
+    height: 100%;
+  }
+  
+  .heart-image {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  .heart-text{
+    position: absolute; 
+    top: 60%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: #fe80df;
+    border: 3px solid #ff00bf;
+    border-radius: 5px;
+    padding: 2px;
+    width: 120px;
+    color: black;
+    word-wrap: break-word;
+  }
+  
+  .links-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(50px, auto));
+    margin-bottom: 2rem;
+  }
+  
+  .link-icon {
+    position: absolute;
+    top: 45%; 
+    left: 50%; 
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 25px;
+    color: #ffffff;
+  }
+  
+  /*Credit: https://stackoverflow.com/a/12216973/18758445*/
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  
+  li:before {
+    content: "❤";
+    padding-right: 5px;
+  }
+
+  select {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 1em;
+    font-family: 'Century Gothic';
+  }
+  
+  footer {
+    background-color: #d40000;
+    padding: 20px;
+    text-align: center;
+    font-family: "Century Gothic";
+    font-size: 12px;
+    color: #ffffff;
+  }
+
+  footer a {
+    color: #d5f6ff;
+  }
+
+/* Mobile */  
+@media only screen and (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .about-me-mythical {
+    width: 260.025px;
+    top: 35px;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .wrapper {
+    width: 67%;
+  }
+}
