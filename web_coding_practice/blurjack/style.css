@@ -1,0 +1,259 @@
+/* General */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: "NiseSegaSonic";
+    src: url("NiseSegaSonic.woff2");
+}
+
+body {
+    background-color: rgb(7, 16, 144);
+    color: white;
+}
+
+#logo {
+    font-family: "NiseSegaSonic";
+    text-align: center;
+    font-size: 3em;
+}
+
+main {
+    margin: 0 100px;
+}
+
+.counterDisplay {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    border: none;
+    background-color: #e1b52d;
+    font-size: 15px;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #eccf79;
+}
+
+.shown {
+    display: block;
+}
+
+.shownFlex {
+    display: flex;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Top menu */
+
+#topMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#ringCounter {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* Bet interface */
+
+#betInterface {
+    width: 100%;
+}
+
+#betHeading {
+    text-align: center;
+    font-size: 2em;
+}
+
+#rowOfRings {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.ringToBet {
+    position: relative;
+    cursor: pointer;
+}
+
+.bettedRing {
+    position: relative;
+}
+
+.ringToBet img, .bettedRing img {
+    height: 140px;
+}
+
+.ringToBet .label, .bettedRing .label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    font-size: 3.5em;
+    font-weight: bold;
+}
+
+.ringToBet:hover, .bettedRing:hover {
+    transform: scale(1.1);
+}
+
+.disabledRing {
+    visibility: hidden;
+}
+
+.unclickableRing:hover {
+    transform: scale(1);
+}
+
+#showYourBets {
+    margin-top: 0.83em;
+    justify-content: center;
+    margin-bottom: 0.83em;
+}
+
+#bettedRingsCounterDeal {
+    margin-right: 25px;
+}
+
+#ringsBetDeal, #ringsBetCard, #insuranceBet {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#dealButton, #tryAgain {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+
+/* Card interface */
+#cardInterface {
+    margin-top: 0.83em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rowMain {
+    display: flex;
+    align-items: center;
+}
+
+.carderHeading {
+    width: 100px;
+}
+
+#sonicsRow {
+    margin-bottom: 1.5em;
+}
+
+.card {
+    height: 225px;
+}
+
+.totalDisplay {
+    margin-left: 40px;
+    font-size: 3.5em;
+    font-weight: bold;
+}
+
+#choiceSection, #insuranceBetDisplay, #choiceButtons, #resultSection, #gameOver, #shuffling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bettedRingsCounterCard, #insuranceBetCounter {
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+}
+
+#choiceButtons button {
+    margin-bottom: 0.83em
+}
+
+#resultSection {
+    display: none;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#result {
+    margin-bottom: 1em;
+}
+
+#splitRow {
+    margin-top: 1.25em;
+}
+
+/* Game over */
+.bigH1 {
+    font-size: 4em;
+}
+
+/* Help modal */
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.4);
+}
+  
+#help-box {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    background-color: rgb(137, 190, 255);
+    padding: 20px;
+    height: 78%;
+    width: 50%;
+    color: #000;
+}
+
+#helpHeading {
+    text-align: center;
+}
+
+#helpText {
+    overflow-y: scroll;
+}
+
+.close {
+    color: #bd0e0e;
+    float: right;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #8e0b0b;
+    text-decoration: none;
+    cursor: pointer;
+} 
