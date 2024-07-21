@@ -4,7 +4,7 @@
   "description": "PrincessPandaLover's official website",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build"
+    "build": "npm install"
   },
   "repository": {
     "type": "git",
