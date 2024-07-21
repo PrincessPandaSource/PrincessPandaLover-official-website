@@ -1,0 +1,19 @@
+{
+  "name": "princesspandalover-official-website",
+  "version": "1.0.0",
+  "description": "PrincessPandaLover's official website",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrincessPandaSource/PrincessPandaLover-official-website.git"
+  },
+  "author": "PrincessPandaLover",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PrincessPandaSource/PrincessPandaLover-official-website/issues"
+  },
+  "homepage": "https://github.com/PrincessPandaSource/PrincessPandaLover-official-website#readme"
+}
