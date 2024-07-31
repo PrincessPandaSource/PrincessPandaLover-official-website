@@ -1,6 +1,6 @@
 document.write('\
   <ul class="sidebar">\
-      <li class="sidebarLink"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Sonic_The_Hedgehog.svg/1920px-Sonic_The_Hedgehog.svg.png" height=100 alt="Placeholder image of the Sonic the Hedgehog logo" style="margin: auto; padding: 20px"></li>\
+      <li class="sidebarLink"><img src="/sonicverse/Images/Logo.svg" height=100 alt="PrincessPandaSonicverse logo" style="margin: auto; padding: 20px"></li>\
       <li class="sidebarLink"><a href="/sonicverse/home.html">Home</a></li>\
       <li class="sidebarLink"><a href="/sonicverse/General info/General_index.html">General info</a></li>\
       <li class="sidebarLink"><a href="/sonicverse/Characters/Character_index.html">Characters</a></li>\
