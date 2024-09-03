@@ -11,7 +11,7 @@ let pg = Number(findGetParameter("pg")); //make "pg" mean the current page numbe
 ////////////////////////
 
 //REALLY IMPORTANT ONES
-const maxpg = 2; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
+const maxpg = 3; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
 //YOU MUST UPDATE THIS NUMBER EVERY TIME YOU ADD A NEW PAGE or else it wont display the most recent page
 
 // COMIC PAGE SETTINGS
@@ -66,7 +66,7 @@ const pgData = [
         pgNum: 2, //what page number it is
         title: "Silver's Unfun Spring Break", //the title of the page (leaving this blank will default it to "Page X")
         date: writeDate(2024, 6, 17), //the date on which the page was posted (mainly for the archive). The date is written using a function called "writeDate", basically just put writeDate and then some parenthesis and, comma separated, the year followed by the month and the day. Don't forget another comma at the end outside the parenthesis!
-        altText: "Blaze, at a tropical resort and wearing a tankini, is looking down on her phone and chatting, 'Hi, I'm in Zona de Fila Complejo. How are you taking your spring break from schoolwork?' Silver, on the other side of the video call and sitting at his desk in front of the laptop, says 'I'm not so fortunate, because....' He then lunges out and exclaims '...I BOMBED a Data Structures and Algorithms exam! Only a 20%!!!' The comic then switches to the screen of Blaze's phone, showing Silver with a tear in his eye and saying 'So I have to study instead of going elsewhere or playing video games all day. Sad, RIGHT?!?!", //the alt text (mouse over text) for this particular comic. put nothing inbetween the quotes for no alt text
+        altText: "Blaze, at a tropical resort and wearing a tankini, is looking down on her phone and chatting, 'Hi, I'm in Zona de Fila Complejo. How are you taking your spring break from schoolwork?' Silver, on the other side of the video call and sitting at his desk in front of the laptop, says 'I'm not so fortunate, because....' He then lunges out and exclaims '...I BOMBED a Data Structures and Algorithms exam! Only a 20%!!!' The comic then switches to the screen of Blaze's phone, showing Silver with a tear in his eye and saying 'So I have to study instead of going elsewhere or playing video games all day. Sad, RIGHT?!?!'", //the alt text (mouse over text) for this particular comic. put nothing inbetween the quotes for no alt text
         imageFiles: 1, //how many image files this page is split into
         authorNotes: `
             <p>The second comic strip is here, and it's been 3 months.</p>
@@ -76,6 +76,20 @@ const pgData = [
             <p>Now, time to brainstorm more for <i>Silver Scripts</i>, which I haven't done in a long time.</p>
             <p>(Have you been checking out <a href="/tpt2/index.html">My Theme Park Tycoon 2 Buildlog</a>?)</p>
             <p><b>Edit</b>: I just realized I didn't blacken some of Blaze's lineart when those parts were supposed to. Sorry for the error and my forgetfulness!</p>
+            `,
+    },
+    {
+        pgNum: 3, //what page number it is
+        title: "Reinforcement", //the title of the page (leaving this blank will default it to "Page X")
+        date: writeDate(2024, 9, 3), //the date on which the page was posted (mainly for the archive). The date is written using a function called "writeDate", basically just put writeDate and then some parenthesis and, comma separated, the year followed by the month and the day. Don't forget another comma at the end outside the parenthesis!
+        altText: "'The next semester...', Silver is standing in his nearly empty dorm room, with a large moving box and unattended bed visible. With hands on his hips, he says, 'I wonder... Does college force you to completely move in and out every year just to train you for moving away from your parents for good through reinforcement?' He then opens and reaches into a suitcase, saying to himself, 'If so, and you only have to work on job shifts afterwards...'. He then says 'Is homework for worst case scenarios or just pure torture?!', becoming annoyed.'", //the alt text (mouse over text) for this particular comic. put nothing inbetween the quotes for no alt text
+        imageFiles: 1, //how many image files this page is split into
+        authorNotes: `
+            <p>To be more consistent with my real life, I've decided to fast-forward <i>Silver Scripts</i> to the start of my college year (I'm now a junior! Only two more years to go.).</p>
+            <p>During summer, I tried to focus on both coding practice, which was constantly assigned by my father, and a web comic book which is based on a concept I've had in my head since childhood... Too bad I ran out of time to bring it to life, but <i>Silver Scripts</i> is an ingenious idea also, so I'm working on it as <i>the</i> hobby to do in college.</p>
+            <p>Took like 3 weeks, because I first had to do schoolwork, then draft the strip, and then yeah! (Confession: I haven't been really creative in the few past years due to trauma... Also, I have a diary to keep track of what I did every day so I can get ideas for <i>Silver Scripts</i>.)</p>
+            <p>(Also, I manually painted those lines white.)</p>
+            <p>Hopefully, there will be more consistent strips for the rest of year.</p>
             `,
     },
 ];
