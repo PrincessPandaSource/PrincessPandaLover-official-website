@@ -21,6 +21,14 @@ body {
   background-color: #E0FFFF; 
 }
 
+b {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
 /* header image */
 header img {
   width: 500px;

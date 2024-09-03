@@ -6,6 +6,6 @@ document.querySelector(".writeFooter").innerHTML = `
         <p>All content may be reproduced and/or altered with attribution and for noncommercial purposes that are not abusive or illegal.</p>
         <p>Website template:</p>
         <a href="https://rarebit.neocities.org"><img src="img/rarebitlogo_small.png" height = "30" /></a><br/><span style="font-size:0.8em">(Of course, I could've coded the whole thing myself, but when I discovered this template, I was like "This is a godsend! I NEED to use it!".)</span>
-        <p>Hosted by <a href="https://www.netlify.com/">Netlify</a></p>
+        <p>Hosted by <a href="https://www.netlify.com/">Netlify</a>, deployed from <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">public Github repository</a></p>
     </footer>
 `;
