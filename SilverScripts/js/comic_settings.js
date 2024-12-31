@@ -11,7 +11,7 @@ let pg = Number(findGetParameter("pg")); //make "pg" mean the current page numbe
 ////////////////////////
 
 //REALLY IMPORTANT ONES
-const maxpg = 3; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
+const maxpg = 4; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
 //YOU MUST UPDATE THIS NUMBER EVERY TIME YOU ADD A NEW PAGE or else it wont display the most recent page
 
 // COMIC PAGE SETTINGS
@@ -90,6 +90,20 @@ const pgData = [
             <p>Took like 3 weeks, because I first had to do schoolwork, then draft the strip, and then yeah! (Confession: I haven't been really creative in the few past years due to trauma... Also, I have a diary to keep track of what I did every day so I can get ideas for <i>Silver Scripts</i>.)</p>
             <p>(Also, I manually painted those lines white.)</p>
             <p>Hopefully, there will be more consistent strips for the rest of year.</p>
+            `,
+    },
+    {
+        pgNum: 4, //what page number it is
+        title: "Thicker Skin", //the title of the page (leaving this blank will default it to "Page X")
+        date: writeDate(2024, 12, 31), //the date on which the page was posted (mainly for the archive). The date is written using a function called "writeDate", basically just put writeDate and then some parenthesis and, comma separated, the year followed by the month and the day. Don't forget another comma at the end outside the parenthesis!
+        altText: "At lunch, Wave is sitting with Silver as they eat noodles. She says, 'Yeah, Buzzin may be a mean place, but they always treat me with respect there! How's your experience with Answer-Aligned Programming? I heard it's the best place for programmers.' Silver answers with a face somewhat asking for pity, 'Yeah, I go on that site a lot, but I don't want to post. I heard they're so rude.' Wave nonchalantly replies, 'How about you grow thicker skin?'", //the alt text (mouse over text) for this particular comic. put nothing inbetween the quotes for no alt text
+        imageFiles: 1, //how many image files this page is split into
+        authorNotes: `
+            <p>Turns out, this is only the fourth strip of the comic, and the last one of 2024.</p>
+            <p>Also, Wave the Swallow!</p>
+            <p>This strip was started shortly after the previous one. However, I had <i>really</i> horrid time management skills. When I finally got my act together and began using a schedule and the Pomodoro technique, I didn't have time for the comic. (Also, the diary has been repurposed into a sketchbook specifically into <i>Silver Scripts</i> as I was often too tired to write in it at the end of the day.)</p>
+            <p>My New Year's resolution is to work more consistently on my art, especially <i>Silver Scripts</i>. Hopefully with better time management skills, I can publish <i>Silver Scripts</i> strips more regularly!</p>
+            <p>(FYI: Buzzin and Answer-Aligned Programming are this world's counterparts to Reddit and Stack Overflow respectively.)</p>
             `,
     },
 ];
