@@ -42,12 +42,10 @@ i {
 
 .wrapper {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
+  padding: 0 1rem;
   font-family: "Century Gothic";
-  width: 55%;
+  max-width: 55%;
 }
 
 .logo {
@@ -150,8 +148,9 @@ i {
   width: 47%;
   max-width: 400px;
   position: relative;
-  top: 35px;
-  margin-top: -40px;
+  top: 2.2rem;
+  margin-top: -3rem;
+  z-index: 10; /* Always at the front! */
 }
   
   .text-box {
@@ -188,7 +187,25 @@ i {
   .white-link {
     color: #ffffff;
   }
+
+  h1, h2 {
+    background-color: #ff5555;
+    border-radius: 10px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 1.25em;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
   
+  /* Legacy */
   .header {
     background-color: #ff5555;
     border-radius: 10px;
@@ -199,6 +216,7 @@ i {
     margin-bottom: 0.5rem;
   }
 
+  /* Legacy */
   .title {
     font-size: 2em;
     text-align: center;
@@ -317,18 +335,42 @@ i {
 /* Mobile */  
 @media only screen and (max-width: 767px) {
   .wrapper {
-    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
   }
 
   .about-me-mythical {
-    width: 260.025px;
-    top: 35px;
+    width: 90%;
+    max-width: none;
+    top: 2.2rem;
+    margin-top: -3rem;
   }
 }
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1365px) {
   .wrapper {
-    width: 67%;
+    max-width: 67%;
+  }
+
+  .about-me-mythical {
+    width: 90%;
+    max-width: 450px;
+    top: 2.2rem;
+    margin-top: -3rem;
+  }
+}
+
+/* Particularly large monitors */
+@media only screen and (min-width: 1366px) {
+  .wrapper {
+    max-width: 800px;
+  }
+
+  .about-me-mythical {
+    width: 47%;
+    max-width: 400px;
+    top: 2.2rem;
+    margin-top: -3rem;
   }
 }
