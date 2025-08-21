@@ -176,6 +176,18 @@ i {
     object-fit: contain;
   }
 
+  .text-box p:first-child {
+    margin-top: 0;
+  }
+
+  .text-box p:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  .text-box p:last-child {
+    margin-bottom: 0;
+  }
+
   hr.space-break {
     border: none;
   }
