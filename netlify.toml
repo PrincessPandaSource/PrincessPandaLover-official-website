@@ -3,5 +3,5 @@ package = "@netlify/plugin-sitemap"
 
     [plugins.inputs]
         exclude = [
-        './sonicverse/*'
+            './sonicverse/*'
         ]
