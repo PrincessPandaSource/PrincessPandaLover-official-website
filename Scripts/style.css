@@ -277,9 +277,13 @@ i {
   
   .heart-text{
     position: absolute; 
+    /* Commented out until all heart buttons have images
     top: 60%; 
-    left: 50%; 
-    transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #fe80df;
     border: 3px solid #ff00bf;
     border-radius: 5px;
@@ -298,11 +302,17 @@ i {
   
   .link-icon {
     position: absolute;
-    top: 45%; 
-    left: 50%; 
-    transform: translateX(-50%) translateY(-50%);
-    font-size: 25px;
+    top: 37%; 
+    left: 53%; 
+    transform: translate(-50%, -50%);
+    font-size: 23px;
+    height: 23px;
     color: #ffffff;
+  }
+
+  .link-icon img {
+    height: 25px;
+    pointer-events: none;
   }
   
   /*Credit: https://stackoverflow.com/a/12216973/18758445*/
