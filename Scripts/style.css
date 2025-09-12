@@ -148,6 +148,11 @@ i {
     border:3px solid #ff00bf;
 }
 
+.main {
+  /* Solves "white space under footer" issue */
+  min-height: calc(100vh - 266px);
+}
+
 .about-me-mythical {
   width: 47%;
   max-width: 400px;
