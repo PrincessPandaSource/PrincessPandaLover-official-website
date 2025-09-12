@@ -1,18 +1,21 @@
 @font-face {
     font-family: "Century Gothic";
     src: url("/Fonts/Century Gothic.woff2");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Century Gothic";
     src: url("/Fonts/Century Gothic Italic.woff2");
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Century Gothic";
     src: url("/Fonts/Century Gothic Bold.woff2");
     font-weight: bold;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,6 +23,7 @@
     src: url("/Fonts/Century Gothic Bold Italic.woff2");
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
 }
 
 body {
@@ -153,206 +157,206 @@ i {
   z-index: 10; /* Always at the front! */
 }
   
-  .text-box {
-    background-color: #ffaaaa;
-    border: 5px solid #ff5555;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: left;
-    margin-bottom: 2rem;
-  }
+.text-box {
+  background-color: #ffaaaa;
+  border: 5px solid #ff5555;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 2rem;
+}
 
-  .text-box:last-child {
-    margin-bottom: 0.5rem
-  }
+.text-box:last-child {
+  margin-bottom: 0.5rem
+}
+
+.text-box a {
+  color: #214478;
+}
+
+.text-box img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.text-box p:first-child {
+  margin-top: 0;
+}
+
+.text-box p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.text-box p:last-child {
+  margin-bottom: 0;
+}
+
+hr.space-break {
+  border: none;
+}
+
+.colored-link {
+  color: #214478;
+}
+
+.white-link {
+  color: #ffffff;
+}
+
+h1, h2 {
+  background-color: #ff5555;
+  border-radius: 10px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 1.25em;
+  font-weight: normal;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Legacy */
+.header {
+  background-color: #ff5555;
+  border-radius: 10px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 1.25em;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+/* Legacy */
+.title {
+  font-size: 2em;
+  text-align: center;
+}
+
+button {
+  background-color: #fe80df;
+  border: 3px solid #ff00bf;
+  border-radius: 5px;
+  padding: 2px 5px;
+  color: black;
+  font-size: 1em;
+  font-family: 'Century Gothic';
+}
+
+button:hover {
+  background-color: #fd4ed1;
+}
   
-  .text-box a {
-    color: #214478;
-  }
+.heart-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(125px, auto));
+  margin-bottom: 2rem;
+}
 
-  .text-box img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-  }
+.heart-container {
+  position: relative;
+}
 
-  .text-box p:first-child {
-    margin-top: 0;
-  }
+.heart-container:hover {
+  transform: scale(110%);
+}
 
-  .text-box p:not(:last-child) {
-    margin-bottom: 1em;
-  }
+.heart-link {
+  display: block;
+  height: 100%;
+}
 
-  .text-box p:last-child {
-    margin-bottom: 0;
-  }
+.heart-image {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translateX(-50%) translateY(-50%);
+}
 
-  hr.space-break {
-    border: none;
-  }
+.heart-text{
+  position: absolute; 
+  /* Commented out until all heart buttons have images
+  top: 60%; 
+  left: 50%;
+  transform: translateX(-50%);*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fe80df;
+  border: 3px solid #ff00bf;
+  border-radius: 5px;
+  padding: 2px;
+  width: 120px;
+  color: black;
+  word-wrap: break-word;
+}
 
-  .colored-link {
-    color: #214478;
-  }
+.links-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(50px, auto));
+  margin-bottom: 2rem;
+}
 
-  .white-link {
-    color: #ffffff;
-  }
+.link-icon {
+  position: absolute;
+  top: 37%; 
+  left: 53%; 
+  transform: translate(-50%, -50%);
+  font-size: 23px;
+  height: 23px;
+  color: #ffffff;
+}
 
-  h1, h2 {
-    background-color: #ff5555;
-    border-radius: 10px;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 1.25em;
-    font-weight: normal;
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
+.link-icon img {
+  height: 25px;
+  pointer-events: none;
+}
 
-  h1 {
-    font-size: 2em;
-    text-align: center;
-  }
-  
-  /* Legacy */
-  .header {
-    background-color: #ff5555;
-    border-radius: 10px;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 1.25em;
-    text-align: left;
-    margin-bottom: 0.5rem;
-  }
+/*Credit: https://stackoverflow.com/a/12216973/18758445*/
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
 
-  /* Legacy */
-  .title {
-    font-size: 2em;
-    text-align: center;
-  }
+li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
 
-  button {
-    background-color: #fe80df;
-    border: 3px solid #ff00bf;
-    border-radius: 5px;
-    padding: 2px 5px;
-    color: black;
-    font-size: 1em;
-    font-family: 'Century Gothic';
-  }
+li:before {
+  content: "❤";
+  padding-right: 5px;
+}
 
-  button:hover {
-    background-color: #fd4ed1;
-  }
-    
-  .heart-grid {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(125px, auto));
-    margin-bottom: 2rem;
-  }
-  
-  .heart-container {
-    position: relative;
-  }
-  
-  .heart-container:hover {
-    transform: scale(110%);
-  }
-  
-  .heart-link {
-    display: block;
-    height: 100%;
-  }
-  
-  .heart-image {
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .heart-text{
-    position: absolute; 
-    /* Commented out until all heart buttons have images
-    top: 60%; 
-    left: 50%;
-    transform: translateX(-50%);*/
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fe80df;
-    border: 3px solid #ff00bf;
-    border-radius: 5px;
-    padding: 2px;
-    width: 120px;
-    color: black;
-    word-wrap: break-word;
-  }
-  
-  .links-grid {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(50px, auto));
-    margin-bottom: 2rem;
-  }
-  
-  .link-icon {
-    position: absolute;
-    top: 37%; 
-    left: 53%; 
-    transform: translate(-50%, -50%);
-    font-size: 23px;
-    height: 23px;
-    color: #ffffff;
-  }
+select {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 1em;
+  font-family: 'Century Gothic';
+}
 
-  .link-icon img {
-    height: 25px;
-    pointer-events: none;
-  }
-  
-  /*Credit: https://stackoverflow.com/a/12216973/18758445*/
-  ul {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
-  
-  li {
-    padding-left: 1em;
-    text-indent: -1em;
-  }
-  
-  li:before {
-    content: "❤";
-    padding-right: 5px;
-  }
+footer {
+  background-color: #d40000;
+  padding: 20px;
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 12px;
+  color: #ffffff;
+}
 
-  select {
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size: 1em;
-    font-family: 'Century Gothic';
-  }
-  
-  footer {
-    background-color: #d40000;
-    padding: 20px;
-    text-align: center;
-    font-family: "Century Gothic";
-    font-size: 12px;
-    color: #ffffff;
-  }
-
-  footer a {
-    color: #d5f6ff;
-  }
+footer a {
+  color: #d5f6ff;
+}
 
 /* Mobile */  
 @media only screen and (max-width: 767px) {
