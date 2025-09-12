@@ -157,9 +157,12 @@ i {
   width: 47%;
   max-width: 400px;
   position: relative;
-  top: 2.2rem;
+  top: 50px;
+  margin-top: -5rem;
+  z-index: -3;
+  /*top: 2.2rem;
   margin-top: -3rem;
-  z-index: 10; /* Always at the front! */
+  z-index: 10;*/
 }
   
 .text-box {
@@ -387,8 +390,8 @@ footer a {
   .about-me-mythical {
     width: 90%;
     max-width: 450px;
-    top: 2.2rem;
-    margin-top: -3rem;
+    /*top: 2.2rem;
+    margin-top: -3rem;*/
   }
 }
 
@@ -401,7 +404,7 @@ footer a {
   .about-me-mythical {
     width: 47%;
     max-width: 400px;
-    top: 2.2rem;
-    margin-top: -3rem;
+    /*top: 2.2rem;
+    margin-top: -3rem;*/
   }
 }
