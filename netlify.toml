@@ -1,11 +1,3 @@
-[[plugins]]
-package = "@netlify/plugin-sitemap"
-
-    [plugins.inputs]
-        exclude = [
-            './sonicverse/*'
-        ]
-
 [[redirects]]
     from = "/tpt2"
     to = "/tpt2/July_2024"
