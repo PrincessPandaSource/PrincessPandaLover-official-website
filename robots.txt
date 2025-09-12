@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /sonicverse/
 
-Sitemap: https://princesspandalover.netlify.app/sitemap.xml
+Sitemap: https://princesspandalover.netlify.app/sitemap_index.xml
