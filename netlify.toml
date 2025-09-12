@@ -5,3 +5,9 @@ package = "@netlify/plugin-sitemap"
         exclude = [
             './sonicverse/*'
         ]
+
+[[redirects]]
+    from = "/tp2"
+    to = "/tpt2/July_2024.html"
+    status = 301
+    force = true
