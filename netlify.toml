@@ -7,7 +7,7 @@ package = "@netlify/plugin-sitemap"
         ]
 
 [[redirects]]
-    from = "/tp2"
-    to = "/tpt2/July_2024.html"
+    from = "/tpt2"
+    to = "/tpt2/July_2024"
     status = 301
     force = true
