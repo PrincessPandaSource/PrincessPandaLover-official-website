@@ -3,7 +3,7 @@
   <!--Homepage-->
   <url>
     <loc>https://princesspandalover.netlify.app/</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,28 +11,28 @@
   <!--My Theme Park Tycoon 2 Buildlog-->
   <url>
     <loc>https://princesspandalover.netlify.app/tpt2/</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://princesspandalover.netlify.app/tpt2/may_2024</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://princesspandalover.netlify.app/tpt2/june_2024</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://princesspandalover.netlify.app/tpt2/july_2024</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -40,7 +40,7 @@
   <!--Extras-->
   <url>
     <loc>https://princesspandalover.netlify.app/creating_a_website_from_scratch</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -48,14 +48,14 @@
   <!--Web coding practice-->
   <url>
     <loc>https://princesspandalover.netlify.app/web_coding_practice/</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://princesspandalover.netlify.app/web_coding_practice/blurjack/</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2025-09-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
