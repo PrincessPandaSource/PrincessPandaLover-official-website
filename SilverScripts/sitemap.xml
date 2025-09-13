@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Every time you post a strip, please update the sitemap-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://princesspandalover.netlify.app/silverscripts/</loc>
     <lastmod>2025-9-25</lastmod>
@@ -13,6 +14,10 @@
     <lastmod>2025-9-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.netlify.app/silverscripts/img/comics/Comic1.png</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -20,6 +25,10 @@
     <lastmod>2025-9-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.netlify.app/silverscripts/img/comics/Comic2.png</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -27,6 +36,10 @@
     <lastmod>2025-9-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.netlify.app/silverscripts/img/comics/Comic3.png</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -34,6 +47,10 @@
     <lastmod>2025-9-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.netlify.app/silverscripts/img/comics/Comic4.png</image:loc>
+    </image:image>
   </url>
 
   <url>
