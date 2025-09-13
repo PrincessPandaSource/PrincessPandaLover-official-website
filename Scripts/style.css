@@ -254,9 +254,25 @@ button {
   color: black;
   font-size: 1em;
   font-family: 'Century Gothic';
+  cursor: pointer;
 }
 
 button:hover {
+  background-color: #fd4ed1;
+}
+
+a.button {
+  background-color: #fe80df;
+  border: 3px solid #ff00bf;
+  border-radius: 5px;
+  padding: 2px 5px;
+  color: black;
+  text-decoration: none;
+  font-size: 1em;
+  font-family: 'Century Gothic';
+}
+
+a.button:hover {
   background-color: #fd4ed1;
 }
   
