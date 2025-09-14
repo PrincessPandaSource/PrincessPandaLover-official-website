@@ -24,10 +24,33 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "❤︎PrincessPandaLover",
-      "alternateName": ["PrincessPandaLover", "PPL"],
-      "url": "https://princesspandalover.netlify.app"
+      "@graph": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "❤︎PrincessPandaLover",
+          "alternateName": ["PrincessPandaLover", "PPL"],
+          "url": "https://princesspandalover.netlify.app"
+        },
+        {
+          "@type": "Person",
+          "name": "PrincessPandaLover",
+          "gender": "Female",
+          "pronouns": "she/her",
+          "birthDate": "20031126T000000+0800",
+          "nationality": "Chinese",
+          "url": "https://princesspandalover.netlify.app",
+          "sameAs": [
+            "https://bsky.app/profile/princesspanda.bsky.social",
+            "https://twitter.com/PrincPandaTweet",
+            "https://princesspandablog.tumblr.com",
+            "https://www.instagram.com/princesspandagram/",
+            "https://www.youtube.com/@princesspandatube",
+            "https://www.deviantart.com/princesspandaart",
+            "https://archiveofourown.org/users/PrincessPandaFanfiction"
+          ]
+        }
+      ]
     }
   </script>
   
@@ -41,30 +64,9 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@PrincPandaTweet">
   <meta name="twitter:title" content="❤︎PrincessPandaLover - Official website">
-  <meta name="twitter:description" content="The official personal website of PrincessPandaLover, an aspiring cartoonist, illustrator, indie game developer, and Sonic the Hedgehog fan creator. It is dedicated to showcasing her own work, including comics, some personal writings, and experimental interactive webpages.">
+  <meta name="twitter:description" content="The official personal website of PrincessPandaLover, CS student and aspiring artist. It is dedicated to showcasing her own work.">
   <meta name="twitter:image" content="https://princesspandalover.netlify.app/Images/Logo.png">
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "PrincessPandaLover",
-      "gender": "Female",
-      "pronouns": "she/her",
-      "birthDate": "20031126T000000+0800",
-      "nationality": "Chinese",
-      "url": "https://princesspandalover.netlify.app",
-      "sameAs": [
-        "https://bsky.app/profile/princesspanda.bsky.social",
-        "https://twitter.com/PrincPandaTweet",
-        "https://princesspandablog.tumblr.com",
-        "https://www.instagram.com/princesspandagram/",
-        "https://www.youtube.com/@princesspandatube",
-        "https://www.deviantart.com/princesspandaart",
-        "https://archiveofourown.org/users/PrincessPandaFanfiction"
-      ]
-    }
-  </script>
   <script src="https://kit.fontawesome.com/eee9ee52d0.js" crossorigin="anonymous"></script>
 </head>
 
@@ -73,6 +75,7 @@
     <header class="logo"></header><br/>
 
     <main>
+      <h1 class="sr-only">❤︎PrincessPandaLover</h1>
       <section>
         <img src="Images/About me box image 1.png" class="about-me-mythical" alt="Mythical, my red wolf persona, standing behind the biography box and having her hands outstretched and on the box"/>
         <div class="text-box" style="padding-top: 35px">
@@ -81,8 +84,6 @@
           <p>While I major in computer science at college, I like creating art, specifically cartoons and illustrations in my style. I'm also interested in creative writing and game development. Not to mention I'm a big <i>Sonic the Hedgehog</i> fan and love drawing and writing about the fast blue hedgehog, his friends, and his world. As such, I plan to be a software developer by day, hobbyist cartoonist, illustrator, indie game developer, and <i>Sonic</i> fan creator at night. (I do aim for professional level for the latter.)</p>
 
           <p>My general interests include video games, animals, music, and crazy fun.</p>
-        
-          <p><i>As you may have noticed, the website is still under construction. Please excuse its appearance. Plus, I may not have lots of time</i></p>
         </div>
       </section>
       
@@ -238,22 +239,14 @@
             </div></a>
         </div>
       </nav>
-      
-      <h2>I noticed an error on this website!</h2>
-      <section>
-        <div class="text-box">
-          I am still a beginner in web coding, so you may find lots of errors, such as unneccessary or deprecated code, messed-up design, and lack of accessibility. 
-          While I'm in the process of checking and <a href="https://validator.w3.org/">validating</a> pages as I edit them, if you find errors that you think are important and need
-          to be fixed, please contact me with the information in the below section or, if you have a GitHub account, open an issue on <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">this site's GitHub repository</a>. If you can fix it yourself, make a pull request to the same repository.
-        </div>
-      </section>
 
       <h2>Contact me</h2>
       <section>
         <div class="text-box">
           <ul>
             <li><b>Email</b>: princesspandamail@gmail.com</li>
-            <li><b>Social media</b>: I am availible for contact on my <a href="https://www.youtube.com/channel/UC_RDFjDoZJDBZvIsCjLmORw">personal YouTube channel</a> and <a href="https://bsky.app/profile/princesspanda.bsky.social">Bluesky account</a> (linked again here so lazy people don't have to scroll up).</li>
+            <li><b>Social media</b>: I am available for contact on my <a href="https://www.youtube.com/channel/UC_RDFjDoZJDBZvIsCjLmORw">personal YouTube channel</a> and <a href="https://bsky.app/profile/princesspanda.bsky.social">Bluesky account</a> (linked again here so lazy people don't have to scroll up).</li>
+            <li>Feedback and suggestions for this website may also be posted on <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">its GitHub repository</a>.</li>
           </ul>
         </div>
       </section>
