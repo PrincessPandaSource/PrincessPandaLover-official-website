@@ -27,9 +27,8 @@
 }
 
 body {
-    margin: 0;
-    background-image: url("/Images/Background.png");
-    background-position: center;
+  margin: 0;
+  background-image: url("/Images/Background.png");
 }
   
 b {
@@ -166,6 +165,8 @@ i {
 .about-me-mythical {
   width: 47%;
   max-width: 400px;
+  height: auto;
+  aspect-ratio: 661 / 365;
   position: relative;
   top: 50px;
   margin-top: -5rem;
@@ -195,7 +196,7 @@ i {
 .text-box img {
   max-width: 100%;
   height: auto;
-  display: block;
+  aspect-ratio: attr(width) / attr(height);
 }
 
 .text-box p:first-child {
