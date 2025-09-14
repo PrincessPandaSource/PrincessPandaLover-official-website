@@ -218,7 +218,7 @@ h1, h2 {
   padding: 10px;
   color: rgb(255, 255, 255);
   font-size: 1.25em;
-  font-weight: normal;
+  font-weight: bold;
   text-align: left;
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -227,6 +227,10 @@ h1, h2 {
 h1 {
   font-size: 2em;
   text-align: center;
+}
+
+h2 {
+  padding-left: 15px;
 }
 
 /* Legacy */
