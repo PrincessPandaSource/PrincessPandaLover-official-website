@@ -52,6 +52,17 @@ i {
   max-width: 55%;
 }
 
+/* For screen readers */
+.sr-only {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .logo {
   max-width:100%;
   height:auto;
@@ -59,7 +70,7 @@ i {
 }
 
 /* Credit: http://www.menucool.com/tooltip/css-tooltip */  
-.tooltip {
+/*.tooltip {
   position:relative;
 }
 
@@ -105,7 +116,6 @@ i {
     border:3px solid #ff00bf;
 }
 
-
 .tooltip .bottom {
     min-width:1px;
     max-width: 200px;
@@ -146,7 +156,7 @@ i {
     transform:translate(-50%,50%) rotate(45deg);
     background-color:#fe80df;
     border:3px solid #ff00bf;
-}
+}*/
 
 .main {
   /* Solves "white space under footer" issue */
@@ -234,7 +244,7 @@ h2 {
 }
 
 /* Legacy */
-.header {
+/*.header {
   background-color: #ff5555;
   border-radius: 10px;
   padding: 10px;
@@ -242,13 +252,13 @@ h2 {
   font-size: 1.25em;
   text-align: left;
   margin-bottom: 0.5rem;
-}
+}*/
 
 /* Legacy */
-.title {
+/*.title {
   font-size: 2em;
   text-align: center;
-}
+}*/
 
 button {
   background-color: #fe80df;
@@ -396,8 +406,8 @@ footer a {
   .about-me-mythical {
     width: 90%;
     max-width: none;
-    top: 2.2rem;
-    margin-top: -3rem;
+    /*top: 2.2rem;
+    margin-top: -3rem;*/
   }
 }
 
