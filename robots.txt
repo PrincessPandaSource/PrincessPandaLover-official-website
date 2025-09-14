@@ -3,6 +3,6 @@ Disallow: /sonicverse/
 
 User-agent: Googlebot-Image
 Disallow: /Images/HeartButton.svg
-Disallow: /Images/Link-icons
+Disallow: /Images/Link-icons/
 
 Sitemap: https://princesspandalover.netlify.app/sitemap_index.xml
