@@ -1,4 +1,10 @@
 [[redirects]]
+    from = "/index.html"
+    to = "/"
+    status = 301
+    force = false
+
+[[redirects]]
     from = "/tpt2"
     to = "/tpt2/July_2024"
     status = 301
