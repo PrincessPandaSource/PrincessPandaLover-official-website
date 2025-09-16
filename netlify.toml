@@ -1,5 +1,5 @@
 [[headers]]
-  for = "*.xml"
+  for = "/*.xml"
   [headers.values]
     Content-Type = "application/xml"
 
