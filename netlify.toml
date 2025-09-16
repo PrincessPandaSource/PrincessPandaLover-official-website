@@ -1,3 +1,8 @@
+[[headers]]
+  for = "*.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+
 [[redirects]]
     from = "/tpt2"
     to = "/tpt2/July_2024"
