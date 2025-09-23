@@ -1,5 +1,23 @@
 [[redirects]]
     from = "/tpt2"
-    to = "/tpt2/July_2024"
+    to = "/tpt2/July-2024"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "/tpt2/May_2024"
+    to = "/tpt2/May-2024"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "/tpt2/June_2024"
+    to = "/tpt2/June-2024"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "/tpt2/July_2024"
+    to = "/tpt2/July-2024"
     status = 301
     force = true
