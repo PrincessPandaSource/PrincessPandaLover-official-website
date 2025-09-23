@@ -3,7 +3,7 @@
   <!--Homepage-->
   <url>
     <loc>https://princesspandalover.netlify.app/</loc>
-    <lastmod>2025-09-13</lastmod>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,45 +17,45 @@
   </url>
 
   <url>
-    <loc>https://princesspandalover.netlify.app/tpt2/may_2024</loc>
-    <lastmod>2025-09-13</lastmod>
+    <loc>https://princesspandalover.netlify.app/tpt2/may-2024</loc>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://princesspandalover.netlify.app/tpt2/june_2024</loc>
-    <lastmod>2025-09-13</lastmod>
+    <loc>https://princesspandalover.netlify.app/tpt2/june-2024</loc>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://princesspandalover.netlify.app/tpt2/july_2024</loc>
-    <lastmod>2025-09-13</lastmod>
+    <loc>https://princesspandalover.netlify.app/tpt2/july-2024</loc>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!--Extras-->
+  <!--Other stuff-->
   <url>
-    <loc>https://princesspandalover.netlify.app/creating_a_website_from_scratch</loc>
-    <lastmod>2025-09-13</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://princesspandalover.netlify.app/creating-a-website-from-scratch</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!--Web coding practice-->
   <url>
-    <loc>https://princesspandalover.netlify.app/web_coding_practice/</loc>
-    <lastmod>2025-09-13</lastmod>
+    <loc>https://princesspandalover.netlify.app/web-coding-practice/</loc>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://princesspandalover.netlify.app/web_coding_practice/blurjack/</loc>
-    <lastmod>2025-09-12</lastmod>
+    <loc>https://princesspandalover.netlify.app/web-coding-practice/blurjack/</loc>
+    <lastmod>2025-09-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
