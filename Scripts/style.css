@@ -31,6 +31,9 @@ body {
   background-color: #d5e5ff;
   background-image: url("/Images/Background.png");
   background-position: top;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
   
 b {
@@ -50,7 +53,9 @@ i {
   margin: 20px auto;
   padding: 0 1rem;
   font-family: "Century Gothic";
+  width: 100%;
   max-width: 55%;
+  flex: 1;
 }
 
 /* For screen readers */
@@ -159,11 +164,6 @@ i {
     border:3px solid #ff00bf;
 }*/
 
-.main {
-  /* Solves "white space under footer" issue */
-  min-height: calc(100vh - 266px);
-}
-
 .about-me-mythical {
   width: 47%;
   max-width: 400px;
@@ -246,21 +246,8 @@ h2 {
   padding-left: 15px;
 }
 
-/* Legacy */
-/*.header {
-  background-color: #ff5555;
-  border-radius: 10px;
-  padding: 10px;
-  color: rgb(255, 255, 255);
-  font-size: 1.25em;
-  text-align: left;
-  margin-bottom: 0.5rem;
-}*/
-
-/* Legacy */
-/*.title {
-  font-size: 2em;
-  text-align: center;
+/*h1, h2, .text-box {
+  width: 100%;
 }*/
 
 button {
@@ -387,6 +374,7 @@ select {
 }
 
 footer {
+  margin-top: auto;
   background-color: #d40000;
   padding: 20px;
   text-align: center;
