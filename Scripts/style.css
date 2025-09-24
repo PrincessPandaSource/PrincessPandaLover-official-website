@@ -30,6 +30,7 @@ body {
   margin: 0;
   background-color: #d5e5ff;
   background-image: url("/Images/Background.png");
+  background-position: top;
 }
   
 b {
