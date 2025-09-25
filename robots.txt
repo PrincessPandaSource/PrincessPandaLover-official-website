@@ -2,7 +2,7 @@ User-agent: *
 Disallow: /sonicverse/
 
 User-agent: Googlebot-Image
-Disallow: /Images/HeartButton.svg
-Disallow: /Images/Link-icons/
+Disallow: /images/HeartButton.svg
+Disallow: /images/Link-icons/
 
 Sitemap: https://princesspandalover.com/sitemap-index.xml

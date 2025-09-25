@@ -1,26 +1,26 @@
 @font-face {
     font-family: "Century Gothic";
-    src: url("/Fonts/Century Gothic.woff2");
+    src: url("/fonts/Century Gothic.woff2");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Century Gothic";
-    src: url("/Fonts/Century Gothic Italic.woff2");
+    src: url("/fonts/Century Gothic Italic.woff2");
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Century Gothic";
-    src: url("/Fonts/Century Gothic Bold.woff2");
+    src: url("/fonts/Century Gothic Bold.woff2");
     font-weight: bold;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Century Gothic";
-    src: url("/Fonts/Century Gothic Bold Italic.woff2");
+    src: url("/fonts/Century Gothic Bold Italic.woff2");
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -29,7 +29,7 @@
 body {
   margin: 0;
   background-color: #d5e5ff;
-  background-image: url("/Images/Background.png");
+  background-image: url("/images/Background.png");
   background-position: top;
   display: flex;
   flex-direction: column;
