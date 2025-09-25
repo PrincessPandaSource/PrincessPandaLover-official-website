@@ -1,4 +1,10 @@
 [[redirects]]
+    from = "/*"
+    to = "https://princesspandalover.com/:splat"
+    status = 301
+    force = true
+
+[[redirects]]
     from = "/tpt2"
     to = "/tpt2/july-2024"
     status = 301

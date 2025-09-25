@@ -5,4 +5,4 @@ User-agent: Googlebot-Image
 Disallow: /Images/HeartButton.svg
 Disallow: /Images/Link-icons/
 
-Sitemap: https://princesspandalover.netlify.app/sitemap-index.xml
+Sitemap: https://princesspandalover.com/sitemap-index.xml
