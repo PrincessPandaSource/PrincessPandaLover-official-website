@@ -11,6 +11,12 @@
     force = true
 
 [[redirects]]
+    from = "/tpt2/index.html"
+    to = "/tpt2/july-2024"
+    status = 301
+    force = true
+
+[[redirects]]
     from = "/tpt2/may_2024"
     to = "/tpt2/may-2024"
     status = 301
