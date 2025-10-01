@@ -284,8 +284,9 @@ a.button:hover {
   
 .heart-grid {
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(125px, auto));
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(125px, max-content));
+  justify-content: space-evenly;
   margin-bottom: 2rem;
 }
 
@@ -328,10 +329,8 @@ a.button:hover {
 }
 
 .links-grid {
-  display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(50px, auto));
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
 }
 
 .link-icon {
