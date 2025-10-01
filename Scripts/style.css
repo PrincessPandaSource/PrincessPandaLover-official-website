@@ -335,16 +335,22 @@ a.button:hover {
 
 .link-icon {
   position: absolute;
-  top: 37%; 
-  left: 53%; 
+  top: 43%; 
+  left: 50%; 
   transform: translate(-50%, -50%);
-  font-size: 23px;
-  height: 23px;
+  font-size: 22px;
+  height: 22px;
+  width: 22px;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .link-icon img {
-  height: 25px;
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
   pointer-events: none;
 }
 
@@ -361,7 +367,7 @@ li {
 }
 
 li:before {
-  content: "❤";
+  content: "❤︎";
   padding-right: 5px;
 }
 
