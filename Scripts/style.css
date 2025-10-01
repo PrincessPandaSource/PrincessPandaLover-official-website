@@ -333,14 +333,14 @@ footer a {
 }
 
 /* Particularly large monitors */
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 1920px) {
   .wrapper {
-    max-width: 800px;
+    max-width: 1000px;
   }
 
   .about-me-mythical {
-    width: 47%;
-    max-width: 400px;
+    width: 50%;
+    max-width: 500px;
     /*top: 2.2rem;
     margin-top: -3rem;*/
   }
