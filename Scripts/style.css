@@ -44,7 +44,7 @@ i {
   font-style: italic;
 }
 
-.strikethrough {
+s {
   text-decoration: line-through;
 }
 
@@ -76,95 +76,6 @@ i {
   height:auto;
   margin-bottom: 1rem;
 }
-
-/* Credit: http://www.menucool.com/tooltip/css-tooltip */  
-/*.tooltip {
-  position:relative;
-}
-
-.tooltip .top {
-    min-width: 1px;
-    max-width: 200px;
-    top:-20px;
-    left:50%;
-    transform:translate(-50%, -100%);
-    padding:2px;
-    background-color:#fe80df;
-    color: black;
-    border-radius:5px;
-    position:absolute;
-    z-index:99999999;
-    box-sizing:border-box;
-    border:3px solid #ff00bf;
-    display:none;
-}
-
-.tooltip:hover .top {
-    display:block;
-}
-
-.tooltip .top i {
-    position:absolute;
-    top:100%;
-    left:50%;
-    margin-left:-12px;
-    width:24px;
-    height:12px;
-    overflow:hidden;
-}
-
-.tooltip .top i::after {
-    content:'';
-    position:absolute;
-    width:12px;
-    height:12px;
-    left:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
-    background-color:#fe80df;
-    border:3px solid #ff00bf;
-}
-
-.tooltip .bottom {
-    min-width:1px;
-    max-width: 200px;
-    top:40px;
-    left:50%;
-    transform:translate(-50%, 0);
-    padding:2px;
-    background-color:#fe80df;
-    color: black;
-    border-radius:5px;
-    position:absolute;
-    z-index:99999999;
-    box-sizing:border-box;
-    border:3px solid #ff00bf;
-    display:none;
-}
-
-.tooltip:hover .bottom {
-    display:block;
-}
-
-.tooltip .bottom i {
-    position:absolute;
-    bottom:100%;
-    left:50%;
-    margin-left:-12px;
-    width:24px;
-    height:12px;
-    overflow:hidden;
-}
-
-.tooltip .bottom i::after {
-    content:'';
-    position:absolute;
-    width:12px;
-    height:12px;
-    left:50%;
-    transform:translate(-50%,50%) rotate(45deg);
-    background-color:#fe80df;
-    border:3px solid #ff00bf;
-}*/
 
 .about-me-mythical {
   width: 47%;
@@ -247,10 +158,6 @@ h1 {
 h2 {
   padding-left: 15px;
 }
-
-/*h1, h2, .text-box {
-  width: 100%;
-}*/
 
 button {
   background-color: #fe80df;
