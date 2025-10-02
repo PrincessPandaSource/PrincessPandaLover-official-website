@@ -16,7 +16,7 @@
   <link rel="preload" href="fonts/Century Gothic Bold Italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="images/Background.png" as="image">
   <link rel="preload" href="images/Logo.svg" as="image">
-  <link rel="preload" href="images/About-me-box-image-1.png" as="image">
+  <link rel="preload" href="images/About-me-box-image-1.webp" as="image">
   <link rel="preload" href="images/HeartButton.svg" as="image">
 
   <link rel="canonical" href="https://princesspandalover.com">
@@ -56,7 +56,7 @@
   
   <meta property="og:title" content="❤︎PrincessPandaLover - Official website"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:image" content="https://princesspandalover.com/images/Logo.png"/>
+  <meta property="og:image" content="https://princesspandalover.com/images/Logo.webp"/>
   <meta property="og:image:width" content="396"/>
   <meta property="og:image:height" content="112"/>
   <meta property="og:url" content="https://princesspandalover.com"/>
@@ -65,7 +65,7 @@
   <meta name="twitter:site" content="@PrincPandaTweet">
   <meta name="twitter:title" content="❤︎PrincessPandaLover - Official website">
   <meta name="twitter:description" content="The official personal website of PrincessPandaLover, computer science student and aspiring artist. It is dedicated to showcasing her own work.">
-  <meta name="twitter:image" content="https://princesspandalover.com/images/Logo.png">
+  <meta name="twitter:image" content="https://princesspandalover.com/images/Logo.webp">
 </head>
 
 <body>
@@ -75,7 +75,10 @@
     <main>
       <h1 class="sr-only">❤︎PrincessPandaLover</h1>
       <section>
-        <img src="images/About-me-box-image-1.png" class="about-me-mythical" width="661" height="365" fetchpriority="high" alt="Mythical, my red wolf persona, standing behind the biography box and having her hands outstretched and on the box"/>
+        <picture>
+            <source srcset="images/About-me-box-image-1.webp" type="image/webp" />
+            <img src="images/original/About-me-box-image-1.png" class="about-me-mythical" width="661" height="365" fetchpriority="high" alt="Mythical, my red wolf persona, standing behind the biography box and having her hands outstretched and on the box"/>
+        </picture>
         <div class="text-box" style="padding-top: 35px">
           <p>Hey there! I'm PrincessPandaLover, a Chinese (yet lives in America) auDHD (both autistic and with ADHD) female who goes by "she/her" pronouns and was born on [REMOVED WITH GIT-FILTER-REPO].</p>
 
