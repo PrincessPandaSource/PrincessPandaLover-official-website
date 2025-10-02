@@ -126,6 +126,14 @@ s {
   margin-bottom: 0;
 }
 
+.text-box.center {
+  text-align: center;
+}
+
+.text-box:has(+.heart-grid) {
+  margin-bottom: 0.5rem
+}
+
 hr.space-break {
   border: none;
 }
@@ -275,6 +283,17 @@ li {
 li:before {
   content: "❤︎";
   padding-right: 5px;
+}
+
+.article-select-section {
+  text-align: center;
+  color: #ff00bf;
+  margin-bottom: 0.5rem;
+}
+
+.article-select {
+  display: inline;
+  color: #000000;
 }
 
 select {

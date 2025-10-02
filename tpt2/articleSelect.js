@@ -1,6 +1,6 @@
-document.querySelectorAll(".articleSelect").forEach((element, index) => {
+document.querySelectorAll(".article-select").forEach((element, index) => {
     element.innerHTML = `
-    <label for="article-select-${index}" style="color:black;">Select month:</label>
+    <label for="article-select-${index}">Select month:</label>
     <select id="article-select-${index}">
     <option value="July-2024.html">July 2024</option>
     <option value="June-2024.html">June 2024</option>
