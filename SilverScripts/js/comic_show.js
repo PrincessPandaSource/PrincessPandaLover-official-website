@@ -13,13 +13,20 @@ writeNav(true); //show navigation for comic pages. to toggle either images or te
 //debug
 console.log(pg)
 
-writePageTitle(".writePageTitle", true, " - "); //write title of page. true/false
+let toggleNum = true;
 
-writePageClickable(".writePageClickable",true); //show the current page. to toggle whether pages can be clicked to move to the next one, set this to true or false.
+writePageTitle(".writePageTitle", toggleNum, " - "); //write title of page. true/false
+
+writePageClickable(".writePageClickable",false); //show the current page. to toggle whether pages can be clicked to move to the next one, set this to true or false.
 
 writeAuthorNotes(".writeAuthorNotes");
 
 keyNav(); //enables navigation through the comic with the arrow keys and WSAD. It doesn't need a div with a class name, it automatically works. delete or comment out (add // at the beginning) here to disable.
+
+// Mods added by PrincessPandaLover for better web experience and SEO
+writeWebpageTitle(toggleNum); // Changes title of webpage in head HTML element
+
+changeCanonicalUrl(); // Changes canonical URL in accordance to current comic page
 
 // below this point is more under-the-hood type stuff that we only encourage messing with if you're more familiar with js, 
 // but it's still commented as extensively as possible anyway just in case
@@ -200,3 +207,26 @@ function keyNav() {
     window.scrollBy({ top: 30 });
   }
 });};
+
+function writeWebpageTitle(toggleNum) {
+  let ogTitle = document.title;
+  let newTitle = `${pgData[pg - 1].title} - ${ogTitle}`;
+
+  if (toggleNum) {
+    newTitle = `${pgData[pg - 1].pgNum}. ${pgData[pg - 1].title} - ${ogTitle}`;
+  }
+
+  document.title = newTitle;
+}
+
+function changeCanonicalUrl() {
+  const canonicalURL = document.querySelector("link[rel='canonical']");
+
+  if (canonicalURL) {
+    // Only adjust for urls ending with "index.html?pg=##"
+    if (window.location.href.startsWith("https://princesspandalover.com/silverscripts/index.html?pg=")) {
+      const baseURL = "https://princesspandalover.com/silverscripts/index.html";
+      canonicalURL.href = `${baseURL}?pg=${pg}`;
+    }
+  }
+}
