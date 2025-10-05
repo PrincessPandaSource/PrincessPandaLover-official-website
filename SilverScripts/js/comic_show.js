@@ -224,8 +224,8 @@ function changeCanonicalUrl() {
 
   if (canonicalURL) {
     // Only adjust for urls ending with "index.html?pg=##"
-    if (window.location.href.startsWith("https://princesspandalover.com/silverscripts/index.html?pg=")) {
-      const baseURL = "https://princesspandalover.com/silverscripts/index.html";
+    if (window.location.href.startsWith("https://princesspandalover.com/silverscripts/?pg=")) {
+      const baseURL = "https://princesspandalover.com/silverscripts/";
       canonicalURL.href = `${baseURL}?pg=${pg}`;
     }
   }
