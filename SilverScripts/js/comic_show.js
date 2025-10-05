@@ -14,8 +14,9 @@ writeNav(true); //show navigation for comic pages. to toggle either images or te
 console.log(pg)
 
 let toggleNum = true;
+let sepChar = ". ";
 
-writePageTitle(".writePageTitle", toggleNum, " - "); //write title of page. true/false
+writePageTitle(".writePageTitle", toggleNum, sepChar); //write title of page. true/false
 
 writePageClickable(".writePageClickable",false); //show the current page. to toggle whether pages can be clicked to move to the next one, set this to true or false.
 
@@ -24,7 +25,7 @@ writeAuthorNotes(".writeAuthorNotes");
 keyNav(); //enables navigation through the comic with the arrow keys and WSAD. It doesn't need a div with a class name, it automatically works. delete or comment out (add // at the beginning) here to disable.
 
 // Mods added by PrincessPandaLover for better web experience and SEO
-writeWebpageTitle(toggleNum); // Changes title of webpage in head HTML element
+writeWebpageTitle(toggleNum, sepChar); // Changes title of webpage in head HTML element
 
 changeCanonicalUrl(); // Changes canonical URL in accordance to current comic page
 
@@ -208,12 +209,12 @@ function keyNav() {
   }
 });};
 
-function writeWebpageTitle(toggleNum) {
+function writeWebpageTitle(toggleNum, sepChar) {
   let ogTitle = document.title;
   let newTitle = `${pgData[pg - 1].title} - ${ogTitle}`;
 
   if (toggleNum) {
-    newTitle = `${pgData[pg - 1].pgNum}. ${pgData[pg - 1].title} - ${ogTitle}`;
+    newTitle = `${pgData[pg - 1].pgNum}${sepChar}${pgData[pg - 1].title} - ${ogTitle}`;
   }
 
   document.title = newTitle;
