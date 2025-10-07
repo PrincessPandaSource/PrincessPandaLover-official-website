@@ -224,10 +224,15 @@ function changeCanonicalUrl() {
   const canonicalURL = document.querySelector("link[rel='canonical']");
 
   if (canonicalURL) {
-    // Only adjust for urls ending with "index.html?pg=##"
-    if (window.location.href.startsWith("https://princesspandalover.com/silverscripts/?pg=")) {
-      const baseURL = "https://princesspandalover.com/silverscripts/";
-      canonicalURL.href = `${baseURL}?pg=${pg}`;
+    const baseCanonURL = canonicalURL.href.split('?')[0];
+
+    if (pg === maxpg) {
+      // Latest strip has base URL has canon link
+      canonicalURL.href=baseCanonURL;
+    }
+    else {
+      // Otherwise for previous strips
+      canonicalURL.href = `${baseCanonURL}?pg=${pg}`;
     }
   }
 }
