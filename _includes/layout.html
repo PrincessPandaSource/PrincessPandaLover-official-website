@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% if title %}
+        <title>{{ title }} - ❤︎PrincessPandaLover</title>
+        {% else %}
+        <title>❤︎PrincessPandaLover - Official website</title>
+        {% endif %}
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+        <meta name="description" content="{{ description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="scripts/style.css">
+
+        <link rel="preload" href="fonts/Century Gothic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/Century Gothic Bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/Century Gothic Italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/Century Gothic Bold Italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="images/Background.png" as="image">
+        <link rel="preload" href="images/Logo.svg" as="image">
+        <link rel="preload" href="images/HeartButton.svg" as="image">
+
+        {% if canonical %}
+        <link rel="canonical" href="{{ canonical }}" />
+        {% endif %}
+        
+        {% if page.url == "/" %}
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "❤︎PrincessPandaLover",
+                "alternateName": ["PrincessPandaLover", "PPL"],
+                "url": "https://princesspandalover.com"
+                },
+                {
+                "@type": "Person",
+                "name": "PrincessPandaLover",
+                "gender": "Female",
+                "pronouns": "she/her",
+                "birthDate": "20031126T000000+0800",
+                "nationality": "Chinese",
+                "url": "https://princesspandalover.com",
+                "sameAs": [
+                    "https://bsky.app/profile/princesspanda.bsky.social",
+                    "https://twitter.com/PrincPandaTweet",
+                    "https://princesspandablog.tumblr.com",
+                    "https://www.instagram.com/princesspandagram/",
+                    "https://www.youtube.com/@princesspandatube",
+                    "https://www.deviantart.com/princesspandaart",
+                    "https://archiveofourown.org/users/PrincessPandaFanfiction"
+                ]
+                }
+            ]
+            }
+        </script>
+        {% endif %}
+        
+        <meta property="og:title" content="{{ title }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://princesspandalover.com/images/{{ og-image }}"/>
+        <meta property="og:image:width" content="{{ og-image-width }}"/>
+        <meta property="og:image:height" content="{{ og-image-height }}"/>
+        <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@PrincPandaTweet">
+        <meta name="twitter:title" content="{{ title }}">
+        <meta name="twitter:description" content="{{ og-description }}">
+        <meta name="twitter:image" content="https://princesspandalover.com/images/{{ og-image }}">
+
+        {% if page.url == "/" %}
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>
+        <script type="text/javascript">
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "tp7l100p1o");
+        </script>
+        {% endif %}
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="logo">
+                <a href="/" class="colored-link"><img src="/images/Logo.svg" class="logo" width="396" height="112" fetchpriority="high" alt='"PrincessPandaLover" logo colored in magenta and with heart at beginning\'></a>
+            </header><br/>
+
+            <main>
+                {{ content }}
+            </main>
+        </div>
+        
+        <footer>
+            <p>Copyright © 2022-2025 by PrincessPandaLover. <i>Sonic the Hedgehog</i> is copyrighted © by SEGA CORPORATION. Other copyrighted properties are by their respective owners.</p>
+            <p>All original content may be reproduced and/or altered with attribution and for noncommercial purposes that are not abusive or illegal.</p>
+            <p>Hosted by <a href="https://www.netlify.com/">Netlify</a>, deployed from <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">public GitHub repository</a> (meaning this website is open source)</p>
+        </footer>
+
+        <script src="https://kit.fontawesome.com/eee9ee52d0.js" crossorigin="anonymous" defer></script>
+    </body>
+</html>
