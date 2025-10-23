@@ -13,6 +13,7 @@ export default function (eleventyConfig) {
 
     // Parts of website not affected by Eleventy
     eleventyConfig.addPassthroughCopy("silverscripts");
+    eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
     // Permalink configration (no trailing slashes)
     eleventyConfig.addGlobalData("permalink", () => {
