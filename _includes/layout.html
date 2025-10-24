@@ -7,24 +7,26 @@
         {% else %}
         <title>❤︎PrincessPandaLover - Official website</title>
         {% endif %}
-        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
+        {% if description %}
         <meta name="description" content="{{ description }}">
+        {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css" href="scripts/style.css">
+        <link rel="stylesheet" type="text/css" href="/scripts/style.css">
 
-        <link rel="preload" href="fonts/Century Gothic.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="fonts/Century Gothic Bold.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="fonts/Century Gothic Italic.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="fonts/Century Gothic Bold Italic.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="images/Background.png" as="image">
-        <link rel="preload" href="images/Logo.svg" as="image">
-        <link rel="preload" href="images/HeartButton.svg" as="image">
+        <link rel="preload" href="/fonts/Century Gothic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/Century Gothic Bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/Century Gothic Italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/Century Gothic Bold Italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/images/Background.png" as="image">
+        <link rel="preload" href="/images/Logo.svg" as="image">
+        <link rel="preload" href="/images/HeartButton.svg" as="image">
 
         <link rel="canonical" href="https://princesspandalover.com{{ page.url }}" />
         
-        {% if page.url == "/" %}
+        {% if page.url != "/404.html" %}
         <script type="application/ld+json">
             {
             "@context": "https://schema.org",
@@ -59,23 +61,25 @@
         </script>
         {% endif %}
         
+        {% if page.url != "/404.html" %}
         <meta property="og:title" content="{{ title }}"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://princesspandalover.com/images/{{ og-image }}"/>
-        {% if og-image-width %}
-        <meta property="og:image:width" content="{{ og-image-width }}"/>
+        <meta property="og:image" content="https://princesspandalover.com/images/{{ ogImage }}"/>
+        {% if ogImageWidth %}
+        <meta property="og:image:width" content="{{ ogImageWidth }}"/>
         {% endif %}
-        {% if og-image-height %}
-        <meta property="og:image:height" content="{{ og-image-height }}"/>
+        {% if ogImageHeight %}
+        <meta property="og:image:height" content="{{ ogImageHeight }}"/>
         {% endif %}
         <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
-        <meta property="og:description" content="{{ og-description | description }}"/>
+        <meta property="og:description" content="{{ ogDescription | default: description }}"/>
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@PrincPandaTweet">
         <meta name="twitter:title" content="{{ title }}">
-        <meta name="twitter:description" content="{{ og-description | description }}">
-        <meta name="twitter:image" content="https://princesspandalover.com/images/{{ og-image }}">
+        <meta name="twitter:description" content="{{ ogDescription | default: description }}">
+        <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage }}">
+        {% endif %}
 
         {% if page.url == "/" %}
         <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>

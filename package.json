@@ -4,7 +4,7 @@
   "description": "PrincessPandaLover's official website",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve",
+    "start": "netlify dev",
     "build": "eleventy",
     "clean": "rmdir /s /q _site",
     "test": "echo \"Error: no test specified\" && exit 1"
