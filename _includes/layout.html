@@ -24,9 +24,11 @@
         <link rel="preload" href="/images/Logo.svg" as="image">
         <link rel="preload" href="/images/HeartButton.svg" as="image">
 
-        <link rel="canonical" href="https://princesspandalover.com{{ page.url }}" />
-        
         {% if page.url != "/404.html" %}
+        <link rel="canonical" href="https://princesspandalover.com{{ page.url }}" />
+        {% endif %}
+        
+        {% if page.url == "/" %}
         <script type="application/ld+json">
             {
             "@context": "https://schema.org",

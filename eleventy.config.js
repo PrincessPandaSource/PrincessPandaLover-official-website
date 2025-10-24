@@ -93,4 +93,15 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
     });
+
+    // Collections
+    const blogCollectionTags = ["tpt2May2024", "tpt2June2024", "tpt2July2024"];
+
+    blogCollectionTags.forEach(tag => {
+        eleventyConfig.addCollection(tag, function(collectionApi) {
+            return collectionApi.getFilteredByTag(tag).sort(function (a ,b) {
+                return b.date - a.date;
+            })
+        });
+    })
 }
