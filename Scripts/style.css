@@ -100,7 +100,7 @@ s {
   margin-bottom: 2rem;
 }
 
-.text-box:last-child {
+body>.text-box:last-of-type {
   margin-bottom: 0.5rem
 }
 
