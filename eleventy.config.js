@@ -102,7 +102,7 @@ eleventyConfig.addFilter("getMonthName", (monthKey) => {
     const dt = DateTime.fromISO(dateStr);
     
     if (!dt.isValid) {
-        console.error('Invalid date for monthKey:', monthKey, 'Type:', typeof monthKey);
+        console.error('Invalid date for monthKey:', monthKey, 'monthKey\'s type:', typeof monthKey);
         return '';
     }
 

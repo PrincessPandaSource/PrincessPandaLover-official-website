@@ -2,16 +2,19 @@
 pagination:
   data: collections.tpt2Log
   size: 1
-  alias: tpt2Data
-permalink: /tpt2/{{ tpt2Data.monthKey | getMonthName }}-{{ tpt2Data.monthKey | getYear }}.html
+  alias: monthlyData
+permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
 eleventyExcludeFromCollections: true
 ---
-<h1>My Theme Park Tycoon 2 Buildlog - {{ tpt2Data.monthKey | getMonthName }} {{ tpt2Data.monthKey | getYear }}</h1>
+{% set previousMonth = pagination.href.next %} <!--Because the entries are reversed-->
+{% set nextMonth = pagination.href.previous %}
+
+<h1>My Theme Park Tycoon 2 Buildlog - {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}</h1>
 <nav class="article-select-section">
-  <a class="button" href='June-2024.html'>Previous</a> | <div class="article-select"></div>
+  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
 </nav>
 
-{% for entry in tpt2Data.entries %}
+{% for entry in monthlyData.entries %}
 <article>
   <h2 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a></h2>
   <div class="text-box">
@@ -21,5 +24,5 @@ eleventyExcludeFromCollections: true
 {% endfor %}
 
 <nav class="article-select-section">
-  <a class="button" href='June-2024.html'>Previous</a> | <div class="article-select"></div>
+  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
 </nav>
