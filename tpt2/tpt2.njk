@@ -1,0 +1,25 @@
+---
+pagination:
+  data: collections.tpt2Log
+  size: 1
+  alias: tpt2Data
+permalink: /tpt2/{{ tpt2Data.monthKey | getMonthName }}-{{ tpt2Data.monthKey | getYear }}.html
+eleventyExcludeFromCollections: true
+---
+<h1>My Theme Park Tycoon 2 Buildlog - {{ tpt2Data.monthKey | getMonthName }} {{ tpt2Data.monthKey | getYear }}</h1>
+<nav class="article-select-section">
+  <a class="button" href='June-2024.html'>Previous</a> | <div class="article-select"></div>
+</nav>
+
+{% for entry in tpt2Data.entries %}
+<article>
+  <h2 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a></h2>
+  <div class="text-box">
+    {{ entry.content | safe }}
+  </div>
+</article>
+{% endfor %}
+
+<nav class="article-select-section">
+  <a class="button" href='June-2024.html'>Previous</a> | <div class="article-select"></div>
+</nav>

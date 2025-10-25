@@ -73,13 +73,13 @@
         {% if ogImageHeight %}
         <meta property="og:image:height" content="{{ ogImageHeight }}"/>
         {% endif %}
-        <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
-        <meta property="og:description" content="{{ ogDescription | default: description }}"/>
 
+        <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
+        <meta property="og:description" content="{{ ogDescription | default: description | default: '' }}"/>
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@PrincPandaTweet">
         <meta name="twitter:title" content="{{ title }}">
-        <meta name="twitter:description" content="{{ ogDescription | default: description }}">
+        <meta name="twitter:description" content="{{ ogDescription | default: description | default: '' }}">
         <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage }}">
         {% endif %}
 

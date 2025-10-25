@@ -15,25 +15,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("silverscripts");
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
-    // Permalink configration (no trailing slashes)
-    eleventyConfig.addGlobalData("permalink", () => {
-        return (data) => {
-            const stem = data.page.filePathStem;
-
-            // For the index file in the root
-            if (stem === "/index") {
-                return "/";
-            }
-
-            // For any file named "index"
-            if (stem.endsWith('/index')) {
-                return `${stem.slice(0, -6)}.html`;
-            }
-
-            return `${stem}.html`;
-        }
-    });
-
     // Image optimization shortcode
     eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, sizes="(max-width: 768px), (max-width: 1280px), (max-width: 1920px), 100vw") {
         let metadata = await Image(src, {
@@ -89,19 +70,47 @@ export default function (eleventyConfig) {
         return Image.generateHTML(metadata, imageAttributes);
     })
 
-    // Post date filter
+    // Post date filters
     eleventyConfig.addFilter("postDate", (dateObj) => {
-        return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
     });
 
-    // Collections
-    const blogCollectionTags = ["tpt2May2024", "tpt2June2024", "tpt2July2024"];
+    // Fun blog collections
+    const funBlogCollectionTags = ["tpt2Log"];
 
-    blogCollectionTags.forEach(tag => {
-        eleventyConfig.addCollection(tag, function(collectionApi) {
-            return collectionApi.getFilteredByTag(tag).sort(function (a ,b) {
-                return b.date - a.date;
-            })
-        });
-    })
+    funBlogCollectionTags.forEach(tag => {
+    eleventyConfig.addCollection(tag, function(collectionApi) {
+        const grouped = collectionApi
+            .getFilteredByTag(tag)
+            .reverse()
+            .reduce((acc, entry) => {
+                const monthKey = DateTime.fromJSDate(entry.date, { zone: 'utc' }).toFormat('yyyy-MM');
+                (acc[monthKey] ??= []).push(entry);
+                return acc;
+            }, {});
+
+        return Object.entries(grouped).map(([monthKey, entries]) => ({
+            monthKey,
+            entries
+        }));
+    });
+});
+
+eleventyConfig.addFilter("getMonthName", (monthKey) => {
+    if (!monthKey) return '';
+    const dateStr = String(monthKey) + '-01';
+    const dt = DateTime.fromISO(dateStr);
+    
+    if (!dt.isValid) {
+        console.error('Invalid date for monthKey:', monthKey, 'Type:', typeof monthKey);
+        return '';
+    }
+
+    return dt.toFormat('MMMM');
+});
+
+eleventyConfig.addFilter("getYear", (monthKey) => {
+    if (!monthKey) return '';
+    return String(monthKey).split('-')[0];
+});
 }

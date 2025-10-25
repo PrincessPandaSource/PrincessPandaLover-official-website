@@ -1,7 +1,7 @@
 ---
 layout: layout.html
 ---
-<h1>{{ blogTitle }} - {{ month }} {{ year }}</h1>
+<h1>{{ blogTitle }} - {{ monthKey | getMonthName }} {{ monthKey | getYear }}</h1>
 <nav class="article-select-section">
   <a class="button" href='June-2024.html'>Previous</a> | <div class="article-select"></div>
 </nav>
