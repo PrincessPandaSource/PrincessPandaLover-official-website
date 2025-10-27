@@ -100,7 +100,10 @@ s {
   margin-bottom: 2rem;
 }
 
-body>.text-box:last-of-type {
+body>.text-box:last-of-type,
+main>.text-box:last-of-type,
+section:last-of-type>.text-box:last-of-type,
+article:last-of-type>.text-box:last-of-type {
   margin-bottom: 0.5rem
 }
 

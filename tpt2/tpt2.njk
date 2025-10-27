@@ -6,12 +6,20 @@ pagination:
 permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
 eleventyExcludeFromCollections: true
 ---
-{% set previousMonth = pagination.href.next %} <!--Because the entries are reversed-->
+{% set previousMonth = pagination.href.next %} {# Because the entries are reversed #}
 {% set nextMonth = pagination.href.previous %}
 
 <h1>My Theme Park Tycoon 2 Buildlog - {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}</h1>
 <nav class="article-select-section">
-  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-${index}">Select month:</label>
+    <select id="article-select-0">
+    {% for page in pagination.pages %}
+      {% set pageMonth = page.monthKey | getMonthName %}
+      {% set pageYear = page.monthKey | getYear %}
+      <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
+    {% endfor %}
+    </select>
+    <button id="go-to-article-0" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
 </nav>
 
 {% for entry in monthlyData.entries %}
@@ -24,5 +32,15 @@ eleventyExcludeFromCollections: true
 {% endfor %}
 
 <nav class="article-select-section">
-  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-${index}">Select month:</label>
+    <select id="article-select-1">
+    {% for page in pagination.pages %}
+      {% set pageMonth = page.monthKey | getMonthName %}
+      {% set pageYear = page.monthKey | getYear %}
+      <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
+    {% endfor %}
+    </select>
+    <button id="go-to-article-1" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
 </nav>
+
+<script src="/scripts/articleDropdownSelect.js" defer></script>
