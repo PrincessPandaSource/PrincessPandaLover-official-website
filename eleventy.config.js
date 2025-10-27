@@ -38,17 +38,17 @@ export default function (eleventyConfig) {
                     }
                 }
 
-                const originalWidth = options.sourceWidth;
-                const wasResized = width && width !== originalWidth && [768, 1280, 1920].includes(width);
+                const ogWidth = options.sourceWidth;
+                const wasResized = width && width !== ogWidth && [768, 1280, 1920].includes(width);
 
                 if (format === 'webp') {
                     if (wasResized) {
                         return `${subDirName}webp/${width}/${name}.${format}`;
                     }
-                    return `/${subDirName}webp/${name}.${format}`;
+                    return `${subDirName}webp/${name}.${format}`;
                 }
 
-                return `/${subDirName}${name}.${format}`;
+                return `${subDirName}${name}.${format}`;
             }
         });
 
@@ -75,19 +75,40 @@ export default function (eleventyConfig) {
         return Image.generateHTML(metadata, imageAttributes);
     })
 
-    eleventyConfig.addShortcode("imgThumb", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
-        let imgWidth, imgHeight;
-        if (width && height) {
+    eleventyConfig.addShortcode("imageThumb", async function (src, alt, width=null, height=null, lazy=true, classPara=null, sizes="auto") {
+        let imgWidth = null;
+        if (width) {
             imgWidth = width * 2;
-            imgHeight = height * 2;
+        }
+
+        // Get original image metadata
+        let ogMetadata = await Image(src, {
+            widths: ["auto"],
+            formats: ["auto"],
+            outputDir: "./_site/images/",
+            urlPath: "/images/",
+            dryRun: true
+        })
+
+        // Get original width
+        let ogWidth = null;
+        const formatKeys = Object.keys(ogMetadata);
+        if (formatKeys.length > 0) {
+            ogWidth = ogMetadata[formatKeys[0]][0].width;
+        }
+
+        // See if specificed width is different from OG
+        let widthsOption = ["auto"];
+        if (imgWidth && imgWidth !== ogWidth) {
+            widthsOption = [imgWidth, "auto"];
         }
         
         let metadata = await Image(src, {
-            widths: [imgWidth, "auto"],
+            widths: widthsOption,
             formats: ["webp", "auto"],
             outputDir: "./_site/images/",
             urlPath: "/images/",
-            filenameFormat: function (id, src, format, options) {
+            filenameFormat: function (id, src, width, format, options) {
                 const extension = path.extname(src);
                 const name = path.basename(src, extension);
 
@@ -103,22 +124,22 @@ export default function (eleventyConfig) {
                     }
                 }
 
-                const originalWidth = options.sourceWidth;
-                const wasResized = imgWidth !== originalWidth;
+                const isThumb = width === imgWidth;
 
                 if (format === 'webp') {
-                    if (wasResized) {
-                        return `${subDirName}webp/thumb/${name}.${format}`;
+                    if (isThumb && imgWidth !== ogWidth) {
+                        return `${subDirName}webp/thumb/${name}-${imgWidth}.${format}`;
                     }
-                    return `/${subDirName}webp/${name}.${format}`;
+                    return `${subDirName}webp/${name}.${format}`;
                 }
 
-                return `/${subDirName}${name}.${format}`;
+                return `${subDirName}${name}.${format}`;
             }
         });
 
         let imageAttributes = {
             alt,
+            sizes,
             loading: lazy ? "lazy" : "eager",
             decoding: "async"
         };
@@ -139,19 +160,43 @@ export default function (eleventyConfig) {
         return Image.generateHTML(metadata, imageAttributes);
     })
 
-    eleventyConfig.addShortcode("imgGIFThumb", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
-        let imgWidth, imgHeight;
-        if (width && height) {
+    eleventyConfig.addShortcode("imageGIFThumb", async function (src, alt, width=null, height=null, lazy=true, classPara=null, sizes="auto") {
+        let imgWidth = null;
+        if (width) {
             imgWidth = width * 2;
-            imgHeight = height * 2;
+        }
+
+        // Get original image metadata
+        let ogMetadata = await Image(src, {
+            widths: ["auto"],
+            formats: ["auto"],
+            outputDir: "./_site/images/",
+            urlPath: "/images/",
+            dryRun: true
+        })
+
+        // Get original width
+        let ogWidth = null;
+        const formatKeys = Object.keys(ogMetadata);
+        if (formatKeys.length > 0) {
+            ogWidth = ogMetadata[formatKeys[0]][0].width;
+        }
+
+        // See if specificed width is different from OG
+        let widthsOption = ["auto"];
+        if (imgWidth && imgWidth !== ogWidth) {
+            widthsOption = [imgWidth, "auto"];
         }
         
         let metadata = await Image(src, {
-            widths: [imgWidth, "auto"],
+            sharpOptions: {
+                animated: true
+            },
+            widths: widthsOption,
             formats: ["gif"],
             outputDir: "./_site/images/",
             urlPath: "/images/",
-            filenameFormat: function (id, src, options) {
+            filenameFormat: function (id, src, width, format, options) {
                 const extension = path.extname(src);
                 const name = path.basename(src, extension);
 
@@ -167,19 +212,19 @@ export default function (eleventyConfig) {
                     }
                 }
 
-                const originalWidth = options.sourceWidth;
-                const wasResized = imgWidth !== originalWidth;
+                const isThumb = width === imgWidth;
 
-                if (wasResized) {
-                    return `${subDirName}thumb/${name}.gif`;
+                if (isThumb && imgWidth !== ogWidth) {
+                    return `${subDirName}thumb/${name}-${imgWidth}.gif`;
                 }
 
-                return `/${subDirName}${name}.gif`;
+                return `${subDirName}${name}.gif`;
             }
         });
 
         let imageAttributes = {
             alt,
+            sizes: "auto",
             loading: lazy ? "lazy" : "eager",
             decoding: "async"
         };
