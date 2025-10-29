@@ -16,16 +16,48 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
     // Image optimization shortcodes
-    eleventyConfig.addShortcode("image", async function (src, alt, lazy=true, width=null, height=null, classPara=null, sizes="(max-width: 768px), (max-width: 1280px), (max-width: 1920px), 100vw") {
+    eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
+        // Get original image metadata
+        let ogMetadata = await Image(src, {
+            widths: ["auto"],
+            formats: ["auto"],
+            outputDir: "./_site/images/",
+            urlPath: "/images/",
+            dryRun: true
+        })
+
+        // Get original width
+        let ogWidth = null;
+        const formatKeys = Object.keys(ogMetadata);
+        if (formatKeys.length > 0) {
+            ogWidth = ogMetadata[formatKeys[0]][0].width;
+        }
+
+        // See if specificed width is different from OG
+        let widthsOption = ["auto"];
+        let sizeOptions = "100vw";
+        if (ogWidth > 1920) {
+            widthsOption = [768, 1280, 1920, "auto"];
+            sizeOptions = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 100vw";
+        } else if (ogWidth > 1280) {
+            widthsOption = [768, 1280, "auto"];
+            sizeOptions = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, 100vw";
+        } else if (ogWidth > 768) {
+            widthsOption = [768, "auto"];
+            sizeOptions = "(max-width: 768px) 768px, 100vw";
+        }
+        
         let metadata = await Image(src, {
-            widths: [768, 1280, 1920, "auto"],
+            widths: widthsOption,
             formats: ["webp", "auto"],
             outputDir: "./_site/images/",
             urlPath: "/images/",
             filenameFormat: function (id, src, width, format, options) {
+                // Get filename
                 const extension = path.extname(src);
                 const name = path.basename(src, extension);
 
+                // Get subdirectory's name
                 const srcPath = src.replace(/\\/g, '/');
                 const imagesPathIndex = srcPath.indexOf('images/');
                 let subDirName = '';
@@ -38,8 +70,9 @@ export default function (eleventyConfig) {
                     }
                 }
 
+                // Determine if image was resized
                 const ogWidth = options.sourceWidth;
-                const wasResized = width && width !== ogWidth && [768, 1280, 1920].includes(width);
+                const wasResized = width && width !== ogWidth && sizeOptions.includes(width);
 
                 if (format === 'webp') {
                     if (wasResized) {
@@ -54,13 +87,13 @@ export default function (eleventyConfig) {
 
         let imageAttributes = {
             alt,
-            sizes,
+            sizes: sizeOptions,
             loading: lazy ? "lazy" : "eager",
             decoding: "async"
         };
 
         // Add inline style for resizing in webpage
-        if (width || height) {
+        if (width !== null || height !== null) {
             let styles = [];
             if (width != null) styles.push(`max-width: ${width}px`);
             if (height != null) styles.push(`max-height: ${height}px`);
@@ -109,9 +142,11 @@ export default function (eleventyConfig) {
             outputDir: "./_site/images/",
             urlPath: "/images/",
             filenameFormat: function (id, src, width, format, options) {
+                // Get filename
                 const extension = path.extname(src);
                 const name = path.basename(src, extension);
-
+                
+                // Get subdirectory's name
                 const srcPath = src.replace(/\\/g, '/');
                 const imagesPathIndex = srcPath.indexOf('images/');
                 let subDirName = '';
@@ -124,6 +159,7 @@ export default function (eleventyConfig) {
                     }
                 }
 
+                // Determine if image is thumbnail
                 const isThumb = width === imgWidth;
 
                 if (format === 'webp') {
@@ -197,9 +233,11 @@ export default function (eleventyConfig) {
             outputDir: "./_site/images/",
             urlPath: "/images/",
             filenameFormat: function (id, src, width, format, options) {
+                // Get filename
                 const extension = path.extname(src);
                 const name = path.basename(src, extension);
 
+                // Get subdirectory's name
                 const srcPath = src.replace(/\\/g, '/');
                 const imagesPathIndex = srcPath.indexOf('images/');
                 let subDirName = '';
@@ -212,6 +250,7 @@ export default function (eleventyConfig) {
                     }
                 }
 
+                // Determine if image is thumbnail
                 const isThumb = width === imgWidth;
 
                 if (isThumb && imgWidth !== ogWidth) {
