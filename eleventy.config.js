@@ -16,7 +16,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
     // Image optimization shortcodes
-    eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null, sizes="(max-width: 768px), (max-width: 1280px), (max-width: 1920px), 100vw") {
+    eleventyConfig.addShortcode("image", async function (src, alt, lazy=true, width=null, height=null, classPara=null, sizes="(max-width: 768px), (max-width: 1280px), (max-width: 1920px), 100vw") {
         let metadata = await Image(src, {
             widths: [768, 1280, 1920, "auto"],
             formats: ["webp", "auto"],
@@ -27,11 +27,11 @@ export default function (eleventyConfig) {
                 const name = path.basename(src, extension);
 
                 const srcPath = src.replace(/\\/g, '/');
-                const imagesPathIndex = srcPath.indexOf('/images/');
+                const imagesPathIndex = srcPath.indexOf('images/');
                 let subDirName = '';
                 
                 if (imagesPathIndex !== -1) {
-                    const pathAfterImages = srcPath.substring(imagesPathIndex + '/images/'.length);
+                    const pathAfterImages = srcPath.substring(imagesPathIndex + 'images/'.length);
                     const subDirPath = path.dirname(pathAfterImages);
                     if (subDirPath && subDirPath !== '.') {
                         subDirName = subDirPath + '/';
@@ -113,11 +113,11 @@ export default function (eleventyConfig) {
                 const name = path.basename(src, extension);
 
                 const srcPath = src.replace(/\\/g, '/');
-                const imagesPathIndex = srcPath.indexOf('/images/');
+                const imagesPathIndex = srcPath.indexOf('images/');
                 let subDirName = '';
                 
                 if (imagesPathIndex !== -1) {
-                    const pathAfterImages = srcPath.substring(imagesPathIndex + '/images/'.length);
+                    const pathAfterImages = srcPath.substring(imagesPathIndex + 'images/'.length);
                     const subDirPath = path.dirname(pathAfterImages);
                     if (subDirPath && subDirPath !== '.') {
                         subDirName = subDirPath + '/';
@@ -160,7 +160,7 @@ export default function (eleventyConfig) {
         return Image.generateHTML(metadata, imageAttributes);
     })
 
-    eleventyConfig.addShortcode("imageGIFThumb", async function (src, alt, width=null, height=null, lazy=true, classPara=null, sizes="auto") {
+    eleventyConfig.addShortcode("imageGIFThumb", async function (src, alt, lazy=true, width=null, height=null, sizes="auto", classPara=null) {
         let imgWidth = null;
         if (width) {
             imgWidth = width * 2;
@@ -201,11 +201,11 @@ export default function (eleventyConfig) {
                 const name = path.basename(src, extension);
 
                 const srcPath = src.replace(/\\/g, '/');
-                const imagesPathIndex = srcPath.indexOf('/images/');
+                const imagesPathIndex = srcPath.indexOf('images/');
                 let subDirName = '';
                 
                 if (imagesPathIndex !== -1) {
-                    const pathAfterImages = srcPath.substring(imagesPathIndex + '/images/'.length);
+                    const pathAfterImages = srcPath.substring(imagesPathIndex + 'images/'.length);
                     const subDirPath = path.dirname(pathAfterImages);
                     if (subDirPath && subDirPath !== '.') {
                         subDirName = subDirPath + '/';
