@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
-import Image from "@11ty/eleventy-img"
-import path from "path"
+import Image from "@11ty/eleventy-img";
+import path from "path";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
@@ -15,7 +15,115 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("silverscripts");
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
-    // Image optimization shortcodes
+    // Image optimization
+    eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
+        formats: ["webp", "auto"],
+        outputDir: "./_site/images/",
+        urlPath: "/images/",
+
+        filenameFormat: function (id, src, width, format, options) {
+            // Get filename
+            const extension = path.extname(src);
+            const name = path.basename(src, extension);
+
+            // Get subdirectory's name
+            const srcPath = src.replace(/\\/g, '/');
+            const imagesPathIndex = srcPath.indexOf('images/');
+            let subDirName = '';
+            
+            if (imagesPathIndex !== -1) {
+                const pathAfterImages = srcPath.substring(imagesPathIndex + 'images/'.length);
+                const subDirPath = path.dirname(pathAfterImages);
+                if (subDirPath && subDirPath !== '.') {
+                    subDirName = subDirPath + '/';
+                }
+            }
+
+            // Determine if image was resized
+            const ogWidth = options.sourceWidth;
+            const wasResized = width && width !== ogWidth;
+            const thumbWidth = options.imgAttributes?.['data-thumb'];
+            
+            if (format === 'webp') {
+                if (wasResized) {
+                    if (thumbWidth) {
+                        const imgWidth = parseInt(thumbWidth * 2);
+                        return `${subDirName}webp/thumb/${name}-${imgWidth}.${format}`;
+                    } else {
+                        return `${subDirName}webp/${width}/${name}.${format}`;
+                    }
+                }
+                return `${subDirName}webp/${name}.${format}`;
+            }
+
+            return `${subDirName}${name}.${format}`;
+        },
+
+        widthsFunction: async function(src) {
+            // Get original image metadata
+            let ogMetadata = await Image(src, {
+                widths: ["auto"],
+                formats: ["auto"],
+                outputDir: "./_site/images/",
+                urlPath: "/images/",
+                dryRun: true
+            })
+
+            // Get original width
+            let ogWidth = null;
+            const formatKeys = Object.keys(ogMetadata);
+            if (formatKeys.length > 0) {
+                ogWidth = ogMetadata[formatKeys[0]][0].width;
+            }
+
+            // Determine widths based on original
+            const thumbWidth = options.imgAttributes?.['data-thumb'];
+            if (thumbWidth) {
+                // Is thumbnail
+                const imgWidth = parseInt(thumbWidth * 2);
+
+                if (imgWidth !== ogWidth) {
+                    return [imgWidth, "auto"];
+                }
+            } else {
+                // Not a thumbnail
+                if (ogWidth > 1920) {
+                    return [768, 1280, 1920, "auto"];
+                } else if (ogWidth > 1280) {
+                    return [768, 1280, "auto"];
+                } else if (ogWidth > 768) {
+                    return widthsOption [768, "auto"];
+                }
+            }
+        },
+
+        defaultAttributes: function(metadata, src, options) {
+            // Get original width
+            let ogWidth = null;
+            const formatKeys = Object.keys(metadata);
+            if (formatKeys.length > 0) {
+                ogWidth = metadata[formatKeys[0]][0].width;
+            }
+
+            // Determine sizes to use based on original width
+            let sizes = "100vw";
+            if (ogWidth > 1920) {
+                sizes = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 100vw";
+            } else if (ogWidth > 1280) {
+                sizes = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, 100vw";
+            } else if (ogWidth > 768) {
+                sizes = "(max-width: 768px) 768px, 100vw";
+            }
+
+            return {
+                loading: "lazy",
+                decoding: "async",
+                sizes: sizes
+            };
+        }
+    });
+
+    // Additional image optimization shortcodes
     eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
         // Get original image metadata
         let ogMetadata = await Image(src, {
@@ -196,7 +304,7 @@ export default function (eleventyConfig) {
         return Image.generateHTML(metadata, imageAttributes);
     })
 
-    eleventyConfig.addShortcode("imageGIFThumb", async function (src, alt, lazy=true, width=null, height=null, sizes="auto", classPara=null) {
+    eleventyConfig.addShortcode("GIFThumb", async function (src, alt, lazy=true, width=null, height=null, sizes="auto", classPara=null) {
         let imgWidth = null;
         if (width) {
             imgWidth = width * 2;
@@ -293,38 +401,38 @@ export default function (eleventyConfig) {
     const funBlogCollectionTags = ["tpt2Log"];
 
     funBlogCollectionTags.forEach(tag => {
-    eleventyConfig.addCollection(tag, function(collectionApi) {
-        const grouped = collectionApi
-            .getFilteredByTag(tag)
-            .reverse()
-            .reduce((acc, entry) => {
-                const monthKey = DateTime.fromJSDate(entry.date, { zone: 'utc' }).toFormat('yyyy-MM');
-                (acc[monthKey] ??= []).push(entry);
-                return acc;
-            }, {});
+        eleventyConfig.addCollection(tag, function(collectionApi) {
+            const grouped = collectionApi
+                .getFilteredByTag(tag)
+                .reverse()
+                .reduce((acc, entry) => {
+                    const monthKey = DateTime.fromJSDate(entry.date, { zone: 'utc' }).toFormat('yyyy-MM');
+                    (acc[monthKey] ??= []).push(entry);
+                    return acc;
+                }, {});
 
-        return Object.entries(grouped).map(([monthKey, entries]) => ({
-            monthKey,
-            entries
-        }));
+            return Object.entries(grouped).map(([monthKey, entries]) => ({
+                monthKey,
+                entries
+            }));
+        });
     });
-});
 
-eleventyConfig.addFilter("getMonthName", (monthKey) => {
-    if (!monthKey) return '';
-    const dateStr = String(monthKey) + '-01';
-    const dt = DateTime.fromISO(dateStr);
-    
-    if (!dt.isValid) {
-        console.error('Invalid date for monthKey:', monthKey, 'monthKey\'s type:', typeof monthKey);
-        return '';
-    }
+    eleventyConfig.addFilter("getMonthName", (monthKey) => {
+        if (!monthKey) return '';
+        const dateStr = String(monthKey) + '-01';
+        const dt = DateTime.fromISO(dateStr);
+        
+        if (!dt.isValid) {
+            console.error('Invalid date for monthKey:', monthKey, 'monthKey\'s type:', typeof monthKey);
+            return '';
+        }
 
-    return dt.toFormat('MMMM');
-});
+        return dt.toFormat('MMMM');
+    });
 
-eleventyConfig.addFilter("getYear", (monthKey) => {
-    if (!monthKey) return '';
-    return String(monthKey).split('-')[0];
-});
+    eleventyConfig.addFilter("getYear", (monthKey) => {
+        if (!monthKey) return '';
+        return String(monthKey).split('-')[0];
+    });
 }
