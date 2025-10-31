@@ -29,7 +29,7 @@
 body {
   margin: 0;
   background-color: #d5e5ff;
-  background-image: url("/images/Background.png");
+  background-image: url("/images/background.png");
   background-position: top;
   display: flex;
   flex-direction: column;
