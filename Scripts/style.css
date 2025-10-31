@@ -137,6 +137,11 @@ article:last-of-type>.text-box:last-of-type {
   margin-bottom: 0.5rem
 }
 
+.text-box-thumb {
+  max-height: 250px;
+  width: auto;
+}
+
 hr.space-break {
   border: none;
 }
