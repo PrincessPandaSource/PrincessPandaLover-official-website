@@ -1,10 +1,10 @@
 import { DateTime } from "luxon";
 import Image from "@11ty/eleventy-img";
-import path from "path";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
     eleventyConfig.addPassthroughCopy("images");
+    eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("_headers");
@@ -14,6 +14,12 @@ export default function (eleventyConfig) {
     // Parts of website not affected by Eleventy
     eleventyConfig.addPassthroughCopy("silverscripts");
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
+
+    // Remove trailing slashes from pages that don't need them
+	eleventyConfig.addGlobalData("permalink", () => {
+		return (data) =>
+			`${data.page.filePathStem}.${data.page.outputFileExtension}`;
+	});
 
     // Image optimization
     eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
