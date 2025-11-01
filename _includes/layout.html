@@ -76,7 +76,7 @@
 
         <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
         <meta property="og:description" content="{{ ogDescription | default: description | default: '' }}"/>
-        <meta name="twitter:card" content="summary">
+        <meta name="twitter:card" content="{% if summaryLargeImage %}summary_large_image{% else %}summary{% endif %}">
         <meta name="twitter:site" content="@PrincPandaTweet">
         <meta name="twitter:title" content="{{ title }}">
         <meta name="twitter:description" content="{{ ogDescription | default: description | default: '' }}">
