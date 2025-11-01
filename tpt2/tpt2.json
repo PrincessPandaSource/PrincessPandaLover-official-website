@@ -1,4 +1,18 @@
 {
     "layout": "layout.html",
-    "tags": "tpt2Log"
+    "tags": "tpt2Log",
+    "monthMetadata": {
+        "2024-05": {
+            "ogImage": "tpt2/redid-star-post.png",
+            "ogDescription": "Featuring, a Green Hill Zone ride!"
+        },
+        "2024-06": {
+            "ogImage": "tpt2/sonic-head-done.png",
+            "ogDescription": "I try to build a cartoon wolf prop, and more."
+        },
+        "2024-07": {
+            "ogImage": "tpt2/strangely-colored-wolf-head.png",
+            "ogDescription": "More work on the Green Hill Zone ride, plus starting a Sonic statue, and more."
+        }
+    }
 }

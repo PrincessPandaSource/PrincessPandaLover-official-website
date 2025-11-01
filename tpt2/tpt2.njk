@@ -5,6 +5,11 @@ pagination:
   alias: monthlyData
 permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
 eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "{{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }} - My Theme Park Tycoon 2 Buildlog"
+  description: "Entries of My Theme Park Tycoon 2 Buildlog for the month of {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}."
+  ogImage: "{{ monthMetadata[monthlyData.monthKey].ogImage }}"
+  ogDescription: "Come see what I built in Theme Park Tycoon 2 on Roblox in {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}! {{ monthMetadata[monthlyData.monthKey].ogDescription }}"
 ---
 {% set previousMonth = pagination.href.next %} {# Because the entries are reversed #}
 {% set nextMonth = pagination.href.previous %}
