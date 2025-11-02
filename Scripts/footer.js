@@ -1,7 +1,0 @@
-document.getElementsByTagName("footer")[0].innerHTML = '\
-\
-  <p>Copyright © 2022-2025 by PrincessPandaLover. <i>Sonic the Hedgehog</i> is copyrighted © by SEGA CORPORATION. Other copyrighted properties are by their respective owners.</p>\
-  <p>All original content may be reproduced and/or altered with attribution and for noncommercial purposes that are not abusive or illegal.</p>\
-  <p>Hosted by <a href="https://www.netlify.com/">Netlify</a>, deployed from <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">public GitHub repository</a> (meaning this website is open source)</p>\
-\
-';
