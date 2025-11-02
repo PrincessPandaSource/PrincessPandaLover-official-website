@@ -14,16 +14,7 @@ export default function (eleventyConfig) {
 
     // Parts of website not affected by Eleventy
     eleventyConfig.addPassthroughCopy("silverscripts");
-
-    // For web experiments
-    eleventyConfig.addPassthroughCopy({
-        "web-coding-practice/blurjack": "web-coding-practice/blurjack",
-    }, {
-        filter: [
-            "**/*", // Copy all files unprocessed
-            "!**/index.html" // Exclude index.html
-        ]
-    });
+    eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
     // Remove trailing slashes from pages that don't need them
 	eleventyConfig.addGlobalData("permalink", () => {

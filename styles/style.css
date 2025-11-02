@@ -281,6 +281,7 @@ ul {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+  line-height: 1.5;
 }
 
 li {

@@ -1,29 +1,26 @@
----
-layout: false
-changefreq: yearly
-priority: 0.3
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="A basic browser game that replicates the card game Blackjack but with a Sonic the Hedgehog theme. It was coded only for practice. Saving and mobile display is not supported.">
+    <meta name="description" content="A basic browser game that replicates the card game Blackjack but with a Sonic the Hedgehog theme. It is experimental and was coded only for practice.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blurjack</title>
 
     <link rel="canonical" href="https://princesspandalover.com/web-coding-practice/blurjack/">
+
+    <meta name="robots" content="noindex">
 
     <meta property="og:title" content="Blurjack"/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="https://princesspandalover.com/images/blurjack.png"/>
     <meta property="og:url" content="https://princesspandalover.com/web-coding-practice/blurjack/"/>
     <meta property="og:site_name" content="❤︎PrincessPandaLover"/>
-    <meta property="og:description" content="Blackjack but it's Sonic. Created as computer programming practice."/>
+    <meta property="og:description" content="Blackjack but it's Sonic. Created as computer programming practice. (Experimental)"/>
 
     <meta name="twitter:card" content="summary-large-image">
     <meta name="twitter:site" content="@PrincPandaTweet">
     <meta name="twitter:title" content="Blurjack">
-    <meta name="twitter:description" content="Blackjack but it's Sonic. Created as computer programming practice.">
+    <meta name="twitter:description" content="Blackjack but it's Sonic. Created as computer programming practice. (Experimental)">
     <meta name="twitter:image" content="https://princesspandalover.com/images/blurjack.png">
 
     <link rel="stylesheet" href="style.css">
@@ -37,7 +34,7 @@ priority: 0.3
     <main>
         <div id="topMenu">
             <div class="counterDisplay">
-                <img eleventy:ignore src="images/ring.png" height="45">
+                <img src="images/ring.png" height="45">
                 <span id="ringCounter">9001</span>
             </div>
             <button id="howDoIPlay">How do I play?</button>
@@ -77,50 +74,50 @@ priority: 0.3
 
             <div id="rowOfRings">
                 <div id="oneRing" class="ringToBet">
-                    <img eleventy:ignore src="images/ring.png">
+                    <img src="images/ring.png">
                     <div class="label">1</div>
                 </div>
                 <div id="fiveRings" class="ringToBet">
-                    <img eleventy:ignore src="images/whiteRing.png">
+                    <img src="images/whiteRing.png">
                     <div class="label">5</div>
                 </div>
                 <div id="tenRings" class="ringToBet">
-                    <img eleventy:ignore src="images/blueRing.png">
+                    <img src="images/blueRing.png">
                     <div class="label">10</div>
                 </div>
                 <div id="twentyFiveRings" class="ringToBet">
-                    <img eleventy:ignore src="images/cyanRing.png">
+                    <img src="images/cyanRing.png">
                     <div class="label">25</div>
                 </div>
                 <div id="fiftyRings" class="ringToBet">
-                    <img eleventy:ignore src="images/greenRing.png">
+                    <img src="images/greenRing.png">
                     <div class="label">50</div>
                 </div>
                 <div id="hundredRings" class="ringToBet">
-                    <img eleventy:ignore src="images/redRing.png">
+                    <img src="images/redRing.png">
                     <div class="label">100</div>
                 </div>
                 <div id="fiveHundredRings" class="ringToBet">
-                    <img eleventy:ignore src="images/purpleRing.png">
+                    <img src="images/purpleRing.png">
                     <div class="label">500</div>
                 </div>
             </div>
 
             <div id="showYourBets" class="counterDisplay">
                 <div id="bettedRingsCounterDeal" class="counterDisplay">
-                    <img eleventy:ignore src="images/ring.png" height="65">
+                    <img src="images/ring.png" height="65">
                     <span id="ringsBetDeal">9001</span>
                 </div>
                 <div id="subsequentBet" class="bettedRing">
-                    <img eleventy:ignore id="subBetImg" src="images/purpleRing.png">
+                    <img id="subBetImg" src="images/purpleRing.png">
                     <div id="subBetLabel" class="label">500</div>
                 </div>
                 <div id="secondBet" class="bettedRing">
-                    <img eleventy:ignore id="secBetImg" src="images/greenRing.png">
+                    <img id="secBetImg" src="images/greenRing.png">
                     <div id="secBetLabel" class="label">50</div>
                 </div>
                 <div id="firstBet" class="bettedRing">
-                    <img eleventy:ignore id="firBetImg" src="images/cyanRing.png">
+                    <img id="firBetImg" src="images/cyanRing.png">
                     <div id="firBetLabel" class="label">25</div>
                 </div>
             </div>
@@ -132,21 +129,21 @@ priority: 0.3
             <div id="cardsSection">
                 <div id="sonicsRow" class="rowMain">
                     <div class="carderHeading"><h2>Sonic</h2></div>
-                    <img eleventy:ignore id="sonicsCard1" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="sonicsCard2" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="sonicsCard3" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="sonicsCard4" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="sonicsCard5" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard1" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard2" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard3" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard4" class="card" src="images/cardBack.jpg">
+                    <img id="sonicsCard5" class="card" src="images/cardBack.jpg">
                     <div id="sonicsTotal" class="totalDisplay">21</div>
                 </div>
 
                 <div id="playersRow" class="rowMain">
                     <div class="carderHeading"><h2>Player</h2></div>
-                    <img eleventy:ignore id="playersCard1" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="playersCard2" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="playersCard3" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="playersCard4" class="card" src="images/cardBack.jpg">
-                    <img eleventy:ignore id="playersCard5" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard1" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard2" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard3" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard4" class="card" src="images/cardBack.jpg">
+                    <img id="playersCard5" class="card" src="images/cardBack.jpg">
                     <div id="playersTotal" class="totalDisplay">21</div>
                 </div>
             </div>
@@ -154,14 +151,14 @@ priority: 0.3
             <div id="choiceSection">
                 <h2>You're betting:</h2>
                 <div id="bettedRingsCounterCard" class="counterDisplay">
-                    <img eleventy:ignore src="images/ring.png" height="65">
+                    <img src="images/ring.png" height="65">
                     <span id="ringsBetCard">9001</span>
                 </div>
 
                 <div id="insuranceBetDisplay" class="hidden">
                     <h2>Your insurance bet:</h2>
                     <div id="insuranceBetCounter" class="counterDisplay">
-                        <img eleventy:ignore src="images/ring.png" height="65">
+                        <img src="images/ring.png" height="65">
                         <span id="insuranceBet">9001</span>
                     </div>
                 </div>
@@ -183,11 +180,11 @@ priority: 0.3
 
         <div id="splitRow" class="rowMain hidden">
             <div class="carderHeading"></div>
-            <img eleventy:ignore id="splitCard1" class="card" src="images/cardFronts/2C.jpg">
-            <img eleventy:ignore id="splitCard2" class="card" src="images/cardFronts/KD.jpg">
-            <img eleventy:ignore id="splitCard3" class="card" src="images/cardFronts/2C.jpg">
-            <img eleventy:ignore id="splitCard4" class="card" src="images/cardFronts/KD.jpg">
-            <img eleventy:ignore id="splitCard5" class="card" src="images/cardFronts/7D.jpg">
+            <img id="splitCard1" class="card" src="images/cardFronts/2C.jpg">
+            <img id="splitCard2" class="card" src="images/cardFronts/KD.jpg">
+            <img id="splitCard3" class="card" src="images/cardFronts/2C.jpg">
+            <img id="splitCard4" class="card" src="images/cardFronts/KD.jpg">
+            <img id="splitCard5" class="card" src="images/cardFronts/7D.jpg">
         </div>
 
         <div id="gameOver" class="hidden">
