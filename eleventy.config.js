@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import Image from "@11ty/eleventy-img";
+import fs from "fs";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
@@ -13,7 +14,16 @@ export default function (eleventyConfig) {
 
     // Parts of website not affected by Eleventy
     eleventyConfig.addPassthroughCopy("silverscripts");
-    eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
+
+    // For web experiments
+    eleventyConfig.addPassthroughCopy({
+        "web-coding-practice/blurjack": "web-coding-practice/blurjack",
+    }, {
+        filter: [
+            "**/*", // Copy all files unprocessed
+            "!**/index.html" // Exclude index.html
+        ]
+    });
 
     // Remove trailing slashes from pages that don't need them
 	eleventyConfig.addGlobalData("permalink", () => {
@@ -43,6 +53,18 @@ export default function (eleventyConfig) {
     // Post date filters
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
+    });
+
+    eleventyConfig.addFilter("sitemapDate", (dateObj) => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-MM-dd');
+    });
+
+    // Add last modified dates to all processed pages for sitemap
+    eleventyConfig.addGlobalData("eleventyComputed", {
+        lastModified: (data) => {
+            const fileStats = fs.statSync(data.page.inputPath);
+            return fileStats.mtime;
+        }
     });
 
     // Fun blog collections

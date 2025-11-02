@@ -1,6 +1,7 @@
 {
     "layout": "layout.html",
     "tags": "tpt2Log",
+    "noSitemap": "true", 
     "monthMetadata": {
         "2024-05": {
             "ogImage": "tpt2/redid-star-post.png",

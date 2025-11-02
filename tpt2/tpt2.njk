@@ -3,14 +3,18 @@ pagination:
   data: collections.tpt2Log
   size: 1
   alias: monthlyData
+  addAllPagesToCollections: true
 permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: ["tpt2Log"]
 eleventyComputed:
   title: "{{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }} - My Theme Park Tycoon 2 Buildlog"
   description: "Entries of My Theme Park Tycoon 2 Buildlog for the month of {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}."
   ogImage: "{{ monthMetadata[monthlyData.monthKey].ogImage }}"
   ogDescription: "Come see what I built in Theme Park Tycoon 2 on Roblox in {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}! {{ monthMetadata[monthlyData.monthKey].ogDescription }}"
   summaryLargeImage: true
+  noSitemap: false
+  changefreq: monthly
+  priority: 0.6
 ---
 {% set previousMonth = pagination.href.next %} {# Because the entries are reversed #}
 {% set nextMonth = pagination.href.previous %}
