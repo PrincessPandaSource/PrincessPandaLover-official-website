@@ -1,10 +1,10 @@
 import { DateTime } from "luxon";
+import path from "node:path";
 import Image from "@11ty/eleventy-img";
 import fs from "fs";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
-    eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("fonts");
@@ -30,6 +30,14 @@ export default function (eleventyConfig) {
         widths: [768, 1280, 1920, "auto"],
         sharpOptions: {
             animated: true,
+        },
+        filenameFormat: function (id, src, width, format, options) {
+            const extension = path.extname(src);
+		    const name = path.basename(src, extension);
+            const subDirPath = path.dirname(src.substring('images/'.length));
+            const subDirName = (subDirPath && subDirPath !== '.') ? subDirPath + '/' : '';
+
+            return `${subDirName}${name}-${width}.${format}`;
         },
         htmlOptions: {
 			imgAttributes: {
