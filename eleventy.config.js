@@ -5,6 +5,10 @@ import fs from "fs";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
+    eleventyConfig.addPassthroughCopy("images/*.svg");
+    eleventyConfig.addPassthroughCopy("images/*.ico");
+    eleventyConfig.addPassthroughCopy("images/background.png")
+    eleventyConfig.addPassthroughCopy("images/link-icons");;
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("fonts");
