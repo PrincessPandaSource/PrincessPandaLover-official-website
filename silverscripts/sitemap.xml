@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Every time you post a strip, please update the sitemap-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/?pg=1</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.com/silverscripts/img/comics/Comic1.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/?pg=2</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.com/silverscripts/img/comics/Comic2.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/?pg=3</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.com/silverscripts/img/comics/Comic3.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/?pg=4</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.com/silverscripts/img/comics/Comic4.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/about.html</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://princesspandalover.com/silverscripts/archive.html</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
