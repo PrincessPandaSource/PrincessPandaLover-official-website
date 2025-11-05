@@ -107,7 +107,10 @@ header {
   padding-left: 20px;
   padding-right: 20px;
   margin: auto;
-  margin-top: 15px
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
 }
 
 header #nav {
@@ -134,6 +137,7 @@ header #nav ul {
   align-items: center;
   justify-content: center;
   padding: 10px 0px;
+  margin: 5px auto;
 }
 .comicNav img {
   height: 50px;
@@ -151,10 +155,11 @@ header #nav ul {
 #authorNotes {
   background-color:#ffffff;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   padding-top: 3px;
   width: 900px;
   max-width: 98%;
+  margin-top: 10px;
 }
 
 /* ARCHIVE PAGE */
@@ -210,7 +215,7 @@ header #nav ul {
 
 /* FOOTER */
 footer {
-  margin-top: 12px;
+  margin-top: 15px;
   margin-bottom: 15px;
   display: table;
   text-align: center;
@@ -228,3 +233,24 @@ html, body {
   margin: 0;
 }
 
+/* Responsiveness at mobile screen size */
+@media only screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  header #logo {
+    margin: 0 auto;
+    width: 93%;
+  }
+
+  header #nav {
+    margin-left: 0;
+    margin-top: 15px;
+    width: auto;
+  }
+}

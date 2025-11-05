@@ -11,7 +11,7 @@ let pg = Number(findGetParameter("pg")); //make "pg" mean the current page numbe
 ////////////////////////
 
 //REALLY IMPORTANT ONES
-const maxpg = 4; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
+const maxpg = 5; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
 //YOU MUST UPDATE THIS NUMBER EVERY TIME YOU ADD A NEW PAGE or else it wont display the most recent page
 
 // COMIC PAGE SETTINGS
@@ -106,6 +106,19 @@ const pgData = [
             <p>(FYI: Buzzin and Answer-Aligned Programming are this world's counterparts to Reddit and Stack Overflow respectively.)</p>
             `,
     },
+    {
+        pgNum: 5, //what page number it is
+        title: "Heart Over Head", //the title of the page (leaving this blank will default it to "Page X")
+        date: writeDate(2025, 11, 5), //the date on which the page was posted (mainly for the archive). The date is written using a function called "writeDate", basically just put writeDate and then some parenthesis and, comma separated, the year followed by the month and the day. Don't forget another comma at the end outside the parenthesis!
+        altText: "Silver sits with Tikal in the lecture hall with their laptops. Tikal greets him, 'Silver, it's you, again!' Silver replies, 'Third year together!' Tikal says, 'I've read the syllabus and we get to make our own software. My artistic sense is tingling!' She giddily says, 'I already have an idea: A Chao-themed social network, complete with Chao avatars and virtual worlds!'. This is while she is beaming with Chao icons on her eyes and her hands clasped, being surrounded by imaginary Chao. Back to reality, while Tikal is still cheery, Silver leans back and responds, 'Nice, but we only have three months and a few people. I have a hard time coming up of an idea practical for that.'", //the alt text (mouse over text) for this particular comic. put nothing inbetween the quotes for no alt text
+        imageFiles: 1, //how many image files this page is split into
+        authorNotes: `
+            <p><b>FINALLY</b>, another Silver Scripts strip, when 2025 is near its end!</p>
+            <p>I started this strip in early 2025. I was just using my schedule and TickTick reminder app. However, I thought my routine had become so attuned that I didn't need them anymore. You ADHD brain and your positive illusory bias! Cue struggling with schoolwork for the semester. I also juggled two summer classes at once. Those all left no work for <i>Silver Scripts</i>, and finished art in general.</p>
+            <p>I'm currently on a year-off from college. I am trying to make use of ADHD productivity techniques and make time for my hobbies. It took a few weeks to get this comic done, especially inking it. (Speaking of inking, I've figured out how drawing smooth lines work out in Krita, so I've switched to the raw art being done in Krita. It was that, at first, Krita's smoothing features felt too slow for me. GIMP is only used for lettering now.)</p>
+            <p>Oh yeah, and I was definitely the artist of my team project in the Software Engineering class.</p>
+            `,
+    }
 ];
 
 //below is a function you dont rly need to mess with but if you're more experienced with js you can

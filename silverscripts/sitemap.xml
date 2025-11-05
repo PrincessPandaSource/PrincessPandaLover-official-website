@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://princesspandalover.com/silverscripts/</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -54,6 +54,17 @@
   </url>
 
   <url>
+    <loc>https://princesspandalover.com/silverscripts/?pg=5</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://princesspandalover.com/silverscripts/img/comics/Comic5.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://princesspandalover.com/silverscripts/about.html</loc>
     <lastmod>2025-10-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -62,7 +73,7 @@
 
   <url>
     <loc>https://princesspandalover.com/silverscripts/archive.html</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
