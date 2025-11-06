@@ -107,6 +107,10 @@ article:last-of-type>.text-box:last-of-type {
   margin-bottom: 0.5rem
 }
 
+.text-box:has(ul) {
+  padding: 10px 20px;
+}
+
 .text-box a {
   color: #214478;
 }
