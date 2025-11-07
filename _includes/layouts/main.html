@@ -64,7 +64,7 @@
         {% endif %}
         
         {% if page.url != "/404.html" %}
-        <meta property="og:title" content="{{ title }}"/>
+        <meta property="og:title" content="{{ title | default: '❤︎PrincessPandaLover - Official website' }}"/>
         <meta property="og:type" content="website"/>
         <meta property="og:image" content="https://princesspandalover.com/images/{{ ogImage }}"/>
         {% if ogImageWidth %}
@@ -78,7 +78,7 @@
         <meta property="og:description" content="{{ ogDescription | default: description | default: '' }}"/>
         <meta name="twitter:card" content="{% if summaryLargeImage %}summary_large_image{% else %}summary{% endif %}">
         <meta name="twitter:site" content="@PrincPandaTweet">
-        <meta name="twitter:title" content="{{ title }}">
+        <meta name="twitter:title" content="{{ title | default: '❤︎PrincessPandaLover - Official website' }}">
         <meta name="twitter:description" content="{{ ogDescription | default: description | default: '' }}">
         <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage }}">
         {% endif %}
