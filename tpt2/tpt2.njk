@@ -16,41 +16,42 @@ eleventyComputed:
   changefreq: monthly
   priority: 0.6
 ---
+{% import "components.njk" as c %}
 {% set previousMonth = pagination.href.next %} {# Because the entries are reversed #}
 {% set nextMonth = pagination.href.previous %}
 
 <h1>My Theme Park Tycoon 2 Buildlog - {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}</h1>
-<nav class="article-select-section">
-  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-${index}">Select month:</label>
-    <select id="article-select-0">
+{% call c.articleSelect(pagination, previousMonth, nextMonth, 0, "Select month") %}
     {% for page in pagination.pages %}
       {% set pageMonth = page.monthKey | getMonthName %}
       {% set pageYear = page.monthKey | getYear %}
       <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
     {% endfor %}
-    </select>
-    <button id="go-to-article-0" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+{% endcall %}
+
+<nav class="text-box">
+  <ul>
+    {% for entry in monthlyData.entries %}
+    <li><a href="#{{ entry.data.title }}">{{ entry.data.date | postDate }}</a></li>
+    {% endfor %}
+  </ul>
 </nav>
 
 {% for entry in monthlyData.entries %}
 <article>
-  <h2 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a></h2>
+  <h2 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link"><i class="fa-solid fa-link"></i></a></h2>
   <div class="text-box">
     {{ entry.content | safe }}
   </div>
 </article>
 {% endfor %}
 
-<nav class="article-select-section">
-  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-${index}">Select month:</label>
-    <select id="article-select-1">
+{% call c.articleSelect(pagination, previousMonth, nextMonth, 0, "Select month") %}
     {% for page in pagination.pages %}
       {% set pageMonth = page.monthKey | getMonthName %}
       {% set pageYear = page.monthKey | getYear %}
       <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
     {% endfor %}
-    </select>
-    <button id="go-to-article-1" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
-</nav>
+{% endcall %}
 
 <script src="/scripts/articleDropdownSelect.js" defer></script>

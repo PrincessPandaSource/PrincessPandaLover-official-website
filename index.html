@@ -8,6 +8,8 @@ ogDescription: Hey there! I'm PrincessPandaLover, a 21-year-old Chinese (yet liv
 changefreq: weekly
 priority: 1.0
 ---
+{% import "components.njk" as c %}
+
 <h1 class="sr-only">❤︎PrincessPandaLover</h1>
 <section>
   <img src="/images/about-me-box-image-1.png" class="about-me-mythical" style="max-width: 661; max-height: 365;" width="661" height="365" loading="eager" fetchpriority="high" alt="Mythical, my red wolf persona, standing behind the biography box and having her hands outstretched and on the box"/>
@@ -24,17 +26,8 @@ priority: 1.0
 
 <nav>
 <h2>PrincessPandaWorks</h2>
-  <div class="heart-grid">
-      <!--Silver Scripts-->
-      <a href="silverscripts/"><div class="heart-container">
-        <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">
-        <div class="heart-image">
-          <!--<img src="" height=65 >-->
-        </div>
-        <div class="heart-text">
-          Silver Scripts
-        </div>
-      </div></a>
+  <div class="heart-button-grid">
+      {{ c.heartButton("silverscripts/", "Silver Scripts") }}
 
       <!--PrincessPandaSonicverse (currently hidden until it is finished)
       <a href="sonicverse/home.html"><div class="heart-container">
@@ -47,16 +40,7 @@ priority: 1.0
         </div>
       </div></a>-->
 
-      <!--Theme Park Tycoon 2 - My Building Log-->
-      <a href="tpt2/"><div class="heart-container">
-        <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">
-        <div class="heart-image">
-          <!--<img src="" height=65>-->
-        </div>
-        <div class="heart-text longer">
-          My Theme Park Tycoon 2 Buildlog
-        </div>
-      </div></a>
+      {{ c.heartButton("tpt2/", "My Theme Park Tycoon 2 Buildlog", true) }}
       
       <!--Other works (currently hidden until I have a page for this)
       <div class="heart-container">
@@ -76,102 +60,32 @@ priority: 1.0
   <div class="text-box">
     <i>Some of my profiles linked below may contain content inappropriate for children under 13. Some profiles may contain additional warnings. Also, some websites may contain inappropriate content that are out of my control.</i>
   </div>
-  <div class="heart-grid links-grid">
-    <a href="https://bsky.app/profile/princesspanda.bsky.social" title="Bluesky"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-bluesky"></i></div>
-    </div></a>
-    <a href="https://twitter.com/PrincPandaTweet" title="Twitter"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-twitter"></i></div>
-    </div></a>
-    <a href="https://princesspandablog.tumblr.com/" title="Tumblr"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-tumblr"></i></div>
-    </div></a>
-    <a href="https://www.instagram.com/princesspandagram/" title="Instagram"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
-    </div></a>
-    <a href="https://www.deviantart.com/princesspandaart" title="DeviantArt"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-deviantart"></i></div>
-    </div></a>
-    <a href="https://www.youtube.com/@princesspandatube" title="YouTube"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-youtube"></i></div>
-    </div></a>
-    <a href="https://www.tiktok.com/@princesspandatok" title="TikTok"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-tiktok"></i></div>
-    </div></a>
-    <a href="https://discordapp.com/users/260545477890670593" title="Discord"><div class="heart-container" >
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-discord"></i></div>
-    </div></a>
-    <a href="https://www.reddit.com/user/PrincessPandaReddit" title="Reddit"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy"  aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-reddit-alien"></i></div>
-    </div></a>
-    <a href="https://scratch.mit.edu/users/PrincessPandaLover/" title="Scratch"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><img eleventy:ignore src="images/link-icons/scratch.svg" alt="Scratch icon" loading="lazy" aria-hidden="true"></div>
-    </div></a>
-    <a href="https://community.fandom.com/wiki/User:Ilovejamaa74" title="Fandom"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><img eleventy:ignore src="images/link-icons/fandom.svg" alt="Fandom icon" loading="lazy"  aria-hidden="true"></div>
-    </div></a>
-    <a href="https://www.roblox.com/users/77137285/profile" title="Roblox"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><img eleventy:ignore src="images/link-icons/roblox.svg" alt="Roblox icon" loading="lazy"  aria-hidden="true"></div>
-    </div></a>
-    <a href="https://en.wikipedia.org/wiki/User:PrincessPandaWiki" title="Wikipedia"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-wikipedia-w"></i></div>
-    </div></a>
-    <a href="https://www.artstation.com/princesspandaart" title="ArtStation"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><i class="fa-brands fa-artstation"></i></div>
-    </div></a>
-    <a href="https://archiveofourown.org/users/PrincessPandaFanfiction" title="Archive of Our Own"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><img eleventy:ignore src="images/link-icons/archive-of-our-own.svg" alt="Archive of Our Own icon" loading="lazy" aria-hidden="true"></div>
-    </div></a>
-    <a href="https://www.fanfiction.net/~princesspandafanfic" title="Fanfiction.Net"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><img eleventy:ignore src="images/link-icons/fanfiction.net.svg" alt="Fanfiction.Net icon" loading="lazy"  aria-hidden="true"></div>
-    </div></a>
-    <a href="https://www.wattpad.com/user/PrincessPandaPad" title="Wattpad"><div class="heart-container">
-      <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-      <div class="link-icon"><img eleventy:ignore src="images/link-icons/wattpad.svg" alt="Wattpad icon" loading="lazy" aria-hidden="true"></div>
-    </div></a>
+  <div class="heart-button-grid links">
+    {{ c.heartLinkButton("https://bsky.app/profile/princesspanda.bsky.social", "font", "bluesky", "Bluesky") }}
+    {{ c.heartLinkButton("https://twitter.com/PrincPandaTweet", "font", "twitter", "Twitter") }}
+    {{ c.heartLinkButton("https://princesspandablog.tumblr.com/", "font", "tumblr", "Tumblr") }}
+    {{ c.heartLinkButton("https://www.instagram.com/princesspandagram/", "font", "instagram", "Instagram") }}
+    {{ c.heartLinkButton("https://www.youtube.com/@princesspandatube", "font", "youtube", "YouTube") }}
+    {{ c.heartLinkButton("https://www.tiktok.com/@princesspandatok", "font", "tiktok", "TikTok") }}
+    {{ c.heartLinkButton("https://discordapp.com/users/260545477890670593", "font", "discord", "Discord") }}
+    {{ c.heartLinkButton("https://www.reddit.com/user/PrincessPandaReddit", "font", "reddit-alien", "Reddit") }}
+    {{ c.heartLinkButton("https://scratch.mit.edu/users/PrincessPandaLover/", "img", "scratch", "Scratch") }}
+    {{ c.heartLinkButton("https://community.fandom.com/wiki/User:Ilovejamaa74", "img", "fandom", "Fandom") }}
+    {{ c.heartLinkButton("https://www.roblox.com/users/77137285/profile", "img", "roblox", "Roblox") }}
+    {{ c.heartLinkButton("https://en.wikipedia.org/wiki/User:PrincessPandaWiki", "font", "wikipedia-w", "Wikipedia") }}
+    {{ c.heartLinkButton("https://www.artstation.com/princesspandaart", "font", "artstation", "ArtStation") }}
+    {{ c.heartLinkButton("https://archiveofourown.org/users/PrincessPandaFanfiction", "img", "archive-of-our-own", "Archive of Our Own") }}
+    {{ c.heartLinkButton("https://www.fanfiction.net/~princesspandafanfic", "img", "fanfiction.net", "Fanfiction.net") }}
+    {{ c.heartLinkButton("https://www.wattpad.com/user/PrincessPandaPad", "img", "wattpad", "Wattpad") }}
   </div>
 </nav>
 
 <nav>
 <h2>Other stuff</h2>
-  <div class="heart-grid">
-      <!--Creating a website from Scratch-->
-      <a href="creating-a-website-from-scratch.html"><div class="heart-container">
-        <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-        <div class="heart-image">
-          <!--<img src="" height=65>-->
-        </div>
-        <div class="heart-text longer">
-          Creating a Website from Scratch
-        </div>
-      </div></a>
+  <div class="heart-button-grid">
+      {{ c.heartButton("creating-a-website-from-scratch.html", "Creating a Website from Scratch", true) }}
 
-      <!--Web coding practice-->
-      <a href="web-coding-practice/"><div class="heart-container">
-        <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" loading="lazy" aria-hidden="true">
-        <div class="heart-image">
-          <!--<img src="" height=65>-->
-        </div>
-        <div class="heart-text longer">
-          Web Coding Practice
-        </div>
-      </div></a>
+      {{ c.heartButton("web-coding-practice/", "Web Coding Practice", true) }}
   </div>
 </nav>
 

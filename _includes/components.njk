@@ -1,0 +1,34 @@
+{% macro heartButton(href, text, longer) %}
+<a href="{{ href }}"><div class="heart-button-container">
+    <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">
+    <!--<div class="heart-image">
+        <img src="" height=65 >
+    </div>-->
+    <div class="heart-button-text {% if longer %}longer{% endif %}">
+        {{ text }}
+    </div>
+</div></a>
+{% endmacro %}
+
+{% macro heartLinkButton(href, iconType, iconName, title) %}
+<a href="{{ href }}" title="{{ title }}"><div class="heart-button-container">
+    <img eleventy:ignore class="heart-link-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" aria-hidden="true">
+    {% if iconType == 'font' %}
+    <i class="fa-brands fa-{{ iconName }} heart-link-icon"></i>
+    {% elif iconType == 'img' %}
+    <div class="heart-link-icon">
+        <img eleventy:ignore src="images/link-icons/{{ iconName }}.svg" alt="{{ title }} icon" aria-hidden="true">
+    </div>
+    {% endif %}
+</div></a>
+{% endmacro %}
+
+{% macro articleSelect(pagination, previousMonth, nextMonth, index, selectLabel) %}
+<nav class="article-select-section">
+  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-${index}">{{ selectLabel }}:</label>
+    <select id="article-select-{{ index }}">
+        {{ caller() }}
+    </select>
+    <button id="go-to-article-{{ index }}" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+</nav>
+{% endmacro %}
