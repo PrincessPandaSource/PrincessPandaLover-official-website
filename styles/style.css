@@ -209,7 +209,7 @@ a.button:hover {
   background-color: #fd4ed1;
 }
   
-.heart-grid {
+.heart-button-grid {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
@@ -218,11 +218,11 @@ a.button:hover {
   margin-bottom: 2rem;
 }
 
-.heart-container {
+.heart-button-container {
   position: relative;
 }
 
-.heart-container:hover {
+.heart-button-container:hover {
   transform: scale(110%);
 }
 
@@ -233,7 +233,7 @@ a.button:hover {
   transform: translateX(-50%) translateY(-50%);
 }*/
 
-.heart-text{
+.heart-button-text{
   position: absolute; 
   /* Commented out until all heart buttons have images
   top: 60%; 
@@ -252,16 +252,16 @@ a.button:hover {
   word-wrap: break-word;
 }
 
-.heart-text.longer {
+.heart-button-text.longer {
   width: 150px;
 }
 
-.links-grid {
+.heart-button-grid.links {
   gap: 7px !important;
   grid-template-columns: repeat(auto-fit, minmax(65px, max-content)) !important;
 }
 
-.link-icon {
+.heart-link-icon {
   position: absolute;
   top: 43%; 
   left: 50%; 
@@ -273,7 +273,7 @@ a.button:hover {
   justify-content: center;
 }
 
-.link-icon img {
+.heart-link-icon img {
   height: 27px;
   width: 27px;
   object-fit: contain;

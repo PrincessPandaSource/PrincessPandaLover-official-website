@@ -1,23 +1,23 @@
 {% macro heartButton(href, text, longer) %}
-<a href="{{ href }}"><div class="heart-container">
+<a href="{{ href }}"><div class="heart-button-container">
     <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">
     <!--<div class="heart-image">
         <img src="" height=65 >
     </div>-->
-    <div class="heart-text {% if longer %}longer{% endif %}">
+    <div class="heart-button-text {% if longer %}longer{% endif %}">
         {{ text }}
     </div>
 </div></a>
 {% endmacro %}
 
 {% macro heartLinkButton(href, iconType, iconName, title) %}
-<a href="{{ href }}" title="{{ title }}"><div class="heart-container">
-    <img eleventy:ignore class="link-heart-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" aria-hidden="true">
+<a href="{{ href }}" title="{{ title }}"><div class="heart-button-container">
+    <img eleventy:ignore class="heart-link-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" aria-hidden="true">
     {% if iconType == 'font' %}
-    <i class="fa-brands fa-{{ iconName }} link-icon"></i>
+    <i class="fa-brands fa-{{ iconName }} heart-link-icon"></i>
     {% elif iconType == 'img' %}
-    <div class="link-icon">
-    <img eleventy:ignore src="images/link-icons/{{ iconName }}.svg" alt="{{ title }} icon" aria-hidden="true">
+    <div class="heart-link-icon">
+        <img eleventy:ignore src="images/link-icons/{{ iconName }}.svg" alt="{{ title }} icon" aria-hidden="true">
     </div>
     {% endif %}
 </div></a>
