@@ -75,11 +75,11 @@
         {% endif %}
 
         <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
-        <meta property="og:description" content="{{ ogDescription | default: description | default: '' }}"/>
+        <meta property="og:description" content="{{ ogDescription | default(description) | default('') }}"/>
         <meta name="twitter:card" content="{% if summaryLargeImage %}summary_large_image{% else %}summary{% endif %}">
         <meta name="twitter:site" content="@PrincPandaTweet">
         <meta name="twitter:title" content="{{ title }}">
-        <meta name="twitter:description" content="{{ ogDescription | default: description | default: '' }}">
+        <meta name="twitter:description" content="{{ ogDescription | default(description) | default('') }}">
         <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage }}">
         {% endif %}
 
@@ -102,7 +102,7 @@
             </header><br/>
 
             <main>
-                {{ content }}
+                {{ content | safe }}
             </main>
         </div>
         

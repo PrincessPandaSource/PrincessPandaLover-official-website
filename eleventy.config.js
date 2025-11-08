@@ -109,3 +109,8 @@ export default function (eleventyConfig) {
         return String(monthKey).split('-')[0];
     });
 }
+
+// Setting all HTML pages to use Nunjunks
+export const config = {
+    htmlTemplateEngine: "njk",
+};
