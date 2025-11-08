@@ -54,7 +54,7 @@ export default function (eleventyConfig) {
 		}
     });
 
-    // Post date filters
+    // Date filters
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
     });
@@ -69,6 +69,11 @@ export default function (eleventyConfig) {
             const fileStats = fs.statSync(data.page.inputPath);
             return fileStats.mtime;
         }
+    });
+
+    // Strip extension filter
+    eleventyConfig.addFilter("stripExtension", (filename) => {
+        return filename.replace(/\.[^/.]+$/, "")
     });
 
     // Fun blog collections
