@@ -5,11 +5,35 @@
 @font-face {
   font-family: "Orbitron Light";
   src: url("orbitron-light-webfont.woff");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Consolas";
-  src: url("Consolas.woff");
+    font-family: "Source Code Pro";
+    src: url("source-code-pro.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("source-code-pro-italic.woff2");
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("source-code-pro-bold.woff2");
+    font-weight: bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("source-code-pro-bold-italic.woff2");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
 }
 
 body, div, main, section, article {
@@ -51,7 +75,7 @@ header img {
 
 /* body font */
 .subPage p, footer, #authorNotes, .archiveTable {
-  font-family: 'Consolas';
+  font-family: 'Source Code Pro';
   font-size: large;
 }
 

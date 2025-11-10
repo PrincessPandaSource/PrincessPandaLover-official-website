@@ -1,26 +1,26 @@
 @font-face {
-    font-family: "Century Gothic";
-    src: url("/fonts/Century Gothic.woff2");
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-VariableFont_wght.woff2");
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Century Gothic";
-    src: url("/fonts/Century Gothic Italic.woff2");
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-Italic-VariableFont_wght.woff2");
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Century Gothic";
-    src: url("/fonts/Century Gothic Bold.woff2");
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-VariableFont_wght.woff2");
     font-weight: bold;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Century Gothic";
-    src: url("/fonts/Century Gothic Bold Italic.woff2");
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-Italic-VariableFont_wght.woff2");
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -52,7 +52,7 @@ s {
   text-align: center;
   margin: 20px auto;
   padding: 0 1rem;
-  font-family: "Century Gothic";
+  font-family: "Montserrat";
   width: 100%;
   max-width: 55%;
   flex: 1;
@@ -186,7 +186,7 @@ button {
   padding: 2px 5px;
   color: black;
   font-size: 1em;
-  font-family: 'Century Gothic';
+  font-family: 'Montserrat';
   cursor: pointer;
 }
 
@@ -202,7 +202,7 @@ a.button {
   color: black;
   text-decoration: none;
   font-size: 1em;
-  font-family: 'Century Gothic';
+  font-family: 'Montserrat';
 }
 
 a.button:hover {
@@ -315,7 +315,7 @@ select {
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 1em;
-  font-family: 'Century Gothic';
+  font-family: 'Montserrat';
 }
 
 footer {
@@ -324,7 +324,7 @@ footer {
   background-color: #d40000;
   padding: 20px;
   text-align: center;
-  font-family: "Century Gothic";
+  font-family: "Montserrat";
   font-size: 12px;
   color: #ffffff;
   flex-shrink: 0;
