@@ -46,7 +46,7 @@ eleventyComputed:
 </article>
 {% endfor %}
 
-{% call c.articleSelect(pagination, previousMonth, nextMonth, 0, "Select month") %}
+{% call c.articleSelect(pagination, previousMonth, nextMonth, 1, "Select month") %}
     {% for page in pagination.pages %}
       {% set pageMonth = page.monthKey | getMonthName %}
       {% set pageYear = page.monthKey | getYear %}

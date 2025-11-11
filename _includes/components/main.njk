@@ -24,8 +24,8 @@
 {% endmacro %}
 
 {% macro articleSelect(pagination, previousMonth, nextMonth, index, selectLabel) %}
-<nav class="article-select-section">
-  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-${index}">{{ selectLabel }}:</label>
+<nav class="article-select-section" id="article-select-section-{{ index }}">
+  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-{{ index }}">{{ selectLabel }}:</label>
     <select id="article-select-{{ index }}">
         {{ caller() }}
     </select>
