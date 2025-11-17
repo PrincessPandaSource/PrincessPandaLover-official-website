@@ -29,7 +29,7 @@ eleventyComputed:
     {% endfor %}
 {% endcall %}
 
-<nav class="text-box">
+<nav class="text-box list-only">
   <ul>
     {% for entry in monthlyData.entries %}
     <li><a href="#{{ entry.data.title }}">{{ entry.data.date | postDate }}</a></li>
@@ -39,7 +39,7 @@ eleventyComputed:
 
 {% for entry in monthlyData.entries %}
 <article>
-  <h2 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link"><i class="fa-solid fa-link"></i></a></h2>
+  <h2 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} {{ c.directLink(entry.data.title) }}</h2>
   <div class="text-box">
     {{ entry.content | safe }}
   </div>

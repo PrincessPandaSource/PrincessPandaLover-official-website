@@ -11,8 +11,22 @@ ogDescription: >-
 changefreq: monthly
 priority: 0.7
 ---
+{% import "components/main.njk" as c %}
+
 <h1>The History of This Website</h1>
-<h2>Version 1.0 (2022-2025)</h2>
+<nav class="text-box list-only">
+  <ul>
+    <li><a href="#version-1.0">Version 1.0 (2022-2025)</a></li>
+    <li>
+        <a href="#version-1.1">Version 1.1 (2025)</a>
+        <ul>
+            <li><a href="#version-1.1.1">Version 1.1.1 (2025)</a></li>
+        </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="version-1.0">Version 1.0 (2022-2025) {{ c.directLink("version-1.0") }}</h2>
 <div class="text-box">
     <img src="/images/princesspandalover-official-website-v1.png" style="max-width: 400px; max-height: auto" alt="The website's homepage as of version 1.0 in 2025"/>
 
@@ -62,7 +76,7 @@ priority: 0.7
     <img src="/images/v1-silver-scripts.png" style="max-width: 300px; max-height: auto" alt="Silver Scripts subsite as of version 1.0 in 2025"/>
 </div>
 
-<h2>Version 1.1 (2025)</h2>
+<h2 id="version-1.1">Version 1.1 (2025) {{ c.directLink("version-1.1") }}</h2>
 <div class="text-box">
     <img src="/images/princesspandalover-official-website-v1.1.png" style="max-width: 400px; max-height: auto" alt="The website's homepage as of version 1.1 in 2025"/>
 
@@ -77,7 +91,7 @@ priority: 0.7
     <p>Taking advantage of Eleventy, <a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a> also got a table of posts per a month's page, and the heart buttons and "fun blog" (like the TPT2 one) page navigations were turned into reusable components.</p>
 </div>
 
-<h3>Version 1.1.1 (2025)</h3>
+<h3 id="version-1.1.1">Version 1.1.1 (2025) {{ c.directLink("version-1.1.1") }}</h3>
 <div class="text-box">
     <img src="/images/princesspandalover-official-website-v1.1.1.png" style="max-width: 400px; max-height: auto" alt="The website's homepage as of version 1.1.1 in 2025"/>
 

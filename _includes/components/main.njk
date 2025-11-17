@@ -32,3 +32,7 @@
     <button id="go-to-article-{{ index }}" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
 </nav>
 {% endmacro %}
+
+{% macro directLink(id) %}
+    <a href="#{{ id }}" class="white-link" title="Direct link"><i class="fa-solid fa-link"></i></a>
+{% endmacro %}
