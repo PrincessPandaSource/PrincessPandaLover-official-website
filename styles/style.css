@@ -137,7 +137,7 @@ article:last-of-type>.text-box:last-of-type {
   text-align: center;
 }
 
-.text-box:has(+.heart-grid) {
+.text-box:has(+.heart-button-grid) {
   margin-bottom: 0.5rem
 }
 
@@ -354,6 +354,10 @@ footer a {
     margin-top: -3rem;*/
   }
 
+  .heart-button-grid {
+    gap: 35px;
+  }
+
   .heart-text.longer {
     width: 145px;
   }
@@ -376,6 +380,11 @@ footer a {
     height: 25px;
     width: 25px;
   }
+
+  .text-box img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }
 
 /* Tablet */
@@ -391,7 +400,7 @@ footer a {
     margin-top: -3rem;*/
   }
 
-  .heart-grid {
+  .heart-button-grid {
     gap: 25px;
     grid-template-columns: repeat(auto-fit, minmax(125px, max-content));
   }
@@ -424,6 +433,11 @@ footer a {
     height: 26px;
     width: 26px;
   }
+
+  .text-box img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }
 
 /* Particularly large monitors */
@@ -444,7 +458,7 @@ footer a {
     margin-top: -3rem;*/
   }
 
-  .heart-grid {
+  .heart-button-grid {
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(130px, max-content));
   }
