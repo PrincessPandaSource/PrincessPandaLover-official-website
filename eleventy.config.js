@@ -8,8 +8,9 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images/*.svg");
     eleventyConfig.addPassthroughCopy("images/*.ico");
     eleventyConfig.addPassthroughCopy("images/logo.png")
-    eleventyConfig.addPassthroughCopy("images/background-accessible.png")
-    eleventyConfig.addPassthroughCopy("images/link-icons");;
+    eleventyConfig.addPassthroughCopy("images/background-accessible.png");
+    eleventyConfig.addPassthroughCopy("images/avatar.png");
+    eleventyConfig.addPassthroughCopy("images/link-icons");
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("fonts");
