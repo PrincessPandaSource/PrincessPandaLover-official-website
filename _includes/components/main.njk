@@ -11,7 +11,7 @@
 {% endmacro %}
 
 {% macro heartLinkButton(href, iconType, iconName, title) %}
-<a href="{{ href }}" title="{{ title }}"><div class="heart-button-container">
+<a href="{{ href }}" title="{{ title }}" rel="me"><div class="heart-button-container">
     <img eleventy:ignore class="heart-link-button" src="images/heart-button.svg" width=65 height=60 fetchpriority="high" alt="Light magenta small heart symbol with magenta outline" aria-hidden="true">
     {% if iconType == 'font' %}
     <i class="fa-brands fa-{{ iconName }} heart-link-icon"></i>
