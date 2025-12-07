@@ -5,8 +5,8 @@ import fs from "fs";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
-    eleventyConfig.addPassthroughCopy("images/*.svg");
-    eleventyConfig.addPassthroughCopy("images/*.ico");
+    eleventyConfig.addPassthroughCopy("**/*.svg");
+    eleventyConfig.addPassthroughCopy("**/*.ico");
     eleventyConfig.addPassthroughCopy("images/logo.png")
     eleventyConfig.addPassthroughCopy("images/background-accessible.png");
     eleventyConfig.addPassthroughCopy("images/avatar.png");
@@ -17,9 +17,10 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("_headers");
     eleventyConfig.addPassthroughCopy("robots.txt");
     eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
+    eleventyConfig.addPassthroughCopy("silverscripts/css")
+    eleventyConfig.addPassthroughCopy("silverscripts/js")
 
     // Parts of website not affected by Eleventy
-    eleventyConfig.addPassthroughCopy("silverscripts");
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
 
     // Remove trailing slashes from pages that don't need them
