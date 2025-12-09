@@ -1,34 +1,38 @@
 ---
 layout: layouts/silver-scripts.html
-description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
-ogImage: logo.svg
-ogImageWidth: 500
-ogImageHeight: 81
-changeFreq: weekly
-priority: 0.9
+permalink: /silverscripts/index.html
+eleventyComputed:
+    description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
+    ogImage: "{{ '/silverscripts/img/comics/comic' + collections.silverScripts[collections.silverScripts.length - 1].data.pgNum + '.png' }}"
+    summaryLargeImage: true
+    noSitemap: false
+    changefreq: weekly
+    priority: 0.9
 ---
-<div align="center">
-    <!-- make sure that if you want to turn on automatically scrolling to the top of the comic when you load a new page, keep the id of this div and the variable "navScrollTo" in showcomic.js the same-->
-    <div id="showComic">
+{# Yeah, this is EXTREMELY hacky, due to how Eleventy works. It needs to be virtually identical to the "comics.njk" layout. #}
+{% import "components/silver-scripts.njk" as c %}
 
-      <!-- write the title of the page. -->
-      <div class="writePageTitle"></div>
-      <!-- write top navigation -->
-      <div class="writeNav"></div>
-      <!-- write the current page of your comic -->
-      <div class="writePageClickable"></div>
-      <!-- write bottom navigation -->
-      <div class="writeNav"></div>
-      
+{% set latestComic = collections.silverScripts | last %}
+{% set comic = latestComic.data %}
+{% set totalComics = collections.silverScripts | length %}
+{% set latestComicIndex = totalComics - 1 %}
+
+{% set firstComic = "/silverscripts/" ~ collections.silverScripts[0].data.pgNum ~ "-" ~ (collections.silverScripts[0].data.title | slugify) ~ ".html" %}
+{% set previousComic = "/silverscripts/" ~ collections.silverScripts[latestComicIndex - 1].data.pgNum ~ "-" ~ (collections.silverScripts[latestComicIndex - 1].data.title | slugify) ~ ".html" %}
+
+<div align="center">
+    <h1>{{ comic.pgNum }}. {{ comic.title }}</h1>
+
+    {{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
+
+    <div class="comicPage">
+        <img alt="{{ comic.altText }}" title="{{ comic.altText }}" src="img/comics/comic{{ comic.pgNum }}.png" />
     </div>
-  </div>
-  <div id="authorNotes">
-    <h2>Notes</h2>
-    <!-- write the author notes for the current page-->
-    <div class="writeAuthorNotes"></div>
-  </div>
+
+    {{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
 </div>
 
-<!-- really important- every js script is called here, be sure to always put them just before the closing body tag, use a defer attribute, and call them in this specific order.-->
-  <script src="js/comic_settings.js" defer></script>
-  <script src="js/comic_show.js" defer></script>
+<div id="authorNotes">
+    <h2>Notes</h2>
+    {{ latestComic.templateContent | safe }}
+</div>

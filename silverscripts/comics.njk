@@ -1,0 +1,40 @@
+---
+layout: layouts/silver-scripts.html
+pagination:
+  data: collections.silverScripts
+  size: 1
+  alias: comic
+permalink: /silverscripts/{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html
+eleventyComputed:
+    description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
+    ogImage: /silverscripts/img/comics/comic{{ comic.data.pgNum }}.png
+    summaryLargeImage: true
+    noSitemap: false
+    changefreq: monthly
+    priority: 0.8
+---
+{% import "components/silver-scripts.njk" as c %}
+{% set firstComic = pagination.href.first %} {# Because the entries are reversed #}
+{% set previousComic = pagination.href.previous %}
+{% set nextComic = pagination.href.next %}
+{% set lastComic = pagination.href.last %}
+{% set totalComics = pagination.pages.length %}
+
+<div align="center">
+    <div id="showComic">
+        <h1>{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
+
+        {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
+
+        <div class="comicPage">
+            <img alt="{{ comic.data.altText }}" title="{{ comic.data.altText }}" src="img/comics/comic{{ comic.data.pgNum }}.png" />
+        </div>
+    </div>
+
+    {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
+</div>
+
+<div id="authorNotes">
+    <h2>Notes</h2>
+    {{ comic.templateContent | safe }}
+</div>

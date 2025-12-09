@@ -173,6 +173,7 @@ header #nav ul {
 .comicPage img {
   width: 900px;
   max-width: 98%;
+  height: auto; /* Extremely important so the image doesn't stretch */
 }
 
 /* style author notes */
