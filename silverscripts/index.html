@@ -21,7 +21,7 @@ eleventyComputed:
 {% set firstComic = "/silverscripts/" ~ collections.silverScripts[0].data.pgNum ~ "-" ~ (collections.silverScripts[0].data.title | slugify) ~ ".html" %}
 {% set previousComic = "/silverscripts/" ~ collections.silverScripts[latestComicIndex - 1].data.pgNum ~ "-" ~ (collections.silverScripts[latestComicIndex - 1].data.title | slugify) ~ ".html" %}
 
-<div align="center">
+<div id="showComic">
     <h1>{{ comic.pgNum }}. {{ comic.title }}</h1>
 
     {{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
@@ -29,9 +29,9 @@ eleventyComputed:
     <div class="comicPage">
         <img alt="{{ comic.altText }}" title="{{ comic.altText }}" src="img/comics/comic{{ comic.pgNum }}.png" />
     </div>
-
-    {{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
 </div>
+
+{{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
 
 <div id="authorNotes">
     <h2>Notes</h2>

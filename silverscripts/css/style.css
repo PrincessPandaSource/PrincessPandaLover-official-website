@@ -43,6 +43,10 @@ body, div, main, section, article {
 /* universal background color */
 body {
   background-color: #E0FFFF; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 b {
@@ -87,8 +91,8 @@ header img {
   width: 1000px;
   max-width: 98%;
   background-color: #ffffff;
-  margin: auto;
-  margin-bottom: 10px;
+  margin: 0 auto;
+  margin-top: 15px;
   padding: 3px 20px 20px;
 }
 
@@ -130,9 +134,7 @@ header {
   max-width: 98%;
   padding-left: 20px;
   padding-right: 20px;
-  margin: auto;
   margin-top: 15px;
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
 }
@@ -153,6 +155,12 @@ header #nav ul {
 }
 
 /* HOMEPAGE */
+#showComic {
+  text-align: center;
+  margin: 0 auto;
+  flex-shrink: 0;
+  width: 1000px;
+}
 
 /* style nav button images */
 .comicNav {
@@ -161,7 +169,7 @@ header #nav ul {
   align-items: center;
   justify-content: center;
   padding: 10px 0px;
-  margin: 5px auto;
+  margin-bottom: 1px;
 }
 .comicNav img {
   height: 50px;
@@ -184,7 +192,7 @@ header #nav ul {
   padding-top: 3px;
   width: 900px;
   max-width: 98%;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 /* ARCHIVE PAGE */
@@ -240,13 +248,13 @@ header #nav ul {
 
 /* FOOTER */
 footer {
-  margin-top: 15px;
+  margin-top: auto;
+  padding-top: 15px;
   margin-bottom: 15px;
   display: table;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 12px;
+  flex-shrink: 0;
 }
 
 footer p {

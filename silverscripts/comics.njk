@@ -21,19 +21,17 @@ eleventyComputed:
 {% set lastComic = pagination.href.last %}
 {% set totalComics = pagination.pages.length %}
 
-<div align="center">
-    <div id="showComic">
-        <h1>{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
-
-        {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
-
-        <div class="comicPage">
-            <img alt="{{ comic.data.altText }}" title="{{ comic.data.altText }}" src="img/comics/comic{{ comic.data.pgNum }}.png" />
-        </div>
-    </div>
+<div id="showComic">
+    <h1>{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
 
     {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
+
+    <div class="comicPage">
+        <img alt="{{ comic.data.altText }}" title="{{ comic.data.altText }}" src="img/comics/comic{{ comic.data.pgNum }}.png" />
+    </div>
 </div>
+
+{{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
 
 <div id="authorNotes">
     <h2>Notes</h2>
