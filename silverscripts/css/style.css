@@ -139,6 +139,10 @@ header {
   align-items: center;
 }
 
+header #logo {
+  flex-shrink: 0;
+}
+
 header #nav {
   display: inline-block;
   margin-left: 50px;
@@ -160,6 +164,7 @@ header #nav ul {
   margin: 0 auto;
   flex-shrink: 0;
   width: 1000px;
+  max-width: 98%
 }
 
 /* style nav button images */
