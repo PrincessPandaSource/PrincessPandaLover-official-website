@@ -9,14 +9,13 @@ ogDescription: Archive page for Silver Scripts, a Sonic the Hedgehog semi-autobi
 changeFreq: weekly
 priority: 0.5
 ---
+{% import "components/silver-scripts.njk" as c %}
+
 <div class="archivePage subPage">
     
     <h1>Archive</h1>
-    <script>
-    indexPage = "./" //set which html page your comics are on, supremely important. archive system will break otherwise
-    </script>
 
-    <h2>Arc 0: A Glimpse</h2>
+    <h2 id="arc0">Arc 0: {{ c.arcName(0) }}</h2>
     <table class="archiveTable">
         <tbody>
             {%- for comic in collections.ssArc0 -%}
@@ -34,7 +33,7 @@ priority: 0.5
         </tbody>
     </table>
 
-    <h2>Arc 1: I Can't Believe I Made It!</h2>
+    <h2 id="arc1">Arc 1: {{ c.arcName(1) }}</h2>
     <table class="archiveTable">
         <tbody>
             {%- for comic in collections.ssArc1 -%}

@@ -24,6 +24,10 @@ eleventyComputed:
 <div id="showComic">
     <h1>{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
 
+    <div class="comicInfo">
+        <span class="comicArc">{{ c.comicsArcName(comic.data.tags) }}</span> <span>|</span> <span class="comicDate">{{ comic.date | postDate}}</span>
+    </div>
+
     {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
 
     <div class="comicPage">

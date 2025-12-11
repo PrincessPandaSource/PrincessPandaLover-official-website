@@ -14,7 +14,6 @@ eleventyComputed:
 {% import "components/silver-scripts.njk" as c %}
 
 {% set latestComic = collections.silverScripts | last %}
-{% set comic = latestComic.data %}
 {% set totalComics = collections.silverScripts | length %}
 {% set latestComicIndex = totalComics - 1 %}
 
@@ -22,16 +21,20 @@ eleventyComputed:
 {% set previousComic = "/silverscripts/" ~ collections.silverScripts[latestComicIndex - 1].data.pgNum ~ "-" ~ (collections.silverScripts[latestComicIndex - 1].data.title | slugify) ~ ".html" %}
 
 <div id="showComic">
-    <h1>{{ comic.pgNum }}. {{ comic.title }}</h1>
+    <h1>{{ latestComic.data.pgNum }}. {{ latestComic.data.title }}</h1>
 
-    {{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
+    <div class="comicInfo">
+        <span class="comicArc">{{ c.comicsArcName(latestComic.data.tags) }}</span> <span>|</span> <span class="comicDate">{{ latestComic.data.date | postDate}}</span>
+    </div>
+
+    {{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
 
     <div class="comicPage">
-        <img alt="{{ comic.altText }}" title="{{ comic.altText }}" src="img/comics/comic{{ comic.pgNum }}.png" />
+        <img alt="{{ latestComic.data.altText }}" title="{{ latestComic.data.altText }}" src="img/comics/comic{{ latestComic.data.pgNum }}.png" />
     </div>
 </div>
 
-{{ c.nav(null, comic.pgNum, totalComics, firstComic, previousComic, null, null) }}
+{{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
 
 <div id="authorNotes">
     <h2>Notes</h2>
