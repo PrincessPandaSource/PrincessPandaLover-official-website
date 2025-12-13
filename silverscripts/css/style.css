@@ -207,6 +207,12 @@ header #nav ul {
   height: auto; /* Extremely important so the image doesn't stretch */
 }
 
+.viewOGImg {
+  text-align: right;
+  font-size: 12px;
+  margin-bottom: 1em;
+}
+
 /* style author notes */
 #authorNotes {
   background-color:#ffffff;

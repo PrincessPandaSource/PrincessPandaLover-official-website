@@ -33,6 +33,9 @@ eleventyComputed:
     <div class="comicPage">
         <img alt="{{ comic.data.altText }}" title="{{ comic.data.altText }}" src="img/comics/comic{{ comic.data.pgNum }}.png" />
     </div>
+    <div class="viewOGImg">
+        <a href="img/comics/comic{{ comic.data.pgNum }}.png">View original image file</a>
+    </div>
 </div>
 
 {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
