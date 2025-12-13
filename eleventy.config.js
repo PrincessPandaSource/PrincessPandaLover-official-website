@@ -5,12 +5,6 @@ import fs from "fs";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
-    eleventyConfig.addPassthroughCopy("**/*.svg");
-    eleventyConfig.addPassthroughCopy("**/*.ico");
-    eleventyConfig.addPassthroughCopy("images/logo.png")
-    eleventyConfig.addPassthroughCopy("images/background-accessible.png");
-    eleventyConfig.addPassthroughCopy("images/avatar.png");
-    eleventyConfig.addPassthroughCopy("images/link-icons");
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("fonts");
@@ -19,6 +13,10 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
     eleventyConfig.addPassthroughCopy("silverscripts/css")
     eleventyConfig.addPassthroughCopy("silverscripts/js")
+
+    // Import original images
+    eleventyConfig.addPassthroughCopy("images");
+    eleventyConfig.addPassthroughCopy("silverscripts/img");
 
     // Parts of website not affected by Eleventy
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
@@ -32,8 +30,8 @@ export default function (eleventyConfig) {
     // Image optimization
     eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
         formats: ["webp", "auto"],
-        outputDir: "_site/images/",
-        urlPath: "/images/",
+        outputDir: "_site/",
+        urlPath: "/",
         widths: [768, 1280, 1920, "auto"],
         sharpOptions: {
             animated: true,
@@ -41,18 +39,18 @@ export default function (eleventyConfig) {
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src);
 		    const name = path.basename(src, extension);
-            const subDirPath = path.dirname(src.substring('images/'.length));
-            const subDirName = (subDirPath && subDirPath !== '.') ? subDirPath + '/' : '';
+            const dir = path.dirname(src);
 
-            return `${subDirName}${name}-${width}.${format}`;
+            return `${dir}/${name}-${width}.${format}`;
         },
         htmlOptions: {
 			imgAttributes: {
 				loading: "lazy",
 				decoding: "async",
-                sizes: "100vw"
+                sizes: "(max-width: 768px) 768px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 100vw"
 			},
-			pictureAttributes: {}
+			pictureAttributes: {},
+            fallback: "largest"
 		}
     });
 

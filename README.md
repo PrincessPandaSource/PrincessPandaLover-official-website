@@ -7,7 +7,7 @@ The source code uses [Eleventy](https://www.11ty.dev/) to generate the website. 
 
 ## Important notices
 * If you have noted a significant error on my website, please open up a new issue in the "Issues" tab so that I can be notified. If you can fix it yourself, make a pull request.
-* Automatically optimized images are used on the site to improve performance. Their original, unoptimized versions are still available in the source code.
+* Automatically optimized images are used on the site to improve performance. To access the original, unoptimized images, edit the URL so that the width and preceding dash is removed and the extension is the original (typically PNG).
 
 ## How to run locally
 First, Node.js and NPM are needed. Please refer to [this installation guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you don't have them. [Netlify CLI](https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/) is also needed to run the local Netlify environment that allows the Netlify configuration to work.
