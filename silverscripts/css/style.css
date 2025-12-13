@@ -57,6 +57,11 @@ i {
   font-style: italic;
 }
 
+main {
+  width: 100%;
+  max-width: 100%;
+}
+
 /* header image */
 header img {
   width: 500px;

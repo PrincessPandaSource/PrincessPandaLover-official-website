@@ -69,7 +69,7 @@
 <body>
     <!-- header -->
     <header>
-        <a id="logo" href="./"><img eleventy:ignore src="./img/logo.svg" alt="Silver Scripts logo" /></a>
+        <a id="logo" href="./"><img eleventy:ignore src="./img/logo.svg" alt="Silver Scripts logo" width="500" height="81"/></a>
         <div id="nav">
             <ul>
                 <li><a href="./">Home</a></li>
@@ -81,7 +81,9 @@
         </div>
     </header>
 
-    {{ content | safe }}
+    <main>
+      {{ content | safe }}
+    </main>
     
     <!-- footer -->
     <footer>
