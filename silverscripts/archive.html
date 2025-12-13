@@ -1,62 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-    <title>Archive - Silver Scripts</title>
+---
+layout: layouts/silver-scripts.html
+title: Archive
+description: Archive page for Silver Scripts, a Sonic the Hedgehog fan webcomic, as a way for convenient navigation to all comic strips
+ogImage: logo.svg
+ogImageWidth: 500
+ogImageHeight: 81
+ogDescription: Archive page for Silver Scripts, a Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
+changeFreq: weekly
+priority: 0.5
+---
+{% import "components/silver-scripts.njk" as c %}
 
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="Archive page for Silver Scripts, a Sonic the Hedgehog fan webcomic, as a way for convenient navigation to all comic strips">
-    <link rel="canonical" href="https://princesspandalover.com/silverscripts/archive.html">
-
-    <meta property="og:title" content="Archive - Silver Scripts"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:image" content="https://princesspandalover.com/silverscripts/img/Logo.png"/>
-    <meta property="og:image:width" content="500"/>
-    <meta property="og:image:height" content="81"/>
-    <meta property="og:url" content="https://princesspandalover.com/silverscripts/archive.html"/>
-    <meta property="og:site_name" content="❤︎PrincessPandaLover"/>
-    <meta property="og:description" content="Archive page for Silver Scripts, a Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science."/>
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@PrincPandaTweet">
-    <meta name="twitter:title" content="Archive - Silver Scripts">
-    <meta name="twitter:description" content="Archive page for Silver Scripts, a Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.">
-    <meta name="twitter:image" content="https://princesspandalover.com/silverscripts/img/Logo.png">
-
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- Cherry Cream Soda -->
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>
-    <link rel="webmention" href="https://webmention.io/princesspandalover.com/webmention" />
-</head>
-<body>
-    <!-- header -->
-    <div class="writeHeader"></div>
-
-
-    <div class="archivePage subPage" align="center">
-        
-        <h1>Archive</h1>
-        <script>
-        indexPage = "./" //set which html page your comics are on, supremely important. archive system will break otherwise
-        </script>
-
-        <div class="chrono">
-        </div>
-    </div>
+<div class="archivePage subPage">
     
-    <!-- footer-->
-    <div class="writeFooter"></div>
+    <h1>Archive</h1>
+
+    <h2 id="arc0">Arc 0: {{ c.arcName(0) }}</h2>
+    <table class="archiveTable">
+        <tbody>
+            {%- for comic in collections.ssArc0 -%}
+            <tr class="archiveRow" data-href="{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html">
+                <td class="archiveCellNum">
+                    <span><strong>{{ comic.data.pgNum }}</strong></span>
+                </td>
+                <td class="archiveCellTitle leftAlignTableText">
+                    <span><strong>{{ comic.data.title }}</strong></span>
+                </td><td class="archiveCellDate">
+                    <span> {{ comic.date | postDate }} </span>
+                </td>
+            </tr>
+            {%- endfor -%}
+        </tbody>
+    </table>
+
+    <h2 id="arc1">Arc 1: {{ c.arcName(1) }}</h2>
+    <table class="archiveTable">
+        <tbody>
+            {%- for comic in collections.ssArc1 -%}
+            <tr class="archiveRow" data-href="{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html">
+                <td class="archiveCellNum">
+                    <span><strong>{{ comic.data.pgNum }}</strong></span>
+                </td>
+                <td class="archiveCellTitle leftAlignTableText">
+                    <span><strong>{{ comic.data.title }}</strong></span>
+                </td><td class="archiveCellDate">
+                    <span> {{ comic.date | postDate }} </span>
+                </td>
+            </tr>
+            {%- endfor -%}
+        </tbody>
+    </table>
+</div>
 
 <!-- really important- every js script is called here, be sure to always put them just before the closing body tag, use a defer attribute, and call them in this specific order.-->
-<script src="js/comic_header.js" defer></script>
-<script src="js/comic_settings.js" defer></script>
-<script src="js/comic_archive.js" defer></script>
-<script src="js/comic_footer.js" defer></script>
-</body>
-</html>
+<script src="js/comic_archive.js" defer=""></script>

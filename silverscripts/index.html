@@ -1,95 +1,45 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Silver Scripts</title>
+---
+layout: layouts/silver-scripts.html
+permalink: /silverscripts/index.html
+eleventyComputed:
+    title: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.pgNum }}. {{ collections.silverScripts[collections.silverScripts.length - 1].data.title | safe }}"  
+    description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
+    ogImage: "{{ '/silverscripts/img/comics/comic' + collections.silverScripts[collections.silverScripts.length - 1].data.pgNum + '.png' }}"
+    summaryLargeImage: true
+    noSitemap: false
+    changefreq: weekly
+    priority: 0.9
+---
+{# Yeah, this is EXTREMELY hacky, due to how Eleventy works. It needs to be virtually identical to the "comics.njk" layout. #}
+{% import "components/silver-scripts.njk" as c %}
 
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.">
-    <link rel="canonical" href="https://princesspandalover.com/silverscripts/">
+{% set latestComic = collections.silverScripts | last %}
+{% set totalComics = collections.silverScripts | length %}
+{% set latestComicIndex = totalComics - 1 %}
 
-    <meta property="og:title" content="Silver Scripts"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:image" content="https://princesspandalover.com/silverscripts/img/Logo.png"/>
-    <meta property="og:image:width" content="500"/>
-    <meta property="og:image:height" content="81"/>
-    <meta property="og:url" content="https://princesspandalover.com/silverscripts/"/>
-    <meta property="og:site_name" content="❤︎PrincessPandaLover"/>
-    <meta property="og:description" content="A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science."/>
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@PrincPandaTweet">
-    <meta name="twitter:title" content="Silver Scripts">
-    <meta name="twitter:description" content="A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.">
-    <meta name="twitter:image" content="https://princesspandalover.com/silverscripts/img/Logo.png">
+{% set firstComic = "/silverscripts/" ~ collections.silverScripts[0].data.pgNum ~ "-" ~ (collections.silverScripts[0].data.title | slugify) ~ ".html" %}
+{% set previousComic = "/silverscripts/" ~ collections.silverScripts[latestComicIndex - 1].data.pgNum ~ "-" ~ (collections.silverScripts[latestComicIndex - 1].data.title | slugify) ~ ".html" %}
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ComicStory",
-        "name": "Silver Scripts",
-        "author": "PrincessPandaLover",
-        "datePublished": "20240311T000000-0400",
-        "countryOfOrigin": "United States",
-        "inLanguage": "en-US",
-        "genre": [
-          "Semi-autobiographical",
-          "Slice of life",
-          "Comedy"
-        ],
-        "isBasedOn": "Sonic the Hedgehog",
-        "isAccessibleForFree": "True",
-        "isFamilyFriendly": "True",
-        "description": "A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science",
-        "URL": "https://princesspandalover.com/silverscripts/",
-        "sameAs": "https://archiveofourown.org/works/61844626/chapters/158132137"
-      }
-    </script>
+<div id="showComic">
+    <h1>{{ latestComic.data.pgNum }}. {{ latestComic.data.title }}</h1>
 
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- Cherry Cream Soda -->
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>
-    <link rel="webmention" href="https://webmention.io/princesspandalover.com/webmention" />
-  </head>
-  <body>
-
-  <!-- most of the elements on these pages are defined in the js files as functions, then we tell these functions where to show up on the page by placing empty divs and naming those divs the name of the js functions. check the js files to edit these elements in more detail.-->
-
-  <div align="center">
-    <!-- header that has the logo image and top page navigation. don't forget to put this on every page -->
-    <div class="writeHeader"></div>
-
-    <!-- make sure that if you want to turn on automatically scrolling to the top of the comic when you load a new page, keep the id of this div and the variable "navScrollTo" in showcomic.js the same-->
-    <div id="showComic">
-
-      <!-- write the title of the page. -->
-      <div class="writePageTitle"></div>
-      <!-- write top navigation -->
-      <div class="writeNav"></div>
-      <!-- write the current page of your comic -->
-      <div class="writePageClickable"></div>
-      <!-- write bottom navigation -->
-      <div class="writeNav"></div>
-      
+    <div class="comicInfo">
+        <span class="comicArc">{{ c.comicsArcName(latestComic.data.tags) }}</span> <span>|</span> <span class="comicDate">{{ latestComic.data.date | postDate}}</span>
     </div>
-  </div>
-  <div id="authorNotes">
+
+    {{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
+
+    <div class="comicPage">
+        <img alt="{{ latestComic.data.altText }}" title="{{ latestComic.data.altText }}" src="img/comics/comic{{ latestComic.data.pgNum }}.png" />
+    </div>
+    <div class="viewOGImg">
+        <a href="img/comics/comic{{ latestComic.data.pgNum }}.png">View original image file</a>
+    </div>
+</div>
+
+{{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
+
+<div id="authorNotes">
     <h2>Notes</h2>
-    <!-- write the author notes for the current page-->
-    <div class="writeAuthorNotes"></div>
-  </div>
-
-<!-- footer that has a link back to rarebit, and ideally has copyright info and stuff. again, don't forget to put this on every page-->
-<div class="writeFooter"></div>
-
-  <!-- really important- every js script is called here, be sure to always put them just before the closing body tag, use a defer attribute, and call them in this specific order.-->
-    <script src="js/comic_settings.js" defer></script>
-    <script src="js/comic_show.js" defer></script>
-    <script src="js/comic_header.js" defer></script>
-    <script src="js/comic_footer.js" defer></script>
-  </body>
-</html>
+    {{ latestComic.templateContent | safe }}
+</div>

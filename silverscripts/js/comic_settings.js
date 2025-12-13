@@ -16,7 +16,7 @@ const maxpg = 5; //the current number of pages your comic has in total. this DOE
 
 // COMIC PAGE SETTINGS
 const folder = "img/comics"; //directory of the folder where you keep all the comics
-const image = "Comic"; //what you'll name all your comic pages
+const image = "comic"; //what you'll name all your comic pages
 const imgPart = "_" //special character(s) you put after the page number to subdivide pages into multiple image files (ie pg2_1, pg2_2, etc)
 const ext = "png"; //file extension of your comic pages
 

@@ -5,14 +5,14 @@
 //then, to place that section of the archive on the html page, you'd make a div, and give that div a class name of whatever you've called that section of the archive in the first parameter.
 //if you put anything in that div, the list of comics will get appended after it. i.e. you can put the title of that specific section as a header in that div. 
 
-writeArchive(
+/*writeArchive(
     "chrono", //class of the div that you want this section of the archive to appear in. to have it be on your html page, make an empty div with this class.
     1, //earliest page to list
     maxpg, //latest page to list. setting to maxpg will make it automatically update with the latest page
     -1, //if set to 0, list is displayed "latest first". if set to -1, list is displayed chronologically
     false, //if set to true, each comic will have its own thumbnail image next to it. if a comic doesn't have its own thumbnail, it'll be set to the default thumbnail.
     true //if set to true, each comic will have a display number
-);
+);*/
 
 /*writeArchive("lastfirst", 1, maxpg, 0, true,true);
 
@@ -24,9 +24,13 @@ writeArchive("chapter3", 9, 12, -1, false,false);
 
 writeArchive("chapter4", 13, 15, -1, false,false);*/
 
+//writeArchive("arc0", 1, 2, -1, false, true);
+
+//writeArchive("arc1", 3, 5, -1, false, true);
+
 //below this point is stuff you don't really need to pay attention to if you're not super familiar with JS 
 
-function writeArchive(divClass, min, max, reverseOrder, useThumbs,useNums) {
+/*function writeArchive(divClass, min, max, reverseOrder, useThumbs,useNums) {
     //create a table to put the archive data
     let archiveTable = document.createElement("TABLE");
     archiveTable.setAttribute("class", "archiveTable"); //set class to archiveTable for css styling
@@ -100,4 +104,10 @@ function writeArchive(divClass, min, max, reverseOrder, useThumbs,useNums) {
         //left align text if not using thumbnails
         cellTitle.className += " leftAlignTableText";
     }
-}
+}*/
+
+document.querySelectorAll('.archiveRow').forEach(row => {
+    row.addEventListener('click', () => {
+        window.location.href = row.dataset.href;
+    });
+})

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Silver Scripts</title>
+
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    {% if description %}
+    <meta name="description" content="{{ description }}">
+    {% endif %}
+    <link rel="canonical" href="https://princesspandalover.com{{ page.url | lower | stripExtension }}" />
+
+    {% if noindex %}
+    <meta name="robots" content="noindex">
+    {% endif %}
+
+    <meta property="og:title" content="{{ title }} - Silver Scripts"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://princesspandalover.com/silverscripts/img/{{ ogImage }}"/>
+    {% if ogImageWidth %}
+    <meta property="og:image:width" content="{{ ogImageWidth }}"/>
+    {% endif %}
+    {% if ogImageHeight %}
+    <meta property="og:image:height" content="{{ ogImageHeight }}"/>
+    {% endif %}
+    <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
+    <meta property="og:site_name" content="❤︎PrincessPandaLover"/>
+    <meta property="og:description" content="{{ ogDescription | default(description) | default('') }}"/>
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@PrincPandaTweet">
+    <meta name="twitter:title" content="{{ title }} - Silver Scripts">
+    <meta name="twitter:description" content="{{ ogDescription | default(description) | default('') }}">
+    <meta name="twitter:image" content="https://princesspandalover.com/silverscripts/img/{{ ogImage }}">
+
+    {% if page.url == "/silverscipts/index.html" %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ComicStory",
+        "name": "Silver Scripts",
+        "author": "PrincessPandaLover",
+        "datePublished": "20240311T000000-0400",
+        "countryOfOrigin": "United States",
+        "inLanguage": "en-US",
+        "genre": [
+          "Semi-autobiographical",
+          "Slice of life",
+          "Comedy"
+        ],
+        "isBasedOn": "Sonic the Hedgehog",
+        "isAccessibleForFree": "True",
+        "isFamilyFriendly": "True",
+        "description": "A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science",
+        "URL": "https://princesspandalover.com/silverscripts/",
+        "sameAs": "https://archiveofourown.org/works/61844626/chapters/158132137"
+      }
+    </script>
+    {% endif %}
+
+    <!-- style -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>
+    <link rel="webmention" href="https://webmention.io/princesspandalover.com/webmention" />
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <a id="logo" href="./"><img eleventy:ignore src="./img/logo.svg" alt="Silver Scripts logo" width="500" height="81"/></a>
+        <div id="nav">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="archive.html">Archive</a></li>
+                <li><a href="characters.html">Characters</a></li>
+                <li><a href="/">PrincessPandaLover home</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+      {{ content | safe }}
+    </main>
+    
+    <!-- footer -->
+    <footer>
+        <p>Copyright © 2024-2025 by PrincessPandaLover. <i>Sonic the Hedgehog</i> is copyrighted © by SEGA CORPORATION.</p>
+        <p>All content may be reproduced and/or altered with attribution and for noncommercial purposes that are not abusive or illegal.</p>
+        <p>Powered by <a href="https://www.11ty.dev/">Eleventy</a> (based on <a href="https://rarebit.neocities.org">Rarebit</a>). <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">Source code on GitHub</a>.</p>
+    </footer>
+</body>
+</html>
