@@ -4,6 +4,7 @@ pagination:
   data: collections.silverScripts
   size: 1
   alias: comic
+  addAllPagesToCollections: true
 permalink: /silverscripts/{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html
 eleventyComputed:
     title: "{{ comic.data.pgNum }}. {{ comic.data.title | safe }}"
