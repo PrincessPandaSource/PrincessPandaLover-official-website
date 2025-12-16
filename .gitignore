@@ -1,0 +1,10 @@
+.hintrc
+/_site
+# Local VS Code folder
+.vscode
+# Local Netlify folder
+.netlify
+
+# Hidden folders personal to me
+/Archived pages
+/sonicverse
