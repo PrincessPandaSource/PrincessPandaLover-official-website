@@ -68,6 +68,12 @@ export default function (eleventyConfig) {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-MM-dd');
     });
 
+    eleventyConfig.addFilter("myRSSDate", (dateObj) => {
+        const date = new Date(dateObj);
+        date.setUTCHours(12, 0, 0, 0);
+        return date.toUTCString();
+    });
+
     // Add last modified dates to all processed pages for sitemap
     eleventyConfig.addGlobalData("eleventyComputed", {
         lastModified: (data) => {

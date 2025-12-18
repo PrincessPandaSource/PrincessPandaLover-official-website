@@ -31,7 +31,7 @@
       <title>{{ entry.date | postDate }}</title>
       <link>{{ absolutePostUrl }}</link>
       <description>{{ entry.content | renderTransforms(post.data.page, metadata.base) }}</description>
-      <pubDate>{{ entry.date | dateToRfc822 }}</pubDate>
+      <pubDate>{{ entry.date | myRSSDate }}</pubDate>
       <dc:creator>{{ metadata.author.name }}</dc:creator>
       <guid>{{ absolutePostUrl }}</guid>
     </item>
