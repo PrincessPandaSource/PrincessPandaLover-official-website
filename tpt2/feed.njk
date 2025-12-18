@@ -30,16 +30,8 @@
     <item>
       <title>{{ entry.date | postDate }}</title>
       <link>{{ absolutePostUrl }}</link>
-      {%- if entry.data.rssDescription %}
-      <description>{{ entry.rssDescription | renderTransforms(post.data.page, metadata.base) }}</description>
-      {%- endif %}
-      {%- if entry.data.rssImage %}
-      <media:content url="https://princesspandalover.com/images/tpt2/{{ entry.data.rssImage }}" medium="image" />
-      {%- endif %}
-      {%- if entry.data.rssImageAlt %}
-      <media:description>{{ entry.data.rssImageAlt }}<media:description/>
-      {%- endif %}
-      <pubDate>{{ entry.date.toUTCString() }}</pubDate>
+      <description>{{ entry.content | renderTransforms(post.data.page, metadata.base) }}</description>
+      <pubDate>{{ entry.date | dateToRfc822 }}</pubDate>
       <dc:creator>{{ metadata.author.name }}</dc:creator>
       <guid>{{ absolutePostUrl }}</guid>
     </item>
