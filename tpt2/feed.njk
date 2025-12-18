@@ -23,6 +23,7 @@
     <description>{{ metadata.description }}</description>
     <language>{{ metadata.language or page.lang }}</language>
     {%- for entry in collections.tpt2LogRSS | reverse %}
+    {%- if loop.index0 < 10 %}
     {%- set monthKey = entry.date | dateToFormat('yyyy-MM') %}
     {%- set monthName = monthKey | getMonthName | lower %}
     {%- set year = monthKey | getYear %}
@@ -35,6 +36,7 @@
       <dc:creator>{{ metadata.author.name }}</dc:creator>
       <guid>{{ absolutePostUrl }}</guid>
     </item>
+    {%- endif %}
     {%- endfor %}
   </channel>
 </rss>

@@ -23,6 +23,7 @@
     <description>{{ metadata.description }}</description>
     <language>{{ metadata.language or page.lang }}</language>
     {%- for comic in collections.silverScripts | reverse %}
+    {%- if loop.index0 < 10 %}
     {%- set titleSlug = comic.data.title | slugify %}
     {%- set absolutePostUrl = (metadata.base + comic.data.pgNum + "-" + titleSlug) | url | absoluteUrl(metadata.base) %}
     <item>
@@ -37,6 +38,7 @@
       <dc:creator>{{ metadata.author.name }}</dc:creator>
       <guid>{{ absolutePostUrl }}</guid>
     </item>
+    {%- endif %}
     {%- endfor %}
   </channel>
 </rss>
