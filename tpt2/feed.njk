@@ -1,0 +1,48 @@
+---json
+{ 
+  "layout": "",
+  "permalink": "/tpt2/feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "My Theme Park Tycoon 2 Buildlog",
+    "description": "Come see what I built in Theme Park Tycoon 2 on Roblox! I've tried a Green Hill Zone ride, a Sonic statue, a wolf prop, and more.",
+    "language": "en",
+    "base": "https://princesspandalover.com/tpt2/",
+    "author": {
+      "name": "PrincessPandaLover"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.base | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    {%- for entry in collections.tpt2LogRSS | reverse %}
+    {%- set monthKey = entry.date | dateToFormat('yyyy-MM') %}
+    {%- set monthName = monthKey | getMonthName | lower %}
+    {%- set year = monthKey | getYear %}
+    {%- set absolutePostUrl = (metadata.base + monthName + '-' + year + '#' + entry.data.title) | url | absoluteUrl(metadata.base) %}
+    <item>
+      <title>{{ entry.date | postDate }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      {%- if entry.data.rssDescription %}
+      <description>{{ entry.rssDescription | renderTransforms(post.data.page, metadata.base) }}</description>
+      {%- endif %}
+      {%- if entry.data.rssImage %}
+      <media:content url="https://princesspandalover.com/images/tpt2/{{ entry.data.rssImage }}" medium="image" />
+      {%- endif %}
+      {%- if entry.data.rssImageAlt %}
+      <media:description>{{ entry.data.rssImageAlt }}<media:description/>
+      {%- endif %}
+      <pubDate>{{ entry.date.toUTCString() }}</pubDate>
+      <dc:creator>{{ metadata.author.name }}</dc:creator>
+      <guid>{{ absolutePostUrl }}</guid>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
 import path from "node:path";
 import Image from "@11ty/eleventy-img";
+import pluginRss from "@11ty/eleventy-plugin-rss";
 import fs from "fs";
 
 export default function (eleventyConfig) {
@@ -55,6 +56,10 @@ export default function (eleventyConfig) {
     });
 
     // Date filters
+    eleventyConfig.addFilter("dateToFormat", (dateObj, format) => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(format);
+    });
+
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
     });
@@ -95,6 +100,10 @@ export default function (eleventyConfig) {
                 entries
             }));
         });
+
+        eleventyConfig.addCollection(tag + "RSS", function(collectionApi) {
+            return collectionApi.getFilteredByTag(tag);
+        });
     });
 
     eleventyConfig.addFilter("getMonthName", (monthKey) => {
@@ -114,9 +123,29 @@ export default function (eleventyConfig) {
         if (!monthKey) return '';
         return String(monthKey).split('-')[0];
     });
+
+    // For RSS feeds
+    eleventyConfig.addPlugin(pluginRss);
+
+    eleventyConfig.addFilter("firstTwoSentences", (content) => {
+        // Strip HTML tags
+        const text = content.replace(/<[^>]*>/g, ' ').trim();
+        
+        // Match sentences ending with . ! ? or "
+        // Regex looks for sentence-ending punctuation followed by space or end of string
+        const sentences = text.match(/[^.!?"]+[.!?"]+/g);
+        
+        if (!sentences || sentences.length === 0) {
+            return text.substring(0, 200) + '...';
+        }
+        
+        // Get first two sentences
+        const twoSentences = sentences.slice(0, 2).join(' ').trim();
+        return twoSentences;
+    });
 }
 
-// Setting all HTML pages to use Nunjunks
+// Setting all HTML pages to use Nunjucks
 export const config = {
     htmlTemplateEngine: "njk",
 };
