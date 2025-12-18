@@ -1,0 +1,42 @@
+---json
+{ 
+  "layout": "",
+  "permalink": "/silverscripts/feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Silver Scripts",
+    "description": "A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.",
+    "language": "en",
+    "base": "https://princesspandalover.com/silverscripts/",
+    "author": {
+      "name": "PrincessPandaLover"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.base | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    {%- for comic in collections.silverScripts | reverse %}
+    {%- set titleSlug = comic.data.title | slugify %}
+    {%- set absolutePostUrl = (metadata.base + comic.data.pgNum + "-" + titleSlug) | url | absoluteUrl(metadata.base) %}
+    <item>
+      <title>{{ comic.data.pgNum }}. {{ comic.data.title }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <description>
+        <![CDATA[<img alt="{{ comic.data.altText }}" src="https://princesspandalover.com/silverscripts/img/comics/comic{{ comic.data.pgNum }}.png" />]]>
+
+        {{ comic.content | renderTransforms(post.data.page, metadata.base) }}
+      </description>
+      <pubDate>{{ comic.date | myRSSDate }}</pubDate>
+      <dc:creator>{{ metadata.author.name }}</dc:creator>
+      <guid>{{ absolutePostUrl }}</guid>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>
