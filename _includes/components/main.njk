@@ -36,3 +36,7 @@
 {% macro directLink(id) %}
     <a href="#{{ id }}" class="white-link" title="Direct link"><i class="fa-solid fa-link"></i></a>
 {% endmacro %}
+
+{% macro rssButton(href) %}
+    <a class="button" href="{{ href | default('feed.xml') }}"><i class="fa-solid fa-rss"></i> Stay up to date with the RSS feed!</a>
+{% endmacro %}

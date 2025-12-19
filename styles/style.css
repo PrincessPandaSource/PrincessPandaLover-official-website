@@ -57,7 +57,6 @@ s {
   max-width: 55%;
   flex: 1;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* For screen readers */
@@ -201,6 +200,7 @@ button:hover {
 }
 
 a.button {
+  display: inline-block;
   background-color: #fe80df;
   border: 3px solid #ff00bf;
   border-radius: 5px;
