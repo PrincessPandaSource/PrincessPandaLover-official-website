@@ -22,17 +22,22 @@ eleventyComputed:
 {% set lastComic = pagination.href.last %}
 {% set totalComics = pagination.pages.length %}
 
+<article class="h-entry">
 <div id="showComic">
-    <h1>{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
+    <h1 class="p-name">{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
+    <a class="p-author h-card" href="/" hidden aria-hidden="true">PrincessPandaLover</a>
+    {%- set titleSlug = comic.data.title | slugify %}
+    {%- set comicURL = "https://princesspandalover.com/silverscripts/" + comic.data.pgNum + "-" + titleSlug %}
+    <a class="u-url u-uid" href="{{ comicURL }}" hidden aria-hidden="true">{{ comicURL }}</a>
 
     <div class="comicInfo">
-        <span class="comicArc">{{ c.comicsArcName(comic.data.tags) }}</span> <span>|</span> <span class="comicDate">{{ comic.date | postDate}}</span>
+        <span class="comicArc">{{ c.comicsArcName(comic.data.tags) }}</span> <span>|</span> <span class="comicDate dt-published">{{ comic.date | postDate}}</span>
     </div>
 
     {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
 
-    <div class="comicPage">
-        <img alt="{{ comic.data.altText }}" title="{{ comic.data.altText }}" src="img/comics/comic{{ comic.data.pgNum }}.png" />
+    <div class="comicPage e-content">
+        <img class="u-photo" alt="{{ comic.data.altText }}" title="{{ comic.data.altText }}" src="img/comics/comic{{ comic.data.pgNum }}.png" />
     </div>
     <div class="viewOGImg">
         <a href="img/comics/comic{{ comic.data.pgNum }}.png">View original image file</a>
@@ -41,10 +46,11 @@ eleventyComputed:
 
 {{ c.nav(pagination, comic.data.pgNum, totalComics, firstComic, previousComic, nextComic, lastComic) }}
 
-<div id="authorNotes">
+<div id="authorNotes" class="e-content">
     <h2>Notes</h2>
     {{ comic.templateContent | safe }}
 </div>
+</article>
 
 <div id="updatesSection">
     <div>

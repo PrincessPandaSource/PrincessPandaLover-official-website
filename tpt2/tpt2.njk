@@ -40,7 +40,7 @@ eleventyComputed:
 {% for entry in monthlyData.entries %}
 <article class="h-entry">
   <h2 id="{{ entry.data.title }}"><span class="p-name dt-published">{{ entry.data.date | postDate }}</span> {{ c.directLink(entry.data.title) }}</h2>
-  <span class="p-author" hidden aria-hidden="true">PrincessPandaLover</span>
+  <a class="p-author h-card" href="/" hidden aria-hidden="true">PrincessPandaLover</a>
   {%- set monthNameLower = monthlyData.monthKey | getMonthName | lower %}
   {%- set year = monthlyData.monthKey | getYear %}
   {%- set entryURL = "https://princesspandalover.com/tpt2/" + monthNameLower + "-" + year + "#" + entry.data.title %}

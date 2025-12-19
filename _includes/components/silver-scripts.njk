@@ -34,6 +34,6 @@
     {% endfor %}
     {% if arc_tag %}
         {% set arc_num = arc_tag | replace("ssArc", "") %}
-        <a href="archive.html#arc{{arc_num}}">Arc {{ arc_num }}: {{ arc_names[arc_num] }}</a>
+        <a class="p-category" href="archive.html#arc{{arc_num}}">Arc {{ arc_num }}: {{ arc_names[arc_num] | safe }}</a>
     {% endif %}
 {% endmacro %}

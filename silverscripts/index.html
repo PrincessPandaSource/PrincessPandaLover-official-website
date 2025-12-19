@@ -20,17 +20,22 @@ eleventyComputed:
 {% set firstComic = "/silverscripts/" ~ collections.silverScripts[0].data.pgNum ~ "-" ~ (collections.silverScripts[0].data.title | slugify) ~ ".html" %}
 {% set previousComic = "/silverscripts/" ~ collections.silverScripts[latestComicIndex - 1].data.pgNum ~ "-" ~ (collections.silverScripts[latestComicIndex - 1].data.title | slugify) ~ ".html" %}
 
+<article class="h-entry">
 <div id="showComic">
-    <h1>{{ latestComic.data.pgNum }}. {{ latestComic.data.title }}</h1>
+    <h1 class="p-name">{{ latestComic.data.pgNum }}. {{ latestComic.data.title }}</h1>
+    <a class="p-author h-card" href="/" hidden aria-hidden="true">PrincessPandaLover</a>
+    {%- set titleSlug = latestComic.data.title | slugify %}
+    {%- set comicURL = "https://princesspandalover.com/silverscripts/" + latestComic.data.pgNum + "-" + titleSlug %}
+    <a class="u-url u-uid" href="{{ comicURL }}" hidden aria-hidden="true">{{ comicURL }}</a>
 
     <div class="comicInfo">
-        <span class="comicArc">{{ c.comicsArcName(latestComic.data.tags) }}</span> <span>|</span> <span class="comicDate">{{ latestComic.data.date | postDate}}</span>
+        <span class="comicArc">{{ c.comicsArcName(latestComic.data.tags) }}</span> <span>|</span> <span class="comicDate dt-published">{{ latestComic.data.date | postDate}}</span>
     </div>
 
     {{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
 
-    <div class="comicPage">
-        <img alt="{{ latestComic.data.altText }}" title="{{ latestComic.data.altText }}" src="img/comics/comic{{ latestComic.data.pgNum }}.png" />
+    <div class="comicPage e-content">
+        <img class="u-photo" alt="{{ latestComic.data.altText }}" title="{{ latestComic.data.altText }}" src="img/comics/comic{{ latestComic.data.pgNum }}.png" />
     </div>
     <div class="viewOGImg">
         <a href="img/comics/comic{{ latestComic.data.pgNum }}.png">View original image file</a>
@@ -39,10 +44,11 @@ eleventyComputed:
 
 {{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
 
-<div id="authorNotes">
+<div id="authorNotes" class="e-content">
     <h2>Notes</h2>
     {{ latestComic.templateContent | safe }}
 </div>
+</article>
 
 <div id="updatesSection">
     <div>
