@@ -80,7 +80,7 @@ export default function (eleventyConfig) {
 
     // Pre-load Git history to avoid spawning process for every file (Gemini 3 Pro)
     try {
-        const output = execSync('git log --name-only --format="GIT_DATE:%cI"', { 
+        const output = execSync('git log --name-only --format="GIT_DATE:%cI" --max-count=500', { 
             encoding: 'utf-8',
             maxBuffer: 10 * 1024 * 1024 // 10MB buffer
         });
