@@ -78,12 +78,16 @@ header img {
 /*FONTS*/
 
 /* header font */
-#showComic, header, h1, h2, h3, h4, h5 {
+#showComic, header, h1, h2, h3, h4, h5, #updatesSection {
   font-family: 'Orbitron Light';
 }
 
+#updatesSection {
+  font-size: large;
+}
+
 /* body font */
-.subPage p, footer, #authorNotes, .archiveTable {
+.subPage p, footer, .comicInfo, .viewOGImg, #authorNotes, .archiveTable {
   font-family: 'Source Code Pro';
   font-size: large;
 }
@@ -133,6 +137,14 @@ a:hover {
       color: #0E2B4C;
     }
 
+.svgColor {
+  filter: brightness(0) saturate(100%) invert(41%) sepia(8%) saturate(3707%) hue-rotate(130deg) brightness(89%) contrast(78%);
+}
+
+a:hover .svgColor {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(12%) saturate(5378%) hue-rotate(183deg) brightness(96%) contrast(97%);
+}
+
 /* HEADER */
 header {
   width: 900px;
@@ -179,7 +191,7 @@ header #nav ul {
   align-content: center;
   gap: 10px;
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .comicInfo .comicArc {
@@ -207,6 +219,10 @@ header #nav ul {
 }
 
 /* style comic page image */
+#showComic h1 {
+  margin-bottom: 0.4em;
+}
+
 .comicPage img {
   max-width: 100%;
   height: auto; /* Extremely important so the image doesn't stretch */
@@ -218,15 +234,26 @@ header #nav ul {
   margin-bottom: 1em;
 }
 
-/* style author notes */
-#authorNotes {
+/* style author notes and updates section */
+#authorNotes, #updatesSection {
   background-color:#ffffff;
   margin: auto;
   padding: 20px;
-  padding-top: 3px;
   width: 900px;
   max-width: 98%;
+}
+
+#authorNotes {
+  padding-top: 3px;
   margin-top: 5px;
+}
+
+#updatesSection {
+  padding: 20px;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
 }
 
 /* ARCHIVE PAGE */
