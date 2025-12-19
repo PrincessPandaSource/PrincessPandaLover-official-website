@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 import path from "node:path";
 import Image from "@11ty/eleventy-img";
+import { execSync } from "node:child_process";
 import pluginRss from "@11ty/eleventy-plugin-rss";
-import fs from "fs";
 
 export default function (eleventyConfig) {
     // Import pre-existing resources to build
@@ -74,11 +74,47 @@ export default function (eleventyConfig) {
         return date.toUTCString();
     });
 
-    // Add last modified dates to all processed pages for sitemap
+    // Add last modified dates to all processed pages for sitemap (Gemini 3 Pro)
     eleventyConfig.addGlobalData("eleventyComputed", {
         lastModified: (data) => {
-            const fileStats = fs.statSync(data.page.inputPath);
-            return fileStats.mtime;
+            // Use Git for getting date
+            const getGitLastModified = (filePath) => {
+                try {
+                    // Get the last commit date in ISO 8601 format
+                    const output = execSync(`git log -1 --format=%cI "${filePath}"`, { encoding: 'utf-8' });
+                    return output.trim() ? new Date(output.trim()) : null;
+                } catch (e) {
+                    return null;
+                }
+            };
+
+            let latestDate = null;
+
+            // If this is a paginated page, check the items on this specific page
+            // This ensures the page "updates" when a post listed on it updates
+            if (data.pagination && data.pagination.items) {
+                for (const item of data.pagination.items) {
+                    if (item.inputPath) {
+                        const itemDate = getGitLastModified(item.inputPath);
+                        if (itemDate && (!latestDate || itemDate > latestDate)) {
+                            latestDate = itemDate;
+                        }
+                    }
+                }
+            }
+
+            // Check the template file itself
+            const templateDate = getGitLastModified(data.page.inputPath);
+            if (templateDate && (!latestDate || templateDate > latestDate)) {
+                latestDate = templateDate;
+            }
+
+            // Fallback to today if Git doesn't get date
+            if (!latestDate) {
+                latestDate = new Date();
+            }
+
+            return latestDate;
         }
     });
 
