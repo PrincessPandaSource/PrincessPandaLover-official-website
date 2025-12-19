@@ -175,6 +175,10 @@ header #nav ul {
   padding: 0;
 }
 
+header #nav li:not(:last-child) {
+  margin-bottom: 0.1em;
+}
+
 /* HOMEPAGE */
 #showComic {
   text-align: center;
