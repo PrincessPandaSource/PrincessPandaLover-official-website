@@ -74,48 +74,63 @@ export default function (eleventyConfig) {
         return date.toUTCString();
     });
 
-    // Add last modified dates to all processed pages for sitemap (Gemini 3 Pro)
-    eleventyConfig.addGlobalData("eleventyComputed", {
-        lastModified: (data) => {
-            // Use Git for getting date
-            const getGitLastModified = (filePath) => {
-                try {
-                    // Get the last commit date in ISO 8601 format
-                    const output = execSync(`git log -1 --format=%cI "${filePath}"`, { encoding: 'utf-8' });
-                    return output.trim() ? new Date(output.trim()) : null;
-                } catch (e) {
-                    return null;
-                }
-            };
+    // Cache for Git dates to speed up build
+    const gitDateCache = new Map();
 
-            let latestDate = null;
+    // Get last modified date for sitemap via Git (Gemini 3 Pro)
+    eleventyConfig.addFilter("lastModifiedDate", (page) => {
+        const inputPath = page.inputPath;
 
-            // If this is a paginated page, check the items on this specific page
-            // This ensures the page "updates" when a post listed on it updates
-            if (data.pagination && data.pagination.items) {
-                for (const item of data.pagination.items) {
-                    if (item.inputPath) {
-                        const itemDate = getGitLastModified(item.inputPath);
-                        if (itemDate && (!latestDate || itemDate > latestDate)) {
-                            latestDate = itemDate;
-                        }
+        // Return cached value if available
+        if (gitDateCache.has(inputPath)) {
+            return gitDateCache.get(inputPath);
+        }
+
+        // Use Git for getting date
+        const getGitLastModified = (filePath) => {
+            try {
+                // Get the last commit date in ISO 8601 format
+                const output = execSync(`git log -1 --format=%cI "${filePath}"`, { encoding: 'utf-8' });
+                return output.trim() ? new Date(output.trim()) : null;
+            } catch (e) {
+                return null;
+            }
+        };
+
+        let latestDate = null;
+
+        // If this is a paginated page, check the items on this specific page
+        if (page.data && page.data.pagination && page.data.pagination.items) {
+            for (const item of page.data.pagination.items) {
+                if (item.inputPath) {
+                    const itemDate = getGitLastModified(item.inputPath);
+                    if (itemDate && (!latestDate || itemDate > latestDate)) {
+                        latestDate = itemDate;
                     }
                 }
             }
+        }
 
-            // Check the template file itself
-            const templateDate = getGitLastModified(data.page.inputPath);
-            if (templateDate && (!latestDate || templateDate > latestDate)) {
-                latestDate = templateDate;
-            }
+        // Check the template file itself
+        const templateDate = getGitLastModified(inputPath);
+        if (templateDate && (!latestDate || templateDate > latestDate)) {
+            latestDate = templateDate;
+        }
 
-            // Fallback to today if Git doesn't get date
-            if (!latestDate) {
+        // Fallback to file stats or today if Git fails
+        if (!latestDate) {
+            try {
+                const stats = fs.statSync(inputPath);
+                latestDate = stats.mtime;
+            } catch (e) {
                 latestDate = new Date();
             }
-
-            return latestDate;
         }
+
+        // Cache the result
+        gitDateCache.set(inputPath, latestDate);
+
+        return latestDate;
     });
 
     // Strip extension filter
