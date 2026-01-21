@@ -8,15 +8,15 @@
 <div class="comicNav">
     {% if currentPg > 1 %}
     <!--First comic button-->
-    <a href="{{ firstComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_first.svg" alt="First"/></a>
+    <a href="{{ firstComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_first.svg" alt="First" title="First"/></a>
     <!--Prev comic button-->
-    <a href="{{ previousComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_previous.svg" alt="Previous"/></a>
+    <a href="{{ previousComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_previous.svg" alt="Previous" title="Previous"/></a>
     {% endif %}
     {% if currentPg != totalPgs %}
     <!--Next comic button-->
-    <a href="{{ nextComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_next.svg" alt="Next"/></a>
+    <a href="{{ nextComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_next.svg" alt="Next" title="Next"/></a>
     <!--Last comic button-->
-    <a href="{{ lastComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_last.svg" alt="Last"/></a>
+    <a href="{{ lastComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_last.svg" alt="Last" title="Last"/></a>
     {% endif %}
 </div>
 {% endmacro %}
