@@ -356,4 +356,9 @@ html, body {
     margin-top: 15px;
     width: auto;
   }
+
+  #updatesSection {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 }
