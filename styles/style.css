@@ -304,10 +304,13 @@ li:before {
   padding-right: 5px;
 }
 
+.article-select-section, .blog-back-section {
+  margin-bottom: 0.5rem;
+}
+
 .article-select-section {
   text-align: center;
   color: #ff00bf;
-  margin-bottom: 0.5rem;
 }
 
 .article-select {
@@ -322,6 +325,12 @@ select {
   padding-bottom: 2px;
   font-size: 1em;
   font-family: 'Montserrat';
+}
+
+.blog-info-box {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 1.5rem;
 }
 
 footer {
