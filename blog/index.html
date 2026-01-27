@@ -1,7 +1,18 @@
 ---
 layout: layouts/blog.html
 title: Wolf with a Blog
+description: My personal blog, where I write about topics such as computer science.
+ogImage: logo.png
+ogImageWidth: 396
+ogImageHeight: 112
+changefreq: monthly
+priority: 0.8
 ---
-<div class="text-box">
-    Lorem ipsum
-</div>
+{%- for post in collections.blog -%}
+  <div class="text-box">
+    <a href="{{ post.url }}" class="blog-button-title">{{ post.data.title }}</a><br/>
+    {{ post.date | postDate }}
+
+    <p>Tags:</p>
+  </div>
+{%- endfor -%}

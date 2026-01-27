@@ -327,6 +327,13 @@ select {
   font-family: 'Montserrat';
 }
 
+.blog-button-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #BB0303 !important;
+}
+
 .blog-info-box {
   padding-top: 10px;
   padding-bottom: 10px;
