@@ -3,6 +3,7 @@ pagination:
     data: collections.blogTags
     size: 1
     alias: blogTag
+    addAllPagesToCollections: true
 permalink: "/blog/tags/{{ blogTag | slugify }}/"
 eleventyComputed:
     layout: layouts/main.html
@@ -11,7 +12,6 @@ eleventyComputed:
     ogImage: logo.png
     ogImageWidth: 396
     ogImageHeight: 112
-    noSitemap: false
     changefreq: monthly
     priority: 0.6
 ---
