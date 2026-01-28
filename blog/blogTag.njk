@@ -1,0 +1,32 @@
+---
+pagination:
+    data: collections.blogTags
+    size: 1
+    alias: blogTag
+permalink: "/blog/tags/{{ blogTag | slugify }}/"
+eleventyComputed:
+    layout: layouts/blog.html
+    title: "Tagged: {{ blogTag }}"
+    description: Wolf with a Blog posts tagged with "{{ blogTag }}"
+    ogImage: logo.png
+    ogImageWidth: 396
+    ogImageHeight: 112
+    noSitemap: false
+    changefreq: monthly
+    priority: 0.6
+---
+<nav class="blog-back-section">
+    <a class="button" href="/blog/">&lt; Back</a>
+</nav>
+
+<h2>Tagged: {{ blogTag }}</h2>
+
+{%- set posts = collections.blog | filterByBlogTag(blogTag) -%}
+{%- for post in posts | reverse -%}
+  <div class="text-box">
+    <a href="{{ post.url }}" class="blog-button-title">{{ post.data.title }}</a><br/>
+    {{ post.date | postDate }}
+
+    <p>Tags: {%- for tag in post.data.blogTags -%}<a href="/blog/tags/{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>{%- endfor -%}</p>
+  </div>
+{%- endfor -%}

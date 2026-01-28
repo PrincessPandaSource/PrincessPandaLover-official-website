@@ -146,6 +146,33 @@ export default function (eleventyConfig) {
         return filename.replace(/\.[^/.]+$/, "")
     });
 
+    // Wolf with a Blog tags
+    // Set up collection of blog tags
+    eleventyConfig.addCollection("blogTags", function(collectionApi) {
+        let blogTags = new Array();
+        const posts = collectionApi.getFilteredByTag("blog");
+
+        posts.forEach(post => {
+            const postTags = post.data.blogTags;
+            postTags.forEach(tag => blogTags.push(tag));
+        });
+
+        return blogTags;
+    })
+
+    // Filter for filtering blogposts by tag
+    eleventyConfig.addFilter("filterByBlogTag", function(posts, blogTag) {
+        // Lowercase is used for consistency
+        blogTag = blogTag.toLowerCase();
+
+        const filteredPosts = posts.filter(post => {
+            const postTags = post.data.blogTags.map(t => t.toLowerCase());
+            return postTags.includes(blogTag);
+        })
+
+        return filteredPosts;
+    })
+
     // Fun blog collections
     const funBlogCollectionTags = ["tpt2Log"];
 
