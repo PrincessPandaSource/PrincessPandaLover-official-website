@@ -1,6 +1,5 @@
 ---
-layout: layouts/blog.html
-title: Wolf with a Blog
+layout: layouts/main.html
 description: My personal blog, where I write about topics such as computer science.
 ogImage: logo.png
 ogImageWidth: 396
@@ -8,11 +7,7 @@ ogImageHeight: 112
 changefreq: monthly
 priority: 0.8
 ---
-{%- for post in collections.blog | reverse -%}
-  <div class="text-box">
-    <a href="{{ post.url }}" class="blog-button-title">{{ post.data.title }}</a><br/>
-    {{ post.date | postDate }}
+{% import "components/main.njk" as c %}
 
-    <p>Tags: {%- for tag in post.data.blogTags -%}<a href="./tags/{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>{%- endfor -%}</p>
-  </div>
-{%- endfor -%}
+<h1>Wolf with a Blog</h1>
+{{ c.blogEntries(collections.blog) }}

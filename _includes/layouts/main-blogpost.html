@@ -1,0 +1,23 @@
+---
+layout: layouts/main.html
+tags: blog
+changefreq: monthly
+priority: 0.8
+eleventyComputed:
+  title: "{{ postTitle }} - Wolf with a Blog"
+---
+{% import "components/main.njk" as c %}
+
+<h1>Wolf with a Blog</h1>
+<article>
+    {{ c.backButton("/blog/") }}
+
+    <h2>{{ postTitle }}</h2>
+    <div class="text-box blog-info-box">
+        Posted on {{ date | postDate }} | Tags: {{ c.blogTags(blogTags) }}
+    </div>
+
+    <div class="text-box">
+        {{ content | safe }}
+    </div>
+</article>
