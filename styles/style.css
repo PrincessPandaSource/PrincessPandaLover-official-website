@@ -340,13 +340,6 @@ select {
   margin-bottom: 1.5rem;
 }
 
-.blog-excerpt {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
 a.blog-tag {
   background-color: #BB0303;
   padding: 3px 5px;

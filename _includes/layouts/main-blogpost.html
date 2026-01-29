@@ -14,7 +14,9 @@ eleventyComputed:
 
     <h2>{{ postTitle }}</h2>
     <div class="text-box blog-info-box">
-        Posted on {{ date | postDate }} | Tags: {{ c.blogTags(blogTags) }}
+        <p>{{ description }}</p>
+        
+        <p>Posted on {{ date | postDate }} | Tags: {{ c.blogTags(blogTags) }}</p>
     </div>
 
     <div class="text-box">

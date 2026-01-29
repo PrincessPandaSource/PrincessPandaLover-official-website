@@ -45,7 +45,7 @@
     <a href="{{ post.url }}" class="blog-entry-title">{{ post.data.postTitle }}</a><br/>
     {{ post.date | postDate }}
 
-    <p class="blog-excerpt">{{ post.data.ogDescription }}</p>
+    <p>{{ post.data.description }}</p>
 
     <p>Tags: {{ blogTags(post.data.blogTags) }}</p>
   </div>
