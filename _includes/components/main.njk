@@ -41,7 +41,7 @@
 
 {% macro blogEntries(collection) %}
 {%- for post in collection | reverse -%}
-  <div class="text-box">
+  <div class="text-box blog-entry">
     <a href="{{ post.url }}" class="blog-entry-title">{{ post.data.postTitle }}</a><br/>
     {{ post.date | postDate }}
 

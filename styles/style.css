@@ -327,6 +327,10 @@ select {
   font-family: 'Montserrat';
 }
 
+.blog-entry {
+  height: 8lh;
+}
+
 .blog-entry-title {
   font-size: 1.25em;
   font-weight: bold;

@@ -154,7 +154,9 @@ export default function (eleventyConfig) {
 
         posts.forEach(post => {
             const postTags = post.data.blogTags;
-            postTags.forEach(tag => blogTags.push(tag));
+            postTags.forEach(tag => {
+                if (!(blogTags.includes(tag))) blogTags.push(tag);
+            });
         });
 
         return blogTags;
