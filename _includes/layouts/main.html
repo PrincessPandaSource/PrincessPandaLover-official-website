@@ -28,41 +28,6 @@
         <link rel="canonical" href="https://princesspandalover.com{{ page.url | lower | stripExtension }}" />
         {% endif %}
         
-        {% if page.url == "/" %}
-        <script type="application/ld+json">
-            {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "❤︎PrincessPandaLover",
-                "alternateName": ["PrincessPandaLover", "PPL"],
-                "url": "https://princesspandalover.com"
-                },
-                {
-                "@type": "Person",
-                "name": "PrincessPandaLover",
-                "gender": "Female",
-                "pronouns": "she/her",
-                "birthDate": "20031126T000000+0800",
-                "nationality": "Chinese",
-                "url": "https://princesspandalover.com",
-                "sameAs": [
-                    "https://bsky.app/profile/princesspanda.bsky.social",
-                    "https://twitter.com/PrincPandaTweet",
-                    "https://princesspandablog.tumblr.com",
-                    "https://www.instagram.com/princesspandagram/",
-                    "https://www.youtube.com/@princesspandatube",
-                    "https://www.deviantart.com/princesspandaart",
-                    "https://archiveofourown.org/users/PrincessPandaFanfiction"
-                ]
-                }
-            ]
-            }
-        </script>
-        {% endif %}
-        
         {% if page.url != "/404.html" %}
         {% if title %}
         <meta property="og:title" content="{{ title }} - ❤︎PrincessPandaLover"/>
