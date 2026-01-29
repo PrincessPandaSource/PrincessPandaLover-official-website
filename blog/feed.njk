@@ -1,0 +1,42 @@
+---json
+{ 
+  "layout": "",
+  "permalink": "/blog/feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Wolf with a Blog",
+    "description": "PrincessPandaLover's personal blog",
+    "language": "en",
+    "base": "https://princesspandalover.com/blog/",
+    "author": {
+      "name": "PrincessPandaLover"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.base | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    {%- for post in collections.blog | reverse %}
+    {%- if loop.index0 < 10 %}
+    <item>
+      <title>{{ post.data.postTitle }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <description>
+        <![CDATA[<p><i>{{ post.data.description }}</i></p>]]>
+
+        {{ post.content | renderTransforms(post.data.page, metadata.base) }}
+      </description>
+      <pubDate>{{ post.date | myRSSDate }}</pubDate>
+      <dc:creator>{{ metadata.author.name }}</dc:creator>
+      <guid>{{ absolutePostUrl }}</guid>
+    </item>
+    {%- endif %}
+    {%- endfor %}
+  </channel>
+</rss>

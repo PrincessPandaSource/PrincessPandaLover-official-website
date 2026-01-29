@@ -220,23 +220,6 @@ export default function (eleventyConfig) {
 
     // For RSS feeds
     eleventyConfig.addPlugin(pluginRss);
-
-    eleventyConfig.addFilter("firstTwoSentences", (content) => {
-        // Strip HTML tags
-        const text = content.replace(/<[^>]*>/g, ' ').trim();
-        
-        // Match sentences ending with . ! ? or "
-        // Regex looks for sentence-ending punctuation followed by space or end of string
-        const sentences = text.match(/[^.!?"]+[.!?"]+/g);
-        
-        if (!sentences || sentences.length === 0) {
-            return text.substring(0, 200) + '...';
-        }
-        
-        // Get first two sentences
-        const twoSentences = sentences.slice(0, 2).join(' ').trim();
-        return twoSentences;
-    });
 }
 
 // Setting all HTML pages to use Nunjucks
