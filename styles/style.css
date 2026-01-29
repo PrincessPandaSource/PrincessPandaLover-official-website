@@ -327,7 +327,7 @@ select {
   font-family: 'Montserrat';
 }
 
-.blog-button-title {
+.blog-entry-title {
   font-size: 1.25em;
   font-weight: bold;
   text-decoration: none;
@@ -338,6 +338,13 @@ select {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 1.5rem;
+}
+
+.blog-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 a.blog-tag {
