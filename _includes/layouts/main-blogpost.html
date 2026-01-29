@@ -9,17 +9,20 @@ eleventyComputed:
 {% import "components/main.njk" as c %}
 
 <h1>Wolf with a Blog</h1>
-<article>
+<article class="h-entry">
     {{ c.backButton("/blog/") }}
 
-    <h2>{{ postTitle }}</h2>
+    <h2 class="p-name">{{ postTitle }}</h2>
     <div class="text-box blog-info-box">
-        <p>{{ description }}</p>
+        <p class="p-summary">{{ description }}</p>
+        <a class="p-author h-card" href="/" hidden aria-hidden="true">PrincessPandaLover</a>
+        {%- set URL = "https://princesspandalover.com/blog/" + page.fileSlug -%}
+        <a class="u-url u-uid" href="{{ URL }}" hidden aria-hidden="true">{{ URL }}</a>
         
-        <p>Posted on {{ date | postDate }} | Tags: {{ c.blogTags(blogTags) }}</p>
+        <p>Posted on <span class="dt-published">{{ date | postDate }}</span> | Tags: <span class="p-category">{{ c.blogTags(blogTags) }}</span></p>
     </div>
 
-    <div class="text-box">
+    <div class="text-box e-content">
         {{ content | safe }}
     </div>
 </article>
