@@ -3,6 +3,7 @@ import path from "node:path";
 import Image from "@11ty/eleventy-img";
 import fs from "node:fs";
 import { execSync } from "node:child_process";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 
 export default function (eleventyConfig) {
@@ -217,6 +218,9 @@ export default function (eleventyConfig) {
         if (!monthKey) return '';
         return String(monthKey).split('-')[0];
     });
+
+    // For code embeds
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     // For RSS feeds
     eleventyConfig.addPlugin(pluginRss);

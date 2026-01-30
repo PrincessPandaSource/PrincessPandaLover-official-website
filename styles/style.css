@@ -332,20 +332,19 @@ li:before {
   padding-right: 5px;
 }
 
-pre, code {
-  background-color: #c74455;
+code {
+  background-color: #49181f;
   color: #fff;
   font-family: 'Source Code Pro';
   font-size: 1em;
 }
 
-pre {
-  white-space: pre-wrap;
+:not(pre) > pre {
   padding: 20px;
   border-radius: 10px;
 }
 
-code {
+:not(pre) > code {
   padding: 0 3px;
   border-radius: 3px;
 }

@@ -24,6 +24,15 @@
         <link rel="preload" href="/images/logo-sticker.svg" as="image">
         <link rel="preload" href="/images/heart-button.svg" as="image">
 
+        {% if code %}
+        <link href="/styles/prism.css" rel="stylesheet" />
+
+        <link rel="preload" href="/fonts/source-code-pro.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/source-code-pro-bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/source-code-pro-bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/source-code-pro-bold-italic.woff2" as="font" type="font/woff2" crossorigin>
+        {% endif %}
+
         {% if page.url != "/404.html" %}
         <link rel="canonical" href="https://princesspandalover.com{{ page.url | lower | stripExtension }}" />
         {% endif %}
