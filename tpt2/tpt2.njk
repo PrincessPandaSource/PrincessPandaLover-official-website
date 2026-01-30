@@ -7,6 +7,7 @@ pagination:
 permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
 eleventyExcludeFromCollections: ["tpt2Log"]
 eleventyComputed:
+  layout: layouts/main.html
   title: "{{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }} - My Theme Park Tycoon 2 Buildlog"
   description: "Entries of My Theme Park Tycoon 2 Buildlog for the month of {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}."
   ogImage: "{{ monthMetadata[monthlyData.monthKey].ogImage }}"
@@ -25,7 +26,7 @@ eleventyComputed:
     {% for page in pagination.pages %}
       {% set pageMonth = page.monthKey | getMonthName %}
       {% set pageYear = page.monthKey | getYear %}
-      <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
+      <option value="{{ pageMonth | lower }}-{{ pageYear | lower }}">{{ pageMonth }} {{ pageYear }}</option>
     {% endfor %}
 {% endcall %}
 
@@ -55,7 +56,7 @@ eleventyComputed:
     {% for page in pagination.pages %}
       {% set pageMonth = page.monthKey | getMonthName %}
       {% set pageYear = page.monthKey | getYear %}
-      <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
+      <option value="{{ pageMonth | lower }}-{{ pageYear | lower }}">{{ pageMonth }} {{ pageYear }}</option>
     {% endfor %}
 {% endcall %}
 

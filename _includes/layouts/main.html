@@ -51,7 +51,7 @@
         {% if ogImageHeight %}
         <meta property="og:image:height" content="{{ ogImageHeight }}"/>
         {% endif %}
-        <meta property="og:url" content="https://princesspandalover.com{{ page.url }}"/>
+        <meta property="og:url" content="https://princesspandalover.com{{ page.url | stripExtension }}"/>
         <meta property="og:description" content="{{ ogDescription | default(description) | default('') }}"/>
 
         <meta name="twitter:card" content="{% if summaryLargeImage %}summary_large_image{% else %}summary{% endif %}">

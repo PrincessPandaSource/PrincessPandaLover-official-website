@@ -19,7 +19,7 @@ priority: 0.5
     <table class="archiveTable">
         <tbody>
             {%- for comic in collections.ssArc0 -%}
-            <tr class="archiveRow" data-href="{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html">
+            <tr class="archiveRow" data-href="{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}">
                 <td class="archiveCellNum">
                     <span><strong>{{ comic.data.pgNum }}</strong></span>
                 </td>

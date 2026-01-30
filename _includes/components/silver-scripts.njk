@@ -8,15 +8,15 @@
 <div class="comicNav">
     {% if currentPg > 1 %}
     <!--First comic button-->
-    <a href="{{ firstComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_first.svg" alt="First" title="First"/></a>
+    <a href="{{ firstComic | stripExtension }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_first.svg" alt="First" title="First"/></a>
     <!--Prev comic button-->
-    <a href="{{ previousComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_previous.svg" alt="Previous" title="Previous"/></a>
+    <a href="{{ previousComic | stripExtension }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_previous.svg" alt="Previous" title="Previous"/></a>
     {% endif %}
     {% if currentPg != totalPgs %}
     <!--Next comic button-->
-    <a href="{{ nextComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_next.svg" alt="Next" title="Next"/></a>
+    <a href="{{ nextComic | stripExtension }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_next.svg" alt="Next" title="Next"/></a>
     <!--Last comic button-->
-    <a href="{{ lastComic }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_last.svg" alt="Last" title="Last"/></a>
+    <a href="{{ lastComic | stripExtension }}#showComic"/><img eleventy:ignore src="img/comicnav/nav_last.svg" alt="Last" title="Last"/></a>
     {% endif %}
 </div>
 {% endmacro %}
@@ -34,6 +34,6 @@
     {% endfor %}
     {% if arc_tag %}
         {% set arc_num = arc_tag | replace("ssArc", "") %}
-        <a class="p-category" href="archive.html#arc{{arc_num}}">Arc {{ arc_num }}: {{ arc_names[arc_num] | safe }}</a>
+        <a class="p-category" href="archive#arc{{arc_num}}">Arc {{ arc_num }}: {{ arc_names[arc_num] | safe }}</a>
     {% endif %}
 {% endmacro %}

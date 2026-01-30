@@ -25,11 +25,11 @@
 
 {% macro articleSelect(pagination, previousMonth, nextMonth, index, selectLabel) %}
 <nav class="article-select-section" id="article-select-section-{{ index }}">
-  {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-{{ index }}">{{ selectLabel }}:</label>
+  {% if previousMonth %}<a class="button" href="{{ previousMonth | lower | stripExtension }}">Previous</a> | {% endif %}<div class="article-select"><label for="article-select-{{ index }}">{{ selectLabel }}:</label>
     <select id="article-select-{{ index }}">
         {{ caller() }}
     </select>
-    <button id="go-to-article-{{ index }}" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+    <button id="go-to-article-{{ index }}" onclick="goToArticle()">Go</button></div>{% if nextMonth %} | <a class="button" href="{{ nextMonth | lower | stripExtension }}">Next</a>{% endif %}
 </nav>
 {% endmacro %}
 
@@ -42,7 +42,7 @@
 {% macro blogEntries(collection) %}
 {%- for post in collection | reverse -%}
   <div class="text-box blog-entry">
-    <a href="{{ post.url }}" class="blog-entry-title">{{ post.data.postTitle }}</a><br/>
+    <a href="{{ post.url | stripExtension }}" class="blog-entry-title">{{ post.data.postTitle }}</a><br/>
     {{ post.date | postDate }}
 
     <p>{{ post.data.description }}</p>
