@@ -124,6 +124,7 @@ s {
   border-radius: 10px;
   padding: 20px;
   text-align: left;
+  overflow-wrap: break-word;
   margin-bottom: 2rem;
 }
 
@@ -459,6 +460,10 @@ footer a {
     max-width: 100% !important;
     height: auto !important;
   }
+
+  .blog-entry {
+    height: 12lh;
+  }
 }
 
 /* Tablet */
@@ -511,6 +516,10 @@ footer a {
   .text-box img {
     max-width: 100% !important;
     height: auto !important;
+  }
+
+  .blog-entry {
+    height: 10lh;
   }
 }
 
