@@ -332,14 +332,22 @@ li:before {
   padding-right: 5px;
 }
 
-pre {
+pre, code {
   background-color: #c74455;
   color: #fff;
   font-family: 'Source Code Pro';
   font-size: 1em;
+}
+
+pre {
   white-space: pre-wrap;
   padding: 20px;
   border-radius: 10px;
+}
+
+code {
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
 .article-select-section, .back-section {
