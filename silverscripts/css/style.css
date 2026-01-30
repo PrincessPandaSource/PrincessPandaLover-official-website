@@ -10,27 +10,27 @@
 
 @font-face {
     font-family: "Source Code Pro";
-    src: url("source-code-pro.woff2");
+    src: url("/fonts/source-code-pro.woff2");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Source Code Pro";
-    src: url("source-code-pro-italic.woff2");
+    src: url("/fonts/source-code-pro-italic.woff2");
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Source Code Pro";
-    src: url("source-code-pro-bold.woff2");
+    src: url("/fonts/source-code-pro-bold.woff2");
     font-weight: bold;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Source Code Pro";
-    src: url("source-code-pro-bold-italic.woff2");
+    src: url("/fonts/source-code-pro-bold-italic.woff2");
     font-weight: bold;
     font-style: italic;
     font-display: swap;

@@ -26,6 +26,34 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("/fonts/source-code-pro.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("/fonts/source-code-pro-italic.woff2");
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("/fonts/source-code-pro-bold.woff2");
+    font-weight: bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("/fonts/source-code-pro-bold-italic.woff2");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
 body {
   margin: 0;
   background-color: #d5e5ff;
@@ -302,6 +330,16 @@ li {
 li:before {
   content: "❤︎";
   padding-right: 5px;
+}
+
+pre {
+  background-color: #c74455;
+  color: #fff;
+  font-family: 'Source Code Pro';
+  font-size: 1em;
+  white-space: pre-wrap;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .article-select-section, .back-section {
