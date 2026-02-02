@@ -4,7 +4,7 @@ postTitle: "Scraping and Processing the Data of a Christian Sonic AMV YouTube Ch
 date: 2026-01-30
 blogTags: ["Coding", "Python"]
 description: Scraping and processing the data of a YouTube channel is surprisingly simple, and I did it on one entirely dedicated to Christian Sonic AMVs.
-ogImage: warriors-of-god-channel.png
+ogImage: blog/warriors-of-god-channel.png
 code: true
 ---
 <p><i>This blogpost was originally written on January 25, 2026, before I started working on</i> Wolf with a Blog<i>.</i></p>
@@ -13,9 +13,9 @@ code: true
 
 <p>Yes, I'm an Atheist. You're talking to someone who decided to read all of the Christian children's chapter book series <i>The Dead Sea Squirrels</i> and <a href="https://villains.fandom.com/wiki/Mr._Nemesis">write</a> <a href="https://villains.fandom.com/wiki/Ruben_(The_Dead_Sea_Squirrels)">articles</a> <a href="https://villains.fandom.com/wiki/Dr._Simon_(The_Dead_Sea_Squirrels)">about</a> <a href="https://villains.fandom.com/wiki/Delilah_(The_Dead_Sea_Squirrels)">it</a> on the Villains Wiki (spoiler warnings for the links; I was disappointed the books weren't funny to me and it didn't help the author is literally the co-creator of <i>VeggieTales</i>, but that's off-topic). I'm interested in how Christians implement their faith in modern-day, creative mediums.</p>
 
-<img src="/images/warriors-of-god-channel.png" alt="Screenshot of Warriors of God channel on YouTube, showing header and part of Shorts row"/>
+<img src="/images/blog/warriors-of-god-channel.png" alt="Screenshot of Warriors of God channel on YouTube, showing header and part of Shorts row"/>
 
-<img src="/images/warriors-of-god-channel-videos.png" alt="Screenshot of Warriors of God's videos, with titles of various CCM songs"/>
+<img src="/images/blog/warriors-of-god-channel-videos.png" alt="Screenshot of Warriors of God's videos, with titles of various CCM songs"/>
 
 <p>(Dig that Movie Excalibur Sonic!)</p>
 
@@ -23,7 +23,7 @@ code: true
 
 <p>Warriors of God even did a request of mine, for "Fly" by Jump5. (If you're into 2000s Disney, you gotta know Jump5.) Jump5 and that they were a Christian teen pop band is why I'm interested in CCM, and subsequently Warriors of God. Okay, I did choose a more obscure song of an older group, hence the low view count, but it's still good. (The request was more grandiose, with every Fly-type character and original art, but they settled for a more modest video with a general fly theme.) I can't embed the video, so here's the <a href="https://www.youtube.com/watch?v=RzejRyV0srA">link</a> instead.</p>
 
-<img src="/images/fly-flyyyy.png" alt="Screenshot of page for Warriors of God's AMV of 'Fly' by Jump5, showing the Babylon Rogues skating down in the Sonic Riders intro"/>
+<img src="/images/blog/fly-flyyyy.png" alt="Screenshot of page for Warriors of God's AMV of 'Fly' by Jump5, showing the Babylon Rogues skating down in the Sonic Riders intro"/>
 
 <p>Warriors of God accepts requests for free from anyone, and this does get overwhelming. (They currently only accept birthday requests.) I suggested to them a spreadsheet of videos they've made, as well as pending requests, a while ago in <a href="https://www.youtube.com/watch?v=ORFjflzWEnQ&lc=Ugw68Seo-KVmtwASzol4AaABAg">this comment on a video of theirs</a>, so they could keep track of what was and will be done. (I found my comment while looking randomly through the final result of this exercise. You'll see.) They never responded, but it would be still of the Lord's service to provide help unsolicited. (They're a devout believer.)</p>
 
@@ -126,7 +126,7 @@ if __name__ == "__main__":
 
 <p>The JSON looks like this when opened in Firefox, which has a good JSON viewer:</p>
 
-<img src="/images/warriors-of-god-amv-scrape-json.png" alt="Mozilla Firefox's JSON viewer depicting the JSON file of Warriors of God's videos, with a video's entry and its 'snippet' open"/>
+<img src="/images/blog/warriors-of-god-amv-scrape-json.png" alt="Mozilla Firefox's JSON viewer depicting the JSON file of Warriors of God's videos, with a video's entry and its 'snippet' open"/>
 
 <p>You've got the title, publish date, video ID, and description for each video. That's what we need.</p>
 
@@ -170,7 +170,7 @@ with open('data_from_api.json', encoding='UTF-8') as json_file:
             writer.writerow(video)
 {% endhighlight %}
 
-<img src="/images/warriors-of-god-amv-scrape-initial-csv.png" alt="Screenshot of CSV file in Microsoft Excel, with lowercase 'title', 'date', 'url', and 'description' headers and rows of organized raw text values underneath" style="max-width: 220px"/>
+<img src="/images/blog/warriors-of-god-amv-scrape-initial-csv.png" alt="Screenshot of CSV file in Microsoft Excel, with lowercase 'title', 'date', 'url', and 'description' headers and rows of organized raw text values underneath" style="max-width: 220px"/>
 
 <p>Now it's time to process the CSV file and format the data so that for each AMV, we have the song title, artist's name, theme, a spreadsheet software-compatible date, whether the video was requested, the requester's handle, and whether the video is a collab. Non-AMV videos are cut out as well. We rely on regular expressions, in which we write patterns for the program to detect matching phrases in text. Claude Sonnet 4.5 in Copilot was good for providing the patterns for description phrases indicating the videos were requests (see, this is what AI should be used for!), as well as Regex parts that I tested and learned about in <a href="https://regex101.com/">regex101</a>.</p>
 
@@ -286,15 +286,15 @@ with open('parsed_info_initial.csv', encoding='UTF-8', newline='') as int_csv_fi
 
 <p>(The Regex is not perfect, which means there are going to be errors here and there. For example, while videos follow the general title pattern, such as "[title] – [artist] || [type] || [theme]", which makes the Regex implementation easy, some have errors, such as <a href="https://www.youtube.com/watch?v=zgktHbZ6tyk">this video called "I Celebrate The Day <b>||</b> Relient K || AMV || Sonic The Hedgehog"</a>. And that's their only Relient K video, and it's their slow song; Relient K is Christian pop punk, and pop punk fits Sonic to the tee- Okay, that's going on a tangent. Fortunately, the data can be edited easily, especially in the final spreadsheet form.)</p>
 
-<img src="/images/warriors-of-god-amv-scrape-final-csv.png" alt="Screenshot of CSV file in Microsoft Excel, with lowercase 'title', 'artist', 'theme', 'date', 'url', 'requested', 'requester', 'collab', and 'collaborator' headers and rows of organized values underneath" style="max-width: 500px"/>
+<img src="/images/blog/warriors-of-god-amv-scrape-final-csv.png" alt="Screenshot of CSV file in Microsoft Excel, with lowercase 'title', 'artist', 'theme', 'date', 'url', 'requested', 'requester', 'collab', and 'collaborator' headers and rows of organized values underneath" style="max-width: 500px"/>
 
 <p>We now have a CSV file that's ready to take life as a more polished spreadsheet! Here it is in Google Sheets (thanks Google for providing online platforms for office-related files, and making them free!):</p>
 
-<img src="/images/warriors-of-god-amv-scrape-in-google-sheets.png" alt="Screenshot of CSV file in Google Sheets"/>
+<img src="/images/blog/warriors-of-god-amv-scrape-in-google-sheets.png" alt="Screenshot of CSV file in Google Sheets"/>
 
 <p>Here it is then re-formatted for visual organization. I changed the "TRUE"/"FALSE" values to either checkmarks or none so it doesn't look busy, as well as filled in the collaborator's name since there are only a few collab videos with one collaborator (who also does Christian <i>Sonic</i> AMVs). Also, the column widths are in multiples of 20s.</p>
 
-<img src="/images/warriors-of-god-amv-scrape-final-sheet.png" alt="Screenshot of spreadsheet in Google Sheets, with bold and capitalized headers and widened columns"/>
+<img src="/images/blog/warriors-of-god-amv-scrape-final-sheet.png" alt="Screenshot of spreadsheet in Google Sheets, with bold and capitalized headers and widened columns"/>
 
 <p>I've also added other sheets for pending requests and credits (crediting Warriors of God and myself).</p>
 
