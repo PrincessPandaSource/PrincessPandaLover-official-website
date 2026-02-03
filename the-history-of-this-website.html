@@ -1,7 +1,7 @@
 ---
 layout: layouts/main.html
 title: The History of This Website
-lastUpdated: 2026-01-25
+lastUpdated: 2026-02-02
 description: An article chronicling the history of my website
 ogImage: princesspandalover-official-website-v1-1920.png
 ogImageWidth: 1920
@@ -21,6 +21,7 @@ priority: 0.7
         <a href="#version-1.1">Version 1.1 (2025)</a>
         <ul>
             <li><a href="#version-1.1.1">Version 1.1.1 (2025)</a></li>
+            <li><a href="#version-1.1.2">Version 1.1.2 (2026)</a></li>
         </ul>
     </li>
   </ul>
@@ -42,7 +43,7 @@ priority: 0.7
 
     <p>For the longest time, there were some additions here and there, most notably the Mythical the wolf graphic, the subsite for my <i>Sonic</i> fan comic <a href="/silverscripts/"><i>Silver Scripts</i></a>, and <a href="/web-coding-practice">a directory of web experiments made as practice</a>, but my website lay mostly dormant. College and ADHD procrastination took up my time. Due to how Netlify worked, it wasn't even available on Google Search!</p>
 
-    <p>It was only until May 2024, when I first launched <a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a>, that I decided to put my site on Search via <a href="https://search.google.com/search-console/about">Google Search Console</a>. I also published my website's source code on <a href="https://github.com/">GitHub</a> for Netlify's sitemap plugin to work; this allowed publishes to be automated via pushing commits to GitHub.</p>
+    <p>It was only until May 2024, when I first launched <a href="/tpt2/"><i>My Theme Park Tycoon 2 Buildlog</i></a>, that I decided to put my site on Search via <a href="https://search.google.com/search-console/about">Google Search Console</a>. I also published my website's source code on <a href="https://github.com/">GitHub</a> for Netlify's sitemap plugin to work; this allowed publishes to be automated via pushing commits to GitHub.</p>
         
     <p>The following is the earliest version of this site found on Wayback Machine, from that time.</p>
 
@@ -69,7 +70,7 @@ priority: 0.7
 
     <p>(Thank goodness I put my website's source code on GitHub! I can track all the revisions I made since the repository's inception.)</p>
 
-    <p>My Theme Park Tycoon 2 Buildlog was added in May 2024. I wanted a simple blog structure that would fit with the website's vanilla (no fancy libraries and frameworks) system, so I made it so that each page would represent a month and have the month's posts, all in the same page. At least there were permalinks for each post. (I promoted my Buildlog on social media for some time, and because of the lack of metadata tags, the site's social media cards were nearly bare.)</p>
+    <p><i>My Theme Park Tycoon 2 Buildlog</i> was added in May 2024. I wanted a simple blog structure that would fit with the website's vanilla (no fancy libraries and frameworks) system, so I made it so that each page would represent a month and have the month's posts, all in the same page. At least there were permalinks for each post. (I promoted my Buildlog on social media for some time, and because of the lack of metadata tags, the site's social media cards were nearly bare.)</p>
 
     <img src="/images/v1-tpt2-blog.png" style="max-width: 400px; max-height: auto" alt="My Theme Park Tycoon 2 blog as of version 1.0 in 2025"/>
 
@@ -84,13 +85,13 @@ priority: 0.7
 
     <p>My website had been vanilla for a while. Just plain HTML, CSS, and JavaScript, that simple! However, with several pages already, it became cumbersome. To update the overall layout, I had to edit the code of each page! There weren't a lot of pages, just the homepage, article, a blog with three pages, and a directory of web coding experiments, but this website was set to expand. This is where static site generators come in.</p>
 
-    <p>I chose <a href="https://www.11ty.dev/">Eleventy</a>, which I heard was the simplest static site generator. It may be easy for when you're starting it, but I was converting a website to it, and I wanted to preserve the functionality it had. Some parts were tedious, such as converting <a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a> from a manual set of pages to dynamically created ones via pagination, optimizing images in a way there would be the same hierarchy of them (Spoiler: I ended up not doing it), and more. I will write a blogpost detailing more of this.</p>
+    <p>I chose <a href="https://www.11ty.dev/">Eleventy</a>, which I heard was the simplest static site generator. It may be easy for when you're starting it, but I was converting a website to it, and I wanted to preserve the functionality it had. Some parts were tedious, such as converting <a href="/tpt2/"><i>My Theme Park Tycoon 2 Buildlog</i></a> from a manual set of pages to dynamically created ones via pagination, optimizing images in a way there would be the same hierarchy of them (Spoiler: I ended up not doing it), and more. I will write a blogpost detailing more of this.</p>
 
     <p>However, I got the conversion done in November 2025. As seen above, the website remained pretty much the same! Thanks, Eleventy.</p>
 
     <p>(The <a href="/silverscripts/"><i>Silver Scripts</i></a> subsite was not changed due to it being built with a pre-existing, different template.)</p>
 
-    <p>Taking advantage of Eleventy, My Theme Park Tycoon 2 Buildlog also got a table of posts per a month's page, and the heart buttons and "fun blog" (like the TPT2 one) page navigations were turned into reusable components.</p>
+    <p>Taking advantage of Eleventy, <i>My Theme Park Tycoon 2 Buildlog</i> also got a table of posts per a month's page, and the heart buttons and "fun blog" (like the TPT2 one) page navigations were turned into reusable components.</p>
 </div>
 
 <h3 id="version-1.1.1">Version 1.1.1 (2025) {{ c.directLink("version-1.1.1") }}</h3>
@@ -111,7 +112,18 @@ priority: 0.7
 
     <p>In December 2025, I made my foray into the IndieWeb by implementing my h-card (as seen <a href="https://indiewebify.me/validate-h-card/?url=https%3A%2F%2Fprincesspandalover.com%2F">here</a>), h-entries for posts (as seen <a href="https://indiewebify.me/validate-h-entry/?url=https%3A%2F%2Fprincesspandalover.com%2Fsilverscripts%2F5-heart-over-head">here</a>; I know it’s difficult to implement in my current formats), and webmentions (give it a try by linking my website on yours; I'll see it!). The IndieWeb movement promotes people to post content on their own sites rather than social media platforms, and that's what I'm doing!</p>
     
-    <p>Silver Scripts was eventually updated to <a href="https://www.11ty.dev/">Eleventy</a>, which means every page has its own URL at last. Also, RSS feeds were added to <a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a> (although it was not being updated) and Silver Scripts, so that you can be updated on them automatically via a RSS feed reader.</p>
+    <p>Silver Scripts was eventually updated to <a href="https://www.11ty.dev/">Eleventy</a>, which means every page has its own URL at last. Also, RSS feeds were added to <a href="/tpt2/"><i>My Theme Park Tycoon 2 Buildlog</i></a> (although it was not being updated) and <i>Silver Scripts</i>, so that you can be updated on them automatically via a RSS feed reader.</p>
+</div>
+
+<h3 id="version-1.1.2">Version 1.1.2 (2026) {{ c.directLink("version-1.1.2") }}</h3>
+<div class="text-box">
+    <p>While searching for help on Eleventy, I noticed that many developers have blogs on their personal websites. Since I'm aiming to be a software developer, I thought it would be a good idea to chip in and write about programming and maybe life experiences as well. So, after a few days of coding and studying various online blogs to figure out which format to use (blog subtitles seem to be better than pure excerpts), here was <a href="/blog/"><i>Wolf with a Blog</i></a>. Unlike <a href="/tpt2/"><i>My Theme Park Tycoon 2 Buildlog</i></a>, blogposts had the index, individual pages, and tags.</p>
+
+    <p>(<i>Wolf with a Blog</i> was supposed to be a placeholder title based on that Disney Channel show, but I couldn't think of a better title that would alone indicate to the user that were viewing a personal blog.)</p>
+
+    <img src="/images/v.1.1.2-blog.png" style="max-width: 400px; max-height: auto" alt="Wolf with a Blog as of version 1.1.2 in February 2026"/>
+
+    <img src="/images/v.1.1.2-blogpost.png" style="max-width: 400px; max-height: auto" alt="Wolf with a Blog post 'Scraping and Processing the Data of a Christian Sonic AMV YouTube Channel' as of version 1.1.2 in February 2026"/>
 </div>
 
 <div class="text-box">
