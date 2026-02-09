@@ -82,6 +82,11 @@ header img {
   font-family: 'Orbitron Light';
 }
 
+h1 {
+  margin-block: 0.67em;
+  font-size: 2em;
+}
+
 #updatesSection {
   font-size: large;
 }
@@ -355,6 +360,10 @@ html, body {
     margin-left: 0;
     margin-top: 15px;
     width: auto;
+  }
+
+  header #nav li:not(:last-child) {
+    margin-bottom: 0.2em;
   }
 
   #updatesSection {
