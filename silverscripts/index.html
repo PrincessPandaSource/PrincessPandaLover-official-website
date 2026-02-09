@@ -63,7 +63,7 @@ eleventyComputed:
     {{ c.nav(null, latestComic.data.pgNum, totalComics, firstComic, previousComic, null, null) }}
 
     <div class="comicPage e-content">
-        <img class="u-photo" alt="{{ latestComic.data.altText }}" title="{{ latestComic.data.altText }}" src="img/comics/comic{{ latestComic.data.pgNum }}.png" />
+        <img class="u-photo" alt="{{ latestComic.data.altText }}" title="{{ latestComic.data.altText }}" src="img/comics/comic{{ latestComic.data.pgNum }}.png" loading="eager" fetchpriority="high" />
     </div>
     <div class="viewOGImg">
         <a href="img/comics/comic{{ latestComic.data.pgNum }}.png">View original image file</a>
