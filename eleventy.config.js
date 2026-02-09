@@ -50,7 +50,7 @@ export default function (eleventyConfig) {
 			imgAttributes: {
 				loading: "lazy",
 				decoding: "async",
-                sizes: "(max-width: 768px) 768px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 100vw"
+                sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, (max-width: 1920px) 100vw, 100vw"
 			},
 			pictureAttributes: {},
             fallback: "largest"
