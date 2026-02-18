@@ -11,6 +11,22 @@ ogDescription: >-
 changefreq: monthly
 priority: 0.7
 ---
+<!--Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "{{ title }}",
+  "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+  },
+  "dateModified": "{{ lastUpdated | ISODate }}",
+  "description": "{{ description }}"
+}
+</script>
+
 <h1>Creating a Website from Scratch</h1>
 <h2>Why did I choose to?</h2>
 <div class="text-box">
