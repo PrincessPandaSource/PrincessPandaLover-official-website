@@ -9,6 +9,27 @@ ogDescription: Silver Scripts is a Sonic the Hedgehog fan semi-autobiographical 
 changeFreq: monthly
 priority: 0.7
 ---
+<!--Schema-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+    },
+    "isPartOf": {
+        "@type" : "ComicStory",
+        "name": "Silver Scripts",
+        "url": "https://princesspandalover.com/silverscripts/"
+    },
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+}
+</script>
+
 <div class="subPage clearfix">
     <h1>About</h1>
     <!--<img src="img/hildaterry.png" alt="Hilda Terry" class="clearfix leftPic"/>-->

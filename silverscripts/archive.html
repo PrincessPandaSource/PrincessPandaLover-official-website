@@ -11,6 +11,27 @@ priority: 0.5
 ---
 {% import "components/silver-scripts.njk" as c %}
 
+<!--Schema-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+    },
+    "isPartOf": {
+        "@type" : "ComicStory",
+        "name": "Silver Scripts",
+        "url": "https://princesspandalover.com/silverscripts/"
+    },
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+}
+</script>
+
 <div class="archivePage subPage">
     
     <h1>Archive</h1>

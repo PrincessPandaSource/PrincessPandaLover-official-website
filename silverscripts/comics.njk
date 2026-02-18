@@ -22,6 +22,27 @@ eleventyComputed:
 {% set lastComic = pagination.href.last %}
 {% set totalComics = pagination.pages.length %}
 
+<!--Schema-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ComicStory",
+    "name": "{{ title }}",
+    "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+    },
+    "datePublished": "{{ comic.data.date | schemaDate }}",
+    "isPartOf": {
+        "@type" : "ComicStory",
+        "name": "Silver Scripts",
+        "url": "https://princesspandalover.com/silverscripts/"
+    },
+    "URL": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+}
+</script>
+
 <article class="h-entry">
 <div id="showComic">
     <h1 class="p-name">{{ comic.data.pgNum }}. {{ comic.data.title }}</h1>
