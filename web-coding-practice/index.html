@@ -13,14 +13,15 @@ priority: 0.5
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "CollectionPage",
     "name": "{{ title }}",
     "description": "{{ description }}",
     "author": {
         "@type": "Person",
         "name": "PrincessPandaLover",
         "url": "https://princesspandalover.com"
-    }
+    },
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
 }
 </script>
 
