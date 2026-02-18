@@ -70,10 +70,11 @@ export default function (eleventyConfig) {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-MM-dd');
     });
 
-    eleventyConfig.addFilter("ISODate", (dateObj) => {
-        const date = new Date(dateObj);
-        date.setUTCHours(12, 0, 0, 0);
-        return date.toISOString();
+    eleventyConfig.addFilter("schemaDate", (dateObj) => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' })
+            .setZone('America/Chicago', {keepLocalTime: true})
+            .set({ hour: 12, minute: 0, second: 0})
+            .toISO();
     });
 
     eleventyConfig.addFilter("myRSSDate", (dateObj) => {

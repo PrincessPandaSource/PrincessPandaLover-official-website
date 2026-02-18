@@ -6,6 +6,7 @@ ogImageWidth: 396
 ogImageHeight: 112
 changefreq: monthly
 priority: 0.8
+blogLaunchDate: 2026-01-30
 ---
 {% import "components/main.njk" as c %}
 
@@ -22,10 +23,9 @@ priority: 0.8
         "name": "PrincessPandaLover",
         "url": "https://princesspandalover.com"
     },
-    "datePublished": "20240129T000000-0400",
+    "datePublished": "{{ blogLaunchDate | schemaDate }}",
     "countryOfOrigin": "United States",
     "inLanguage": "en-US",
-    "isAccessibleForFree": "True",
     "isFamilyFriendly": "True",
     "description": "PrincessPandaLover's personal blog on topics such as computer science"
 }
