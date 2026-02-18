@@ -8,6 +8,31 @@ eleventyComputed:
 ---
 {% import "components/main.njk" as c %}
 
+<!--Schema-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "BlogPosting",
+    "@id": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+    "mainEntityOfPage": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+    "headline": "{{ postTitle }}",
+    "name": "{{ postTitle }}",
+    "description": "{{ description }}",
+    "datePublished": "{{ date | schemaDate }}",
+    "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+    },
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+    "isPartOf": {
+        "@type" : "Blog",
+        "@id": "https://princesspandalover.com/blog/",
+        "name": "Wolf with a Blog"
+    }
+}
+</script>
+
 <h1>Wolf with a Blog</h1>
 <article class="h-entry">
     {{ c.backButton("/blog/") }}

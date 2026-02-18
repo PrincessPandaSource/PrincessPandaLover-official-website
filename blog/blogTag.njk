@@ -17,6 +17,27 @@ eleventyComputed:
 ---
 {% import "components/main.njk" as c %}
 
+<!--Schema-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+    },
+    "isPartOf": {
+        "@type" : "Blog",
+        "@id": "https://princesspandalover.com/blog/",
+        "name": "Wolf with a Blog"
+    },
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+}
+</script>
+
 <h1>Wolf with a Blog</h1>
 {{ c.backButton("/blog/") }}
 
