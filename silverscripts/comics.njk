@@ -10,6 +10,8 @@ eleventyComputed:
     title: "{{ comic.data.pgNum }}. {{ comic.data.title | safe }}"
     description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
     ogImage: comics/comic{{ comic.data.pgNum }}.png
+    ogImageWidth: {{ comic.data.stripWidth }}
+    ogImageHeight: {{ comic.data.stripHeight }}
     summaryLargeImage: true
     noSitemap: false
     changefreq: monthly

@@ -4,14 +4,20 @@
     "monthMetadata": {
         "2024-05": {
             "ogImage": "tpt2/redid-star-post-739.png",
+            "ogImageWidth": "739",
+            "ogImageHeight": "473",
             "ogDescription": "Featuring, a Green Hill Zone ride!"
         },
         "2024-06": {
             "ogImage": "tpt2/sonic-head-done-629.png",
+            "ogImageWidth": "629",
+            "ogImageHeight": "624",
             "ogDescription": "I try to build a cartoon wolf prop, and more."
         },
         "2024-07": {
             "ogImage": "tpt2/strangely-colored-wolf-head-619.png",
+            "ogImageWidth": "619",
+            "ogImageHeight": "596",
             "ogDescription": "More work on the Green Hill Zone ride, plus starting a Sonic statue, and more."
         }
     }
