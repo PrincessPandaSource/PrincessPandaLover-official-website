@@ -18,7 +18,13 @@ priority: 1.0
         "alternateName": ["PrincessPandaLover", "PPL"],
         "url": "https://princesspandalover.com",
         "description": "{{ description }}",
-        "image": "https://princesspandalover.com/images/logo.png",
+        "image": {
+            "@type": "ImageObject",
+            "@id": "https://princesspandalover.com/images/{{ ogImage }}",
+            "url": "https://princesspandalover.com/images/{{ ogImage }}",
+            "height": "{{ ogImageHeight }}",
+            "width": "{{ ogImageWidth }}"
+        },
         "countryOfOrigin": "United States",
         "inLanguage": "en-US",
         "isFamilyFriendly": "True"
@@ -39,7 +45,14 @@ priority: 1.0
             "https://www.youtube.com/@princesspandatube",
             "https://www.deviantart.com/princesspandaart",
             "https://archiveofourown.org/users/PrincessPandaFanfiction"
-        ]
+        ],
+        "image": {
+            "@type": "ImageObject",
+            "@id": "https://princesspandalover.com/images/avatar.png",
+            "url": "https://princesspandalover.com/images/avatar.png",
+            "height": "500",
+            "width": "500"
+        }
       }
   ]
 }

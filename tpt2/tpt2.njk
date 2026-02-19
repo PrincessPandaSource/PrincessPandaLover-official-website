@@ -35,19 +35,26 @@ eleventyComputed:
         "mainEntityOfPage": "https://princesspandalover.com/tpt2/",
         "name": "My Theme Park Tycoon 2 Blog",
         "author": {
-            "@type": "Person",
-            "name": "PrincessPandaLover",
-            "url": "https://princesspandalover.com"
+          "@type": "Person",
+          "name": "PrincessPandaLover",
+          "url": "https://princesspandalover.com"
         },
         "datePublished": "{{ blogLaunchDate | schemaDate }}",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://princesspandalover.com/images/{{ ogImage }}",
+          "url": "https://princesspandalover.com/images/{{ ogImage }}",
+          "height": "{{ ogImageHeight }}",
+          "width": "{{ ogImageWidth }}"
+        },
         "countryOfOrigin": "United States",
         "inLanguage": "en-US",
         "isFamilyFriendly": "True",
         "description": "Come see what I built in Theme Park Tycoon 2 on Roblox! I've tried a Green Hill Zone ride, a Sonic statue, a wolf prop, and more.",
         "about": {
-            "@type": "VideoGame",
-            "name": "Theme Park Tycoon 2",
-            "publisher": "Roblox"
+          "@type": "VideoGame",
+          "name": "Theme Park Tycoon 2",
+          "publisher": "Roblox"
         }
       },
       {% for entry in monthlyData.entries %}
@@ -59,15 +66,15 @@ eleventyComputed:
         "name": "{{ entry.data.date | postDate }}",
         "datePublished": "{{ entry.data.date | schemaDate }}",
         "author": {
-            "@type": "Person",
-            "name": "PrincessPandaLover",
-            "url": "https://princesspandalover.com"
+          "@type": "Person",
+          "name": "PrincessPandaLover",
+          "url": "https://princesspandalover.com"
         },
         "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}#{{ entry.data.title }}",
         "isPartOf": {
-            "@type" : "Blog",
-            "@id": "https://princesspandalover.com/tpt2/",
-            "name": "My Theme Park Tycoon 2 Blog"
+          "@type" : "Blog",
+          "@id": "https://princesspandalover.com/tpt2/",
+          "name": "My Theme Park Tycoon 2 Blog"
         }
       }{% if not loop.last %},{% endif %}
       {% endfor %}

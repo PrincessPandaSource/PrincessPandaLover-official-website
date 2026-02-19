@@ -25,6 +25,13 @@ eleventyComputed:
         "url": "https://princesspandalover.com"
     },
     "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+    "image": {
+        "@type": "ImageObject",
+        "@id": "https://princesspandalover.com/images/{{ ogImage }}",
+        "url": "https://princesspandalover.com/images/{{ ogImage }}",
+        "height": "{{ ogImageHeight }}",
+        "width": "{{ ogImageWidth }}"
+    },
     "isPartOf": {
         "@type" : "Blog",
         "@id": "https://princesspandalover.com/blog/",

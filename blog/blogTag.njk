@@ -31,7 +31,14 @@ eleventyComputed:
         "@id": "https://princesspandalover.com/blog/",
         "name": "Wolf with a Blog"
     },
-    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+    "image": {
+        "@type": "ImageObject",
+        "@id": "https://princesspandalover.com/images/{{ ogImage }}",
+        "url": "https://princesspandalover.com/images/{{ ogImage }}",
+        "height": "{{ ogImageHeight }}",
+        "width": "{{ ogImageWidth }}"
+    }
 }
 </script>
 

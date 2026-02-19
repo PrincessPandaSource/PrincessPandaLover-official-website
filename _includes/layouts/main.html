@@ -1,3 +1,8 @@
+---
+ogImage: logo.png
+ogImageWidth: 396
+ogImageHeight: 112
+---
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +14,7 @@
         {% endif %}
         <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-        {% if description %}
+        {% if page.url != "/404.html" %}
         <meta name="description" content="{{ description }}">
         {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,9 +49,9 @@
         <meta property="og:title" content="❤︎PrincessPandaLover - Official website"/>
         {% endif %}
         <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://princesspandalover.com/images/{{ ogImage | default('logo.png') }}"/>
-        <meta property="og:image:width" content="{{ ogImageWidth | default(396) }}"/>
-        <meta property="og:image:height" content="{{ ogImageHeight | default(112) }}"/>
+        <meta property="og:image" content="https://princesspandalover.com/images/{{ ogImage }}"/>
+        <meta property="og:image:width" content="{{ ogImageWidth }}"/>
+        <meta property="og:image:height" content="{{ ogImageHeight }}"/>
         <meta property="og:url" content="https://princesspandalover.com{{ page.url | stripExtension }}"/>
         <meta property="og:description" content="{{ ogDescription | default(description) | default('') }}"/>
 
@@ -58,7 +63,7 @@
         <meta property="twitter:title" content="❤︎PrincessPandaLover - Official website"/>
         {% endif %}
         <meta name="twitter:description" content="{{ ogDescription | default(description) | default('') }}">
-        <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage | default('logo.png') }}">
+        <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage }}">
         {% endif %}
 
         <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>
