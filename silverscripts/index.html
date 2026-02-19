@@ -8,6 +8,7 @@ eleventyComputed:
     ogImage: "{{ 'comics/comic' + collections.silverScripts[collections.silverScripts.length - 1].data.pgNum + '.png' }}"
     ogImageWidth: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.stripWidth }}"
     ogImageHeight: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.stripHeight }}"
+    ogImageAlt: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.altText }}"
     summaryLargeImage: true
     noSitemap: false
     changefreq: weekly
