@@ -25,14 +25,14 @@ eleventyComputed:
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "ComicStory",
+    "@type": "ComicSeries",
     "name": "Silver Scripts",
     "author": {
         "@type": "Person",
         "name": "PrincessPandaLover",
         "url": "https://princesspandalover.com"
     },
-    "datePublished": "{{ comicLaunchDate | schemaDate }}",
+    "startDate": "{{ comicLaunchDate | schemaDate }}",
     "countryOfOrigin": "United States",
     "inLanguage": "en-US",
     "genre": [
@@ -41,14 +41,14 @@ eleventyComputed:
         "Comedy"
     ],
     "isBasedOn": {
-        "@type": "CreativeWork",
+        "@type": "VideoGameSeries",
         "name": "Sonic the Hedgehog",
         "publisher": "Sega"
     },
     "isAccessibleForFree": "True",
     "isFamilyFriendly": "True",
     "description": "{{ description }}",
-    "URL": "https://princesspandalover.com/silverscripts/",
+    "url": "https://princesspandalover.com/silverscripts/",
     "sameAs": "https://archiveofourown.org/works/61844626/chapters/158132137"
 }
 </script>

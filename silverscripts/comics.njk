@@ -35,11 +35,11 @@ eleventyComputed:
     },
     "datePublished": "{{ comic.data.date | schemaDate }}",
     "isPartOf": {
-        "@type" : "ComicStory",
+        "@type" : "ComicSeries",
         "name": "Silver Scripts",
         "url": "https://princesspandalover.com/silverscripts/"
     },
-    "URL": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
 }
 </script>
 
