@@ -9,12 +9,11 @@ eleventyExcludeFromCollections: ["tpt2Log"]
 eleventyComputed:
   layout: layouts/main.html
   title: "{{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }} - My Theme Park Tycoon 2 Buildlog"
-  description: "Entries of My Theme Park Tycoon 2 Buildlog for the month of {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}."
+  description: "Come see what I built in Theme Park Tycoon 2 on Roblox in {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}! {{ monthMetadata[monthlyData.monthKey].description }}"
   ogImage: "{{ monthMetadata[monthlyData.monthKey].ogImage }}"
   ogImageWidth: "{{ monthMetadata[monthlyData.monthKey].ogImageWidth }}"
   ogImageHeight: "{{ monthMetadata[monthlyData.monthKey].ogImageHeight }}"
   ogImageAlt: "{{ monthMetadata[monthlyData.monthKey].ogImageAlt }}"
-  ogDescription: "Come see what I built in Theme Park Tycoon 2 on Roblox in {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}! {{ monthMetadata[monthlyData.monthKey].ogDescription }}"
   summaryLargeImage: true
   noSitemap: false
   changefreq: monthly

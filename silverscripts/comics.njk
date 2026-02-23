@@ -8,11 +8,12 @@ pagination:
 permalink: /silverscripts/{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html
 eleventyComputed:
     title: "{{ comic.data.pgNum }}. {{ comic.data.title | safe }}"
-    description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
+    description: "Comic {{ comic.data.pgNum }} of Silver Scripts, a Sonic the Hedgehog fan webcomic. {{ comic.data.description }}"
     ogImage: comics/comic{{ comic.data.pgNum }}.png
     ogImageWidth: "{{ comic.data.stripWidth }}"
     ogImageHeight: "{{ comic.data.stripHeight }}"
     ogImageAlt: "{{ comic.data.altText }}"
+    ogDescription: "A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science."
     summaryLargeImage: true
     noSitemap: false
     changefreq: monthly
