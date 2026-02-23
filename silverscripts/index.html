@@ -4,7 +4,7 @@ permalink: /silverscripts/index.html
 comicLaunchDate: 2024-03-11
 eleventyComputed:
     title: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.pgNum }}. {{ collections.silverScripts[collections.silverScripts.length - 1].data.title | safe }}"  
-    description: A Sonic the Hedgehog semi-autobiographical fan slice-of-life/comedy webcomic about Silver the Hedgehog as a college student majoring in computer science.
+    description: A Sonic the Hedgehog semi-autobiographical fan webcomic about Silver the Hedgehog as a computer science student.
     ogImage: "{{ 'comics/comic' + collections.silverScripts[collections.silverScripts.length - 1].data.pgNum + '.png' }}"
     ogImageWidth: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.stripWidth }}"
     ogImageHeight: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.stripHeight }}"
