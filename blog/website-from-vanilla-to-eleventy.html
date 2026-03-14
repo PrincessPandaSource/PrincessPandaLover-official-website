@@ -6,6 +6,8 @@ blogTags: ["Coding", "Web Dev", "Eleventy", "JavaScript"]
 description: A vanilla website has to converting to a static site generator when it expands, and how straightforward is Eleventy, the simpler site generator?
 code: true
 ---
+{% import "components/main.njk" as c %}
+
 <div class="text-box">
     <p>I had promised to write a blogpost detailing what the title stated, wanting to share the knowledge in case someone finds this useful. There are many posts on creating an Eleventy site from scratch, but what about an intuitive one on converting a website coded with vanilla HTML, CSS, and JavaScript? However, I kept delaying it to focus on website improvements and creative works such as <i><a href="/silverscripts/">Silver Scripts</a></i>. Well, since the blog has now launched, it is time for me to write it.</p>
 
@@ -16,7 +18,7 @@ code: true
     <p><i><b>Disclaimer about AI</b>: Yes, I did use AI to assist with my code (but not fully generate it, because "vibe coding" is not real coding). I want to be honest about my process; I thought it was okay for solving time-consuming problems quickly, since I wasn't too familiar with Eleventy, and coding is based on objective logic rather than subjective creativity. I did read docs and posts beforehand, and I did manually verify the code to see if it makes sense and try to learn from the code as the result. However, I am now trying to cut back on AI-assisted coding to grow as a programmer. I will stress that no AI-generated literature or media were used in the process.</i></p>
 </div>
 
-<h3>The Reason Why I Converted</h3>
+{% call c.headingWithLink("h3") %}The Reason Why I Converted{% endcall %}
 <div class="text-box">
     <p>First, why?</p>
 
@@ -33,7 +35,7 @@ code: true
     <p>I needed to implement a static site generator.</p>
 </div>
 
-<h3>First Steps with Eleventy</h3>
+{% call c.headingWithLink("h3") %}First Steps with Eleventy{% endcall %}
 <div class="text-box">
     <p>I had heard of static site generators such as Astro and Hugo before, but when I searched for the easiest one to use, the consensus was Eleventy. That's why I decided to use it.</p>
 
@@ -97,7 +99,7 @@ code: true
     {% endhighlight %}
 </div>
 
-<h3>Automatic image optimization</h3>
+{% call c.headingWithLink("h3") %}Automatic image optimization{% endcall %}
 <div class="text-box">
     <p>Slowing down the webpage with large images is no fun, especially when the user is on cellular. *sigh* Even if you shrink the image's display size on the page, the browser will still load the full image, including its full size. That's why it's recommended to load images at different sizes depending on the browser's viewport resolution.</p>
 
@@ -264,7 +266,7 @@ code: true
     <p>To preserve parts of the website not to be affected by Eleventy, such as with the HTML transform plugin, I first add the path of such directory to the ".eleventyignore" file, which exempts listed files and directories from being processed by Eleventy, and then add a passthrough copy for the directory.</p>
 </div>
 
-<h3>Collections and pagination: Creating pages from multiple files</h3>
+{% call c.headingWithLink("h3") %}Collections and pagination: Creating pages from multiple files{% endcall %}
 <div class="text-box">
     <p>I have <i><a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a></i>, which was intended to be in a rather simple blog format. There would be a page for each month, with each page having dated posts for its respective month. While less cluttered than pages for each post, I still had to manually edit the pages to change the blog's layout, as well as sift through lots of code to edit a single post.</p>
 
@@ -294,7 +296,7 @@ code: true
     ---
     {% for entry in collections.tpt2July2024 | reverse %}
     <article>
-    <h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a></h3>
+    <h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a>{% endcall %}
     <div class="text-box">
         {{ entry.content }}
     </div>
@@ -373,7 +375,7 @@ code: true
 
     {% for entry in monthlyData.entries %}
     <article>
-    <h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a></h3>
+    <h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a>{% endcall %}
     <div class="text-box">
         {{ entry.content }}
     </div>
@@ -420,7 +422,7 @@ code: true
     {% endhighlight %}
 </div>
 
-<h3>Sitemap generation</h3>
+{% call c.headingWithLink("h3") %}Sitemap generation{% endcall %}
 <div class="text-box">
     <p>Again, when the website was vanilla, I had a manually written sitemap so Google could read my website better. Priority and changefreq values and last modified dates, oh my! Because I kept forgetting to update webpages' last modified dates, a static site generator needed to step in.</p>
 
@@ -537,7 +539,7 @@ code: true
     {% endhighlight %}
 </div>
 
-<h3>Reusable webpage components</h3>
+{% call c.headingWithLink("h3") %}Reusable webpage components{% endcall %}
 <div class="text-box">
     <p>By components, I do not mean <a href="https://www.11ty.dev/docs/languages/webc/">WebC</a>, but by the general definition of components. Like buttons. Like buttons that look like hearts because a heart SVG image is behind the label.</p>
 
@@ -584,7 +586,7 @@ code: true
     <p>I also have macros for the article select dropdowns in funblogs, entries on this very blog's index, display of tags on this very blog, and more! Yeah, you can pass entire arrays to the macro.</p>
 </div>
 
-<h3>Converting <i>Silver Scripts</i></h3>
+{% call c.headingWithLink("h3") %}Converting <i>Silver Scripts</i>{% endcall %}
 <div class="text-box">
     <p>The <i><a href="/silverscripts/">Silver Scripts</a></i> subsite remained unconverted for a longer period than the rest of the site, because, again, it was built with the vanilla <a href="https://rarebit.neocities.org/">Rarebit</a> template (which I thought was totally awesome), and I wanted to wait a while before converting a different site structure.</p>
 
@@ -608,7 +610,7 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    <h3 id="arc1">Arc 1: {{ c.arcName(1) }}</h3>
+    <h3 id="arc1">Arc 1: {{ c.arcName(1) }}{% endcall %}
     <table class="archiveTable">
         <tbody>
             {%- for comic in collections.ssArc1 -%}
@@ -654,7 +656,7 @@ code: true
     <p>Regarding the image HTML transformation plugin, I just added a link to the original image for the comic on each page.</p>
 </div>
 
-<h3>Conclusion (and oh crap, is Eleventy a goner?)</h3>
+{% call c.headingWithLink("h3") %}Conclusion (and oh crap, is Eleventy a goner?){% endcall %}
 <div class="text-box">
     <p>There were more things I achieved with Eleventy, namely RSS feeds, but those are beyond scope. I intended this to be my story of my migration from vanilla to Eleventy, so it can benefit if you're considering such migration too.</p>
 
