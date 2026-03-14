@@ -394,11 +394,13 @@ code: true
     {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a>
     ...
     {% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+    {% endraw %}
     {% endhighlight %}
 
     <p>What's also cool about pagination is that you can get the array of pages in the collection yourself and iterate over it, such as filling up the dropdown (<code>&lt;select&gt;</code>) element as in below.</p>
 
     {% highlight "html" %}
+    {% raw %}
     <select id="article-select-0">
     {% for page in pagination.pages %}
         {% set pageMonth = page.monthKey | getMonthName %}
@@ -406,11 +408,13 @@ code: true
         <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
     {% endfor %}
     </select>
+    {% endraw %}
     {% endhighlight %}
 
     <p>The pagination feature also allowed me to later add a table of contents feature to each page, containing links to the posts below.</p>
 
     {% highlight "html" %}
+    {% raw %}
     <nav class="text-box list-only">
     <ul>
         {% for entry in monthlyData.entries %}
@@ -660,8 +664,9 @@ code: true
 <div class="text-box">
     <p>There were more things I achieved with Eleventy, namely RSS feeds, but those are beyond scope. I intended this to be my story of my migration from vanilla to Eleventy, so it can benefit if you're considering such migration too.</p>
 
-    <p>(If you're stuck on some parts, the source code for my website is <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">available on GitHub</a>. Please note to check the version that was around this blogpost's writing, which can be accessed through tags.)
-    While there were so tedious parts here and there, Eleventy was relatively straightforward to use for migrating my website to a static site generator. I could now generate parts automatically with minimal code. No massive changes to webpage code were needed. I could not recommend Eleventy more than enough.</p>
+    <p>(If you're stuck on some parts, the source code for my website is <a href="https://github.com/PrincessPandaSource/PrincessPandaLover-official-website">available on GitHub</a>. Please note to check the version that was around this blogpost's writing, which can be accessed through tags.)</p>
+
+    <p>While there were so tedious parts here and there, Eleventy was relatively straightforward to use for migrating my website to a static site generator. I could now generate parts automatically with minimal code. No massive changes to webpage code were needed. I could not recommend Eleventy more than enough.</p>
 
     <p>However, in the midst of writing this blogpost, it has been announced that Eleventy is becoming a monetized version called Build Awesome, owned by the guys behind Font Awesome. Taking an entirely free software and adding paid features on top of it? This is not cool, especially for a site builder that's friendly to newcomers. (Also, the new mascot design pales compared to its previous design.) This may be catastrophizing, but sooner than I expected, this blogpost may as well be obsolete, and I may as well be using Astro instead. Only time will tell.</p>
 
