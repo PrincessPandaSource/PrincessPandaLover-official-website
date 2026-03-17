@@ -47,24 +47,24 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    {% if title %}
-    <title>{{ title }} - ❤︎PrincessPandaLover</title>
-    {% else %}
-    <title>❤︎PrincessPandaLover - Official website</title>
-    {% endif %}
+{% if title %}
+<title>{{ title }} - ❤︎PrincessPandaLover</title>
+{% else %}
+<title>❤︎PrincessPandaLover - Official website</title>
+{% endif %}
     {% endraw %}
     {% endhighlight %}
 
     <p>Eleventy does not merely transfer files such as images and CSS stylesheets to the generated site on its own. This has to be done by implementing passthrough copies in the configuration file.</p>
 
     {% highlight "js" %}
-    // Import pre-existing resources to build
-    eleventyConfig.addPassthroughCopy("images");
-    eleventyConfig.addPassthroughCopy("scripts");
-    eleventyConfig.addPassthroughCopy("fonts");
-    eleventyConfig.addPassthroughCopy("_headers");
-    eleventyConfig.addPassthroughCopy("robots.txt");
-    eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
+// Import pre-existing resources to build
+eleventyConfig.addPassthroughCopy("images");
+eleventyConfig.addPassthroughCopy("scripts");
+eleventyConfig.addPassthroughCopy("fonts");
+eleventyConfig.addPassthroughCopy("_headers");
+eleventyConfig.addPassthroughCopy("robots.txt");
+eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
     {% endhighlight %}
 
     <p>(Yes, I used to lump CSS stylesheets with JavaScript files in a single "scripts" folder. Don't worry, CSS stylesheets are now in a "styles" folder.)</p>
@@ -72,10 +72,10 @@ code: true
     <p>I disliked Eleventy's standard feature of trailing slashes at end of URLs. Those felt ugly to me, so I used a relatively complicated script by GitHub Copilot in the configuration file, at first. I eventually found <a href="https://www.11ty.dev/docs/permalinks/#remove-trailing-slashes">a much simpler script from the Eleventy documentation</a>:</p>
 
     {% highlight "js" %}
-    eleventyConfig.addGlobalData("permalink", () => {
-        return (data) =>
-            `${data.page.filePathStem}.${data.page.outputFileExtension}`;
-    });
+eleventyConfig.addGlobalData("permalink", () => {
+    return (data) =>
+        `${data.page.filePathStem}.${data.page.outputFileExtension}`;
+});
     {% endhighlight %}
 
     <p>(If you're wondering how the extension of HTML files is handled, I deploy on <a href="https://www.netlify.com/">Netlify</a>, which has the option for "Pretty URLs", which removes file extensions from pages. Speaking of, I'm also using the <a href="https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/">Netlify CLI package</a> for local development with the Netlify environment.)</p>
@@ -83,9 +83,9 @@ code: true
     <p>Also in the configuration file, I made a filter that takes a JavaScript date object and renders the date in the format of "January 1, 2026", so dates on articles could be displayed without typos. The <a href="https://moment.github.io/luxon/#/">Luxon</a> library, which is included with Eleventy, was strongly useful for this.</p>
 
     {% highlight "js" %}
-    eleventyConfig.addFilter("postDate", (dateObj) => {
-        return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
-    });
+eleventyConfig.addFilter("postDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
+});
     {% endhighlight %}
 
     <p>If you just want to reuse your website's layout, your journey ends here, but if you want to optimize your images for better performance and <a href="https://pagespeed.web.dev/">PageSpeed Insights</a> score, maintain consistency for a blog, and so, read on!</p>
@@ -93,9 +93,9 @@ code: true
     <p>(I changed the HTML file's templating language to Nunjucks with the following code in the configuration file, after the <code>export default function (eleventyConfig) function</code>.)</p>
 
     {% highlight "js" %}
-    export const config = {
-        htmlTemplateEngine: "njk",
-    };
+export const config = {
+    htmlTemplateEngine: "njk",
+};
     {% endhighlight %}
 </div>
 
@@ -106,13 +106,13 @@ code: true
     <p>Here's how I optimized images before the Eleventy conversion: With Irfanview, I converted images to WEBP (more optimized than PNG), resized them to widths of 768px (mobile), 1280px (tablet), and 1980px (desktop) (if they were wider than each, respectively), and sorted them in directories based on their widths. I used the <code>&lt;picture&gt;</code> element to set the image file to use as the <code>&lt;img&gt;</code> element's source, based on whether the viewport resolution was thinner than certain widths, and whether the browser supports the WEBP format. (I also had images that didn't appear at the webpage's top lazy load, so they would only load once they visually appeared on the screen.)</p>
 
     {% highlight "html" %}
-    <picture>
-        <source media="(max-width: 768px)" srcset="/images/tpt2/webp/768/Wolf-prop-concept-art-1.webp">
-        <source media="(max-width: 1280px)" srcset="/images/tpt2/webp/1280/Wolf-prop-concept-art-1.webp">
-        <source media="(max-width: 1920px)" srcset="/images/tpt2/webp/1920/Wolf-prop-concept-art-1.webp">
-        <source srcset="/images/tpt2/webp/Wolf-prop-concept-art-1.webp" type="image/webp" />
-        <img src="/images/tpt2/Wolf-prop-concept-art-1.png" width="2019" height="2671" loading="lazy" alt="Concept art in notebook and figuring out anatomy of the stylized wolf"/>
-    </picture>
+<picture>
+    <source media="(max-width: 768px)" srcset="/images/tpt2/webp/768/Wolf-prop-concept-art-1.webp">
+    <source media="(max-width: 1280px)" srcset="/images/tpt2/webp/1280/Wolf-prop-concept-art-1.webp">
+    <source media="(max-width: 1920px)" srcset="/images/tpt2/webp/1920/Wolf-prop-concept-art-1.webp">
+    <source srcset="/images/tpt2/webp/Wolf-prop-concept-art-1.webp" type="image/webp" />
+    <img src="/images/tpt2/Wolf-prop-concept-art-1.png" width="2019" height="2671" loading="lazy" alt="Concept art in notebook and figuring out anatomy of the stylized wolf"/>
+</picture>
     {% endhighlight %}
 
     <p>For thumbnail images, I resized the images to double their display widths and organized them in a folder for thumbnails. (As an explanation for why double the width, computer displays these days are 2x, which means that the UI's resolution is double the screen's resolution, so doubling is necessary to prevent the image from showing as blurry.)</p>
@@ -123,104 +123,104 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    {% image "images/tpt2/Strangely-colored-wolf-head.png", "Me with head of wolf prop with parts colored red, cerulean, and green", null, null, false %}
+{% image "images/tpt2/Strangely-colored-wolf-head.png", "Me with head of wolf prop with parts colored red, cerulean, and green", null, null, false %}
     {% endraw %}
     {% endhighlight %}
 
     <p>In the configuration file, with the help of GitHub Copilot, I wrote an extensive script for the image shortcode. It first obtained the original metadata and subsequently width of the image and determined the widths and viewport size options to use based on the width. It then set the file formats to be used as the original and WEBP and constructed the source's path based on its converted file format, resized width, and original directories. It lastly added image element attributes of the alternative text, different sizes, the loading type (with "lazy" as the default), an inline style for <code>max-width</code> if the shortcode specified the width, and image's class if it is specified, before returning the final Image element.</p>
 
     {% highlight "js" %}
-    eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
-        // Get original image metadata
-        let ogMetadata = await Image(src, {
-            widths: ["auto"],
-            formats: ["auto"],
-            outputDir: "./_site/images/",
-            urlPath: "/images/",
-            dryRun: true
-        })
-
-        // Get original width
-        let ogWidth = null;
-        const formatKeys = Object.keys(ogMetadata);
-        if (formatKeys.length > 0) {
-            ogWidth = ogMetadata[formatKeys[0]][0].width;
-        }
-
-        // See if specificed width is different from OG
-        let widthsOption = ["auto"];
-        let sizeOptions = "100vw";
-        if (ogWidth > 1920) {
-            widthsOption = [768, 1280, 1920, "auto"];
-            sizeOptions = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 100vw";
-        } else if (ogWidth > 1280) {
-            widthsOption = [768, 1280, "auto"];
-            sizeOptions = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, 100vw";
-        } else if (ogWidth > 768) {
-            widthsOption = [768, "auto"];
-            sizeOptions = "(max-width: 768px) 768px, 100vw";
-        }
-        
-        let metadata = await Image(src, {
-            widths: widthsOption,
-            formats: ["webp", "auto"],
-            outputDir: "./_site/images/",
-            urlPath: "/images/",
-            filenameFormat: function (id, src, width, format, options) {
-                // Get filename
-                const extension = path.extname(src);
-                const name = path.basename(src, extension);
-
-                // Get subdirectory's name
-                const srcPath = src.replace(/\\/g, '/');
-                const imagesPathIndex = srcPath.indexOf('images/');
-                let subDirName = '';
-                
-                if (imagesPathIndex !== -1) {
-                    const pathAfterImages = srcPath.substring(imagesPathIndex + 'images/'.length);
-                    const subDirPath = path.dirname(pathAfterImages);
-                    if (subDirPath && subDirPath !== '.') {
-                        subDirName = subDirPath + '/';
-                    }
-                }
-
-                // Determine if image was resized
-                const ogWidth = options.sourceWidth;
-                const wasResized = width && width !== ogWidth && sizeOptions.includes(width);
-
-                if (format === 'webp') {
-                    if (wasResized) {
-                        return `${subDirName}webp/${width}/${name}.${format}`;
-                    }
-                    return `${subDirName}webp/${name}.${format}`;
-                }
-
-                return `${subDirName}${name}.${format}`;
-            }
-        });
-
-        let imageAttributes = {
-            alt,
-            sizes: sizeOptions,
-            loading: lazy ? "lazy" : "eager",
-            decoding: "async"
-        };
-
-        // Add inline style for resizing in webpage
-        if (width !== null || height !== null) {
-            let styles = [];
-            if (width != null) styles.push(`max-width: ${width}px`);
-            if (height != null) styles.push(`max-height: ${height}px`);
-            imageAttributes.style = styles.join('; ');
-        }
-
-        // Add image's style class if there's one
-        if (classPara) {
-            imageAttributes.class = classPara;
-        }
-
-        return Image.generateHTML(metadata, imageAttributes);
+eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
+    // Get original image metadata
+    let ogMetadata = await Image(src, {
+        widths: ["auto"],
+        formats: ["auto"],
+        outputDir: "./_site/images/",
+        urlPath: "/images/",
+        dryRun: true
     })
+
+    // Get original width
+    let ogWidth = null;
+    const formatKeys = Object.keys(ogMetadata);
+    if (formatKeys.length > 0) {
+        ogWidth = ogMetadata[formatKeys[0]][0].width;
+    }
+
+    // See if specificed width is different from OG
+    let widthsOption = ["auto"];
+    let sizeOptions = "100vw";
+    if (ogWidth > 1920) {
+        widthsOption = [768, 1280, 1920, "auto"];
+        sizeOptions = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 100vw";
+    } else if (ogWidth > 1280) {
+        widthsOption = [768, 1280, "auto"];
+        sizeOptions = "(max-width: 768px) 768px, (max-width: 1280px) 1280px, 100vw";
+    } else if (ogWidth > 768) {
+        widthsOption = [768, "auto"];
+        sizeOptions = "(max-width: 768px) 768px, 100vw";
+    }
+    
+    let metadata = await Image(src, {
+        widths: widthsOption,
+        formats: ["webp", "auto"],
+        outputDir: "./_site/images/",
+        urlPath: "/images/",
+        filenameFormat: function (id, src, width, format, options) {
+            // Get filename
+            const extension = path.extname(src);
+            const name = path.basename(src, extension);
+
+            // Get subdirectory's name
+            const srcPath = src.replace(/\\/g, '/');
+            const imagesPathIndex = srcPath.indexOf('images/');
+            let subDirName = '';
+            
+            if (imagesPathIndex !== -1) {
+                const pathAfterImages = srcPath.substring(imagesPathIndex + 'images/'.length);
+                const subDirPath = path.dirname(pathAfterImages);
+                if (subDirPath && subDirPath !== '.') {
+                    subDirName = subDirPath + '/';
+                }
+            }
+
+            // Determine if image was resized
+            const ogWidth = options.sourceWidth;
+            const wasResized = width && width !== ogWidth && sizeOptions.includes(width);
+
+            if (format === 'webp') {
+                if (wasResized) {
+                    return `${subDirName}webp/${width}/${name}.${format}`;
+                }
+                return `${subDirName}webp/${name}.${format}`;
+            }
+
+            return `${subDirName}${name}.${format}`;
+        }
+    });
+
+    let imageAttributes = {
+        alt,
+        sizes: sizeOptions,
+        loading: lazy ? "lazy" : "eager",
+        decoding: "async"
+    };
+
+    // Add inline style for resizing in webpage
+    if (width !== null || height !== null) {
+        let styles = [];
+        if (width != null) styles.push(`max-width: ${width}px`);
+        if (height != null) styles.push(`max-height: ${height}px`);
+        imageAttributes.style = styles.join('; ');
+    }
+
+    // Add image's style class if there's one
+    if (classPara) {
+        imageAttributes.class = classPara;
+    }
+
+    return Image.generateHTML(metadata, imageAttributes);
+})
     {% endhighlight %}
 
     <p>This would generate files for different versions of the image automatically.</p>
@@ -232,31 +232,31 @@ code: true
     <p>The new script is much less complicated. It practically takes all the viewport sizes as the size and width options and falls back on the largest image for the viewport size. HTML Transform allows me to use the <code>&lt;img&gt;</code> elements again (albeit with inline styles for widths set on the webpage)! (SVG files were ignored with the <code>eleventy:ignore</code> attribute). However, sorting converted images into directories was impossible, so I had their width values added to their set filenames instead.</p>
 
     {% highlight "js" %}
-    eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
-        formats: ["webp", "auto"],
-        outputDir: "_site/",
-        urlPath: "/",
-        widths: [768, 1280, 1920, "auto"],
-        sharpOptions: {
-            animated: true,
-        },
-        filenameFormat: function (id, src, width, format, options) {
-            const extension = path.extname(src);
-            const name = path.basename(src, extension);
-            const dir = path.dirname(src);
+eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
+    formats: ["webp", "auto"],
+    outputDir: "_site/",
+    urlPath: "/",
+    widths: [768, 1280, 1920, "auto"],
+    sharpOptions: {
+        animated: true,
+    },
+    filenameFormat: function (id, src, width, format, options) {
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+        const dir = path.dirname(src);
 
-            return `${dir}/${name}-${width}.${format}`;
+        return `${dir}/${name}-${width}.${format}`;
+    },
+    htmlOptions: {
+        imgAttributes: {
+            loading: "lazy",
+            decoding: "async",
+            sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, (max-width: 1920px) 100vw, 100vw"
         },
-        htmlOptions: {
-            imgAttributes: {
-                loading: "lazy",
-                decoding: "async",
-                sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, (max-width: 1920px) 100vw, 100vw"
-            },
-            pictureAttributes: {},
-            fallback: "largest"
-        }
-    });
+        pictureAttributes: {},
+        fallback: "largest"
+    }
+});
     {% endhighlight %}
 
     <p>(I had the original images copied over by adding passthrough copies for the image directories, so users can still access them by removing the width value and changing the file format to the original in the URL bar.)</p>
@@ -276,32 +276,32 @@ code: true
 
     <p>The JSON file:</p>
     {% highlight "json" %}
-    {
-        "layout": "more-layouts/fun-blog.html",
-        "blogTitle": "My Theme Park Tycoon 2 Buildlog",
-        "tags": "tpt2"
-    }
+{
+    "layout": "more-layouts/fun-blog.html",
+    "blogTitle": "My Theme Park Tycoon 2 Buildlog",
+    "tags": "tpt2"
+}
     {% endhighlight %}
 
     <p>A template file for the July 2024 collection:</p>
 
     {% highlight "html" %}
     {% raw %}
-    ---
-    month: July
-    year: 2024
-    description: Entries of My Theme Park Tycoon 2 Buildlog for the month of July 2024.
-    ogImage: tpt2/webp/Strangely-colored-wolf-head.webp
-    ogDescription: Entries of My Theme Park Tycoon 2 Buildlog for the month of July 2024. The Buildlog is where I publicly record my process of creating custom builds in the Roblox building simulator game Theme Park Tycoon 2.
-    ---
-    {% for entry in collections.tpt2July2024 | reverse %}
-    <article>
-    <h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a>{% endcall %}
-    <div class="text-box">
-        {{ entry.content }}
-    </div>
-    </article>
-    {% endfor %}
+---
+month: July
+year: 2024
+description: Entries of My Theme Park Tycoon 2 Buildlog for the month of July 2024.
+ogImage: tpt2/webp/Strangely-colored-wolf-head.webp
+ogDescription: Entries of My Theme Park Tycoon 2 Buildlog for the month of July 2024. The Buildlog is where I publicly record my process of creating custom builds in the Roblox building simulator game Theme Park Tycoon 2.
+---
+{% for entry in collections.tpt2July2024 | reverse %}
+<article>
+<h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a>{% endcall %}
+<div class="text-box">
+    {{ entry.content }}
+</div>
+</article>
+{% endfor %}
     {% endraw %}
     {% endhighlight %}
 
@@ -314,73 +314,73 @@ code: true
     <p><a href="https://moment.github.io/luxon/#/">The Luxon library</a> provided lots of help for the date and time operations.</p>
 
     {% highlight "js" %}
-    const funBlogCollectionTags = ["tpt2Log"];
+const funBlogCollectionTags = ["tpt2Log"];
 
-    funBlogCollectionTags.forEach(tag => {
-        eleventyConfig.addCollection(tag, function(collectionApi) {
-            const grouped = collectionApi
-                .getFilteredByTag(tag)
-                .reverse()
-                .reduce((acc, entry) => {
-                    const monthKey = DateTime.fromJSDate(entry.date, { zone: 'utc' }).toFormat('yyyy-MM');
-                    (acc[monthKey] ??= []).push(entry);
-                    return acc;
-                }, {});
+funBlogCollectionTags.forEach(tag => {
+    eleventyConfig.addCollection(tag, function(collectionApi) {
+        const grouped = collectionApi
+            .getFilteredByTag(tag)
+            .reverse()
+            .reduce((acc, entry) => {
+                const monthKey = DateTime.fromJSDate(entry.date, { zone: 'utc' }).toFormat('yyyy-MM');
+                (acc[monthKey] ??= []).push(entry);
+                return acc;
+            }, {});
 
-            return Object.entries(grouped).map(([monthKey, entries]) => ({
-                monthKey,
-                entries
-            }));
-        });
+        return Object.entries(grouped).map(([monthKey, entries]) => ({
+            monthKey,
+            entries
+        }));
     });
+});
 
-    eleventyConfig.addFilter("getMonthName", (monthKey) => {
-        if (!monthKey) return '';
-        const dateStr = String(monthKey) + '-01';
-        const dt = DateTime.fromISO(dateStr);
-        
-        if (!dt.isValid) {
-            console.error('Invalid date for monthKey:', monthKey, 'monthKey\'s type:', typeof monthKey);
-            return '';
-        }
+eleventyConfig.addFilter("getMonthName", (monthKey) => {
+    if (!monthKey) return '';
+    const dateStr = String(monthKey) + '-01';
+    const dt = DateTime.fromISO(dateStr);
+    
+    if (!dt.isValid) {
+        console.error('Invalid date for monthKey:', monthKey, 'monthKey\'s type:', typeof monthKey);
+        return '';
+    }
 
-        return dt.toFormat('MMMM');
-    });
+    return dt.toFormat('MMMM');
+});
 
-    eleventyConfig.addFilter("getYear", (monthKey) => {
-        if (!monthKey) return '';
-        return String(monthKey).split('-')[0];
-    });
+eleventyConfig.addFilter("getYear", (monthKey) => {
+    if (!monthKey) return '';
+    return String(monthKey).split('-')[0];
+});
     {% endhighlight %}
 
     <p>Now, on the template page for the <i>Buildlog</i>, I can title each month's page with the month's name and year and lay down all its entries with rather short code.</p>
 
     {% highlight "html" %}
     {% raw %}
-    ---
-    pagination:
-    data: collections.tpt2Log
-    size: 1
-    alias: monthlyData
-    permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
-    eleventyExcludeFromCollections: ["tpt2Log"]
-    eleventyComputed:
-    layout: layouts/main.html
-    title: "{{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }} - My Theme Park Tycoon 2 Buildlog"
-    ...
-    ---
-    <h1>My Theme Park Tycoon 2 Buildlog - {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}</h1>
+---
+pagination:
+data: collections.tpt2Log
+size: 1
+alias: monthlyData
+permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
+eleventyExcludeFromCollections: ["tpt2Log"]
+eleventyComputed:
+layout: layouts/main.html
+title: "{{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }} - My Theme Park Tycoon 2 Buildlog"
+...
+---
+<h1>My Theme Park Tycoon 2 Buildlog - {{ monthlyData.monthKey | getMonthName }} {{ monthlyData.monthKey | getYear }}</h1>
 
-    ...
+...
 
-    {% for entry in monthlyData.entries %}
-    <article>
-    <h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a>{% endcall %}
-    <div class="text-box">
-        {{ entry.content }}
-    </div>
-    </article>
-    {% endfor %}
+{% for entry in monthlyData.entries %}
+<article>
+<h3 id="{{ entry.data.title }}">{{ entry.data.date | postDate }} <a href="#{{ entry.data.title }}" class="white-link" title="Direct link to this entry"><i class="fa-solid fa-link"></i></a>{% endcall %}
+<div class="text-box">
+    {{ entry.content }}
+</div>
+</article>
+{% endfor %}
     {% endraw %}
     {% endhighlight %}
 
@@ -388,12 +388,12 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    {% set previousMonth = pagination.href.next %} {# Because the entries are reversed #}
-    {% set nextMonth = pagination.href.previous %}
-    ...
-    {% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a>
-    ...
-    {% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
+{% set previousMonth = pagination.href.next %} {# Because the entries are reversed #}
+{% set nextMonth = pagination.href.previous %}
+...
+{% if previousMonth %}<a class="button" href="{{ previousMonth }}">Previous</a>
+...
+{% if nextMonth %} | <a class="button" href="{{ nextMonth }}">Next</a>{% endif %}
     {% endraw %}
     {% endhighlight %}
 
@@ -401,13 +401,13 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    <select id="article-select-0">
-    {% for page in pagination.pages %}
-        {% set pageMonth = page.monthKey | getMonthName %}
-        {% set pageYear = page.monthKey | getYear %}
-        <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
-    {% endfor %}
-    </select>
+<select id="article-select-0">
+{% for page in pagination.pages %}
+    {% set pageMonth = page.monthKey | getMonthName %}
+    {% set pageYear = page.monthKey | getYear %}
+    <option value="{{ pageMonth }}-{{ pageYear }}.html">{{ pageMonth }} {{ pageYear }}</option>
+{% endfor %}
+</select>
     {% endraw %}
     {% endhighlight %}
 
@@ -415,13 +415,13 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    <nav class="text-box list-only">
-    <ul>
-        {% for entry in monthlyData.entries %}
-        <li><a href="#{{ entry.data.title }}">{{ entry.data.date | postDate }}</a></li>
-        {% endfor %}
-    </ul>
-    </nav>
+<nav class="text-box list-only">
+<ul>
+    {% for entry in monthlyData.entries %}
+    <li><a href="#{{ entry.data.title }}">{{ entry.data.date | postDate }}</a></li>
+    {% endfor %}
+</ul>
+</nav>
     {% endraw %}
     {% endhighlight %}
 </div>
@@ -434,23 +434,23 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    ---
-    permalink: /sitemap.xml
-    eleventyExcludeFromCollections: true
-    ---
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for page in collections.all %}
-    {% if not page.data.noSitemap %}
-        <url>
-            <loc>https://princesspandalover.com{{ page.url | lower | stripExtension }}</loc>
-            <lastmod>{{ page | lastModifiedDate | sitemapDate }}</lastmod>
-            <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
-            <priority>{{ page.data.priority | default(0.8) }}</priority>
-        </url>
-    {% endif %}
-    {% endfor %}
-    </urlset>
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for page in collections.all %}
+{% if not page.data.noSitemap %}
+    <url>
+        <loc>https://princesspandalover.com{{ page.url | lower | stripExtension }}</loc>
+        <lastmod>{{ page | lastModifiedDate | sitemapDate }}</lastmod>
+        <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
+        <priority>{{ page.data.priority | default(0.8) }}</priority>
+    </url>
+{% endif %}
+{% endfor %}
+</urlset>
     {% endraw %}
     {% endhighlight %}
 
@@ -461,39 +461,39 @@ code: true
     <p>I had Gemini 3.0 Pro via GitHub Copilot generate some complicated scripts. The first script executes the <code>git log</code> command to obtain the history of the last 500 commits on Git (so buildtime isn't slowed down) with ISO-format timestamps and filenames changed in each commit (and max buffer of 10 MB). Then for each date, for each changed file, it adds the pairing of the path to the file (in the source code) and the date to the cache map. Older commits with the same file are skipped to ensure only the newest modified date is assigned to the file. If this script fails, it logs an error message instead of crashing the entire process. (Yikes.)</p>
 
     {% highlight "js" %}
-    import { execSync } from "node:child_process";
+import { execSync } from "node:child_process";
 
-    ...
+...
 
-    // Cache for Git dates to speed up build
-    const gitDateCache = new Map();
+// Cache for Git dates to speed up build
+const gitDateCache = new Map();
 
-    // Pre-load Git history to avoid spawning process for every file (Gemini 3 Pro)
-    try {
-        const output = execSync('git log --name-only --format="GIT_DATE:%cI" --max-count=500', { 
-            encoding: 'utf-8',
-            maxBuffer: 10 * 1024 * 1024 // 10MB buffer
-        });
+// Pre-load Git history to avoid spawning process for every file (Gemini 3 Pro)
+try {
+    const output = execSync('git log --name-only --format="GIT_DATE:%cI" --max-count=500', { 
+        encoding: 'utf-8',
+        maxBuffer: 10 * 1024 * 1024 // 10MB buffer
+    });
+    
+    let currentDate = null;
+    output.split(/\r?\n/).forEach(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return;
         
-        let currentDate = null;
-        output.split(/\r?\n/).forEach(line => {
-            const trimmed = line.trim();
-            if (!trimmed) return;
-            
-            if (trimmed.startsWith('GIT_DATE:')) {
-                currentDate = new Date(trimmed.slice(9));
-            } else if (currentDate) {
-                // Git outputs paths like "src/pages/about.md"
-                // Eleventy uses "./src/pages/about.md"
-                const key = "./" + trimmed;
-                if (!gitDateCache.has(key)) {
-                    gitDateCache.set(key, currentDate);
-                }
+        if (trimmed.startsWith('GIT_DATE:')) {
+            currentDate = new Date(trimmed.slice(9));
+        } else if (currentDate) {
+            // Git outputs paths like "src/pages/about.md"
+            // Eleventy uses "./src/pages/about.md"
+            const key = "./" + trimmed;
+            if (!gitDateCache.has(key)) {
+                gitDateCache.set(key, currentDate);
             }
-        });
-    } catch (e) {
-        console.warn("Git log failed, falling back to individual checks:", e.message);
-    }
+        }
+    });
+} catch (e) {
+    console.warn("Git log failed, falling back to individual checks:", e.message);
+}
     {% endhighlight %}
 
     <p><a href="https://www.cantoni.org/2025/07/10/proper-sitemap-update-dates-for-eleventy/">This blogpost by Brian Cantoni</a>, which is for the same last modified date issue, was useful for verifying some of the script.</p>
@@ -501,45 +501,45 @@ code: true
     <p>The second script adds a filter in which the page's path in the source code is obtained and the cache map is sifted through for the path and its date. If they cannot be found, such as the path pointing to an entirely new file, it gets its last modified time from the filesystem. If the page is the result of pagination, such as a <i><a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a></i> month page, it goes through all the pages used for the pagination and gets the most recent date from it.</p>
 
     {% highlight "js" %}
-    import fs from "node:fs";
+import fs from "node:fs";
 
-    ...
+...
 
-    // Get last modified date for sitemap via Git (Gemini 3 Pro)
-    eleventyConfig.addFilter("lastModifiedDate", (page) => {
-        const inputPath = page.inputPath;
+// Get last modified date for sitemap via Git (Gemini 3 Pro)
+eleventyConfig.addFilter("lastModifiedDate", (page) => {
+    const inputPath = page.inputPath;
+    
+    // Helper to get date for a specific path
+    const getDateForPath = (path) => {
+        if (gitDateCache.has(path)) {
+            return gitDateCache.get(path);
+        }
         
-        // Helper to get date for a specific path
-        const getDateForPath = (path) => {
-            if (gitDateCache.has(path)) {
-                return gitDateCache.get(path);
-            }
-            
-            // Fallback: try fs stats if not in git log (e.g. new file)
-            try {
-                const stats = fs.statSync(path);
-                return stats.mtime;
-            } catch (e) {
-                return null;
-            }
-        };
+        // Fallback: try fs stats if not in git log (e.g. new file)
+        try {
+            const stats = fs.statSync(path);
+            return stats.mtime;
+        } catch (e) {
+            return null;
+        }
+    };
 
-        let latestDate = getDateForPath(inputPath);
+    let latestDate = getDateForPath(inputPath);
 
-        // If this is a paginated page, check the items on this specific page
-        if (page.data && page.data.pagination && page.data.pagination.items) {
-            for (const item of page.data.pagination.items) {
-                if (item.inputPath) {
-                    const itemDate = getDateForPath(item.inputPath);
-                    if (itemDate && (!latestDate || itemDate > latestDate)) {
-                        latestDate = itemDate;
-                    }
+    // If this is a paginated page, check the items on this specific page
+    if (page.data && page.data.pagination && page.data.pagination.items) {
+        for (const item of page.data.pagination.items) {
+            if (item.inputPath) {
+                const itemDate = getDateForPath(item.inputPath);
+                if (itemDate && (!latestDate || itemDate > latestDate)) {
+                    latestDate = itemDate;
                 }
             }
         }
+    }
 
-        return latestDate || new Date();
-    });
+    return latestDate || new Date();
+});
     {% endhighlight %}
 </div>
 
@@ -557,17 +557,17 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    {% macro heartButton(href, text, longer) %}
-    <a href="{{ href }}"><div class="heart-button-container">
-        <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">
-        <!--<div class="heart-image">
-            <img src="" height=65 >
-        </div>-->
-        <div class="heart-button-text {% if longer %}longer{% endif %}">
-            {{ text }}
-        </div>
-    </div></a>
-    {% endmacro %}
+{% macro heartButton(href, text, longer) %}
+<a href="{{ href }}"><div class="heart-button-container">
+    <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">
+    <!--<div class="heart-image">
+        <img src="" height=65 >
+    </div>-->
+    <div class="heart-button-text {% if longer %}longer{% endif %}">
+        {{ text }}
+    </div>
+</div></a>
+{% endmacro %}
     {% endraw %}
     {% endhighlight %}
 
@@ -577,11 +577,11 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    {% import "components/main.njk" as c %}
+{% import "components/main.njk" as c %}
 
-    ...
+...
 
-    {{ c.heartButton("blog/", "Wolf with a Blog (Main)", true) }}
+{{ c.heartButton("blog/", "Wolf with a Blog (Main)", true) }}
     {% endraw %}
     {% endhighlight %}
 
@@ -604,7 +604,7 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    title: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.pgNum }}. {{ collections.silverScripts[collections.silverScripts.length - 1].data.title | safe }}"
+title: "{{ collections.silverScripts[collections.silverScripts.length - 1].data.pgNum }}. {{ collections.silverScripts[collections.silverScripts.length - 1].data.title | safe }}"
     {% endraw %}
     {% endhighlight %}
 
@@ -614,44 +614,44 @@ code: true
 
     {% highlight "html" %}
     {% raw %}
-    <h3 id="arc1">Arc 1: {{ c.arcName(1) }}{% endcall %}
-    <table class="archiveTable">
-        <tbody>
-            {%- for comic in collections.ssArc1 -%}
-            <tr class="archiveRow" data-href="{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html">
-                <td class="archiveCellNum">
-                    <span><strong>{{ comic.data.pgNum }}</strong></span>
-                </td>
-                <td class="archiveCellTitle leftAlignTableText">
-                    <span><strong>{{ comic.data.title }}</strong></span>
-                </td><td class="archiveCellDate">
-                    <span> {{ comic.date | postDate }} </span>
-                </td>
-            </tr>
-            {%- endfor -%}
-        </tbody>
-    </table>
+<h3 id="arc1">Arc 1: {{ c.arcName(1) }}{% endcall %}
+<table class="archiveTable">
+    <tbody>
+        {%- for comic in collections.ssArc1 -%}
+        <tr class="archiveRow" data-href="{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html">
+            <td class="archiveCellNum">
+                <span><strong>{{ comic.data.pgNum }}</strong></span>
+            </td>
+            <td class="archiveCellTitle leftAlignTableText">
+                <span><strong>{{ comic.data.title }}</strong></span>
+            </td><td class="archiveCellDate">
+                <span> {{ comic.date | postDate }} </span>
+            </td>
+        </tr>
+        {%- endfor -%}
+    </tbody>
+</table>
     {% endraw %}
     {% endhighlight %}
 
     <p>I still had to use the old archive JavaScript file with this function added (but everything else turned off):</p>
 
     {% highlight "js" %}
-    document.querySelectorAll('.archiveRow').forEach(row => {
-        row.addEventListener('click', () => {
-            window.location.href = row.dataset.href;
-        });
-    })
+document.querySelectorAll('.archiveRow').forEach(row => {
+    row.addEventListener('click', () => {
+        window.location.href = row.dataset.href;
+    });
+})
     {% endhighlight %}
 
     <p>Yes, reusable components strike again for storing and using arc names to be consistent. Along with the comic navigation bar, I set up an array of arc names (it's a good thing the first arc is indexed at zero) and macros for retrieving the arc name and rendering an arc link on a comic page.</p>
 
     {% highlight "html" %}
     {% raw %}
-    {% set arc_names = [
-        "A Glimpse",
-        "I Can't Believe I Made It!"
-    ] %}
+{% set arc_names = [
+    "A Glimpse",
+    "I Can't Believe I Made It!"
+] %}
     {% endraw %}
     {% endhighlight %}
 
