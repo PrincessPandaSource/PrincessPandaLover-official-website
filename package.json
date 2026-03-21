@@ -7,7 +7,9 @@
     "start": "netlify dev",
     "build": "eleventy",
     "clean": "rmdir /s /q _site",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,8 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "netlify-plugin-cache": "^1.0.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.76.0"
   }
 }
