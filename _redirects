@@ -1,0 +1,6 @@
+/silverscripts/index.html* /silverscripts/:splat 301
+/tpt2 /tpt2/july-2024 301
+/tpt2/ /tpt2/july-2024 301
+/tpt2/may_2024   /tpt2/may-2024   301
+/tpt2/june_2024  /tpt2/june-2024  301
+/tpt2/july_2024  /tpt2/july-2024  301

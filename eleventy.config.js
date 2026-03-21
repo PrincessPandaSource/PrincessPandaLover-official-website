@@ -12,6 +12,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("_headers");
+    eleventyConfig.addPassthroughCopy("_redirects");
     eleventyConfig.addPassthroughCopy("robots.txt");
     eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
     eleventyConfig.addPassthroughCopy("silverscripts/css")

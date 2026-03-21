@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: monthlyData
   addAllPagesToCollections: true
-permalink: /tpt2/{{ monthlyData.monthKey | getMonthName }}-{{ monthlyData.monthKey | getYear }}.html
+permalink: /tpt2/{{ monthlyData.monthKey | getMonthName | lower }}-{{ monthlyData.monthKey | getYear }}.html
 eleventyExcludeFromCollections: ["tpt2Log"]
 eleventyComputed:
   layout: layouts/main.html

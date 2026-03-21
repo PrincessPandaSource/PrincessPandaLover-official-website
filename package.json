@@ -4,8 +4,8 @@
   "description": "PrincessPandaLover's official website",
   "main": "index.js",
   "scripts": {
-    "start": "netlify dev",
-    "build": "eleventy",
+    "start": "concurrently --kill-others \"npx @11ty/eleventy --watch\" \"wrangler dev\"",
+    "build": "npx @11ty/eleventy",
     "clean": "rmdir /s /q _site",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,7 +25,10 @@
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-rss": "^2.0.4",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "netlify-plugin-cache": "^1.0.3"
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "wrangler": "^4.76.0"
   }
 }

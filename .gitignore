@@ -5,6 +5,8 @@ _site
 .vscode
 # Local Netlify folder
 .netlify
+# Local Wrangler folder
+.wrangler
 
 # Hidden folders personal to me
 /Archived pages
