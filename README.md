@@ -22,8 +22,6 @@ To build the website and launch a local server running it, run this command:
 npm start
 ```
 
-(Currently, you need to refresh the website on the browser every time a change is made.)
-
 Eleventy does not delete files from the output directory when they are deleted themselves. To remove the output directory for a refreshed build, run ```npm run clean```.
 
 To merely generate the build, but not launch the server, run ```npm run build```.

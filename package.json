@@ -4,9 +4,11 @@
   "description": "PrincessPandaLover's official website",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently --kill-others \"npx @11ty/eleventy --watch\" \"wrangler dev\"",
+    "start": "npm-run-all build --parallel 11ty:watch wrangler:dev",
     "build": "npx @11ty/eleventy",
     "clean": "rmdir /s /q _site",
+    "11ty:watch": "npx @11ty/eleventy --watch --ignore-initial",
+    "wrangler:dev": "npx wrangler dev --live-reload",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +30,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1",
+    "npm-run-all": "^4.1.5",
     "wrangler": "^4.76.0"
   }
 }
