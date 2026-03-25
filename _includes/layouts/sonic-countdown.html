@@ -61,7 +61,7 @@ summaryLargeImage: true
     <div id="wrapper">
         <header>
             {% if page.url != "/sonic-4-countdown/" %}<a href="./">{% endif %}
-            <img class="movie-title-banner" src="assets/images/sonic-4-title-transparent.png" alt="Sonic the Hedgehog 4 title from its reveal">
+            <img class="movie-title-banner" src="assets/images/sonic-4-title-transparent.png" alt="Sonic the Hedgehog 4 title from its reveal" loading="eager" fetchpriority="high">
             {% if page.url != "/sonic-4-countdown/" %}</a>{% endif %}
         </header>
 

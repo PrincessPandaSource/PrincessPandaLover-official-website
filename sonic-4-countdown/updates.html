@@ -4,7 +4,32 @@ title: Updates
 description: Check for updates on Sonic the Hedgehog 4 (and the spin-off movie).
 changefreq: weekly
 priority: 0.6
+launchDate: 2026-03-24
 ---
+<!--Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ title }} - Countdown to Chaos (Sonic the Hedgehog 4)",
+  "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+  },
+  "datePublished": "{{ launchDate | schemaDate }}",
+  "description": "{{ description }}",
+  "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+  "image": {
+      "@type": "ImageObject",
+      "@id": "https://princesspandalover.com/sonic-4-countdown/assets/images/{{ ogImage }}",
+      "url": "https://princesspandalover.com/sonic-4-countdown/assets/images/{{ ogImage }}",
+      "height": "{{ ogImageHeight }}",
+      "width": "{{ ogImageWidth }}"
+  }
+}
+</script>
+
 <div class="updates-section">
     <h2>PAST UPDATES</h2>
 

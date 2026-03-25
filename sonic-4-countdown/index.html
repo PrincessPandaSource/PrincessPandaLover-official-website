@@ -4,7 +4,55 @@ description: It has begun! See how much time is left before Sonic the Hedgehog 4
 ogDescription: It has begun!
 changefreq: always
 priority: 0.7
+launchDate: 2026-03-24
 ---
+<!--Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Countdown to Chaos (Sonic the Hedgehog 4)",
+  "alternateName": "Countdown to Chaos",
+  "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+  },
+  "datePublished": "{{ launchDate | schemaDate }}",
+  "description": "{{ description }}",
+  "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}",
+  "image": {
+      "@type": "ImageObject",
+      "@id": "https://princesspandalover.com/sonic-4-countdown/assets/images/{{ ogImage }}",
+      "url": "https://princesspandalover.com/sonic-4-countdown/assets/images/{{ ogImage }}",
+      "height": "{{ ogImageHeight }}",
+      "width": "{{ ogImageWidth }}"
+  },
+  "countryOfOrigin": "United States",
+  "inLanguage": "en-US",
+  "isBasedOn": [
+    {
+        "@type": "Movie",
+        "name": "Sonic the Hedgehog 4",
+        "productionCompany": {
+            "@type": "Organization",
+            "name": "Paramount Pictures"
+        }
+    },
+    {
+        "@type": "MovieSeries",
+        "name": "Sonic the Hedgehog",
+        "productionCompany": {
+            "@type": "Organization",
+            "name": "Paramount Pictures"
+        }
+    }
+  ],
+  "isFamilyFriendly": "True"
+}
+</script>
+
+<h1 class="sr-only">Countdown to Chaos (Sonic the Hedgehog 4)</h1>
 <div class="countdown-section">
     <div class="countdown-heading">
         COUNTDOWN TO CHAOS
@@ -12,22 +60,22 @@ priority: 0.7
 
     <div class="countdown-timer">
         <div class="days-div">
-            <span class="countdown-num" id="day-counter"></span> <span class="countdown-unit">DAYS</span>
+            <span class="countdown-num" id="day-counter">...</span> <span class="countdown-unit" id="day-label">DAYS</span>
         </div>
         <div class="hours-div">
-            <span class="countdown-num" id="hour-counter"></span> <span class="countdown-unit">HOURS</span>
+            <span class="countdown-num" id="hour-counter">...</span> <span class="countdown-unit" id="hour-label">HOURS</span>
         </div>
         <div class="mins-div">
-            <span class="countdown-num" id="min-counter"></span> <span class="countdown-unit">MINUTES</span>
+            <span class="countdown-num" id="min-counter">...</span> <span class="countdown-unit" id="min-label">MINUTES</span>
         </div>
         <div class="secs-div">
-            <span class="countdown-num" id="sec-counter"></span> <span class="countdown-unit">SECONDS</span>
+            <span class="countdown-num" id="sec-counter">...</span> <span class="countdown-unit" id="sec-label">SECONDS</span>
         </div>
     </div>
 </div>
 
 <div class="featured-video">
-    <iframe src="https://www.youtube.com/embed/YShjCIA9aXk?si=YuRe2byF1Fl1pSP6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/YShjCIA9aXk?si=YuRe2byF1Fl1pSP6" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 <div class="emerald-row">
@@ -44,16 +92,16 @@ priority: 0.7
 
     <div class="countdown-timer">
         <div class="days-div spinoff">
-            <span class="countdown-num spinoff" id="spinoff-day-counter"></span> <span class="countdown-unit">DAYS</span>
+            <span class="countdown-num spinoff" id="spinoff-day-counter">...</span> <span class="countdown-unit" id="spinoff-day-label">DAYS</span>
         </div>
         <div class="hours-div spinoff">
-            <span class="countdown-num spinoff" id="spinoff-hour-counter"></span> <span class="countdown-unit">HOURS</span>
+            <span class="countdown-num spinoff" id="spinoff-hour-counter">...</span> <span class="countdown-unit" id="spinoff-hour-label">HOURS</span>
         </div>
         <div class="mins-div spinoff">
-            <span class="countdown-num spinoff" id="spinoff-min-counter"></span> <span class="countdown-unit">MINUTES</span>
+            <span class="countdown-num spinoff" id="spinoff-min-counter">...</span> <span class="countdown-unit" id="spinoff-min-label">MINUTES</span>
         </div>
         <div class="secs-div spinoff">
-            <span class="countdown-num spinoff" id="spinoff-sec-counter"></span> <span class="countdown-unit">SECONDS</span>
+            <span class="countdown-num spinoff" id="spinoff-sec-counter">...</span> <span class="countdown-unit" id="spinoff-sec-label">SECONDS</span>
         </div>
     </div>
 </div>
