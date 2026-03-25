@@ -17,6 +17,9 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
     eleventyConfig.addPassthroughCopy("silverscripts/css")
     eleventyConfig.addPassthroughCopy("silverscripts/js")
+    eleventyConfig.addPassthroughCopy("sonic-4-countdown/assets")
+    eleventyConfig.addPassthroughCopy("sonic-4-countdown/*.css")
+    eleventyConfig.addPassthroughCopy("sonic-4-countdown/*.js")
 
     // Import original images
     eleventyConfig.addPassthroughCopy("images");

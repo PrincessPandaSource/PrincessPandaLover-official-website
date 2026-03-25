@@ -1,0 +1,390 @@
+@font-face {
+    font-family: "Impact";
+    src: url("assets/fonts/impact.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jost";
+    src: url("assets/fonts/jost.woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jost";
+    src: url("assets/fonts/jost-italic.woff2");
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+i {
+    font-style: italic;
+}
+
+a {
+    color: #80fbff;
+    text-decoration: none;
+}
+
+#wrapper {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+}
+
+header, footer, .countdown-section,
+.updates-section, .contact-section {
+    text-align: center;
+}
+
+.movie-title-banner {
+    width: 733px;
+    height: auto;
+    margin: 50px 0;
+}
+
+h1, h2, .countdown-heading {
+    font-family: 'Impact';
+    font-style: italic;
+    letter-spacing: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2, .countdown-heading {
+    font-size: 2em;
+}
+
+.countdown-heading.spinoff {
+    font-size: 1.65em;
+}
+
+.countdown-timer {
+    font-family: 'Jost';
+    font-weight: 800;
+    font-style: italic;
+}
+
+.countdown-timer .days-div {
+    font-size: 4.5em;
+}
+
+.countdown-timer .days-div.spinoff {
+    font-size: 3.75em;
+}
+
+.countdown-timer .hours-div,
+.countdown-timer .mins-div,
+.countdown-timer .secs-div {
+    font-size: 3em;
+}
+
+.countdown-timer .hours-div.spinoff,
+.countdown-timer .mins-div.spinoff,
+.countdown-timer .secs-div.spinoff {
+    font-size: 2.5em;
+}
+
+.countdown-num,
+.countdown-unit {
+    color: transparent;
+}
+
+.countdown-num {
+    text-shadow:
+        /* Text */
+        -1px -1px 1px #000,
+        1px -1px 1px #000,
+        -1px 1px 1px #000,
+        1px 1px 1px #000,
+        /* Outline */
+        -1px -1px 6px #fff5ff,
+        1px -1px 6px #fff5ff,
+        -1px 1px 6px #fff5ff,
+        1px 1px 6px #fff5ff,
+        /* Glow */
+        -1px -1px 20px #e116ae,
+        1px -1px 20px #e116ae,
+        -1px 1px 20px #e116ae,
+        1px 1px 20px #e116ae;
+}
+
+.countdown-num.spinoff {
+    text-shadow:
+        /* Text */
+        -1px -1px 1px #000,
+        1px -1px 1px #000,
+        -1px 1px 1px #000,
+        1px 1px 1px #000,
+        /* Outline */
+        -1px -1px 6px #ffddd6,
+        1px -1px 6px #ffddd6,
+        -1px 1px 6px #ffddd6,
+        1px 1px 6px #ffddd6,
+        /* Glow */
+        -1px -1px 20px #d90002,
+        1px -1px 20px #d90002,
+        -1px 1px 20px #d90002,
+        1px 1px 20px #d90002;
+}
+
+.countdown-unit {
+    text-shadow:
+        /* Text */
+        -1px -1px 1px #000,
+        1px -1px 1px #000,
+        -1px 1px 1px #000,
+        1px 1px 1px #000,
+        /* Outline */
+        -1px -1px 6px #f4ffff,
+        1px -1px 6px #f4ffff,
+        -1px 1px 6px #f4ffff,
+        1px 1px 6px #f4ffff,
+        /* Glow */
+        -1px -1px 20px #0d62f9,
+        1px -1px 20px #0d62f9,
+        -1px 1px 20px #0d62f9,
+        1px 1px 20px #0d62f9;
+}
+
+.featured-video {
+    width: 553px;
+    margin: auto;
+}
+
+.featured-video iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.emerald-row {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.emerald-row img {
+    height: 125px;
+    width: auto;
+}
+
+.updates-grid {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
+    gap: 25px;
+    justify-content: center;
+}
+
+.update-entry {
+    border: 3px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    flex-grow: 0;
+    height: 215px;
+    width: 350px;
+    box-sizing: border-box;
+}
+
+.update-entry-img {
+    object-fit: cover;
+    width: 125px;
+    height: 125px;
+}
+
+.update-info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.update-info p {
+    margin: 0;
+}
+
+.update-date {
+    font-family: 'Jost';
+    font-style: italic;
+    font-weight: 800;
+    margin-bottom: 4px !important;
+}
+
+.update-descript {
+    font-size: 0.9em;
+    width: 175px;
+}
+
+.updates-section-links {
+    font-family: 'Jost';
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 25px;
+}
+
+.contact-section-text {
+    text-align: left;
+    font-size: 0.9em;
+    padding: 0 20px;
+}
+
+footer {
+    font-size: 0.75em;
+    padding: 0 10px;
+}
+
+/* Mobile view */  
+@media only screen and (max-width: 767px) {
+    #wrapper {
+        width: 100vw;
+    }
+
+    .movie-title-banner {
+        width: 100%;
+        margin: 25px 0;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2, .countdown-heading {
+        font-size: 1.25em;
+    }
+
+    .countdown-heading.spinoff {
+        font-size: 1em;
+    }
+
+    .countdown-timer .days-div {
+        font-size: 4em;
+    }
+
+    .countdown-timer .days-div.spinoff {
+        font-size: 3em;
+    }
+
+    .countdown-timer .hours-div,
+    .countdown-timer .mins-div,
+    .countdown-timer .secs-div {
+        font-size: 2.5em;
+    }
+
+    .countdown-timer .hours-div.spinoff,
+    .countdown-timer .mins-div.spinoff,
+    .countdown-timer .secs-div.spinoff {
+        font-size: 1.75em;
+    }
+
+    .featured-video {
+        width: 95%;
+    }
+
+    .updates-grid {
+        width: 90%;
+    }
+
+    .update-entry {
+        width: 100%;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+    .movie-title-banner {
+        width: 633px;
+    }
+
+    .featured-video {
+        width: 453px;
+    }
+}
+
+/* Particularly large monitors */
+@media only screen and (min-width: 1920px) {
+    .movie-title-banner {
+        width: 833px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2, .countdown-heading {
+        font-size: 2.5em;
+    }
+
+    .countdown-heading.spinoff {
+        font-size: 2.15em;
+    }
+
+    .countdown-timer .days-div {
+        font-size: 4.5em;
+    }
+
+    .countdown-timer .days-div.spinoff {
+        font-size: 3.75em;
+    }
+
+    .countdown-timer .hours-div,
+    .countdown-timer .mins-div,
+    .countdown-timer .secs-div {
+        font-size: 3.5em;
+    }
+
+    .countdown-timer .hours-div.spinoff,
+    .countdown-timer .mins-div.spinoff,
+    .countdown-timer .secs-div.spinoff {
+        font-size: 3em;
+    }
+
+    .featured-video {
+        width: 653px;
+    }
+
+    .emerald-row img {
+        height: 150px;
+    }
+
+    .update-entry {
+        height: 260px;
+        width: 375px;
+    }
+
+    .update-entry-img {
+        height: 135px;
+        width: 135px;
+    }
+
+    .update-date {
+        font-size: 1.1em;
+    }
+
+    .update-descript {
+        font-size: 1em;
+    }
+
+    .updates-section-links {
+        font-size: 1.1em;
+    }
+}
