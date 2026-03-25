@@ -1,0 +1,38 @@
+{ "updates": [
+    {
+        "date": "2026-03-19",
+        "img": "sonic-4-full-cast-announce-collage.jpg",
+        "imgAlt": "Collage of photos of Jim Carrey, Nick Offerman, Matt Berry, and Richard Ayoade",
+        "blurb": "Full cast of <i>Sonic 4</i> announced, with Jim Carrey and Keanu Reeves returning and Nick Offerman, Matt Berry, and Richard Ayoade joining. Offerman, as well as Ben Kingsley, have voice roles.",
+        "link": "https://variety.com/2026/film/news/sonic-the-hedgehog-4-cast-keanu-reeves-idris-elba-1236692974/"
+    },
+    {
+        "date": "2026-03-19",
+        "img": "sonic-4-title.jpg",
+        "imgAlt": "Sonic 4 title from teaser video",
+        "blurb": "<i>Sonic 4</i> title teaser is released.",
+        "link": "https://www.youtube.com/watch?v=YShjCIA9aXk",
+        "linkLabel": "Watch here"
+    },
+    {
+        "date": "2026-03-02",
+        "img": "ben-kingsley.jpg",
+        "imgAlt": "Photo of Ben Kingsley",
+        "blurb": "Entertainment journalist Jeff Sneider reports Ben Kingsley as cast member of <i>Sonic 4</i>.",
+        "link": "https://comicbook.com/movies/news/sonic-4-reportedly-casts-legendary-actor-in-key-role-fans-have-ideas-on-who-theyre-playing/"
+    },
+    {
+        "date": "2026-03-02",
+        "img": "sonic-4-filming-announce-photo.jpg",
+        "imgAlt": "Announcement photo of Sonic 4 filming, showing director Jeff Fowler holding Amy's hammer and the large number 4",
+        "blurb": "Entertainment journalist Jeff Sneider reports Ben Kingsley as cast member of <i>Sonic 4</i>.",
+        "link": "https://www.ign.com/articles/sonic-the-hedgehog-4-movie-teaser-image-offers-first-look-at-amys-hammer"
+    },
+    {
+        "date": "2026-02-18",
+        "img": "sonic-4-amy-va-announce-photo.jpg",
+        "imgAlt": "Announcement photo of Amy's voice actor in Sonic 4, showing Ben Schwartz and Kristen Bell holding small Funko Pops of Sonic and Amy",
+        "blurb": "Amy's voice actor in <i>Sonic 4</i> is announced to be Kristen Bell.",
+        "link": "https://variety.com/2026/film/news/kristen-bell-sonic-the-hedgehog-4-amy-rose-1236666613/"
+    }
+]}

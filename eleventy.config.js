@@ -66,6 +66,10 @@ export default function (eleventyConfig) {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(format);
     });
 
+    eleventyConfig.addFilter("dateFromStr", (str) => {
+        return new Date(str);
+    });
+
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
     });
