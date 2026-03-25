@@ -60,7 +60,7 @@ header, footer, .countdown-section,
 h1, h2, .countdown-heading {
     font-family: 'Impact';
     font-style: italic;
-    letter-spacing: 10px;
+    letter-spacing: 12px;
 }
 
 h1 {
@@ -73,6 +73,7 @@ h2, .countdown-heading {
 
 .countdown-heading.spinoff {
     font-size: 1.65em;
+    letter-spacing: 10px;
 }
 
 .countdown-timer {
@@ -273,10 +274,12 @@ footer {
 
     h2, .countdown-heading {
         font-size: 1.25em;
+        letter-spacing: 10px;
     }
 
     .countdown-heading.spinoff {
         font-size: 1em;
+        letter-spacing: 8px;
     }
 
     .countdown-timer .days-div {
@@ -335,10 +338,12 @@ footer {
 
     h2, .countdown-heading {
         font-size: 2.5em;
+        letter-spacing: 14px;
     }
 
     .countdown-heading.spinoff {
         font-size: 2.15em;
+        letter-spacing: 12px;
     }
 
     .countdown-timer .days-div {
