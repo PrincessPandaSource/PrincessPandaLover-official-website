@@ -40,7 +40,7 @@ launchDate: 2026-03-24
                 <p class="update-date">{{ update.date | dateFromStr | postDate | upper }}</p>
                 <p class="update-descript">{{ update.blurb | safe }} <a href="{{ update.link }}">{{ update.linkLabel | default("Learn more")}}.</a></p>
             </div>
-            <img class="update-entry-img" src="assets/images/{{ update.img }}" alt="{{ update.imgAlt }}"/>
+            <img class="update-entry-img" src="assets/images/{{ update.img }}" eleventy:widths="270px" sizes="auto" alt="{{ update.imgAlt }}"/>
         </div>
         {% endfor -%}
     </div>

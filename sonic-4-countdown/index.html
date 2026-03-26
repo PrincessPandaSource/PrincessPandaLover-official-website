@@ -79,10 +79,10 @@ launchDate: 2026-03-24
 </div>
 
 <div class="emerald-row">
-    <img src="assets/images/sonic-emerald.png" alt="Blue Chaos Emerald with Sonic's reflection"/>
-    <img src="assets/images/eggman-emerald.png" alt="Green Chaos Emerald with Eggman's reflection"/>
-    <img src="assets/images/knuckles-emerald.png" alt="Red Chaos Emerald with Knuckles' reflection"/>
-    <img src="assets/images/tails-emerald.png" alt="Cyan Chaos Emerald with Tails' reflection"/>
+    <img src="assets/images/sonic-emerald.png" eleventy:widths="366" sizes="auto" alt="Blue Chaos Emerald with Sonic's reflection"/>
+    <img src="assets/images/eggman-emerald.png" eleventy:widths="368" sizes="auto" alt="Green Chaos Emerald with Eggman's reflection"/>
+    <img src="assets/images/knuckles-emerald.png" eleventy:widths="276" sizes="auto" alt="Red Chaos Emerald with Knuckles' reflection"/>
+    <img src="assets/images/tails-emerald.png" eleventy:widths="328" sizes="auto" alt="Cyan Chaos Emerald with Tails' reflection"/>
 </div>
 
 <div class="countdown-section spinoff">
@@ -117,7 +117,7 @@ launchDate: 2026-03-24
                 <p class="update-date">{{ update.date | dateFromStr | postDate | upper }}</p>
                 <p class="update-descript">{{ update.blurb | safe }} <a href="{{ update.link }}">{{ update.linkLabel | default("Learn more")}}.</a></p>
             </div>
-            <img class="update-entry-img" src="assets/images/{{ update.img }}" alt="{{ update.imgAlt }}"/>
+            <img class="update-entry-img" src="assets/images/{{ update.img }}" eleventy:widths="270px" sizes="auto" alt="{{ update.imgAlt }}"/>
         </div>
         {% endif %}
         {% endfor -%}
@@ -131,7 +131,7 @@ launchDate: 2026-03-24
 </div>
 
 <div class="emerald-row">
-    <img src="assets/images/shadow-emerald.png" alt="Cyan Chaos Emerald with Shadow's reflection"/>
-    <img src="assets/images/tom-and-maddie-emerald.png" alt="White Chaos Emerald with Tom and Maddie's reflection"/>
-    <img src="assets/images/amy-emerald.png" alt="Purple Chaos Emerald with Amy's reflection"/>
+    <img src="assets/images/shadow-emerald.png" eleventy:widths="342" sizes="auto" alt="Cyan Chaos Emerald with Shadow's reflection"/>
+    <img src="assets/images/tom-and-maddie-emerald.png" eleventy:widths="370" sizes="auto" alt="White Chaos Emerald with Tom and Maddie's reflection"/>
+    <img src="assets/images/amy-emerald.png" eleventy:widths="342" sizes="auto" alt="Purple Chaos Emerald with Amy's reflection"/>
 </div>
