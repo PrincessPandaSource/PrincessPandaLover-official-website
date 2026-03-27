@@ -81,6 +81,11 @@ h2, .countdown-heading {
     font-size: 2em;
 }
 
+h2.countdown-heading {
+    margin: 0;
+    font-weight: normal;
+}
+
 .countdown-heading.spinoff {
     font-size: 1.65em;
     letter-spacing: 10px;
