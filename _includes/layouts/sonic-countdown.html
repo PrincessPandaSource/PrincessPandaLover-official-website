@@ -26,6 +26,7 @@ summaryLargeImage: true
     {% if page.url == "/sonic-4-countdown/" %}
     <link rel="preload" href="./countdownScript.js" as="script" />
     {% endif %}
+    <link rel="preload" href="./holiday.js" as="script" />
     <link rel="preload" href="./assets/fonts/impact.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/jost-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -61,7 +62,11 @@ summaryLargeImage: true
     <div id="wrapper">
         <header>
             {% if page.url != "/sonic-4-countdown/" %}<a href="./">{% endif %}
-            <img class="movie-title-banner" src="assets/images/sonic-4-title-transparent.png" alt="Sonic the Hedgehog 4 logo" loading="eager" fetchpriority="high">
+            <!--Normal day-->
+            <img class="movie-title-banner normal-day" src="assets/images/sonic-4-title-transparent.png" alt="Sonic the Hedgehog 4 logo" loading="eager" fetchpriority="high" eleventy:pictureattr:class="normal-day">
+
+            <!--April fools!-->
+            <img class="movie-title-banner april-fools" src="assets/images/af-sonic-title.png" alt="Sonic the Hedgehog movie logo" loading="eager" fetchpriority="high" eleventy:pictureattr:class="april-fools">
             {% if page.url != "/sonic-4-countdown/" %}</a>{% endif %}
             <h1 class="sr-only">Sonic the Hedgehog 4 Countdown: Countdown to Chaos</h1>
         </header>
@@ -80,6 +85,7 @@ summaryLargeImage: true
     {% if page.url == "/sonic-4-countdown/" %}
     <script src="./countdownScript.js"></script>
     {% endif %}
+    <script src="./holiday.js"></script>
 </body>
 
 </html>
