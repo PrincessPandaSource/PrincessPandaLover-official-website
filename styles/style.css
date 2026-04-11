@@ -415,6 +415,22 @@ footer a {
   color: #FFE0EA;
 }
 
+.footer-socials {
+  font-size: 16px;
+}
+
+.footer-socials p:not(:first-child) {
+  margin-top: 0.5em;
+}
+
+.footer-socials p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+.footer-socials-icons {
+  font-size: 24px;
+}
+
 /* Mobile */  
 @media only screen and (max-width: 767px) {
   .wrapper {
