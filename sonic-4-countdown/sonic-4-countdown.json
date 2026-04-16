@@ -1,5 +1,12 @@
 { "updates": [
     {
+        "date": "2026-04-16",
+        "img": "cinemacon.jpg",
+        "imgAlt": "CinemaCon logo",
+        "blurb": "Early footage of <i>Sonic 4</i> is shown at CinemaCon, featuring Robotnik. \"Robotnik! Saves! World!\"",
+        "link": "https://www.ign.com/articles/paramount-pictures-at-cinemacon-2026-everything-revealed"
+    },
+    {
         "date": "2026-03-19",
         "img": "sonic-4-full-cast-announce-collage.jpg",
         "imgAlt": "Collage of photos of Jim Carrey, Nick Offerman, Matt Berry, and Richard Ayoade",
