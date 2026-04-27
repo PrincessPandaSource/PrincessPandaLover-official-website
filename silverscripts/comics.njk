@@ -8,7 +8,7 @@ pagination:
 permalink: /silverscripts/{{ comic.data.pgNum }}-{{ comic.data.title | slugify }}.html
 eleventyComputed:
     title: "{{ comic.data.pgNum }}. {{ comic.data.title | safe }}"
-    description: "Comic {{ comic.data.pgNum }} of Silver Scripts, a Sonic the Hedgehog fan webcomic. {{ comic.data.description }}"
+    description: "Comic {{ comic.data.pgNum }} of Silver Scripts, a Sonic the Hedgehog semi-autobiographical fan webcomic about Silver the Hedgehog as computer science student."
     ogImage: comics/comic{{ comic.data.pgNum }}.png
     ogImageWidth: "{{ comic.data.stripWidth }}"
     ogImageHeight: "{{ comic.data.stripHeight }}"
