@@ -14,8 +14,6 @@ code: true
     <p>My ADHD-addled memory is forgetful, but fortunately, the website is deployed via a Git repository, so I can go to GitHub and look back through previous commits, with the messages and all.</p>
 
     <p>Let's go back to October 2025. Be prepared; this will be a long post!</p>
-
-    <p><i><b>Disclaimer about AI</b>: Yes, I did use AI to assist with my code (but not fully generate it, because "vibe coding" is not real coding). I want to be honest about my process; I thought it was okay for solving time-consuming problems quickly, since I wasn't too familiar with Eleventy, and coding is based on objective logic rather than subjective creativity. I did read docs and posts beforehand, and I did manually verify the code to see if it makes sense and try to learn from the code as the result. However, I am now trying to cut back on AI-assisted coding to grow as a programmer. I will stress that no AI-generated literature or media were used in the process.</i></p>
 </div>
 
 {% call c.headingWithLink("h3") %}The Reason Why I Converted{% endcall %}
@@ -69,7 +67,7 @@ eleventyConfig.addPassthroughCopy("google34125cee924c333d.html");
 
     <p>(Yes, I used to lump CSS stylesheets with JavaScript files in a single "scripts" folder. Don't worry, CSS stylesheets are now in a "styles" folder.)</p>
 
-    <p>I disliked Eleventy's standard feature of trailing slashes at end of URLs. Those felt ugly to me, so I used a relatively complicated script by GitHub Copilot in the configuration file, at first. I eventually found <a href="https://www.11ty.dev/docs/permalinks/#remove-trailing-slashes">a much simpler script from the Eleventy documentation</a>:</p>
+    <p>I disliked Eleventy's standard feature of trailing slashes at end of URLs; those felt ugly to me. To remove the slashes, I used <a href="https://www.11ty.dev/docs/permalinks/#remove-trailing-slashes">this script from the Eleventy documentation</a>:</p>
 
     {% highlight "js" %}
 eleventyConfig.addGlobalData("permalink", () => {
@@ -127,7 +125,7 @@ export const config = {
     {% endraw %}
     {% endhighlight %}
 
-    <p>In the configuration file, with the help of GitHub Copilot, I wrote an extensive script for the image shortcode. It first obtained the original metadata and subsequently width of the image and determined the widths and viewport size options to use based on the width. It then set the file formats to be used as the original and WEBP and constructed the source's path based on its converted file format, resized width, and original directories. It lastly added image element attributes of the alternative text, different sizes, the loading type (with "lazy" as the default), an inline style for <code>max-width</code> if the shortcode specified the width, and image's class if it is specified, before returning the final Image element.</p>
+    <p>In the configuration file, I wrote an extensive script for the image shortcode. It first obtained the original metadata and subsequently width of the image and determined the widths and viewport size options to use based on the width. It then set the file formats to be used as the original and WEBP and constructed the source's path based on its converted file format, resized width, and original directories. It lastly added image element attributes of the alternative text, different sizes, the loading type (with "lazy" as the default), an inline style for <code>max-width</code> if the shortcode specified the width, and image's class if it is specified, before returning the final Image element.</p>
 
     {% highlight "js" %}
 eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
@@ -307,7 +305,7 @@ ogDescription: Entries of My Theme Park Tycoon 2 Buildlog for the month of July 
 
     <p>The straightforward approach is enough if you want a single webpage for each blogpost. However, I didn't, and I wanted all the months' pages to be consistent.</p>
 
-    <p>With the help of GitHub Copilot, I wrote this complicated script that for each of the "fun blog" collections, it is replaced with a new collection in which the entries are reversed (because Eleventy's default order is oldest first) and the new collection is an Object that has an array of posts for each month (the month being the key and the array being the value), and then the Object is turned into an array of Objects with "monthKey" and "entries" keys for easier processing. (<code>acc[monthKey] ??= []</code> automatically creates the array if it doesn't exist.)</p>
+    <p>I wrote this complicated script that for each of the "fun blog" collections, it is replaced with a new collection in which the entries are reversed (because Eleventy's default order is oldest first) and the new collection is an Object that has an array of posts for each month (the month being the key and the array being the value), and then the Object is turned into an array of Objects with "monthKey" and "entries" keys for easier processing. (<code>acc[monthKey] ??= []</code> automatically creates the array if it doesn't exist.)</p>
 
     <p>Then, there are filters for processing the month keys, in a format like "2024-05", to obtain the years and month names. While the year filter just splits the string, the month filter adds the value for the first day (e.g. "2024-05-01") and converts the date to the month name.</p>
 
@@ -458,7 +456,7 @@ eleventyExcludeFromCollections: true
 
     <p>Last modified dates are trickier to deal with. Eleventy dates reflect when the page was created, not modified. Yeah, I could add a custom field for that, but I would have to manually update every time and I'm <i>really</i> forgetful.</p>
 
-    <p>I had Gemini 3.0 Pro via GitHub Copilot generate some complicated scripts. The first script executes the <code>git log</code> command to obtain the history of the last 500 commits on Git (so buildtime isn't slowed down) with ISO-format timestamps and filenames changed in each commit (and max buffer of 10 MB). Then for each date, for each changed file, it adds the pairing of the path to the file (in the source code) and the date to the cache map. Older commits with the same file are skipped to ensure only the newest modified date is assigned to the file. If this script fails, it logs an error message instead of crashing the entire process. (Yikes.)</p>
+    <p>I had Gemini 3.0 Pro via GitHub Copilot generate some complicated scripts, because this was rather beyond my knowledge at the time, yet I needed a proper sitemap ASAP. (Don't worry, I made sure to verify each line!) The first script executes the <code>git log</code> command to obtain the history of the last 500 commits on Git (so buildtime isn't slowed down) with ISO-format timestamps and filenames changed in each commit (and max buffer of 10 MB). Then for each date, for each changed file, it adds the pairing of the path to the file (in the source code) and the date to the cache map. Older commits with the same file are skipped to ensure only the newest modified date is assigned to the file. If this script fails, it logs an error message instead of crashing the entire process. (Yikes.)</p>
 
     {% highlight "js" %}
 import { execSync } from "node:child_process";

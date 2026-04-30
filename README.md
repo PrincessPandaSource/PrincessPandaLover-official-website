@@ -27,7 +27,7 @@ Eleventy does not delete files from the output directory when they are deleted t
 To merely generate the build, but not launch the server, run ```npm run build```.
 
 ## Copyright
-Source code is licensed under the MIT license. (Some code was written with the assistance of AI. Please read [my GitHub bio](https://github.com/PrincessPandaSource/PrincessPandaSource/blob/main/README.md) for the disclaimer about this.) Original assets, such as images and audio, may only be used with attribution and for non-commercial purposes that are not abusive or illegal, unless otherwise noted. Copyrighted assets not owned by me are used in regard to the U.S. Fair Use doctrine.
+Source code is licensed under the MIT license. Original assets, such as images and audio, may only be used with attribution and for non-commercial purposes that are not abusive or illegal, unless otherwise noted. Copyrighted assets not owned by me are used in regard to the U.S. Fair Use doctrine.
 
 Eleventy is [licensed under the MIT license](https://github.com/11ty/eleventy/blob/main/LICENSE) and Rarebit is [licensed under the GPL-3.0 license](https://github.com/diana-wright/Rarebit/blob/main/LICENSE).
 
