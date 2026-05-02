@@ -1,5 +1,12 @@
 { "updates": [
     {
+        "date": "2026-04-30",
+        "img": "imax-promotional.jpg",
+        "imgAlt": "Promotional image of an IMAX theater",
+        "blurb": "<i>Sonic 4</i> is announced to have wide IMAX release.",
+        "link": "https://www.sonicstadium.org/articles/sonic/sonic-4-coming-to-imax-screens-next-year-r3385/"
+    },
+    {
         "date": "2026-04-16",
         "img": "cinemacon.jpg",
         "imgAlt": "CinemaCon logo",
