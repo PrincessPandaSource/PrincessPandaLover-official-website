@@ -2,4 +2,4 @@ User-agent: Googlebot-Image
 Disallow: /images/heart-button.svg
 Disallow: /images/link-icons/
 
-Sitemap: https://princesspandalover.com/sitemap-index.xml
+Sitemap: https://princesspandalover.com/sitemap.xml
