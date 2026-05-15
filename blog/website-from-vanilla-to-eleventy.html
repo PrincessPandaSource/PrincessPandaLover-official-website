@@ -76,7 +76,7 @@ eleventyConfig.addGlobalData("permalink", () => {
 });
     {% endhighlight %}
 
-    <p>(If you're wondering how the extension of HTML files is handled, I deploy on <a href="https://www.netlify.com/">Netlify</a>, which has the option for "Pretty URLs", which removes file extensions from pages. Speaking of, I'm also using the <a href="https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/">Netlify CLI package</a> for local development with the Netlify environment.)</p>
+    <p>(If you're wondering how the extension of HTML files is handled, as of this blogpost's original publishing, I deploy on <a href="https://www.netlify.com/">Netlify</a>, which has the option for "Pretty URLs", which removes file extensions from pages. Speaking of, I'm also using the <a href="https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/">Netlify CLI package</a> for local development with the Netlify environment.)</p>
 
     <p>Also in the configuration file, I made a filter that takes a JavaScript date object and renders the date in the format of "January 1, 2026", so dates on articles could be displayed without typos. The <a href="https://moment.github.io/luxon/#/">Luxon</a> library, which is included with Eleventy, was strongly useful for this.</p>
 
@@ -128,6 +128,10 @@ export const config = {
     <p>In the configuration file, I wrote an extensive script for the image shortcode. It first obtained the original metadata and subsequently width of the image and determined the widths and viewport size options to use based on the width. It then set the file formats to be used as the original and WEBP and constructed the source's path based on its converted file format, resized width, and original directories. It lastly added image element attributes of the alternative text, different sizes, the loading type (with "lazy" as the default), an inline style for <code>max-width</code> if the shortcode specified the width, and image's class if it is specified, before returning the final Image element.</p>
 
     {% highlight "js" %}
+import path from "node:path";
+
+...
+
 eleventyConfig.addShortcode("image", async function (src, alt, width=null, height=null, lazy=true, classPara=null) {
     // Get original image metadata
     let ogMetadata = await Image(src, {
@@ -230,6 +234,10 @@ eleventyConfig.addShortcode("image", async function (src, alt, width=null, heigh
     <p>The new script is much less complicated. It practically takes all the viewport sizes as the size and width options and falls back on the largest image for the viewport size. HTML Transform allows me to use the <code>&lt;img&gt;</code> elements again (albeit with inline styles for widths set on the webpage)! (SVG files were ignored with the <code>eleventy:ignore</code> attribute). However, sorting converted images into directories was impossible, so I had their width values added to their set filenames instead.</p>
 
     {% highlight "js" %}
+import path from "node:path";
+
+...
+
 eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
     formats: ["webp", "auto"],
     outputDir: "_site/",
@@ -442,7 +450,7 @@ eleventyExcludeFromCollections: true
 {% if not page.data.noSitemap %}
     <url>
         <loc>https://princesspandalover.com{{ page.url | lower | stripExtension }}</loc>
-        <lastmod>{{ page | lastModifiedDate | sitemapDate }}</lastmod>
+        <lastmod>{{ page.inputPath | getGitCommitDateFromPath | sitemapDate }}</lastmod>
         <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
         <priority>{{ page.data.priority | default(0.8) }}</priority>
     </url>
@@ -456,89 +464,7 @@ eleventyExcludeFromCollections: true
 
     <p>Last modified dates are trickier to deal with. Eleventy dates reflect when the page was created, not modified. Yeah, I could add a custom field for that, but I would have to manually update every time and I'm <i>really</i> forgetful.</p>
 
-    <p>I had Gemini 3.0 Pro via GitHub Copilot generate some complicated scripts, because this was rather beyond my knowledge at the time, yet I needed a proper sitemap ASAP. (Don't worry, I made sure to verify each line!) The first script executes the <code>git log</code> command to obtain the history of the last 500 commits on Git (so buildtime isn't slowed down) with ISO-format timestamps and filenames changed in each commit (and max buffer of 10 MB). Then for each date, for each changed file, it adds the pairing of the path to the file (in the source code) and the date to the cache map. Older commits with the same file are skipped to ensure only the newest modified date is assigned to the file. If this script fails, it logs an error message instead of crashing the entire process. (Yikes.)</p>
-
-    {% highlight "js" %}
-import { execSync } from "node:child_process";
-
-...
-
-// Cache for Git dates to speed up build
-const gitDateCache = new Map();
-
-// Pre-load Git history to avoid spawning process for every file (Gemini 3 Pro)
-try {
-    const output = execSync('git log --name-only --format="GIT_DATE:%cI" --max-count=500', { 
-        encoding: 'utf-8',
-        maxBuffer: 10 * 1024 * 1024 // 10MB buffer
-    });
-    
-    let currentDate = null;
-    output.split(/\r?\n/).forEach(line => {
-        const trimmed = line.trim();
-        if (!trimmed) return;
-        
-        if (trimmed.startsWith('GIT_DATE:')) {
-            currentDate = new Date(trimmed.slice(9));
-        } else if (currentDate) {
-            // Git outputs paths like "src/pages/about.md"
-            // Eleventy uses "./src/pages/about.md"
-            const key = "./" + trimmed;
-            if (!gitDateCache.has(key)) {
-                gitDateCache.set(key, currentDate);
-            }
-        }
-    });
-} catch (e) {
-    console.warn("Git log failed, falling back to individual checks:", e.message);
-}
-    {% endhighlight %}
-
-    <p><a href="https://www.cantoni.org/2025/07/10/proper-sitemap-update-dates-for-eleventy/">This blogpost by Brian Cantoni</a>, which is for the same last modified date issue, was useful for verifying some of the script.</p>
-
-    <p>The second script adds a filter in which the page's path in the source code is obtained and the cache map is sifted through for the path and its date. If they cannot be found, such as the path pointing to an entirely new file, it gets its last modified time from the filesystem. If the page is the result of pagination, such as a <i><a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a></i> month page, it goes through all the pages used for the pagination and gets the most recent date from it.</p>
-
-    {% highlight "js" %}
-import fs from "node:fs";
-
-...
-
-// Get last modified date for sitemap via Git (Gemini 3 Pro)
-eleventyConfig.addFilter("lastModifiedDate", (page) => {
-    const inputPath = page.inputPath;
-    
-    // Helper to get date for a specific path
-    const getDateForPath = (path) => {
-        if (gitDateCache.has(path)) {
-            return gitDateCache.get(path);
-        }
-        
-        // Fallback: try fs stats if not in git log (e.g. new file)
-        try {
-            const stats = fs.statSync(path);
-            return stats.mtime;
-        } catch (e) {
-            return null;
-        }
-    };
-
-    let latestDate = getDateForPath(inputPath);
-
-    // If this is a paginated page, check the items on this specific page
-    if (page.data && page.data.pagination && page.data.pagination.items) {
-        for (const item of page.data.pagination.items) {
-            if (item.inputPath) {
-                const itemDate = getDateForPath(item.inputPath);
-                if (itemDate && (!latestDate || itemDate > latestDate)) {
-                    latestDate = itemDate;
-                }
-            }
-        }
-    }
-
-    return latestDate || new Date();
-});
-    {% endhighlight %}
+    <p>The original version of this blogpost included some complicated scripts that would obtain last modified dates from the Git commit history and create a filter that would connect the pages with those dates. It was working initially but broke for my website since I moved it to Cloudflare Workers in March 2026. As of May 2026, I have replaced those scripts with a much simpler solution: Use the <a href="https://github.com/saneef/eleventy-plugin-git-commit-date">"eleventy-plugin-git-commit-date" plugin by Saneef Ansari</a>, which gives the filter for obtaining last modified dates. It basically does the same job as before, which means it's not perfect for really paginated pages like <i><a href="/tpt2/">My Theme Park Tycoon 2 Buildlog</a></i>, but it's way easier to implement, in case this also breaks on Workers.</p>
 </div>
 
 {% call c.headingWithLink("h3") %}Reusable webpage components{% endcall %}

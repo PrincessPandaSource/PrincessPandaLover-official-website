@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 {% if not page.data.noSitemap %}
     <url>
         <loc>https://princesspandalover.com{{ page.url | lower | stripExtension }}</loc>
-        <lastmod>{{ page | lastModifiedDate | sitemapDate }}</lastmod>
+        <lastmod>{{ page.inputPath | getGitCommitDateFromPath | sitemapDate }}</lastmod>
         <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
         <priority>{{ page.data.priority | default(0.8) }}</priority>
     </url>

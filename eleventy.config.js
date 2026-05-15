@@ -1,9 +1,8 @@
 import { DateTime } from "luxon";
 import path from "node:path";
 import Image from "@11ty/eleventy-img";
-import fs from "node:fs";
-import { execSync } from "node:child_process";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import pluginGitCommitDate from "eleventy-plugin-git-commit-date";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 
 export default function (eleventyConfig) {
@@ -91,72 +90,6 @@ export default function (eleventyConfig) {
         return date.toUTCString();
     });
 
-    // Cache for Git dates to speed up build
-    const gitDateCache = new Map();
-
-    // Pre-load Git history to avoid spawning process for every file (Gemini 3 Pro)
-    try {
-        const output = execSync('git log --name-only --format="GIT_DATE:%cI" --max-count=500', { 
-            encoding: 'utf-8',
-            maxBuffer: 10 * 1024 * 1024 // 10MB buffer
-        });
-        
-        let currentDate = null;
-        output.split(/\r?\n/).forEach(line => {
-            const trimmed = line.trim();
-            if (!trimmed) return;
-            
-            if (trimmed.startsWith('GIT_DATE:')) {
-                currentDate = new Date(trimmed.slice(9));
-            } else if (currentDate) {
-                // Git outputs paths like "src/pages/about.md"
-                // Eleventy uses "./src/pages/about.md"
-                const key = "./" + trimmed;
-                if (!gitDateCache.has(key)) {
-                    gitDateCache.set(key, currentDate);
-                }
-            }
-        });
-    } catch (e) {
-        console.warn("Git log failed, falling back to individual checks:", e.message);
-    }
-
-    // Get last modified date for sitemap via Git (Gemini 3 Pro)
-    eleventyConfig.addFilter("lastModifiedDate", (page) => {
-        const inputPath = page.inputPath;
-        
-        // Helper to get date for a specific path
-        const getDateForPath = (path) => {
-            if (gitDateCache.has(path)) {
-                return gitDateCache.get(path);
-            }
-            
-            // Fallback: try fs stats if not in git log (e.g. new file)
-            try {
-                const stats = fs.statSync(path);
-                return stats.mtime;
-            } catch (e) {
-                return null;
-            }
-        };
-
-        let latestDate = getDateForPath(inputPath);
-
-        // If this is a paginated page, check the items on this specific page
-        if (page.data && page.data.pagination && page.data.pagination.items) {
-            for (const item of page.data.pagination.items) {
-                if (item.inputPath) {
-                    const itemDate = getDateForPath(item.inputPath);
-                    if (itemDate && (!latestDate || itemDate > latestDate)) {
-                        latestDate = itemDate;
-                    }
-                }
-            }
-        }
-
-        return latestDate || new Date();
-    });
-
     // Strip extension filter
     eleventyConfig.addFilter("stripExtension", (filename) => {
         return filename.replace(/\.[^/.]+$/, "")
@@ -236,6 +169,9 @@ export default function (eleventyConfig) {
 
     // For code embeds
     eleventyConfig.addPlugin(syntaxHighlight);
+
+    // For sitemaps (and anywhere else that needs last modified date)
+    eleventyConfig.addPlugin(pluginGitCommitDate);
 
     // For RSS feeds
     eleventyConfig.addPlugin(pluginRss);
