@@ -1,0 +1,39 @@
+---json
+{ 
+  "layout": "",
+  "permalink": "/sonic-4-countdown/feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Sonic the Hedgehog 4 Countdown updates",
+    "description": "The latest news updates for Sonic the Hedgehog 4 and the Sonic spin-off movie",
+    "language": "en",
+    "base": "https://princesspandalover.com/sonic-4-countdown/",
+    "author": {
+      "name": "PrincessPandaLover"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    {%- for update in updates %}
+    {%- if loop.index0 < 10 %}
+    <item>
+      <link>{{ update.link }}</link>
+      <description>
+        {{ update.blurb | renderTransforms(post.data.page, metadata.base) }}
+      </description>
+      <media:content medium="image" url="{{ metadata.base }}assets/images/{{ update.img }}"></media:content>
+      <media:description>{{ update.imgAlt }}</media:description>
+      <pubDate>{{ update.date | myRSSDate }}</pubDate>
+      <dc:creator>{{ metadata.author.name }}</dc:creator>
+    </item>
+    {%- endif %}
+    {%- endfor %}
+  </channel>
+</rss>

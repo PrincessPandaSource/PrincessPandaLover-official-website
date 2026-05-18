@@ -57,8 +57,7 @@ a {
 }
 
 header, footer, .countdown-section,
-.updates-section, .contact-section,
-.info-section {
+.updates-section, .info-section {
     text-align: center;
 }
 
@@ -256,13 +255,15 @@ h2.countdown-heading {
 }
 
 .updates-section-links {
-    font-family: 'Jost';
-    font-style: italic;
-    font-weight: 800;
     margin-top: 25px;
 }
 
-.contact-section-text,
+.updates-section-links a {
+    font-family: 'Jost';
+    font-style: italic;
+    font-weight: 800;
+}
+
 .info-section-text {
     text-align: left;
     font-size: 0.9em;
