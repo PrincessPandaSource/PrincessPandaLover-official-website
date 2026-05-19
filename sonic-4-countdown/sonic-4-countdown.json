@@ -1,10 +1,24 @@
 { "updates": [
     {
+        "date": "2026-05-19",
+        "img": "sonic-4-title.jpg",
+        "imgAlt": "Sonic 4 title from teaser video",
+        "blurb": "<i>Sonic 4</i> copyright registration found, with brief synopsis.",
+        "link": "https://www.sonicstadium.org/articles/sonic/official-sonic-the-hedgehog-4-synopsis-revealed-in-new-copyright-registration-r3419/"
+    },
+    {
         "date": "2026-05-15",
         "img": "sonic-4-filming-end-announce-photo.jpg",
         "imgAlt": "Announcement photo of completion of Sonic 4 filming, showing director Jeff Fowler holding the clapperboard in front of the Metal Sonic prop",
         "blurb": "Jeff Fowler announces completion of the filming of <i>Sonic 4</i>.",
         "link": "https://variety.com/2026/film/news/sonic-4-wraps-first-look-metal-sonic-1236750512/"
+    },
+    {
+        "date": "2026-05-12",
+        "img": "colleen-o-shaughnessey.jpg",
+        "imgAlt": "Photo of Colleen O'Shaughnessey",
+        "blurb": "Tails voice actress Colleen O'Shaughnessey announces to start voicing <i>Sonic 4</i> in two weeks.",
+        "link": "https://sonic-city.net/2026/05/18/tails-voice-actress-colleen-oshaughnessey-says-sonic-the-hedgehog-4-recording-begins-next-week/"
     },
     {
         "date": "2026-04-30",
