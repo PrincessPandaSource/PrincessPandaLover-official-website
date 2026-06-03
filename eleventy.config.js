@@ -35,7 +35,7 @@ export default function (eleventyConfig) {
 
     // Image optimization
     eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
-        formats: ["webp", "auto"],
+        formats: ["webp"],
         outputDir: "_site/",
         urlPath: "/",
         widths: [768, 1280, 1920, "auto"],
