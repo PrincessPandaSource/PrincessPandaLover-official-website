@@ -1,10 +1,16 @@
 ---
 layout: layouts/sonic-countdown.html
-title: Updates
-description: The latest news updates for Sonic the Hedgehog 4 and the Sonic spin-off movie.
-changefreq: weekly
-priority: 0.6
-launchDate: 2026-03-24
+pagination:
+    data: updates
+    size: 21
+    addAllPagesToCollections: true
+permalink: /sonic-4-countdown/updates{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber + 1 }}{% endif %}.html
+eleventyComputed:
+    title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }} - {% endif %}Updates"
+    description: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }} of the{% else %}The{% endif %} latest news updates for Sonic the Hedgehog 4 and the Sonic spin-off movie."
+    changefreq: weekly
+    priority: 0.6
+    launchDate: 2026-03-24
 ---
 <!--Schema-->
 <script type="application/ld+json">
@@ -34,7 +40,7 @@ launchDate: 2026-03-24
     <h2>PAST UPDATES</h2>
 
     <div class="updates-grid">
-        {%- for update in updates %}
+        {%- for update in pagination.items %}
         <div class="update-entry">
             <div class="update-info">
                 <p class="update-date">{{ update.date | dateFromStr | postDate | upper }}</p>
@@ -46,6 +52,23 @@ launchDate: 2026-03-24
     </div>
 </div>
 
+{%- if pagination.href.previous or pagination.href.next %}
+<nav class="updates-nav">
+{% endif -%}
+{%- if pagination.href.previous %}
+<a href="{{ pagination.href.previous | stripExtension }}">PREVIOUS</a>
+{% endif -%}
+{%- if pagination.href.previous and pagination.href.next %}
+ • 
+{% endif -%} 
+{%- if pagination.href.next %}
+  <a href="{{ pagination.href.next | stripExtension }}">NEXT</a>
+{% endif -%}
+{%- if pagination.href.previous or pagination.href.next %}
+</nav>
+{% endif -%}
+
+{%- if pagination.pageNumber == 0 %}
 <div class="info-section">
     <h2 id="rss-feed">STAY UPDATED WITH THE RSS FEED</h2>
 
@@ -65,3 +88,4 @@ launchDate: 2026-03-24
         <p>For fairness to Sega and Paramount and to prevent legal action, leaks will <i>not</i> be accepted.</p>
     </div>
 </div>
+{% endif -%}

@@ -258,10 +258,15 @@ h2.countdown-heading {
     margin-top: 25px;
 }
 
-.updates-section-links a {
+.updates-section-links a,
+.updates-nav a {
     font-family: 'Jost';
     font-style: italic;
     font-weight: 800;
+}
+
+.updates-nav {
+    text-align: center;
 }
 
 .info-section-text {
