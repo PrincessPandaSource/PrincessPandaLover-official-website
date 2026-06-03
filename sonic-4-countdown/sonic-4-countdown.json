@@ -1,5 +1,26 @@
 { "updates": [
     {
+        "date": "2026-06-03",
+        "img": "kristen-in-studio.jpg",
+        "imgAlt": "Photo of Kristen Bell in the studio",
+        "blurb": "Kristen Bell has started recording for <i>Sonic 4</i> as Amy.",
+        "link": "https://sonic-city.net/2026/06/03/kristen-bell-begins-recording-amy-rose-lines-for-sonic-the-hedgehog-4/"
+    },
+    {
+        "date": "2026-05-30",
+        "img": "amazon.jpg",
+        "imgAlt": "Amazon logo",
+        "blurb": "Listing for <i>Sonic the Hedgehog 4 Picture Book</i> appears on Amazon, due for release on February 25, 2027.",
+        "link": "https://bsky.app/profile/sonicmovieupdates.bsky.social/post/3mn4e3absuc2f"
+    },
+    {
+        "date": "2026-05-29",
+        "img": "colleen-in-studio.jpg",
+        "imgAlt": "Photo of Colleen O'Shaughnessey in the studio",
+        "blurb": "Colleen O'Shaughnessey has started recording for <i>Sonic 4</i> as Tails.",
+        "link": "https://sonic-city.net/2026/05/29/colleen-oshaughnessey-begins-recording-tails-lines-for-sonic-the-hedgehog-4/"
+    },
+    {
         "date": "2026-05-27",
         "img": "sonic-4-voice-announce-photo.jpg",
         "imgAlt": "Announcement photo of start of voice recording in Sonic 4, showing Ben Schwartz, Jeff Fowler, and Al Levine",
