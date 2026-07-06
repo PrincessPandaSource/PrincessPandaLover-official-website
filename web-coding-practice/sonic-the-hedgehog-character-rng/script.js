@@ -33,7 +33,7 @@ let currentChar = 0;
 
 function load_character_info(charValue) {
   charInfoName.innerText = char_database[charValue][0];
-  charInfoImage.src = char_database[charValue][1];
+  charInfoImage.src = "assets/characters/" + char_database[charValue][1];;
   charInfoDescript.innerText = char_database[charValue][2];
   charInfoChance.innerText = `1 in ${char_database[charValue][3]}`;
   charInfoRarity.innerText = `(${char_database[charValue][4]})`;
@@ -88,7 +88,7 @@ function write_inventory() {
     const rarityAbbr = document.createElement('span');
     charButton.className = "inventoryButton";
     
-    charButton.innerHTML = `<img src=${char_database[character][1]} height=100/><br/>
+    charButton.innerHTML = `<img src=${"assets/characters/" + char_database[character][1]} height=100/><br/>
           ${char_database[character][0]}`;
     
     charButton.append(rarityAbbr);
@@ -204,7 +204,7 @@ function change_colors() {
 
 function load_character_result(charValue) {
   characterName.innerText = char_database[charValue][0];
-  resultImage.src = char_database[charValue][1];
+  resultImage.src = "assets/characters/" + char_database[charValue][1];
   resultDescription.innerText = char_database[charValue][2];
   chanceText.innerText = `1 in ${char_database[charValue][3]}`;
   rarityText.innerText = `(${char_database[charValue][4]})`;
