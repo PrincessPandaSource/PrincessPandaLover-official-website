@@ -1,3 +1,19 @@
+@font-face {
+    font-family: "Playwrite HR";
+    src: url("playwrite-hr.woff2") format(woff2);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("caveat.woff2") format(woff2);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
 html {
   height: 100%;
 }
