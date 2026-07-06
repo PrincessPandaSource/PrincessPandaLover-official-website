@@ -6,7 +6,7 @@
   <title>It's raining men</title>
   <style>
     #gameScreen {
-      background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fd/Cloudy_Sky_%2811204371415%29.jpg");
+      background-image: url("cloudy-sky.jpg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -38,7 +38,7 @@
       speed: 5,
       image: new Image()
     };
-    amy.image.src = 'https://static.wikia.nocookie.net/sonic/images/3/30/SDTAmyRender.png';
+    amy.image.src = 'amy.webp';
     amy.width = amy.width / 5;
     amy.height = amy.height / 5;
     amy.x = (canvas.width - amy.width) / 2;
@@ -49,9 +49,9 @@
       width: [],
       height: [],
       sourceUrls: [
-        "https://static.wikia.nocookie.net/sonic/images/e/e7/SonicRenderDreamTeam.png",
-        "https://static.wikia.nocookie.net/sonic/images/3/31/SXSG_art_Shadow_04.png",
-        "https://static.wikia.nocookie.net/sonic/images/b/b2/TSR_Silver.png"
+        "sonic.webp",
+        "shadow.webp",
+        "silver.webp"
       ],
       sourceWidths: [1782, 597, 602],
       sourceHeights: [2784, 965, 1012],
@@ -72,16 +72,16 @@
     }
     eggmen.width = eggmen.width / 8;
     eggmen.height = eggmen.height / 8;
-    eggmen.image.src = "https://static.wikia.nocookie.net/sonic/images/1/1f/SDT_DoctorEggmanRender.png";
+    eggmen.image.src = "eggman.webp";
     
     const gameOverScreen = new Image();
-    gameOverScreen.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a316691-267b-4263-8f6b-a2f66711d584/d5beivw-31c3691a-6448-4e01-b558-77f1b070efb8.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFhMzE2NjkxLTI2N2ItNDI2My04ZjZiLWEyZjY2NzExZDU4NFwvZDViZWl2dy0zMWMzNjkxYS02NDQ4LTRlMDEtYjU1OC03N2YxYjA3MGVmYjguanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xX3E879JEKqQR3HHIq7IYzBUILpmIpMmykd4fenKfG0";
+    gameOverScreen.src = "game-over.jpg";
     
-    const rainingMenAudio = new Audio("https://www.myinstants.com/media/sounds/the-weather-girls-its-raining-men-1-cut-mp3.mp3");
-    const music = new Audio("https://vgmtreasurechest.com/soundtracks/mario-kart-wii/fuzuxxznbj/16.%201st-6th%20Place%20Results.mp3");
+    const rainingMenAudio = new Audio("its-raining-men.mp3");
+    const music = new Audio("mario-kart-wii-win.mp3");
     music.loop = true;
-    const imTheMan = new Audio("https://us-tuna-sounds-files.voicemod.net/ebffef7f-fb3c-43ae-9a54-0057d2dbd405-1696648995101.mp3");
-    const howCouldThisHappenToMe = new Audio("https://www.myinstants.com/media/sounds/how.mp3");
+    const imTheMan = new Audio("im-the-man.mp3");
+    const howCouldThisHappenToMe = new Audio("how.mp3");
     
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
