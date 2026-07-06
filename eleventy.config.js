@@ -26,6 +26,9 @@ export default function (eleventyConfig) {
 
     // Parts of website not affected by Eleventy
     eleventyConfig.addPassthroughCopy("web-coding-practice/blurjack");
+    eleventyConfig.addPassthroughCopy("web-coding-practice/it-s-raining-men");
+    eleventyConfig.addPassthroughCopy("web-coding-practice/sonic-the-hedgehog-character-rng");
+    eleventyConfig.addPassthroughCopy("web-coding-practice/tetris-sunset");
 
     // Remove trailing slashes from pages that don't need them
 	eleventyConfig.addGlobalData("permalink", () => {

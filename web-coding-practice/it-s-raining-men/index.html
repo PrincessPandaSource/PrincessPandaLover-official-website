@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It's raining men</title>
+  <style>
+    #gameScreen {
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fd/Cloudy_Sky_%2811204371415%29.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <p style="text-align: center">HALLELUJAH!</p>
+  <canvas id="gameScreen" width="400" height="450"></canvas>
+  
+  <script>
+    const canvas = document.getElementById("gameScreen");
+    const ctx = canvas.getContext("2d");
+    
+    let gameStarted = false;
+    let gameOver = false;
+    let leftPressed = false;
+    let rightPressed = false;
+    let tellEverybody = false;
+    let score = 0;
+    
+    let amy = {
+      x: 145,
+      y: 290,
+      width: 456,
+      height: 672,
+      speed: 5,
+      image: new Image()
+    };
+    amy.image.src = 'https://static.wikia.nocookie.net/sonic/images/3/30/SDTAmyRender.png';
+    amy.width = amy.width / 5;
+    amy.height = amy.height / 5;
+    amy.x = (canvas.width - amy.width) / 2;
+    
+    let theMen = {
+      x: [],
+      y: [],
+      width: [],
+      height: [],
+      sourceUrls: [
+        "https://static.wikia.nocookie.net/sonic/images/e/e7/SonicRenderDreamTeam.png",
+        "https://static.wikia.nocookie.net/sonic/images/3/31/SXSG_art_Shadow_04.png",
+        "https://static.wikia.nocookie.net/sonic/images/b/b2/TSR_Silver.png"
+      ],
+      sourceWidths: [1782, 597, 602],
+      sourceHeights: [2784, 965, 1012],
+      scaleDown: [20, 6, 6],
+      speed: 2,
+      state: [],
+      images: []
+    }
+    
+    let eggmen = {
+      x: [],
+      y: [],
+      width: 1270,
+      height: 1748,
+      speed: 2,
+      state: [],
+      image: new Image(),
+    }
+    eggmen.width = eggmen.width / 8;
+    eggmen.height = eggmen.height / 8;
+    eggmen.image.src = "https://static.wikia.nocookie.net/sonic/images/1/1f/SDT_DoctorEggmanRender.png";
+    
+    const gameOverScreen = new Image();
+    gameOverScreen.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a316691-267b-4263-8f6b-a2f66711d584/d5beivw-31c3691a-6448-4e01-b558-77f1b070efb8.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFhMzE2NjkxLTI2N2ItNDI2My04ZjZiLWEyZjY2NzExZDU4NFwvZDViZWl2dy0zMWMzNjkxYS02NDQ4LTRlMDEtYjU1OC03N2YxYjA3MGVmYjguanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xX3E879JEKqQR3HHIq7IYzBUILpmIpMmykd4fenKfG0";
+    
+    const rainingMenAudio = new Audio("https://www.myinstants.com/media/sounds/the-weather-girls-its-raining-men-1-cut-mp3.mp3");
+    const music = new Audio("https://vgmtreasurechest.com/soundtracks/mario-kart-wii/fuzuxxznbj/16.%201st-6th%20Place%20Results.mp3");
+    music.loop = true;
+    const imTheMan = new Audio("https://us-tuna-sounds-files.voicemod.net/ebffef7f-fb3c-43ae-9a54-0057d2dbd405-1696648995101.mp3");
+    const howCouldThisHappenToMe = new Audio("https://www.myinstants.com/media/sounds/how.mp3");
+    
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+    
+    function keyDownHandler(e) {
+      if (e.key === "Left" || e.key === "ArrowLeft") {
+        leftPressed = true;
+        if (!gameStarted) {
+          startGame();
+          gameStarted = true;
+        }
+      } else if (e.key === "Right" || e.key === "ArrowRight") {
+        rightPressed = true;
+        if (!gameStarted) {
+          startGame();
+          gameStarted = true;
+        }
+      }
+    }
+    
+    function keyUpHandler(e) {
+      if (e.key === "Left" || e.key === "ArrowLeft") {
+        leftPressed = false;
+      } else if (e.key === "Right" || e.key === "ArrowRight") {
+        rightPressed = false;
+      }
+    }
+    
+    function checkCollision(rect1, rect2) {
+      return rect1.x < rect2.x + rect2.width &&
+             rect1.x + rect1.width > rect2.x &&
+             rect1.y < rect2.y + rect2.height &&
+             rect1.y + rect1.height > rect2.y;
+    }
+    
+    function drawAmy() {
+      ctx.drawImage(amy.image, amy.x, amy.y, amy.width, amy.height);
+    }
+    
+    function addNewMen() {
+      if (Math.random() < 0.01) {
+        let charID = Math.floor(Math.random() * 3);
+        let newImage = new Image();
+        newImage.src = theMen.sourceUrls[charID];
+        theMen.x.push(Math.random() * canvas.width);
+        theMen.y.push(-theMen.sourceHeights[charID] / theMen.scaleDown[charID]);
+        theMen.width.push(theMen.sourceWidths[charID] / theMen.scaleDown[charID]);
+        theMen.height.push(theMen.sourceHeights[charID] / theMen.scaleDown[charID]);
+        theMen.state.push(true);
+        theMen.images.push(newImage);
+      }
+    }
+    
+    function addEggmen() {
+      if (Math.random() < 0.003) {
+        eggmen.x.push(Math.random() * canvas.width);
+        eggmen.y.push(-eggmen.height);
+        eggmen.state.push(true);
+      }
+    }
+    
+    function drawTheMen() {
+      for (let i = 0; i < theMen.x.length; i++) {
+        if (theMen.state[i] && theMen.images[i].complete) {
+          ctx.drawImage(theMen.images[i], theMen.x[i], theMen.y[i], theMen.width[i], theMen.height[i]);
+        }
+      }
+    }
+    
+    function drawEggmen() {
+      for (let i = 0; i < eggmen.x.length; i++) {
+        if (eggmen.state[i] && eggmen.image.complete) {
+          ctx.drawImage(eggmen.image, eggmen.x[i], eggmen.y[i], eggmen.width, eggmen.height);
+        }
+      }
+    }
+    
+    function drawGrass() {
+      ctx.beginPath();
+      ctx.rect(0, 400, canvas.width, 50);
+      ctx.fillStyle = "#008000";
+      ctx.fill();
+      ctx.closePath();
+    }
+    
+    function drawScore() {
+      ctx.font = "75px Arial";
+      ctx.fillStyle = "#F0FFFF";
+      ctx.fillText(`${score}`, canvas.width / 2 - 25, 75);
+    }
+    
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawGrass();
+      drawAmy();
+      drawTheMen();
+      drawEggmen();
+      addNewMen();
+      addEggmen();
+      drawScore();
+      
+      if (leftPressed && amy.x > (0 - (amy.width / 2))) {
+        amy.x -= amy.speed;
+      }
+      if (rightPressed && amy.x < canvas.width - (amy.width / 2)) {
+        amy.x += amy.speed;
+      }
+      
+      for (let i = 0; i < theMen.x.length; i++) {
+        theMen.y[i] += theMen.speed;
+        if (theMen.y[i] > amy.y) {
+          theMen.state[i] = false;
+        }
+        if (checkCollision(amy, {x: theMen.x[i], y: theMen.y[i], width: theMen.width[i], height: theMen.height[i]})) {
+          if (theMen.state[i]) {
+            score++;
+            if ((score % 10 == 0) && !tellEverybody) {
+              lotsaMen();
+            }
+          }
+          theMen.state[i] = false;
+        }
+      }
+      
+      for (let i = 0; i < eggmen.x.length; i++) {
+        eggmen.y[i] += eggmen.speed;
+        if (eggmen.y[i] > amy.y) {
+          eggmen.state[i] = false;
+        }
+        if ((checkCollision(amy, {x: eggmen.x[i], y: eggmen.y[i], width: eggmen.width, height: eggmen.height}))
+          && eggmen.state[i]) {
+          gameOver = true;
+          stopTheMusic();
+          ctx.drawImage(gameOverScreen, 0, 0, canvas.width, canvas.height);
+          return;
+        }
+      }
+      
+      if (!gameOver) {
+        requestAnimationFrame(draw);
+      }
+    }
+    
+    function startingAudio() {
+      rainingMenAudio.play();
+      setTimeout(playMusic, rainingMenAudio.duration * 1000);
+    }
+    
+    function playMusic() {
+      if (!gameOver && !tellEverybody) {
+        music.play();
+      }
+    }
+    
+    function lotsaMen() {
+      tellEverybody = true;
+      music.pause();
+      imTheMan.play();
+      imTheMan.onended = function() {
+        tellEverybody = false;
+        if (!gameOver) {
+          music.play();
+        }
+      };
+    }
+    
+    function stopTheMusic() {
+      if (rainingMenAudio) {
+        rainingMenAudio.pause();
+      }
+      if (music) {
+        music.pause();
+      }
+      if (imTheMan) {
+        imTheMan.pause();
+      }
+      howCouldThisHappenToMe.play();
+    }
+    
+    function startGame() {
+      startingAudio();
+      draw();
+    }
+    
+    drawGrass();
+    drawAmy();
+  </script>
+</body>
+</html>

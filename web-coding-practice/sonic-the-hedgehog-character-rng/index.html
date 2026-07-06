@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonic the Hedgehog Character RNG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logoContainer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Sonic_The_Hedgehog.svg" height="75" id="logoImage">
+    <div class="heading" id="logoText">CHARACTER RNG</div>
+  </div>
+  
+  <div class="resultBox" id="resultBox">
+    <div class="heading resultHeading" id="YourCharacterIs">
+      Your character:<br>
+      <span id="characterName">...</span>
+    </div>
+    
+    <div class="resultImage">
+      <span id="chanceText" class="rarityLabel heading"></span>
+      <span id="rarityText" class="rarityLabel"></span>
+      <img id="characterImg" src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg">
+    </div>
+    
+    <div class="resultDescription">
+      <p id="resultDescript">Click the "Roll" button below to roll a character (check "Autoroll" for automatic rolling). Click the backpack icon to see what characters you have rolled (inventory is saved on your browser).</p>
+    </div>
+  </div>
+  
+  <div class="controlsContainer">
+    <div class="rollContainer">
+      <button class="rollButton" id="rollButton">ROLL</button>
+      <div class="autorollContainer">
+        <input type="checkbox" id="autoRollCheck" name="autoRollCheck" value="autoRoll">
+        <label for="autoRollCheck">Autoroll</label>
+      </div>
+    </div>
+    <div class="otherButtonContainer">
+      <input id="inventoryButton" type="image" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Backpack_%282551%29_-_The_Noun_Project.svg" height=45 class="imgButtonColor"/>
+      <input id="infoButton" type="image" src="https://upload.wikimedia.org/wikipedia/commons/1/18/About_icon_%28The_Noun_Project%29.svg" height=45 class="imgButtonColor"/>
+    </div>
+  </div>
+  
+  <div id="inventoryModal" class="modal">
+    <div id="inventoryContent" class="inventoryContent">
+      <span class="closeButton">&times;</span>
+      <span id="infoHeading" class="heading">Inventory</span>
+      <div class="inventoryGridWrapper">
+        <div id="inventoryGrid" class="inventoryGrid">
+          <!--<button class="inventoryButton commonButton">
+            <span class="rarityAbbr">C</span>
+            <span class="itemCount">&times;2</span>
+            <img src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg" height=100/><br/>
+            John Doe
+          </button>
+          <button class="inventoryButton uncommonButton">
+            <span class="rarityAbbr">U</span>
+            <span class="itemCount">&times;9000</span>
+            <img src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg" height=100/><br/>
+            Jane Doe
+          </button>
+          <button class="inventoryButton rareButton">
+            <span class="rarityAbbr">R</span>
+            <span class="itemCount">&times;100</span>
+            <img src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg" height=100/><br/>
+            Alice
+          </button>
+          <button class="inventoryButton exoticButton">
+            <span class="rarityAbbr">E</span>
+            <span class="itemCount">&times;10000000</span>
+            <img src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg" height=100/><br/>
+            Bob
+          </button>
+          <button class="inventoryButton legendaryButton">
+            <span class="rarityAbbr">L</span>
+            <span class="itemCount">&times;2500000</span>
+            <img src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg" height=100/><br/>
+            Cindy
+          </button>
+          <button class="inventoryButton superButton">
+            <span class="rarityAbbr">S</span>
+            <span class="itemCount">&times;24</span>
+            <img src="https://www.svgrepo.com/show/148847/question-mark-in-a-circle.svg" height=100/><br/>
+            Daniel
+          </button>-->
+        </div>
+      </div>
+    </div>
+    
+    <div id="characterInfo" class="resultBox">
+      <div class="heading resultHeading" id="YourCharacterIs">
+        <span class="backButton">⬅</span>
+        <span class="closeButton">&times;</span>
+        Viewing character:<br>
+        <span id="charInfoName">...</span>
+      </div>
+      
+      <div class="resultImage">
+        <span id="charInfoChance" class="rarityLabel heading">1 in 2</span>
+        <span id="charInfoRarity" class="rarityLabel">(Common)</span>
+        <img id="charInfoImg" src="https://static.wikia.nocookie.net/sonic/images/b/bb/Sonic_pose_111.png">
+      </div>
+      
+      <div class="resultDescription">
+        <p id="charInfoDescript">Lorem ipsum</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="infoModal" class="modal">
+    <div class="infoContent">
+      <span class="closeButton">&times;</span>
+      <span id="infoHeading" class="heading">About the Game</span>
+      <span id="infoText">
+        <p>This is a Javascript game practice by PrincessPandaLover, based on both Sega's <i>Sonic the Hedgehog</i> series and RNG games on Roblox like <i>Sol's RNG</i>.</p>
+        
+        <p>Yes, the chances are deliberately weighted so that you have to wait a long time for some characters. This is an RNG game, after all. (Fortunately, the weights are not as extreme as <i>Sol's RNG</i>'s.)</p>
+        
+        <p>(This game does not provide any method of notifying of rolling an elusive character, so check your inventory regularly!)</p>
+        
+        <p>Character images are copyrighted by Sega. Character descriptions were copied from Sonic Wiki Zone and are licensed under CC-BY-SA.</p>
+        
+        <p>Icons are in public domain.</p>
+        
+        <p>Claude 3.5 Sonnet was used for some code.</p>
+        
+        <p>(I don't know how to fix the issue with the oversized images. If anyone can fix this, please let me know!)</p>
+        
+        <p>Created in July 2024.</p>
+        
+        <p><input type="checkbox" id="colorCheck" name="colorCheck" value="colorsOff">
+        <label for="autoRollCheck">Turn off color coding (for those with color vision issues)</label></p>
+      </span>
+    </div>
+  </div>
+  
+  <script src="characters.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

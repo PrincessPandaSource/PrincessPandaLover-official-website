@@ -1,0 +1,348 @@
+:root {
+  --common-color: #0000FF;
+  --uncommon-color: #008000;
+  --rare-color: #ff6600;
+  --exotic-color: #DC143C;
+  --legendary-color: #800080;
+  --super-color: #cc9900;
+  --common-color-hover: #0000cc;
+  --uncommon-color-hover: #004d00;
+  --rare-color-hover: #cc5200;
+  --exotic-color-hover: #bb1133;
+  --legendary-color-hover: #4d004d;
+  --super-color-hover: #997300;
+  --colors-off: #0065B3;
+  --colors-off-hover: #004880;
+}
+
+body {
+  background: #0170c6;
+  font-family: Helvetica;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.heading {
+  font-weight: bold;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#logoImage {
+  margin-right: 10px;
+}
+#logoText {
+  color: #fff;
+  font-size: 25px;
+}
+.resultBox {
+  background: #c7e7ff;
+  width: 610px;
+  height: 310px;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "character description";
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 10px;
+  overflow: hidden;
+}
+#resultBox {
+  margin: 0 auto;
+}
+.resultHeading {
+  color: #0065B3;
+  text-align: center;
+  grid-area: header;
+}
+#characterName,
+#charInfoName {
+  font-size: 30px;
+}
+.resultImage {
+  position: relative;
+  grid-area: character;
+  margin: auto;
+}
+
+#characterImg,
+#charInfoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rarityLabel {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  transform: rotate(-15deg);
+}
+
+#chanceText,
+#charInfoChance {
+  font-size: 25px;
+}
+
+#rarityText,
+#charInfoRarity {
+  font-size: 15px;
+  left: -35px;
+  top: 25px;
+  transform: rotate(-17deg);
+}
+
+.resultDescription {
+  grid-area: description;
+  color: #000;
+  height: 90%;
+  overflow-y: auto;
+}
+.controlsContainer {
+  width: 630px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rollContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.autorollContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+button {
+  background-color: #c80000;
+  border: none;
+  font-family: Helvetica;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #b30000;
+}
+button:disabled {
+  background-color: #cd6c69;
+}
+.rollButton {
+  font-size: 30px;
+  padding: 5px 30px;
+  margin-right: 10px;
+}
+.otherButtonContainer {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+.otherButtonContainer input[type="image"] {
+  cursor: pointer;
+}
+
+.imgButtonColor {
+  filter: invert(11%) sepia(92%) saturate(5919%) hue-rotate(359deg) brightness(82%) contrast(109%);
+}
+
+.imgButtonColor:hover {
+  filter: invert(10%) sepia(72%) saturate(6862%) hue-rotate(360deg) brightness(83%) contrast(112%);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.inventoryContent,
+.charInfoContent,
+.infoContent {
+  background-color: #c7e7ff;
+  padding: 20px;
+}
+
+.inventoryContent {
+  height: 92.8vh;
+  width: 93.8vw;
+  max-height: 600px;
+  max-width: 800px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+.infoContent {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  max-width: 800px;
+}
+
+.closeButton {
+    color: #c80000;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+    color: #b30000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#infoHeading {
+  color: #0065B3;
+  font-size: 25px;
+}
+
+#infoText {
+  color: #000;
+}
+
+.inventoryGridWrapper {
+    height: 90%;
+    position: relative;
+    margin-top: 15px;
+}
+
+.inventoryGrid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    padding: 15px;
+}
+
+.inventoryButton {
+  position: relative;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.commonButton {
+  background-color: var(--common-color);
+}
+.commonButton:hover {
+  background-color: var(--common-color-hover);
+}
+
+.uncommonButton {
+  background-color: var(--uncommon-color);
+}
+.uncommonButton:hover {
+  background-color: var(--uncommon-color-hover);
+}
+
+.rareButton {
+  background-color: var(--rare-color);
+}
+.rareButton:hover {
+  background-color: var(--rare-color-hover);
+}
+
+.exoticButton {
+  background-color: var(--exotic-color);
+}
+.exoticButton:hover {
+  background-color: var(--exotic-color-hover);
+}
+
+.legendaryButton {
+  background-color: var(--legendary-color);
+}
+.legendaryButton:hover {
+  background-color: var(--legendary-color-hover);
+}
+
+.superButton {
+  background-color: var(--super-color);
+}
+.superButton:hover {
+  background-color: var(--super-color-hover);
+}
+
+.uncodedButton {
+  background-color: #c80000;
+}
+.uncodedButton:hover {
+  background-color: #b30000;
+}
+
+.rarityAbbr {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+
+.itemCount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+}
+
+#characterInfo {
+  display: none;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+.backButton {
+    color: #c80000;
+    float: left;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.backButton:hover,
+.backButton:focus {
+    color: #b30000;
+    text-decoration: none;
+    cursor: pointer;
+}

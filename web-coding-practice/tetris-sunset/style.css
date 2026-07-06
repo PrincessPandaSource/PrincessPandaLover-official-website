@@ -1,0 +1,98 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: rgb(107,196,254);
+  background: linear-gradient(177deg, rgba(107,196,254,1) 0%, rgba(243,166,200,1) 40%, rgba(255,194,153,1) 100%); 
+}
+
+#titleHeading {
+  font-family: "Playwrite HR", cursive;
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  width: 200px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.grid div {
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.tetromino {
+  border: 1px solid rgba(255, 255, 255, 1) !important;
+  background-color: blue;
+}
+
+.side {
+  margin-left: 50px;
+  width: 80px;
+}
+
+.mini-grid {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mini-grid div {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+}
+
+h3 {
+  font-family: "Caveat", cursive;
+  color: white;
+}
+
+#next {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+#scoreHeading {
+  margin-bottom: -10px;
+}
+
+#gameOverText {
+  font-size: 1.4em;
+}
+
+#start-button {
+  font-family: "Caveat", cursive;
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+  border: 2px solid white;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#start-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
