@@ -68,7 +68,6 @@ body {
 .resultImage {
   position: relative;
   grid-area: character;
-  margin: auto;
 }
 
 #characterImg,
@@ -80,7 +79,7 @@ body {
 
 .rarityLabel {
   position: absolute;
-  left: -40px;
+  left: 13px;
   top: 0;
   transform: rotate(-15deg);
 }
@@ -93,7 +92,7 @@ body {
 #rarityText,
 #charInfoRarity {
   font-size: 15px;
-  left: -35px;
+  left: 17px;
   top: 25px;
   transform: rotate(-17deg);
 }
