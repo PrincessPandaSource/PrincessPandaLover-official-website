@@ -198,7 +198,7 @@
         if (checkCollision(amy, {x: theMen.x[i], y: theMen.y[i], width: theMen.width[i], height: theMen.height[i]})) {
           if (theMen.state[i]) {
             score++;
-            if ((score % 10 == 0) && !tellEverybody) {
+            if ((score % 50 == 0) && !tellEverybody) {
               lotsaMen();
             }
           }
