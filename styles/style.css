@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
     font-family: "Montserrat";
     src: url("/fonts/montserrat.woff2");
@@ -54,6 +55,17 @@
     font-display: swap;
 }
 
+/* Variables */
+:root {
+  --text-box-border: #ff5555;
+  --text-box-bg: #ffaaaa;
+  --button-bg: #fe80df;
+  --button-border: #ff00bf;
+  --button-hover: #fd4ed1;
+  --blog-tag-color: #BB0303;
+}
+
+/* Fundamental elements */
 body {
   margin: 0;
   background-color: #d5e5ff;
@@ -103,24 +115,10 @@ s {
   height:auto;
   margin-bottom: 1rem;
 }
-
-.about-me-mythical {
-  width: 47%;
-  max-width: 400px;
-  height: auto;
-  aspect-ratio: 661 / 365;
-  position: relative;
-  top: 50px;
-  margin-top: -5rem;
-  z-index: -3;
-  /*top: 2.2rem;
-  margin-top: -3rem;
-  z-index: 10;*/
-}
   
 .text-box {
-  background-color: #ffaaaa;
-  border: 5px solid #ff5555;
+  background-color: var(--text-box-bg);
+  border: 5px solid var(--text-box-border);
   border-radius: 10px;
   padding: 20px;
   text-align: left;
@@ -187,7 +185,7 @@ hr.space-break {
 }
 
 h1, h2, h3 {
-  background-color: #ff5555;
+  background-color: var(--text-box-border);
   border-radius: 10px;
   padding: 10px;
   color: rgb(255, 255, 255);
@@ -213,9 +211,10 @@ h3 {
   padding: 7px 15px;
 }
 
-button {
-  background-color: #fe80df;
-  border: 3px solid #ff00bf;
+/* Button */
+button, a.button {
+  background-color: var(--button-bg);
+  border: 3px solid var(--button-border);
   border-radius: 5px;
   padding: 2px 5px;
   color: black;
@@ -224,24 +223,78 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #fd4ed1;
+button:hover, a.button:hover {
+  background-color: var(--button-hover);
 }
 
 a.button {
-  display: inline-block;
-  background-color: #fe80df;
-  border: 3px solid #ff00bf;
-  border-radius: 5px;
-  padding: 2px 5px;
-  color: black;
   text-decoration: none;
-  font-size: 1em;
-  font-family: 'Montserrat';
 }
 
-a.button:hover {
-  background-color: #fd4ed1;
+/*Credit: https://stackoverflow.com/a/12216973/18758445*/
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  line-height: 1.5;
+}
+
+li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+li:before {
+  content: "❤︎";
+  padding-right: 5px;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  margin-bottom: 0;
+  background-color: #d40000;
+  padding: 20px;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 12px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+footer a {
+  color: #FFE0EA;
+}
+
+.footer-socials {
+  font-size: 16px;
+}
+
+.footer-socials p:not(:first-child) {
+  margin-top: 0.5em;
+}
+
+.footer-socials p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+.footer-socials-icons {
+  font-size: 24px;
+}
+
+/* Home page */
+.about-me-mythical {
+  width: 47%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 661 / 365;
+  position: relative;
+  top: 50px;
+  margin-top: -5rem;
+  z-index: -3;
+  /*top: 2.2rem;
+  margin-top: -3rem;
+  z-index: 10;*/
 }
   
 .heart-button-grid {
@@ -277,13 +330,13 @@ a.button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fe80df;
-  border: 3px solid #ff00bf;
+  background-color: var(--button-bg);
+  border: 3px solid var(--button-border);
   border-radius: 5px;
   padding: 2px;
   width: 125px;
   font-size: 1.05em;
-  color: black;
+  color: #000;
   word-wrap: break-word;
 }
 
@@ -315,24 +368,7 @@ a.button:hover {
   pointer-events: none;
 }
 
-/*Credit: https://stackoverflow.com/a/12216973/18758445*/
-ul {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-  line-height: 1.5;
-}
-
-li {
-  padding-left: 1em;
-  text-indent: -1em;
-}
-
-li:before {
-  content: "❤︎";
-  padding-right: 5px;
-}
-
+/* Code embeds */
 code {
   background-color: #49181f;
   color: #fff;
@@ -350,13 +386,14 @@ code {
   border-radius: 3px;
 }
 
+/* Article selection */
 .article-select-section, .back-section {
   margin-bottom: 0.5rem;
 }
 
 .article-select-section {
   text-align: center;
-  color: #ff00bf;
+  color: var(--button-border);
 }
 
 .article-select {
@@ -373,6 +410,7 @@ select {
   font-family: 'Montserrat';
 }
 
+/* Wolf with a Blog */
 .blog-entry {
   height: 8lh;
 }
@@ -381,7 +419,7 @@ select {
   font-size: 1.25em;
   font-weight: bold;
   text-decoration: none;
-  color: #BB0303 !important;
+  color: var(--blog-tag-color) !important;
 }
 
 .blog-info-box {
@@ -391,7 +429,7 @@ select {
 }
 
 a.blog-tag {
-  background-color: #BB0303;
+  background-color: var(--blog-tag-color);
   padding: 3px 5px;
   border-radius: 3px;
   color: white;
@@ -399,36 +437,25 @@ a.blog-tag {
   margin-left: 5px;
 }
 
-footer {
-  margin-top: auto;
-  margin-bottom: 0;
-  background-color: #d40000;
-  padding: 20px;
-  text-align: center;
-  font-family: "Montserrat";
-  font-size: 12px;
-  color: #ffffff;
-  flex-shrink: 0;
+/* Sketches or Doodles */
+.sketches-contain {
+  display: flex;
+  gap: 10px;
 }
 
-footer a {
-  color: #FFE0EA;
+.sketch-div {
+  width: fit-content;
+  margin-bottom: 10px;
 }
 
-.footer-socials {
-  font-size: 16px;
+.sketch-div img {
+  width: 100%;
 }
 
-.footer-socials p:not(:first-child) {
-  margin-top: 0.5em;
-}
-
-.footer-socials p:not(:last-child) {
-  margin-bottom: 0.5em;
-}
-
-.footer-socials-icons {
-  font-size: 24px;
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 /* Mobile */  

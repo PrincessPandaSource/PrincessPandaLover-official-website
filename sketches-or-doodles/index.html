@@ -1,7 +1,18 @@
 ---
 layout: layouts/main.html
+title: Sketches or Doodles
 ---
 <h1>Sketches or Doodles</h1>
 <div class="text-box">
     <p>Quick and delightful drawings, whether they'd be sketches or doodles.</p>
 </div>
+
+<div class="masonry-contain sketches-contain">
+    {%- for sketch in sketches | reverse %}
+    <div class="text-box sketch-div masonry-entry">
+        <img src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="">
+    </div>
+    {% endfor -%}
+</div>
+
+<script src="/scripts/masonry.js" defer></script>
