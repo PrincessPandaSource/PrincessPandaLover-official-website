@@ -10,11 +10,23 @@ title: Sketches or Doodles
 <div class="masonry-contain sketches-contain">
     {%- for sketch in sketches | reverse %}
     <div class="text-box sketch-div masonry-entry">
-        <img src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="">
-        <p>{{ sketch.date | dateFromStr | postDate }}</p>
-        {%- if sketch.description | length %}<p>Lorem ipsum</p>{% endif -%}
+        <img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="">
+        <p class="sketch-date">{{ sketch.date | dateFromStr | postDate }}</p>
+        {%- if sketch.description | length %}<p class="sketch-descript">Lorem ipsum</p>{% endif -%}
     </div>
     {% endfor -%}
 </div>
 
+<div id="sketch-modal">
+    <img id="sketch-modal-img" src="">
+
+    <div id="sketch-modal-info" class="text-box">
+        <p id="sketch-modal-date"></p>
+        <p id="sketch-modal-descript"></p>
+    </div>
+
+    <span id="sketch-modal-close" onclick="closeSketchModal()">&times;</span>
+</div>
+
 <script src="/scripts/masonry.js" defer></script>
+<script src="/scripts/sketchModal.js" defer></script>
