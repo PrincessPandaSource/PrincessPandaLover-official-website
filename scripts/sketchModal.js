@@ -25,11 +25,11 @@ function closeSketchModal() {
     modal.style.display = "none";
     modal.classList.remove("show");
     body.classList.remove("modal-open");
+
+    history.pushState("", document.title, window.location.pathname);
 }
 
-const allSketchDivs = document.querySelectorAll(".sketch-div");
-
-allSketchDivs.forEach(sketchDiv => {
+function getDataFromSketchDiv(sketchDiv) {
     const sketchImg = sketchDiv.querySelector(".sketch-img");
     const sketchDate = sketchDiv.querySelector(".sketch-date");
     const sketchDescript = sketchDiv.querySelector(".sketch-descript");
@@ -41,7 +41,34 @@ allSketchDivs.forEach(sketchDiv => {
         sketchDescriptHTML = null;
     }
 
+    return {imgSrc: sketchImg.src, date: sketchDate.innerText, description: sketchDescriptHTML};
+}
+
+const allSketchDivs = document.querySelectorAll(".sketch-div");
+
+allSketchDivs.forEach(sketchDiv => {
+    const sketchImg = sketchDiv.querySelector(".sketch-img");
+
     sketchImg.addEventListener("click", () => {
-        openSketchModal(sketchImg.src, sketchDate.innerText, sketchDescriptHTML)
+        history.pushState(null, null, `#${sketchDiv.id}`);
+
+        const {imgSrc, date, description} = getDataFromSketchDiv(sketchDiv);
+        openSketchModal(imgSrc, date, description);
     });
 })
+
+if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+
+    if (id.startsWith("sketch-")) {
+        // No scrolling to sketch div!
+        window.scrollTo(0, 0);
+
+        const targetSketchDiv = document.querySelector(window.location.hash);
+
+        if (targetSketchDiv) {
+            const {imgSrc, date, description} = getDataFromSketchDiv(targetSketchDiv);
+            openSketchModal(imgSrc, date, description);
+        }
+    }
+}
