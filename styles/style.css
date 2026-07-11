@@ -446,6 +446,7 @@ a.blog-tag {
 .sketch-div {
   width: fit-content;
   margin-bottom: 10px;
+  font-size: 0.9em;
 }
 
 .sketch-div img {

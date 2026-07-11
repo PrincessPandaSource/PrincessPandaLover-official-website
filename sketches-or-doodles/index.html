@@ -11,6 +11,8 @@ title: Sketches or Doodles
     {%- for sketch in sketches | reverse %}
     <div class="text-box sketch-div masonry-entry">
         <img src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="">
+        <p>{{ sketch.date | dateFromStr | postDate }}</p>
+        {%- if sketch.description | length %}<p>Lorem ipsum</p>{% endif -%}
     </div>
     {% endfor -%}
 </div>
