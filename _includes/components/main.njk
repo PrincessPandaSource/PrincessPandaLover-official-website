@@ -47,7 +47,7 @@
 
     <p>{{ post.data.description }}</p>
 
-    <p>Tags: {{ blogTags(post.data.blogTags) }}</p>
+    <p class="blog-tags-contain"><span>Tags:</span> {{ blogTags(post.data.blogTags) }}</p>
   </div>
 {%- endfor -%}
 {% endmacro %}

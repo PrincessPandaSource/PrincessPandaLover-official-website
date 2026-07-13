@@ -51,7 +51,7 @@ eleventyComputed:
         {%- set URL = "https://princesspandalover.com/blog/" + page.fileSlug -%}
         <a class="u-url u-uid" href="{{ URL }}" hidden aria-hidden="true">{{ URL }}</a>
         
-        <p>Posted on <span class="dt-published">{{ date | postDate }}</span> | Tags: <span class="p-category">{{ c.blogTags(blogTags) }}</span></p>
+        <p>Posted on <span class="dt-published">{{ date | postDate }}</span> | Tags: <span class="blog-tags-contain p-category" style="display: inline-flex">{{ c.blogTags(blogTags) }}</span></p>
     </div>
 
     <div class="e-content">

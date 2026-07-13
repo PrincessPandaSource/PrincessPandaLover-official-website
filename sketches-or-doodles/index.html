@@ -13,6 +13,11 @@ title: Sketches or Doodles
         <img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="">
         <p class="sketch-date">{{ sketch.date | dateFromStr | postDate }}</p>
         {%- if sketch.description | length %}<p class="sketch-descript">Lorem ipsum</p>{% endif -%}
+        <p class="blog-tags-contain">
+            {%- for tag in sketch.tags %}
+            <a href="" class="blog-tag">{{ tag }}</a>
+            {% endfor %}
+        </p>
     </div>
     {% endfor -%}
 </div>
@@ -22,6 +27,7 @@ title: Sketches or Doodles
 
     <div id="sketch-modal-info" class="text-box">
         <p id="sketch-modal-date"></p>
+        <p id="sketch-modal-tags" class="blog-tags-contain"></p>
         <p id="sketch-modal-descript"></p>
     </div>
 

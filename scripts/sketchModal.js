@@ -1,17 +1,19 @@
 const body = document.querySelector("body");
 const modal = document.getElementById("sketch-modal");
 
-function openSketchModal(imgSrc, date, description) {
+function openSketchModal(imgSrc, date, tags, description) {
     modal.style.display = "flex";
     modal.classList.add("show");
     body.classList.add("modal-open");
 
     const modalImg = modal.querySelector("#sketch-modal-img");
     const modalDate = modal.querySelector("#sketch-modal-date");
+    const modalTags = modal.querySelector("#sketch-modal-tags");
     const modalDescript = modal.querySelector("#sketch-modal-descript");
 
     modalImg.src = imgSrc;
     modalDate.innerText = date;
+    modalTags.innerHTML = tags;
 
     modalDescript.style.display = "block";
     if (description) {
@@ -32,6 +34,7 @@ function closeSketchModal() {
 function getDataFromSketchDiv(sketchDiv) {
     const sketchImg = sketchDiv.querySelector(".sketch-img");
     const sketchDate = sketchDiv.querySelector(".sketch-date");
+    const sketchTags = sketchDiv.querySelector(".blog-tags-contain");
     const sketchDescript = sketchDiv.querySelector(".sketch-descript");
 
     let sketchDescriptHTML;
@@ -41,7 +44,7 @@ function getDataFromSketchDiv(sketchDiv) {
         sketchDescriptHTML = null;
     }
 
-    return {imgSrc: sketchImg.src, date: sketchDate.innerText, description: sketchDescriptHTML};
+    return {imgSrc: sketchImg.src, date: sketchDate.innerText, tagsHTML: sketchTags.innerHTML, description: sketchDescriptHTML};
 }
 
 const allSketchDivs = document.querySelectorAll(".sketch-div");
@@ -52,8 +55,8 @@ allSketchDivs.forEach(sketchDiv => {
     sketchImg.addEventListener("click", () => {
         history.pushState(null, null, `#${sketchDiv.id}`);
 
-        const {imgSrc, date, description} = getDataFromSketchDiv(sketchDiv);
-        openSketchModal(imgSrc, date, description);
+        const {imgSrc, date, tagsHTML, description} = getDataFromSketchDiv(sketchDiv);
+        openSketchModal(imgSrc, date, tagsHTML, description);
     });
 })
 
@@ -67,8 +70,8 @@ if (window.location.hash) {
         const targetSketchDiv = document.querySelector(window.location.hash);
 
         if (targetSketchDiv) {
-            const {imgSrc, date, description} = getDataFromSketchDiv(targetSketchDiv);
-            openSketchModal(imgSrc, date, description);
+            const {imgSrc, date, tagsHTML, description} = getDataFromSketchDiv(targetSketchDiv);
+            openSketchModal(imgSrc, date, tagsHTML, description);
         }
     }
 }

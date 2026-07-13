@@ -432,13 +432,21 @@ select {
   margin-bottom: 1.5rem;
 }
 
+/* Also used for Sketches or Doodles */
+.blog-tags-contain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
 a.blog-tag {
+  display: inline-block;
   background-color: var(--blog-tag-color);
   padding: 3px 5px;
   border-radius: 3px;
   color: white;
   text-decoration: none;
-  margin-left: 5px;
 }
 
 /* Sketches or Doodles */
