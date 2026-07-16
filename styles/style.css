@@ -450,6 +450,16 @@ a.blog-tag {
 }
 
 /* Sketches or Doodles */
+#sketch-tagged-header {
+  display: none;
+}
+
+.big-inline-x {
+  text-decoration: none;
+  font-size: 2em;
+  vertical-align: middle;
+}
+
 .sketches-contain {
   display: flex;
   gap: 10px;
@@ -459,6 +469,10 @@ a.blog-tag {
   width: fit-content;
   margin-bottom: 10px;
   font-size: 0.9em;
+}
+
+.sketch-div.hide {
+  display: none;
 }
 
 .sketch-img {
