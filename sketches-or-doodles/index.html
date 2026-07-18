@@ -14,7 +14,7 @@ title: Sketches or Doodles
     <div id="sketch-{{ loop.length - loop.index + 1 }}" class="text-box sketch-div masonry-entry">
         <img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="{{ sketch.alt }}">
         <p class="sketch-date">{{ sketch.date | dateFromStr | postDate }}</p>
-        {%- if sketch.description | length %}<p class="sketch-descript">Lorem ipsum</p>{% endif -%}
+        {%- if sketch.description | length %}<p class="sketch-descript">{{ sketch.description }}</p>{% endif -%}
         <p class="blog-tags-contain">
             {%- for tag in sketch.tags %}
             <a href="?tag={{ tag }}" class="blog-tag">{{ tag }}</a>
