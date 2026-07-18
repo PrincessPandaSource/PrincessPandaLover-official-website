@@ -12,7 +12,7 @@ title: Sketches or Doodles
 <div class="masonry-contain sketches-contain">
     {%- for sketch in sketches | reverse %}
     <div id="sketch-{{ loop.length - loop.index + 1 }}" class="text-box sketch-div masonry-entry">
-        <img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="">
+        <img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="{{ sketch.alt }}">
         <p class="sketch-date">{{ sketch.date | dateFromStr | postDate }}</p>
         {%- if sketch.description | length %}<p class="sketch-descript">Lorem ipsum</p>{% endif -%}
         <p class="blog-tags-contain">
@@ -25,7 +25,7 @@ title: Sketches or Doodles
 </div>
 
 <div id="sketch-modal">
-    <img id="sketch-modal-img" src="">
+    <img id="sketch-modal-img" src="" alt="">
 
     <div id="sketch-modal-info" class="text-box">
         <p id="sketch-modal-date"></p>
