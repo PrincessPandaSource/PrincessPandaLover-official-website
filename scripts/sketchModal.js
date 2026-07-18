@@ -50,6 +50,15 @@ function getDataFromSketchDiv(sketchDiv) {
 
 const allSketchDivs = document.querySelectorAll(".sketch-div");
 
+function sketchLink(id) {
+    const targetSketchDiv = document.getElementById(id);
+
+    if (targetSketchDiv) {
+        const {imgSrc, imgAlt, date, tagsHTML, description} = getDataFromSketchDiv(targetSketchDiv);
+        openSketchModal(imgSrc, imgAlt, date, tagsHTML, description);
+    }
+}
+
 allSketchDivs.forEach(sketchDiv => {
     const sketchImg = sketchDiv.querySelector(".sketch-img");
 
@@ -68,11 +77,6 @@ if (window.location.hash) {
         // No scrolling to sketch div!
         window.scrollTo(0, 0);
 
-        const targetSketchDiv = document.querySelector(window.location.hash);
-
-        if (targetSketchDiv) {
-            const {imgSrc, imgAlt, date, tagsHTML, description} = getDataFromSketchDiv(targetSketchDiv);
-            openSketchModal(imgSrc, imgAlt, date, tagsHTML, description);
-        }
+        sketchLink(id);
     }
 }

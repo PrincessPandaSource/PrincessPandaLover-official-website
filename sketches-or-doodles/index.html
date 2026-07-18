@@ -13,8 +13,9 @@ masonry: true
 
 <div class="masonry-contain sketches-contain">
     {%- for sketch in sketches | reverse %}
-    <div id="sketch-{{ loop.length - loop.index + 1 }}" class="text-box sketch-div masonry-entry">
-        <img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="{{ sketch.alt }}">
+    {%- set sketchIndex = loop.length - loop.index + 1 -%}
+    <div id="sketch-{{ sketchIndex }}" class="text-box sketch-div masonry-entry">
+        <a class="img-link" href="javascript:sketchLink('sketch-{{ sketchIndex }}'')"><img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="{{ sketch.alt }}"></a>
         <p class="sketch-date">{{ sketch.date | dateFromStr | postDate }}</p>
         {%- if sketch.description | length %}<p class="sketch-descript">{{ sketch.description }}</p>{% endif -%}
         <p class="blog-tags-contain">

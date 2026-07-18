@@ -188,6 +188,12 @@ hr.space-break {
   color: #ffffff;
 }
 
+.img-link {
+  display: inline-block;
+  height: fit-content;
+  width: fit-content;
+}
+
 h1, h2, h3 {
   background-color: var(--text-box-border);
   border-radius: 10px;
