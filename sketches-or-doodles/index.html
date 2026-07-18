@@ -1,13 +1,15 @@
 ---
 layout: layouts/main.html
 title: Sketches or Doodles
+permalink: /sketches-or-doodles.html
+masonry: true
 ---
 <h1>Sketches or Doodles</h1>
 <div class="text-box">
     <p>Quick and delightful drawings, whether they'd be sketches or doodles.</p>
 </div>
 
-<h2 id="sketch-tagged-header">Tagged: <span id="sketch-tagged-label"></span> <a href="javascript:clearTag()" class="white-link big-inline-x">&times;</a></h2>
+<h2 id="sketch-tagged-header">Tagged: <span id="sketch-tagged-label"></span> <a href="javascript:clearTag()" class="white-link big-inline-x" title="Clear">&times;</a></h2>
 
 <div class="masonry-contain sketches-contain">
     {%- for sketch in sketches | reverse %}
@@ -36,6 +38,6 @@ title: Sketches or Doodles
     <span id="sketch-modal-close" onclick="closeSketchModal()">&times;</span>
 </div>
 
-<script src="/scripts/sketchFilter.js" defer></script>
-<script src="/scripts/masonry.js" defer></script>
-<script src="/scripts/sketchModal.js" defer></script>
+<script src="/scripts/sketchFilter.js"></script>
+<script src="/scripts/masonry.js"></script>
+<script src="/scripts/sketchModal.js"></script>
