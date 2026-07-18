@@ -29,7 +29,7 @@ function closeSketchModal() {
     modal.classList.remove("show");
     body.classList.remove("modal-open");
 
-    history.pushState("", document.title, window.location.pathname);
+    history.pushState("", document.title, window.location.pathname + window.location.search);
 }
 
 function getDataFromSketchDiv(sketchDiv) {
