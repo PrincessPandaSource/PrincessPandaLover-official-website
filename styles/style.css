@@ -396,8 +396,9 @@ code {
   border-radius: 3px;
 }
 
-/* Article selection */
-.article-select-section, .back-section {
+/* Search bar / Article selection */
+.article-select-section, .back-section,
+#mini-search-form {
   margin-bottom: 0.5rem;
 }
 
@@ -411,7 +412,7 @@ code {
   color: #000000;
 }
 
-select {
+input[type=search], select {
   background-color: #ffffff;
   border: 1px solid #000000;
   padding-top: 2px;
@@ -456,7 +457,7 @@ a.blog-tag {
 }
 
 /* Sketches or Doodles */
-#sketch-tagged-header {
+#sketch-tagged-header, #sketch-search-header {
   display: none;
 }
 

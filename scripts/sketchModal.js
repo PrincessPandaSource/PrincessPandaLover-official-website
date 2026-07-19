@@ -73,7 +73,7 @@ allSketchDivs.forEach(sketchDiv => {
 if (window.location.hash) {
     const id = window.location.hash.slice(1);
 
-    if (id.startsWith("sketch-")) {
+    if (id.match("sketch-[0-9]+")) {
         // No scrolling to sketch div!
         window.scrollTo(0, 0);
 
