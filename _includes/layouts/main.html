@@ -9,16 +9,16 @@ summaryLargeImage: true
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        {% if title %}
+        {%- if title %}
         <title>{{ title }} - ❤︎PrincessPandaLover</title>
         {% else %}
         <title>❤︎PrincessPandaLover - Official website</title>
-        {% endif %}
+        {% endif -%}
         <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-        {% if page.url != "/404.html" %}
+        {%- if page.url != "/404.html" %}
         <meta name="description" content="{{ description }}">
-        {% endif %}
+        {% endif -%}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" type="text/css" href="/styles/style.css">
@@ -30,39 +30,39 @@ summaryLargeImage: true
         <link rel="preload" href="/images/background-accessible.png" as="image">
         <link rel="preload" href="/images/logo-sticker.svg" as="image">
 
-        {% if page.url == "/" %}
+        {%- if page.url == "/" %}
         <link rel="preload" href="/images/heart-button.svg" as="image">
-        {% endif %}
+        {% endif -%}
 
-        {% if code %}
+        {%- if code %}
         <link href="/styles/prism.css" rel="stylesheet" />
 
         <link rel="preload" href="/fonts/source-code-pro.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/fonts/source-code-pro-bold.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/fonts/source-code-pro-bold.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/fonts/source-code-pro-bold-italic.woff2" as="font" type="font/woff2" crossorigin>
-        {% endif %}
+        {% endif -%}
 
-        {% if masonry %}
+        {%- if masonry %}
         <link rel="preload" href="/scripts/masonry.js" as="script" />
-        {% endif %}
+        {% endif -%}
 
-        {% if page.url == "/sketches-or-doodles.html" %}
+        {%- if page.url == "/sketches-or-doodles.html" %}
         <link rel="preload" href="/scripts/sketchSearch.js" as="script" />
         <link rel="preload" href="/scripts/sketchFilter.js" as="script" />
         <link rel="preload" href="/scripts/sketchModal.js" as="script" />
-        {% endif %}
+        {% endif -%}
 
-        {% if page.url != "/404.html" %}
+        {%- if page.url != "/404.html" %}
         <link rel="canonical" href="https://princesspandalover.com{{ page.url | lower | stripExtension }}" />
-        {% endif %}
+        {% endif -%}
         
-        {% if page.url != "/404.html" %}
-        {% if title %}
+        {%- if page.url != "/404.html" %}
+        {%- if title %}
         <meta property="og:title" content="{{ title }} - ❤︎PrincessPandaLover"/>
         {% else %}
         <meta property="og:title" content="❤︎PrincessPandaLover - Official website"/>
-        {% endif %}
+        {% endif -%}
         <meta property="og:type" content="website"/>
         <meta property="og:image" content="https://princesspandalover.com/images/{{ ogImage }}"/>
         <meta property="og:image:width" content="{{ ogImageWidth }}"/>
@@ -73,19 +73,19 @@ summaryLargeImage: true
 
         <meta name="twitter:card" content="{% if summaryLargeImage %}summary_large_image{% else %}summary{% endif %}">
         <meta name="twitter:site" content="@PrincPandaTweet">
-        {% if title %}
+        {%- if title %}
         <meta property="twitter:title" content="{{ title }} - ❤︎PrincessPandaLover"/>
         {% else %}
         <meta property="twitter:title" content="❤︎PrincessPandaLover - Official website"/>
-        {% endif %}
+        {% endif -%}
         <meta name="twitter:description" content="{{ ogDescription | default(description) | default('') }}">
         <meta name="twitter:image" content="https://princesspandalover.com/images/{{ ogImage }}">
-        {% endif %}
+        {% endif -%}
 
-        {% if production %}
+        {%- if production %}
         <script defer src="https://cloud.umami.is/script.js" data-website-id="e50449cb-4029-43db-884d-24ac69a6f84a"></script>
         <link rel="webmention" href="https://webmention.io/princesspandalover.com/webmention" />
-        {% endif %}
+        {% endif -%}
     </head>
 
     <body>

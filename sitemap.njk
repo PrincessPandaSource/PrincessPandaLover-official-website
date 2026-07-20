@@ -5,13 +5,13 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for page in collections.all %}
-{% if not page.data.noSitemap %}
+{%- if not page.data.noSitemap %}
     <url>
         <loc>https://princesspandalover.com{{ page.url | lower | stripExtension }}</loc>
         <lastmod>{{ page.inputPath | getGitCommitDateFromPath | sitemapDate }}</lastmod>
         <changefreq>{{ page.data.changefreq | default("monthly") }}</changefreq>
         <priority>{{ page.data.priority | default(0.8) }}</priority>
     </url>
-{% endif %}
-{% endfor %}
+{% endif -%}
+{% endfor -%}
 </urlset>
