@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 const modal = document.getElementById("sketch-modal");
 
-function openSketchModal(imgSrc, imgAlt, date, tags, description) {
+function openSketchModal(imgAttr, date, tags, description) {
     modal.style.display = "flex";
     modal.classList.add("show");
     body.classList.add("modal-open");
@@ -11,8 +11,11 @@ function openSketchModal(imgSrc, imgAlt, date, tags, description) {
     const modalTags = modal.querySelector("#sketch-modal-tags");
     const modalDescript = modal.querySelector("#sketch-modal-descript");
 
-    modalImg.src = imgSrc;
-    modalImg.alt = imgAlt;
+    for (const attribute of imgAttr) {
+        if (attribute.name == "class") continue;
+        modalImg.setAttribute(attribute.name, attribute.value);
+    }
+
     modalDate.innerText = date;
     modalTags.innerHTML = tags;
 
@@ -45,30 +48,19 @@ function getDataFromSketchDiv(sketchDiv) {
         sketchDescriptHTML = null;
     }
 
-    return {imgSrc: sketchImg.src, imgAlt: sketchImg.alt, date: sketchDate.innerText, tagsHTML: sketchTags.innerHTML, description: sketchDescriptHTML};
-}
+    console.log(sketchImg.attributes);
 
-const allSketchDivs = document.querySelectorAll(".sketch-div");
+    return {imgAttr: sketchImg.attributes, date: sketchDate.innerText, tagsHTML: sketchTags.innerHTML, description: sketchDescriptHTML};
+}
 
 function sketchLink(id) {
     const targetSketchDiv = document.getElementById(id);
 
     if (targetSketchDiv) {
-        const {imgSrc, imgAlt, date, tagsHTML, description} = getDataFromSketchDiv(targetSketchDiv);
-        openSketchModal(imgSrc, imgAlt, date, tagsHTML, description);
+        const {imgAttr, date, tagsHTML, description} = getDataFromSketchDiv(targetSketchDiv);
+        openSketchModal(imgAttr, date, tagsHTML, description);
     }
 }
-
-allSketchDivs.forEach(sketchDiv => {
-    const sketchImg = sketchDiv.querySelector(".sketch-img");
-
-    sketchImg.addEventListener("click", () => {
-        history.pushState(null, null, `#${sketchDiv.id}`);
-
-        const {imgSrc, imgAlt, date, tagsHTML, description} = getDataFromSketchDiv(sketchDiv);
-        openSketchModal(imgSrc, imgAlt, date, tagsHTML, description);
-    });
-})
 
 if (window.location.hash) {
     const id = window.location.hash.slice(1);
