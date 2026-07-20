@@ -2,9 +2,29 @@
 layout: layouts/main.html
 title: Sketches or Doodles
 permalink: /sketches-or-doodles.html
+description: Browse my gallery of personal sketches of various subjects, from original animals to Sonic characters.
+ogDescription: Quick and delightful drawings, whether they'd be sketches or doodles.
+changefreq: weekly
+priority: 0.8
 masonry: true
 ---
 {% import "components/main.njk" as c %}
+
+<!--Schema-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "author": {
+        "@type": "Person",
+        "name": "PrincessPandaLover",
+        "url": "https://princesspandalover.com"
+    },
+    "url": "https://princesspandalover.com{{ page.url | lower | stripExtension }}"
+}
+</script>
 
 <h1>Sketches or Doodles</h1>
 <div class="text-box">
