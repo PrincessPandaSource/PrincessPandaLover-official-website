@@ -4,17 +4,23 @@ title: Sketches or Doodles
 permalink: /sketches-or-doodles.html
 masonry: true
 ---
+{% import "components/main.njk" as c %}
+
 <h1>Sketches or Doodles</h1>
 <div class="text-box">
     <p>Quick and delightful drawings, whether they'd be sketches or doodles.</p>
 </div>
 
-<form id="mini-search-form">
-    <div class="mini-search-div">
-        <input type="search" id="mini-search-bar" name="search" size="15" placeholder="Search...">
-        <button type="submit">Search</button>
-    </div>
-</form>
+<div class="sketch-buttons">
+    <form id="mini-search-form">
+        <div class="mini-search-div">
+            <input type="search" id="mini-search-bar" name="search" size="15" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+     | 
+    {{ c.rssButton("/sketches-or-doodles/feed.xml") }}
+</div>
 
 <h2 id="sketch-tagged-header">Tagged: <span id="sketch-tagged-label"></span> <a href="javascript:clearTag()" class="white-link big-inline-x" title="Clear">&times;</a></h2>
 <h2 id="sketch-search-header">Searched: <span id="sketch-search-label"></span></h2>

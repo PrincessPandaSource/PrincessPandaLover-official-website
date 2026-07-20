@@ -1,0 +1,43 @@
+---json
+{ 
+  "layout": "",
+  "permalink": "/sketches-or-doodles/feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Sketches or Doodles",
+    "description": "Quick and delightful drawings, whether they'd be sketches or doodles.",
+    "language": "en",
+    "base": "https://princesspandalover.com/sketches-or-doodles",
+    "author": {
+      "name": "PrincessPandaLover"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.base | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    {%- for sketch in sketches | reverse %}
+    {%- set sketchIndex = loop.length - loop.index + 1 -%}
+    {%- if loop.index0 < 10 %}
+    {%- set absolutePostUrl = (metadata.base + "#sketch-" + sketchIndex) | url | absoluteUrl(metadata.base) %}
+    <item>
+      <link>{{ absolutePostUrl }}</link>
+      <description>
+        <![CDATA[<img alt="{{ sketch.alt }}" src="https://princesspandalover.com/images/sketches-or-doodles/{{ sketch.filename }}" />]]>
+
+        {{ sketch.description | renderTransforms(post.data.page, metadata.base) }}
+      </description>
+      <pubDate>{{ sketch.date | myRSSDate }}</pubDate>
+      <dc:creator>{{ metadata.author.name }}</dc:creator>
+      <guid>{{ absolutePostUrl }}</guid>
+    </item>
+    {%- endif %}
+    {%- endfor %}
+  </channel>
+</rss>

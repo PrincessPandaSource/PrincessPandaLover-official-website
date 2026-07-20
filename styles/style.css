@@ -398,13 +398,18 @@ code {
 
 /* Search bar / Article selection */
 .article-select-section, .back-section,
-#mini-search-form {
+.sketch-buttons {
   margin-bottom: 0.5rem;
 }
 
-.article-select-section {
+.article-select-section, .sketch-buttons {
   text-align: center;
   color: var(--button-border);
+}
+
+.article-select, #mini-search-form,
+.mini-search-div {
+  display: inline;
 }
 
 .article-select {
