@@ -9,6 +9,7 @@
     "clean": "rmdir /s /q _site",
     "11ty:watch": "npx @11ty/eleventy --watch --ignore-initial",
     "wrangler:dev": "npx wrangler dev --live-reload",
+    "build:prod": "cross-env ENVIRONMENT=production npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "cross-env": "^10.1.0",
     "eleventy-plugin-git-commit-date": "^1.0.2"
   },
   "devDependencies": {

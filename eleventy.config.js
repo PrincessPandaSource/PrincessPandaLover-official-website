@@ -36,6 +36,11 @@ export default function (eleventyConfig) {
 			`${data.page.filePathStem}.${data.page.outputFileExtension}`;
 	});
 
+    // Add production field to global data if production build is made
+    if (process.env.ENVIRONMENT == "production") {
+        eleventyConfig.addGlobalData("production", true);
+    }
+
     // Image optimization
     eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
         formats: ["webp"],
