@@ -239,6 +239,7 @@ button:hover, a.button:hover {
 
 a.button {
   text-decoration: none;
+  display: inline-block;
 }
 
 /*Credit: https://stackoverflow.com/a/12216973/18758445*/
