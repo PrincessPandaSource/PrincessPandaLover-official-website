@@ -1,52 +1,57 @@
 // CREDIT: https://codepen.io/Mandyee/pen/jOxLbLw
-const masonry_contain = document.querySelector('.masonry-contain');
-const masonry_entries = document.querySelectorAll('.masonry-entry');
+const masonryContain = document.querySelector('.masonry-contain');
+const masonryEntries = document.querySelectorAll('.masonry-entry');
 
 function masonry() {
-    let num_cols = 3;
+    let numCols = 3;
 
     let width = window.innerWidth;
 
     if (width <= 767) {
         // Mobile
-        num_cols = 1;
+        numCols = 1;
     } else if (width <= 1024) {
         // Tablet (portrait)
-        num_cols = 2;
+        numCols = 2;
     }
 
     // Clear masonry_contain
-    masonry_contain.innerHTML = "";
+    masonryContain.innerHTML = "";
 
-    for (let i = 1; i < num_cols + 1; i++) {
-        let col_elem = document.createElement('div');
-        col_elem.classList.add('masonry-col');
-        masonry_contain.append(col_elem);
+    for (let i = 1; i < numCols + 1; i++) {
+        let colElem = document.createElement('div');
+        colElem.classList.add('masonry-col');
+        masonryContain.append(colElem);
     }
 
-    let array = [...Array(num_cols).keys()];
+    let colKeyArray = [...Array(numCols).keys()];
 
-    let main_array = [];
+    let colArray = [];
 
-    let times_by;
+    let timesBy;
 
-    if (masonry_entries.length % num_cols == 0) {
-        times_by = Math.floor(masonry_entries.length / num_cols);
+    if (masonryEntries.length % numCols == 0) {
+        timesBy = Math.floor(masonryEntries.length / numCols);
     } else {
-        times_by = Math.ceil(masonry_entries.length / num_cols);
+        timesBy = Math.ceil(masonryEntries.length / numCols);
     }
 
-    for (let i = 0; i < times_by; i++) {
-        main_array.push(...array);
+    for (let i = 0; i < timesBy; i++) {
+        colArray.push(...colKeyArray);
     }
 
-    col_elems = document.querySelectorAll('.masonry-col');
+    let colElems = document.querySelectorAll('.masonry-col');
 
-    for (let i = 0; i < main_array.length; i++) {
-        col_elems[main_array[i]].appendChild(masonry_entries[i]);
+    for (let i = 0; i < colArray.length; i++) {
+        if (masonryEntries[i]) {
+            colElems[colArray[i]].appendChild(masonryEntries[i]);
+        }
     }
 }
 
-masonry();
+document.addEventListener("DOMContentLoaded", function(arg) {
+    masonryContain.style.display = "flex";
+    masonry();
+});
 
 window.addEventListener('resize', masonry);

@@ -463,10 +463,16 @@ a.blog-tag {
 }
 
 /* Masonry */
+.masonry-contain {
+  display: none;
+  width: 100%;
+}
+
 .masonry-col {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 10px;
 }
 
 /* Sketches or Doodles */
@@ -481,12 +487,10 @@ a.blog-tag {
 }
 
 .sketches-contain {
-  display: flex;
   gap: 10px;
 }
 
 .sketch-div {
-  width: fit-content;
   margin-bottom: 10px;
   font-size: 0.9em;
 }

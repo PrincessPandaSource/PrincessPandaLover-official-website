@@ -48,7 +48,7 @@ loading: true
 
 {{ c.noscript() }}
 
-<div class="masonry-contain sketches-contain to-load">
+<div class="masonry-contain sketches-contain">
     {%- for sketch in sketches | reverse %}
     {%- set sketchIndex = loop.length - loop.index + 1 -%}
     <div id="sketch-{{ sketchIndex }}" class="text-box sketch-div masonry-entry">
