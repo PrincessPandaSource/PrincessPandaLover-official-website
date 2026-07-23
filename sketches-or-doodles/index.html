@@ -51,7 +51,7 @@ masonry: true
     <div id="sketch-{{ sketchIndex }}" class="text-box sketch-div masonry-entry">
         <a class="img-link" href="javascript:sketchLink('sketch-{{ sketchIndex }}')"><img class="sketch-img" src="/images/sketches-or-doodles/{{ sketch.filename }}" alt="{{ sketch.alt }}"></a>
         <p class="sketch-date">{{ sketch.date | dateFromStr | postDate }}</p>
-        {%- if sketch.description | length %}<p class="sketch-descript">{{ sketch.description }}</p>{% endif -%}
+        {%- if sketch.description | length %}<p class="sketch-descript">{{ sketch.description | safe }}</p>{% endif -%}
         <p class="blog-tags-contain">
             {%- for tag in sketch.tags %}
             <a href="?tag={{ tag }}" class="blog-tag">{{ tag }}</a>
