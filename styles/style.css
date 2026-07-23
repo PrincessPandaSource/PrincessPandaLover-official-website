@@ -462,6 +462,13 @@ a.blog-tag {
   text-decoration: none;
 }
 
+/* Masonry */
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 /* Sketches or Doodles */
 #sketch-tagged-header, #sketch-search-header {
   display: none;
@@ -491,12 +498,6 @@ a.blog-tag {
 .sketch-img {
   width: 100%;
   cursor: pointer;
-}
-
-.masonry-col {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 
 #sketch-modal {

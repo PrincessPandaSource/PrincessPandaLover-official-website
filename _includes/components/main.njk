@@ -1,3 +1,11 @@
+{% macro noscript() %}
+<noscript>
+    <div class="text-box">
+        <p>JavaScript is needed to view this page properly.</p>
+    </div>
+</noscript>
+{% endmacro %}
+
 {% macro heartButton(href, text, longer) %}
 <a href="{{ href }}"><div class="heart-button-container">
     <img eleventy:ignore class="heart-button" src="images/heart-button.svg" width=120 height=110 fetchpriority="high" alt="Light magenta heart symbol with magenta outline" aria-hidden="true">

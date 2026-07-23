@@ -7,6 +7,7 @@ ogDescription: Quick and delightful drawings, whether they'd be sketches or dood
 changefreq: weekly
 priority: 0.8
 masonry: true
+loading: true
 ---
 {% import "components/main.njk" as c %}
 
@@ -45,7 +46,9 @@ masonry: true
 <h2 id="sketch-tagged-header">Tagged: <span id="sketch-tagged-label"></span> <a href="javascript:clearTag()" class="white-link big-inline-x" title="Clear">&times;</a></h2>
 <h2 id="sketch-search-header">Searched: <span id="sketch-search-label"></span></h2>
 
-<div class="masonry-contain sketches-contain">
+{{ c.noscript() }}
+
+<div class="masonry-contain sketches-contain to-load">
     {%- for sketch in sketches | reverse %}
     {%- set sketchIndex = loop.length - loop.index + 1 -%}
     <div id="sketch-{{ sketchIndex }}" class="text-box sketch-div masonry-entry">

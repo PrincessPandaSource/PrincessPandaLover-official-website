@@ -48,18 +48,21 @@ function getDataFromSketchDiv(sketchDiv) {
         sketchDescriptHTML = null;
     }
 
-    console.log(sketchImg.attributes);
-
     return {imgAttr: sketchImg.attributes, date: sketchDate.innerText, tagsHTML: sketchTags.innerHTML, description: sketchDescriptHTML};
 }
 
-function sketchLink(id) {
+function openSketchById(id) {
     const targetSketchDiv = document.getElementById(id);
 
     if (targetSketchDiv) {
         const {imgAttr, date, tagsHTML, description} = getDataFromSketchDiv(targetSketchDiv);
         openSketchModal(imgAttr, date, tagsHTML, description);
     }
+}
+
+function sketchLink(id) {
+    history.pushState("", document.title, window.location.pathname + window.location.search + `#${id}`);
+    openSketchById(id);
 }
 
 if (window.location.hash) {
@@ -69,6 +72,6 @@ if (window.location.hash) {
         // No scrolling to sketch div!
         window.scrollTo(0, 0);
 
-        sketchLink(id);
+        openSketchById(id);
     }
 }
