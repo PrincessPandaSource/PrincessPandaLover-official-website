@@ -1,5 +1,5 @@
 # PrincessPandaLover - Official website
-![PrincessPandaLover logo](https://princesspandalover.com/images/logo.svg)
+![PrincessPandaLover logo](https://princesspandalover.com/images/Logo.svg)
 
 This is my official personal website that I use for showcasing my creative works, such as art and comics, as well as web coding gizmos and experiments, and personal writings about what I do. It can be accessed [here](https://princesspandalover.com/).
 
