@@ -1,5 +1,13 @@
 { "updates": [
     {
+        "date": "2026-10-09",
+        "img": "ben-club-chaos-video-thumb.jpg",
+        "imgAlt": "Screencap of Ben Schwartz's video",
+        "blurb": "Personal video message from Ben Schwartz, voice actor of Sonic, is shown at Club Chaos.",
+        "link": "https://bsky.app/profile/sonic-official.bsky.social/post/3mxib3swh7n2a",
+        "linkLabel": "Watch here"
+    },
+    {
         "date": "2026-09-17",
         "img": "jakks-pacific.jpg",
         "imgAlt": "Jakks Pacific logo",
