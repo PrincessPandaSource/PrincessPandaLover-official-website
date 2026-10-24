@@ -1,5 +1,12 @@
 { "updates": [
     {
+        "date": "2026-10-17",
+        "img": "sonic-4-title.jpg",
+        "imgAlt": "Sonic 4 title from teaser video",
+        "blurb": "<i>Sonic 4</i>'s entry on the Entertainment Identifier Registry is found, showing rough runtime to be 2 hours.",
+        "link": "https://www.sonicstadium.org/articles/sonic/entertainment-registry-leak-hints-at-2-hour-runtime-for-sonic-4-r3751/"
+    },
+    {
         "date": "2026-10-09",
         "img": "ben-club-chaos-video-thumb.jpg",
         "imgAlt": "Screencap of Ben Schwartz's video",
